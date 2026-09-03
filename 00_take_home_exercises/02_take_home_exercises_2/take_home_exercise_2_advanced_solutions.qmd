@@ -1,8 +1,8 @@
 ---
 title: "Replicating an Observational Study (THE II - Advanced)"
-subtitle: "Research Design and Methods in Quantitative Research - Fall 2025"
-author: "Álvaro Canalejo-Molero"
-date: 2025-11-20
+subtitle: "Research Design and Methods in Quantitative Research - Fall 2026"
+author: "Dr. K. Jonathan Klüser"
+date: 2026-10-22
 output: 
   pdf_document:
     keep_tex: false
@@ -149,7 +149,7 @@ Please submit both the PDF file and the `.qmd` file. Both files should report al
 
 The name of the files must follow the structure *take-home_exercise_ii_advanced_YOURSURNAME(S).pdf* and *take-home_exercise_ii_advanced_YOURSURNAME(S).qmd*, respectively. They should be upload to the folder *Students responses/Take-home exercises/Take-home exercise II* in OLAT.
 
-Deadline: **04.12.25**
+Deadline: **05.11.26**
 
 # References
 

@@ -2,7 +2,7 @@
 title: "The Logic of Scientific Research"
 subtitle: "Session 02"
 author: "Research Design and Methods in Quantitative Research"
-institute: "Dr. Álvaro Canalejo-Molero"
+institute: "Dr. K. Jonathan Klüser"
 bibliography: ../00_bibliography/rdmqr.bib
 csl: ../00_bibliography/apa.csl
 toc: false
@@ -19,7 +19,7 @@ format:
       - custom.scss
     logo: ../00_images/logo_unilu.png
     footer: | 
-         Masterseminar - Fall Term 2025
+         Masterseminar - Fall Term 2026
     title-slide-attributes:
       data-background-image: "../00_images/unilu_building.png"
       data-background-size: contain
@@ -182,6 +182,6 @@ Connect real-world observations to theory and methods
 
 <br>
 
-<center>[alvaro.canalejo@unilu.ch](alvaro.canalejo@unilu.ch)</center>
+<center>[klueser@ipz.uzh.ch](mailto:klueser@ipz.uzh.ch)</center>
 
 

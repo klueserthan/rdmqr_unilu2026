@@ -1,8 +1,8 @@
 ---
 title: "Test a (causal) hypothesis with observational data (THE III - All)"
-subtitle: "Research Design and Methods in Quantitative Research - Fall 2025"
-author: "Álvaro Canalejo-Molero"
-date:  2025-12-05
+subtitle: "Research Design and Methods in Quantitative Research - Fall 2026"
+author: "Dr. K. Jonathan Klüser"
+date:  2026-10-29
 output: 
   pdf_document:
     keep_tex: false
@@ -115,7 +115,7 @@ Please inspect and transform these variables when necessary (e.g., recode missin
 ```{r}
 
 # Load the data
-load("C:/Users/acana/Dropbox/Research/GitHub/teaching/rdmqr_unilu2024/00_take_home_exercises/03_take_home_exercises_3/materials/cses_imd.rdata")
+load("materials/cses_imd.rdata")
 
 # Inspect the summary of the variables
 variables_to_inspect <- c("IMD3002_OUTGOV", "IMD3013_1", "IMD3006")
@@ -255,7 +255,7 @@ Please submit both the PDF file and the `.qmd` file. Both files should report al
 
 The name of the files must follow the structure *take-home_exercise_iii_YOURSURNAME(S).pdf* and *take-home_exercise_iii_YOURSURNAME(S).qmd*, respectively. They should be upload to the folder *Students responses/Take-home exercises/Take-home exercise III* in OLAT.
 
-Deadline: **22.12.25**
+Deadline: **12.11.26**
 
 # Bibliography
 

@@ -1,7 +1,7 @@
-# Research Design and Methods in Quantitative Research (UNILU Fall 2025)
+# Research Design and Methods in Quantitative Research (UNILU Fall 2026)
 
 
-This is the repository for the master seminar Research Design and Methods in Quantitative Research, taught by the lecturer Dr. Álvaro Canalejo-Molero at the University of Lucerne, during the fall term 2025.
+This is the repository for the master seminar Research Design and Methods in Quantitative Research, taught by the lecturer Dr. K. Jonathan Klüser at the University of Lucerne, during the fall term 2026.
  
 
 ## Course description
@@ -13,7 +13,7 @@ Social science is increasingly adopting quantitative research tools, such as exp
 This introductory seminar does not require prior knowledge of statistics, though high-school level of mathematical concepts (like the mean of a variable or the idea of a function) will be assumed. The seminar is suitable for students with a qualitative background who want to start learning about quantitative research, as well as for those with some experience in quantitative methods who seek a deeper understanding. Experience in R programming is not required, but is an asset.
 ## Course organization
 
-The course is organized as a bi-weekly seminar during the Fall term of 2025. It will run every two Thursdays from 14:15 to 18:00, starting on September 25th. Each session is divided into two parts. In the first part, the lecturer will introduce the topic, after which we will discuss the basic reading(s) and expand on them. To support the discussion, students will answer a set of *seminar questions* related to the topic of the week, which must be uploaded to OLAT before each session. In the second part, one or more students will present an applied reading along with a short research proposal to complement it. Finally, during the second half of the course, students will complete three take-home exercises to apply and/or comment on statistical analyses of real-world data.
+The course is organized as a weekly seminar during the Fall term of 2026. It will run on Thursdays from 14:15 to 18:00, starting on September 17th (see the *Course schedule* below for the exact dates). Each session is divided into two parts. In the first part, the lecturer will introduce the topic, after which we will discuss the basic reading(s) and expand on them. To support the discussion, students will answer a set of *seminar questions* related to the topic of the week, which must be uploaded to OLAT before each session. In the second part, one or more students will present an applied reading along with a short research proposal to complement it. Finally, during the second half of the course, students will complete three take-home exercises to apply and/or comment on statistical analyses of real-world data.
 ## Learning outcomes
 
 By the end of this course, students will be able to:
@@ -127,7 +127,7 @@ Some additional information:
 
 - Slides may be submitted in PowerPoint or PDF format, but the file name must always follow the structure:  
   *presentation_slides_sessionXX_YOURSURNAME(S)*  
-  (e.g., *presentation_slides_session02_CANALEJO*).  
+  (e.g., *presentation_slides_session02_KLUESER*).  
 
 #### 6. Complete three take-home exercises
 
@@ -173,15 +173,15 @@ Students can choose to write a master seminar paper to obtain six extra credits.
 
 -	Approach and structure of the paper (including a tentative empirical design)
 
-The deadline for the submission of the paper outline is **December 1st 2025**.
+The deadline for the submission of the paper outline is **December 1st 2026**.
 
-An approximate deadline for the submission of the seminar paper is **April 1st 2025**.
+An approximate deadline for the submission of the seminar paper is **April 1st 2027**.
 
-Please refer to the [Guidelines on How to Do Research of the Department of Political Science](chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://www.unilu.ch/fileadmin/fakultaeten/ksf/institute/polsem/Dok/Studium/Guidelines_POLSEM___2023___English_01.pdf) for more details.
+Please refer to the [Guidelines on How to Do Research of the Department of Political Science](https://www.unilu.ch/fileadmin/fakultaeten/ksf/institute/polsem/Dok/Studium/Guidelines_POLSEM___2023___English_01.pdf) for more details.
 
 ## Office hours
 
-The lecturer has not fixed office hours. Instead, students can send an e-mail at [alvaro.canalejo@unilu.ch](alvaro.canalejo@unilu.ch) to schedule a meeting within a one-week time period, either in person (office 3.B14) or virtually via Zoom.
+The lecturer has not fixed office hours. Instead, students can send an e-mail at [klueser@ipz.uzh.ch](mailto:klueser@ipz.uzh.ch) to schedule a meeting within a one-week time period, either in person (office tbd) or virtually via Zoom.
 
 
 ## How to Make a Good Presentation (Checklist)
@@ -211,13 +211,13 @@ The lecturer has not fixed office hours. Instead, students can send an e-mail at
 
 ## Course schedule
 
-#### Session 1. Introduction (25.09.25 / 14:15–16:00)
+#### Session 1. Introduction (17.09.26 / 14:15–16:00)
 
 Basic reading:
 
 - Schwartz, M. A. (2008). The importance of stupidity in scientific research. *Journal of Cell Science*, 121(11), 1771-1771.
 
-#### Session 2. The logic of scientific research (25.09.25 / 16:15–18:00)
+#### Session 2. The logic of scientific research (01.10.26 / 14:15–16:00)
 
 Basic reading:
 
@@ -229,11 +229,9 @@ Additional readings:
 
 Applied reading:
 
-*Presentation by the lecturer.*
+*tbd*
 
-- Canalejo-Molero, Á., & Le Corre Juratic, M. (2025). Blinded by Out-group Hatred. Why does Radical Party Entry Reduce its Voters’ Satisfaction with Democracy? *Working paper*
-
-#### Session 3. Theory and research design  (09.10.25 / 14:15–16:00) 
+#### Session 3. Theory and research design  (01.10.26 / 16:15–18:00) 
 
 *"All models are wrong, but some are useful"* (George E. P. Box)
 
@@ -245,7 +243,7 @@ Applied reading:
 
 - Turnbull-Dugarte, S. J., & Wagner, M. (2025). Heroes and villains: motivated projection of political identities. *Political Science Research and Methods*, 1-21.
 
-#### Session 4. Data and measurement (09.10.25 / 16:15–18:00) 
+#### Session 4. Data and measurement (08.10.26 / 14:15–16:00) 
 
 Basic reading:
 
@@ -255,7 +253,7 @@ Applied reading:
 
 - Little, A. T., & Meng, A. (2023). Measuring democratic backsliding. *PS: Political Science & Politics*, 1-13.
 
-#### Session 5. Descriptive inference (23.10.25 / 14:15–16:00) 
+#### Session 5. Descriptive inference (08.10.26 / 16:15–18:00) 
 
 Basic reading:
 
@@ -273,7 +271,7 @@ Applied reading:
 
 - Barnes, M. J., & Karim, S. M. (2025). The Manosphere and politics. *Comparative Political Studies*, 00104140241312095.
 
-#### Session 6. Causal inference (23.10.25 / 14:15–16:00) 
+#### Session 6. Causal inference (15.10.26 / 14:15–16:00) 
 
 Basic readings:
 
@@ -287,9 +285,9 @@ Applied reading:
 
 - Marble, W., Mousa, S., & Siegel, A. A. (2021). Can exposure to celebrities reduce prejudice? The effect of Mohamed Salah on Islamophobic behaviors and attitudes. *American Political Science Review*, 115(4), 1111-1128.
 
-#### Session 7. Predictive inference (06.11.25 / 16:15–18:00) 
+#### Session 7. Predictive inference (15.10.26 / 16:15–18:00) 
 
-*Publication of* ***take-home exercise I*** *in OLAT. The* ***deadline*** *for delivery is in two weeks:* ***20.11.25*** *.*
+*Publication of* ***take-home exercise I*** *in OLAT. The* ***deadline*** *for delivery is in two weeks:* ***29.10.26*** *.*
 
 Basic readings:
 
@@ -305,7 +303,7 @@ Applied reading:
 
 - Hewitt, L., Ashokkumar, A., Ghezae, I., & Willer, R. (2024). Predicting results of social science experiments using large language models. *Working paper*
 
-#### Session 8. Experimental studies (06.11.25 / 16:15–18:00) 
+#### Session 8. Experimental studies (22.10.26 / 14:15–16:00) 
 
 Basic reading:
 
@@ -319,9 +317,9 @@ Applied reading:
 
 - Haas, V. I., Wappenhans, T., Geißler, F., Hartmann, F., Bischof, D., Giesecke, J., ... & Stoetzer, L. F. (2024). Does Protest Affect Bystanders? Field Experimental Evidence from Germany. *Working paper*
 
-#### Session 9. Large-N observational studies (20.11.25 / 14:15–16:00) 
+#### Session 9. Large-N observational studies (22.10.26 / 16:15–18:00) 
 
-*Publication of* ***take-home exercise II*** *in OLAT. The* ***deadline*** *for delivery is in two weeks:* ***04.12.25*** *.*
+*Publication of* ***take-home exercise II*** *in OLAT. The* ***deadline*** *for delivery is in two weeks:* ***05.11.26*** *.*
 
 Basic reading:
 
@@ -339,7 +337,7 @@ Applied reading:
 - Ziblatt, D., Hilbig, H., & Bischof, D. (2024). Wealth of tongues: Why peripheral regions vote for the radical right in Germany. *American Political Science Review*, 118(3), 1480-1496.
 
 
-#### Session 10. Small-N observational studies (20.11.25 / 16:15–18:00) 
+#### Session 10. Small-N observational studies (29.10.26 / 14:15–16:00) 
 
 Basic reading:
 
@@ -359,9 +357,9 @@ Applied reading:
 
 - Thelen, K. (2018). Regulating Uber: The politics of the platform economy in Europe and the United States. *Perspectives on politics*, 16(4), 938-953.
 
-#### Session 11. Statistical testing (04.12.25 / 14:15–16:00) 
+#### Session 11. Statistical testing (29.10.26 / 16:15–18:00) 
 
-*Publication of* ***take-home exercise III*** *in OLAT. The* ***deadline*** *for delivery is in two weeks:* ***18.12.25*** *.*
+*Publication of* ***take-home exercise III*** *in OLAT. The* ***deadline*** *for delivery is in two weeks:* ***12.11.26*** *.*
 
 Basic reading:
 
@@ -377,7 +375,7 @@ Applied reading:
 
 - Cremaschi, S., Bariletto, N., & De Vries, C. E. (2025). Without roots: The political consequences of collective economic shocks. *American Political Science Review*, 1-20.
 
-#### Session 12. Introduction to regression I (04.12.25 / 16:15–18:00) 
+#### Session 12. Introduction to regression I (05.11.26 / 14:15–16:00) 
 
 Basic reading:
 
@@ -390,7 +388,7 @@ Applied reading:
 - Nalewajko, K. (2024). Allies of the Weak: La Résistance and Jews in the Holocaust. *American Political Science Review*, 1-21.
 
 
-#### Session 13. Introduction to regression II (18.12.25 / 14:15–16:00) 
+#### Session 13. Introduction to regression II (05.11.26 / 16:15–18:00) 
 
 Basic reading:
 
@@ -406,7 +404,7 @@ Applied reading:
 
 - Pulejo, M., & Querubín, P. (2023). Plata y plomo: How higher wages expose politicians to criminal violence (No. w31586). *National Bureau of Economic Research*.
 
-#### Session 14. Conclusion  (18.12.25 / 16:15–18:00) 
+#### Session 14. Conclusion  (12.11.26 / 14:15–16:00) 
 
 Basic reading:
 

@@ -1,8 +1,8 @@
 ---
 title: "Replicating a Experimental Study (THE I)"
 subtitle: "Research Design and Methods in Quantitative Research"
-author: "Álvaro Canalejo-Molero"
-date:  "`r format(as.Date('2025-11-06'), '%d %b %Y')`"
+author: "Dr. K. Jonathan Klüser"
+date:  "`r format(as.Date('2026-10-15'), '%d %b %Y')`"
 output: 
   pdf_document:
     keep_tex: false
@@ -261,7 +261,7 @@ Please submit both the PDF file and the `.qmd` file. Both files should report al
 
 The name of the files must follow the structure *take-home_exercise_i_advanced_YOURSURNAME(S).pdf* and *take-home_exercise_i_advanced_YOURSURNAME(S).qmd*, respectively. They should be upload to the folder *Students responses/Take-home exercises/Take-home exercise I* in OLAT.
 
-Deadline: **20.11.25**
+Deadline: **29.10.26**
 
 # References
 

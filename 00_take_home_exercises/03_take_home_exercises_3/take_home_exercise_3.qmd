@@ -1,8 +1,8 @@
 ---
 title: "Test a (causal) hypothesis with observational data (THE III - All)"
-subtitle: "Research Design and Methods in Quantitative Research - Fall 2025"
-author: "Álvaro Canalejo-Molero"
-date:  2025-12-05
+subtitle: "Research Design and Methods in Quantitative Research - Fall 2026"
+author: "Dr. K. Jonathan Klüser"
+date:  2026-10-29
 output: 
   pdf_document:
     keep_tex: false
@@ -107,7 +107,7 @@ Please submit both the PDF file and the `.qmd` file. Both files should report al
 
 The name of the files must follow the structure *take-home_exercise_iii_YOURSURNAME(S).pdf* and *take-home_exercise_iii_YOURSURNAME(S).qmd*, respectively. They should be upload to the folder *Students responses/Take-home exercises/Take-home exercise III* in OLAT.
 
-Deadline: **22.12.25**
+Deadline: **12.11.26**
 
 
 # Bibliography

@@ -2,7 +2,7 @@
 title: "Introduction"
 subtitle: "Session 01"
 author: "Research Design and Methods in Quantitative Research"
-institute: "Dr. Álvaro Canalejo-Molero"
+institute: "Dr. K. Jonathan Klüser"
 bibliography: ../00_bibliography/rdmqr.bib
 csl: ../00_bibliography/apa.csl
 toc: true
@@ -19,7 +19,7 @@ format:
       - custom.scss
     logo: ../00_images/logo_unilu.png
     footer: | 
-         Masterseminar - Fall Term 2025
+         Masterseminar - Fall Term 2026
     title-slide-attributes:
       data-background-image: "../00_images/unilu_building.png"
       data-background-size: contain
@@ -53,7 +53,7 @@ format:
 
 -   Originally from the [city with the most UNESCO heritage sites in the world](https://www.architecturaldigest.com/story/cordoba-spain-has-most-unesco-world-heritage-sites)
 
--   You can find more information about me in [my personal website](https://acanalejo.github.io/)
+-   You can find more information about me: *tbd*
 
 </div>
 
@@ -237,7 +237,7 @@ ggplot(grades, aes(x = reorder(Category, -Percentage), y = Percentage, fill = Ca
 
 - Topic to be agreed with the lecturer
 
-- Paper outline of by **December 1st 2025**
+- Paper outline of by **December 1st 2026**
 
     -	Research question
 
@@ -259,7 +259,7 @@ No **office hours**!
 
 <br>
 
-Send an email to the lecturer ([alvaro.canalejo@unilu.ch](alvaro.canalejo@unilu.ch)) to schedule a meeting one week in advance (**Office 3.B14**)
+Send an email to the lecturer ([klueser@ipz.uzh.ch](mailto:klueser@ipz.uzh.ch)) to schedule a meeting one week in advance (**Office tbd**)
 
 ## Resources (OLAT)
 
@@ -287,31 +287,31 @@ Additionally...
 
 ## Schedule I
 
-- Session 1. **Introduction** (25.09.25 / 14:15–16:00)
+- Session 1. **Introduction** (17.09.26 / 14:15–16:00)
 
-- Session 2. **The logic of scientific research** (25.09.25 / 16:15–18:00)
+- Session 2. **The logic of scientific research** (01.10.26 / 14:15–16:00)
 
-- Session 3. **Theory and research design** (09.10.25 / 14:15–16:00)
+- Session 3. **Theory and research design** (01.10.26 / 16:15–18:00)
 
-- Session 4. **Data and measurement** (09.10.25 / 16:15–18:00)
+- Session 4. **Data and measurement** (08.10.26 / 14:15–16:00)
 
 ## Schedule II
 
-- Session 5. **Descriptive inference** (23.10.25 / 14:15–16:00)
+- Session 5. **Descriptive inference** (08.10.26 / 16:15–18:00)
 
-- Session 6. **Causal inference** (23.10.25 / 14:15–16:00)
+- Session 6. **Causal inference** (15.10.26 / 14:15–16:00)
 
-- Session 7. **Predictive inference** (06.11.25 / 16:15–18:00)
+- Session 7. **Predictive inference** (15.10.26 / 16:15–18:00)
 
-- Session 8. **Experimental studies** (06.11.25 / 16:15–18:00)
+- Session 8. **Experimental studies** (22.10.26 / 14:15–16:00)
 
     - Publication take-home exercise I
 
 ## Schedule III
 
-- Session 9. **Large-N observational studies** (20.11.25 / 14:15–16:00)
+- Session 9. **Large-N observational studies** (22.10.26 / 16:15–18:00)
 
-- Session 10. **Small-N observational studies** (20.11.25 / 16:15–18:00)
+- Session 10. **Small-N observational studies** (29.10.26 / 14:15–16:00)
 
     - Deadline take-home exercise I
     
@@ -319,17 +319,17 @@ Additionally...
 
 ## Schedule IV
 
-- Session 11. **Statistical testing** (04.12.25 / 14:15–16:00)
+- Session 11. **Statistical testing** (29.10.26 / 16:15–18:00)
 
-- Session 12. **Introduction to regression I** (04.12.25 / 16:15–18:00)
+- Session 12. **Introduction to regression I** (05.11.26 / 14:15–16:00)
 
     - Deadline take-home exercise II
     
     - Publication take-home exercise III
 
-- Session 13. **Introduction to regression II** (18.12.25 / 14:15–16:00) 
+- Session 13. **Introduction to regression II** (05.11.26 / 16:15–18:00) 
 
-- Session 14. **Conclusion**  (18.12.25 / 16:15–18:00)
+- Session 14. **Conclusion**  (12.11.26 / 14:15–16:00)
 
     - Deadline take-home exercise III
 
@@ -406,7 +406,7 @@ Additionally...
 # Conclusion
 
 
-## Next session (16:15)
+## Next session (01.10.26 - 14:15)
 
 <br>
 
@@ -418,7 +418,7 @@ Additionally...
 
 Presentation of ongoing research by the lecturer:
 
-- **Canalejo-Molero, Á.**, & Le Corre Juratic, M. (2025). Blinded by Out-group Hatred. Why does Radical Party Entry Reduce its Voters’ Satisfaction with Democracy? *Working paper*
+- *tbd*
 
 
 ## Do not forget to register at UniPortal!
@@ -437,4 +437,4 @@ Presentation of ongoing research by the lecturer:
 
 <br>
 
-<center>[alvaro.canalejo@unilu.ch](alvaro.canalejo@unilu.ch)</center>
+<center>[klueser@ipz.uzh.ch](mailto:klueser@ipz.uzh.ch)</center>
