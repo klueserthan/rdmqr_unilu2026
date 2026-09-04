@@ -181,7 +181,7 @@ Please refer to the [Guidelines on How to Do Research of the Department of Polit
 
 ## Office hours
 
-The lecturer has not fixed office hours. Instead, students can send an e-mail at [klueser@ipz.uzh.ch](mailto:klueser@ipz.uzh.ch) to schedule a meeting within a one-week time period, either in person (office tbd) or virtually via Zoom.
+The lecturer has not fixed office hours. Instead, students can send an e-mail at [klueser@ipz.uzh.ch](mailto:klueser@ipz.uzh.ch) to schedule a meeting via Zoom within a one-week time period.
 
 
 ## How to Make a Good Presentation (Checklist)
@@ -229,7 +229,9 @@ Additional readings:
 
 Applied reading:
 
-*tbd*
+*Presentation by the lecturer.*
+
+- Klüser, S., Klüser, K. J., & Hoes, E. (2025). AI-Generated Explicit Deepfakes Damage Politicians’ Perceived Leadership Competence, Trustworthiness and Electoral Prospects. *Working paper*
 
 #### Session 3. Theory and research design  (01.10.26 / 16:15–18:00) 
 
