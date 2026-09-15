@@ -42,6 +42,7 @@
 # local review staging (annotated PDFs)
 review/
 textbooks.zip
+00_admin/
 
 # consolidated per-session reading packs + textbooks (copyrighted PDFs)
 readings/
