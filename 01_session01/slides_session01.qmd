@@ -287,31 +287,31 @@ Additionally...
 
 ## Schedule I
 
-- Session 1. **Introduction** (17.09.26 / 14:15–16:00)
+- Session 1. **Introduction** (17.09.26 / 14:15–16:00 / HS 3)
 
-- Session 2. **The logic of scientific research** (01.10.26 / 14:15–16:00)
+- Session 2. **The logic of scientific research** (01.10.26 / 14:15–16:00 / 2.A45)
 
-- Session 3. **Theory and research design** (01.10.26 / 16:15–18:00)
+- Session 3. **Theory and research design** (01.10.26 / 16:15–18:00 / 2.A45)
 
-- Session 4. **Data and measurement** (08.10.26 / 14:15–16:00)
+- Session 4. **Data and measurement** (08.10.26 / 14:15–16:00 / 4.B51)
 
 ## Schedule II
 
-- Session 5. **Descriptive inference** (08.10.26 / 16:15–18:00)
+- Session 5. **Descriptive inference** (08.10.26 / 16:15–18:00 / 4.B51)
 
-- Session 6. **Causal inference** (15.10.26 / 14:15–16:00)
+- Session 6. **Causal inference** (15.10.26 / 14:15–16:00 / 3.B48)
 
-- Session 7. **Predictive inference** (15.10.26 / 16:15–18:00)
+- Session 7. **Predictive inference** (15.10.26 / 16:15–18:00 / 3.B48)
 
-- Session 8. **Experimental studies** (22.10.26 / 14:15–16:00)
+- Session 8. **Experimental studies** (22.10.26 / 14:15–16:00 / 4.B51)
 
     - Publication take-home exercise I
 
 ## Schedule III
 
-- Session 9. **Large-N observational studies** (22.10.26 / 16:15–18:00)
+- Session 9. **Large-N observational studies** (22.10.26 / 16:15–18:00 / 4.B51)
 
-- Session 10. **Small-N observational studies** (29.10.26 / 14:15–16:00)
+- Session 10. **Small-N observational studies** (29.10.26 / 14:15–16:00 / 3.B47)
 
     - Deadline take-home exercise I
     
@@ -319,17 +319,17 @@ Additionally...
 
 ## Schedule IV
 
-- Session 11. **Statistical testing** (29.10.26 / 16:15–18:00)
+- Session 11. **Statistical testing** (29.10.26 / 16:15–18:00 / 3.B47)
 
-- Session 12. **Introduction to regression I** (05.11.26 / 14:15–16:00)
+- Session 12. **Introduction to regression I** (05.11.26 / 14:15–16:00 / 4.B51)
 
     - Deadline take-home exercise II
     
     - Publication take-home exercise III
 
-- Session 13. **Introduction to regression II** (05.11.26 / 16:15–18:00) 
+- Session 13. **Introduction to regression II** (05.11.26 / 16:15–18:00 / 4.B51) 
 
-- Session 14. **Conclusion**  (12.11.26 / 14:15–16:00)
+- Session 14. **Conclusion**  (12.11.26 / 14:15–16:00 / 2.A45)
 
     - Deadline take-home exercise III
 

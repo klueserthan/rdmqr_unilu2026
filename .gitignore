@@ -42,3 +42,7 @@
 # local review staging (annotated PDFs)
 review/
 textbooks.zip
+
+# consolidated per-session reading packs + textbooks (copyrighted PDFs)
+readings/
+.DS_Store
