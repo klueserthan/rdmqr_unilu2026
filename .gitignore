@@ -47,3 +47,6 @@ textbooks.zip
 # consolidated per-session reading packs + textbooks (copyrighted PDFs)
 readings/
 .DS_Store
+
+# lecturer to-do lists (contain student information)
+01_session01/TODO_session01.md

@@ -121,7 +121,7 @@ For further guidance, please refer to the *How to Make a Good Presentation* sect
 
 Some additional information: 
 
-- The schedule of the presentations will be determined during the introductory session.  
+- In the introductory session, students tell the lecturer about any week in which they absolutely cannot present. The lecturer then assigns the presentations and shares the schedule on OLAT.  
 
 - Presentation slides must be uploaded to the *Students responses/Presentation slides* folder in OLAT at least one day before the session, i.e., by **Wednesday at noon (12:00)**.  
 
@@ -138,7 +138,20 @@ Because the exercises require autonomous learning, there will be two different t
 - **Beginner:** For students without prior knowledge of R and statistics. Exercises will include installing R and RStudio and learning to perform basic statistical tests.  
 - **Advanced:** For students with previous experience in R and RStudio. Exercises will additionally involve more complex data analyses.  
 
-During the introductory session, students will complete a short assessment and receive a recommendation from the lecturer. However, they are free to decide which track to follow. Once a track is chosen, students will be evaluated according to the expectations for that track.  
+During the introductory session, students will assess themselves with the short scored self-check below. The total score recommends a track, but students are free to decide which track to follow. Once a track is chosen, students will be evaluated according to the expectations for that track.
+
+Rate each statement with 0 (not at all), 1 (with help) or 2 (confidently on my own):
+
+1. I have R and RStudio installed and can open and run an R script.
+2. I can load a dataset (e.g., `.csv` or `.rds`) into R and inspect its variables.
+3. I can clean and transform variables (recode, handle missing values, create categories).
+4. I can plot distributions and relationships between variables (e.g., with `ggplot2`).
+5. I can write a Quarto or R Markdown document and render it to PDF.
+6. I can compute and interpret descriptive statistics (means, standard deviations, cross-tabulations).
+7. I can run and interpret a difference-in-means test (e.g., a t-test).
+8. I can estimate an OLS regression in R and interpret its coefficients, including interaction terms.
+
+A total of 0 to 9 points suggests the beginner track, and 10 to 16 points suggests the advanced track.  
 
 The responses to the exercises must be uploaded to the *Students responses/Take-home exercises (beginner/advanced)* folder within the corresponding take-home exercise subfolder (e.g., *Take-home exercise I*).  
 
@@ -201,13 +214,48 @@ The lecturer has not fixed office hours. Instead, students can send an e-mail at
 
 ### Additional Information
 
-- **Evaluation criteria:** Clarity, understanding, critique quality, reasoning, feasibility, and ability to engage discussion.  
+- **Evaluation criteria:** Clarity, understanding, critique quality, reasoning, feasibility, and ability to engage discussion. See the *Grading rubric* below.  
 - **Avoid pitfalls:**  
   - Don’t overcrowd slides.  
   - Avoid superficial content.  
   - Manage time (25 min total).  
   - Prepare early, rehearse, and refine slides.  
   - Practice in front of a friend and ask for feedback.  
+
+### Grading rubric
+
+Presentations are graded with the rubric below. Each of the six criteria earns 0 to 5 points. The descriptions show what earns 5, 3 and 1 points; 4 and 2 points lie in between, and 0 points means the criterion was not addressed. Students presenting in pairs receive the same grade.
+
+1. **Clarity**
+    - 5 points: Follows the two-part structure, uses uncluttered slides with visual aids, and finishes within 25 minutes.
+    - 3 points: Mostly easy to follow, but some slides are overcrowded, transitions are unclear, or the timing is off.
+    - 1 point: Hard to follow: text-heavy slides, a part is missing, or the time limit is clearly exceeded.
+2. **Understanding**
+    - 5 points: Accurately presents the argument, research question, hypotheses, method, data, unit of analysis and key findings, and links the design to the paper's goal.
+    - 3 points: Mostly accurate, but some elements of the design are missing or treated superficially.
+    - 1 point: Misrepresents the paper or leaves out core elements of its design.
+3. **Critique quality**
+    - 5 points: Names specific strengths and the main limitations of the design (e.g., measurement, validity, scope) and stays constructive.
+    - 3 points: Identifies limitations, but they are generic, minor or one-sided.
+    - 1 point: The critique is missing, superficial or merely dismissive.
+4. **Reasoning**
+    - 5 points: Focuses on one key limitation, justifies why it matters, and derives the proposal from it step by step.
+    - 3 points: The link between critique and proposal is there, but partly implicit or weakly justified.
+    - 1 point: The proposal is unrelated to the critique or not justified.
+5. **Feasibility**
+    - 5 points: Proposes a concrete, realistic design (data, cases, empirical strategy) that would address the limitation.
+    - 3 points: The design is plausible but vague on data or method, or partly unrealistic.
+    - 1 point: The proposal is unrealistic or is not a research design.
+6. **Discussion**
+    - 5 points: Answers questions accurately, takes up critique, and uses it to improve the proposal.
+    - 3 points: Answers most questions, but engages little with the feedback.
+    - 1 point: Struggles to answer questions or dismisses the feedback.
+
+The points are added up (maximum 30) and converted into a grade with the table below. Half of the points (15) earn a 4.0, which is a pass, and 30 points earn a 6.0. Grades between 15 and 30 points, and between 0 points (1.0) and 15 points, are interpolated linearly and rounded to the nearest half grade. Fewer than 15 points never earn a pass.
+
+| Points | 29–30 | 25–28 | 21–24 | 17–20 | 15–16 | 12–14 | 9–11 | 7–8 | 4–6 | 2–3 | 0–1 |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| Grade | 6.0 | 5.5 | 5.0 | 4.5 | 4.0 | 3.5 | 3.0 | 2.5 | 2.0 | 1.5 | 1.0 |
 
 ## Course schedule
 

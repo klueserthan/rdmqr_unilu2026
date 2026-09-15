@@ -45,15 +45,17 @@ format:
 
 <div style="font-size:90%">
 
--   Postdoctoral researcher at the project [DIGIPOL](https://www.unilu.ch/en/faculties/faculty-of-humanities-and-social-sciences/institutes-departements-and-research-centres/department-of-political-science/research/digitalization-and-political-conflict-parties-voters-and-electoral-alignment-digipol/#section=c122045) and the Chair of Political Behaviour and Communication
+-   Senior researcher at the [Department of Political Science](https://www.ipz.uzh.ch/), University of Zurich
 
--   PhD in Political and Social Sciences from the [EUI](https://www.eui.eu/en/home)
+-   Principal investigator of the SNSF Ambizione project [*Beyond Traditional Elites: Influencers' Agenda Setting Powers in the Digital Age*](https://data.snf.ch/grants/grant/223788)
 
--   Interested in **political behaviour**, **comparative politics**, **democratic attitudes and preferences**, **quantitative methods**
+-   PhD in Political Science from [Aarhus University](https://ps.au.dk/en/), Denmark
 
--   Originally from the [city with the most UNESCO heritage sites in the world](https://www.architecturaldigest.com/story/cordoba-spain-has-most-unesco-world-heritage-sites)
+-   Interested in **political attention**, **public attention**, **digital platforms**, **quantitative methods**
 
--   You can find more information about me: *tbd*
+-   Outside work: snowboarding and flying (I hold a pilot's license)
+
+-   Just became a dad: our first daughter was born in August
 
 </div>
 
@@ -76,11 +78,30 @@ format:
 
 <center>[Source here](https://explodingtopics.com/blog/data-generated-per-day)</center>
 
+::: {.notes}
+**How many GB are that?** 1 zettabyte (ZB) = 10²¹ bytes = 10¹² GB, i.e. one trillion gigabytes.
+The roughly 180 ZB estimated for 2025 are about 180 trillion GB, or 180 billion 1-TB hard drives.
+:::
+
 ## An era of data and computation
 
 ![](computation.png){fig-align="center"}
 
 <center>[Source here](https://www.researchgate.net/figure/The-exponential-progress-of-computing-power-from-1900-to-2013-with-projections-into_fig1_335422453)</center>
+
+::: {.notes}
+**Technology eras in the chart** (y-axis: calculations per second per $1,000, log scale)
+
+- *Electromechanical* (c. 1900–1940): punched-card machines driven by motors, gears and switches, e.g. the Hollerith tabulator.
+- *Solid-state relay* (c. 1940s): switching with electrically operated relays, e.g. the Bell Calculator Model 1.
+- *Vacuum tube* (c. 1945–1960): the first fully electronic computers, fast but hot and failure-prone, e.g. UNIVAC I.
+- *Transistor* (c. 1955–1970): smaller, cheaper and more reliable switches, e.g. DEC PDP-1.
+- *Integrated circuit* (c. 1970–today): many transistors on one chip, leading to the microprocessor, e.g. Apple II, IBM PC, Pentium.
+
+**FLOPS** = floating-point operations per second.
+kilo 10³ · mega 10⁶ · giga 10⁹ · tera 10¹² · peta 10¹⁵ · exa 10¹⁸ · zetta 10²¹.
+The first exascale supercomputer (Frontier, 2022) passed 10¹⁸ FLOPS.
+:::
 
 ## Is it enough with collecting data and having the power to analyze it?
 
@@ -98,6 +119,15 @@ format:
 
 - This course is about these rules and methods, and how to **apply** them, with a focus on **quantitative research**
 
+::: {.notes}
+**Possible digression: inference vs. prediction**
+
+- *Inference*: learn how the world works. Estimate a quantity (a mean, a causal effect) and state how uncertain it is. Example: does canvassing increase turnout, and by how much?
+- *Prediction*: forecast outcomes for new cases as accurately as possible. The model may be a black box. Example: which citizens will turn out?
+- A model that predicts well need not reveal causes, and a credible causal estimate need not predict well.
+- The course returns to this in sessions 5–7 (descriptive, causal and predictive inference).
+:::
+
 ## In what topics are you interested?
 
 ![](topics.png){fig-align="center"}
@@ -107,6 +137,14 @@ format:
 <br>
 
 ![](stupidity.png){fig-align="center"}
+
+::: {.notes}
+**Questions to students**
+
+- What is the essay about?
+- Why is stupidity important in research?
+- Have you ever felt that way?
+:::
 
 ## Learning outcomes
 
@@ -233,11 +271,13 @@ ggplot(grades, aes(x = reorder(Category, -Percentage), y = Percentage, fill = Ca
 
 <div style="font-size:90%">
 
+- **Optional**: as stated in the syllabus, you can choose to write a seminar paper to earn six extra credits
+
 - Between 7000 and 9000 words
 
 - Topic to be agreed with the lecturer
 
-- Paper outline of by **December 1st 2026**
+- Paper outline by **December 1st 2026**
 
     -	Research question
 
@@ -285,7 +325,7 @@ Additionally...
 
 </div>
 
-## Schedule I
+## Schedule I {.smaller}
 
 - Session 1. **Introduction** (17.09.26 / 14:15–16:00 / HS 3)
 
@@ -295,7 +335,7 @@ Additionally...
 
 - Session 4. **Data and measurement** (08.10.26 / 14:15–16:00 / 4.B51)
 
-## Schedule II
+## Schedule II {.smaller}
 
 - Session 5. **Descriptive inference** (08.10.26 / 16:15–18:00 / 4.B51)
 
@@ -307,7 +347,7 @@ Additionally...
 
     - Publication take-home exercise I
 
-## Schedule III
+## Schedule III {.smaller}
 
 - Session 9. **Large-N observational studies** (22.10.26 / 16:15–18:00 / 4.B51)
 
@@ -317,7 +357,7 @@ Additionally...
     
     - Publication take-home exercise II
 
-## Schedule IV
+## Schedule IV {.smaller}
 
 - Session 11. **Statistical testing** (29.10.26 / 16:15–18:00 / 3.B47)
 
@@ -364,7 +404,7 @@ Additionally...
 
 ## Additional Information Checklist
 
-- **Evaluation criteria:** Clarity, understanding, critique quality, reasoning, feasibility, and ability to engage discussion.  
+- **Evaluation:** graded with the rubric on the next slide.  
 - **Avoid pitfalls:**  
   - Don’t overcrowd slides.  
   - Avoid superficial content.  
@@ -372,11 +412,25 @@ Additionally...
   - Prepare early, rehearse, and refine slides.  
   - Practice in front of a friend and ask for feedback.  
 
-## Let's organize the calendar!
+## How your presentation is graded {.smaller}
 
-<br>
+Each criterion earns **0–5 points**. **15 points** (half the maximum) = 4.0 (pass), **30 points** = 6.0. Pairs receive the same grade. The full conversion table is in the syllabus.
 
-![](calendar.png){fig-align="center"}
+| Criterion | Full points when you… |
+|------|------------------------|
+| **Clarity** | Follow the two-part structure, use uncluttered slides with visual aids, and stay within 25 minutes |
+| **Understanding** | Present the argument, research question, hypotheses, method, data, unit of analysis and findings accurately |
+| **Critique quality** | Name specific strengths and the main limitations of the research design |
+| **Reasoning** | Focus on one key limitation, explain why it matters, and derive your proposal from it |
+| **Feasibility** | Propose a concrete, realistic design that addresses the limitation |
+| **Discussion** | Answer questions accurately and use the feedback to improve your proposal |
+
+## Let's organize the calendar! {.smaller}
+
+- Is there a week in which you **absolutely cannot** present? Tell me before the end of today's session.
+- I will assign the presentations and share the schedule on OLAT.
+
+![](calendar.png){fig-align="center" width="80%"}
 
 
 ## Three take-home assignments
@@ -393,11 +447,31 @@ Additionally...
     - **Advanced** – everything in Beginner + additional statistical analyses  
 
 
----
+## Which track fits you? Self-assessment {.smaller}
 
-<div style='position: relative; padding-bottom: 56.25%; padding-top: 35px; height: 0; overflow: hidden;'><iframe sandbox='allow-scripts allow-same-origin allow-presentation' allowfullscreen='true' allowtransparency='true' frameborder='0' height='315' src='https://www.mentimeter.com/app/presentation/alkacidef68xiopnaxc2hix94eiaij4z/embed' style='position: absolute; top: 0; left: 0; width: 100%; height: 100%;' width='420'></iframe></div>
+Rate each statement: **0** = not at all · **1** = with help · **2** = confidently on my own
 
----
+**R and RStudio**
+
+1. I have R and RStudio installed and can open and run an R script.
+2. I can load a dataset (e.g. `.csv` or `.rds`) into R and inspect its variables.
+3. I can clean and transform variables (recode, handle missing values, create categories).
+4. I can plot distributions and relationships between variables (e.g. with `ggplot2`).
+5. I can write a Quarto or R Markdown document and render it to PDF.
+
+## Self-assessment (continued) {.smaller}
+
+**Statistics**
+
+6. I can compute and interpret descriptive statistics (means, standard deviations, cross-tabulations).
+7. I can run and interpret a difference-in-means test (e.g. a t-test).
+8. I can estimate an OLS regression in R and interpret its coefficients, including interaction terms.
+
+**Add up your points (0–16)**
+
+- **0–9 points**: beginner track recommended
+- **10–16 points**: advanced track recommended
+- The score is a guide. You choose your track, and you are evaluated against the expectations of the track you choose.
 
 ## Please send me an email with your decision next week!
 

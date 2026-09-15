@@ -1,0 +1,49 @@
+---
+format:
+  pdf:
+    documentclass: article
+    papersize: a4
+    geometry: [landscape, "margin=1.3cm"]
+    fontsize: 10pt
+    include-in-header:
+      text: |
+        \usepackage{tabularx}
+        \usepackage{booktabs}
+        \pagestyle{empty}
+---
+
+```{=latex}
+\noindent{\Large\textbf{Presentation grading sheet}}\hfill Research Design and Methods in Quantitative Research, Fall 2026\\[8pt]
+\noindent Session: \rule{1.8cm}{0.4pt}\quad Date: \rule{2.6cm}{0.4pt}\quad Presenter(s): \rule{15cm}{0.4pt}\\[8pt]
+\noindent Paper: \rule{25.2cm}{0.4pt}\\[6pt]
+\noindent Score each criterion from 0 to 5 points. The descriptions show what earns 5, 3 and 1 points; 4 and 2 lie in between, and 0 means the criterion was not addressed.\\[4pt]
+\renewcommand{\arraystretch}{1.25}
+\noindent\begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}p{2.4cm} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X >{\centering\arraybackslash}p{1.5cm}}
+\toprule
+\textbf{Criterion} & \textbf{5 points} & \textbf{3 points} & \textbf{1 point} & \textbf{Score}\\
+\midrule
+\textbf{Clarity} & Follows the two-part structure, uses uncluttered slides with visual aids, and finishes within 25 minutes. & Mostly easy to follow, but some slides are overcrowded, transitions are unclear, or the timing is off. & Hard to follow: text-heavy slides, a part is missing, or the time limit is clearly exceeded. & \\[1.2em]
+\midrule
+\textbf{Understanding} & Accurately presents the argument, research question, hypotheses, method, data, unit of analysis and key findings, and links the design to the paper's goal. & Mostly accurate, but some elements of the design are missing or treated superficially. & Misrepresents the paper or leaves out core elements of its design. & \\[1.2em]
+\midrule
+\textbf{Critique quality} & Names specific strengths and the main limitations of the design (e.g., measurement, validity, scope) and stays constructive. & Identifies limitations, but they are generic, minor or one-sided. & The critique is missing, superficial or merely dismissive. & \\[1.2em]
+\midrule
+\textbf{Reasoning} & Focuses on one key limitation, justifies why it matters, and derives the proposal from it step by step. & The link between critique and proposal is there, but partly implicit or weakly justified. & The proposal is unrelated to the critique or not justified. & \\[1.2em]
+\midrule
+\textbf{Feasibility} & Proposes a concrete, realistic design (data, cases, empirical strategy) that would address the limitation. & The design is plausible but vague on data or method, or partly unrealistic. & The proposal is unrealistic or is not a research design. & \\[1.2em]
+\midrule
+\textbf{Discussion} & Answers questions accurately, takes up critique, and uses it to improve the proposal. & Answers most questions, but engages little with the feedback. & Struggles to answer questions or dismisses the feedback. & \\[1.2em]
+
+\bottomrule
+\end{tabularx}\\[8pt]
+\noindent\textbf{Total:} \rule{1.5cm}{0.4pt} / 30 points \qquad \textbf{Grade:} \rule{1.5cm}{0.4pt} \qquad 15 points = 4.0 (pass), 30 = 6.0, linear in between; rounded to half grades; below 15 never a pass. Pairs: same grade.\\[6pt]
+\noindent\begin{tabular}{lccccccccccc}
+\toprule
+Points & 29--30 & 25--28 & 21--24 & 17--20 & 15--16 & 12--14 & 9--11 & 7--8 & 4--6 & 2--3 & 0--1 \\
+Grade & 6.0 & 5.5 & 5.0 & 4.5 & 4.0 & 3.5 & 3.0 & 2.5 & 2.0 & 1.5 & 1.0 \\
+\bottomrule
+\end{tabular}\\[10pt]
+\noindent\textbf{Comments:}\\[4pt]
+\noindent\rule{\linewidth}{0.4pt}\\[14pt]
+\noindent\rule{\linewidth}{0.4pt}
+```
