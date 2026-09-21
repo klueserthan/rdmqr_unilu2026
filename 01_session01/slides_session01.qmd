@@ -59,6 +59,13 @@ format:
 
 </div>
 
+::: {.notes}
+- Path: PhD Aarhus (2020, bureaucratic issue attention in coalition governments), then UZH; Ambizione project since Sept 2024
+- Common thread: which issues get attention, and who can push them onto the agenda; today: influencers and platforms
+- Methods I use and will draw on: survey/online experiments (session 8), text-as-data, observational data (session 9)
+- Session 2: my deepfake paper as the worked example of a research design
+:::
+
 ## What about you?
 
 -   Name
@@ -68,6 +75,12 @@ format:
 -  Why did you take the course?
 
 -  What do you expect from this course?
+
+::: {.notes}
+- Quick round, about 1 minute each
+- Listen for: study programme, prior stats/R experience (useful for the track self-check later), topics of interest
+- Come back to their topics on "In what topics are you interested?" and when assigning presentations
+:::
 
 
 # What is this course about?
@@ -81,6 +94,8 @@ format:
 ::: {.notes}
 **How many GB are that?** 1 zettabyte (ZB) = 10²¹ bytes = 10¹² GB, i.e. one trillion gigabytes.
 The roughly 180 ZB estimated for 2025 are about 180 trillion GB, or 180 billion 1-TB hard drives.
+
+- Point: data is no longer scarce; the bottleneck is design
 :::
 
 ## An era of data and computation
@@ -101,6 +116,8 @@ The roughly 180 ZB estimated for 2025 are about 180 trillion GB, or 180 billion 
 **FLOPS** = floating-point operations per second.
 kilo 10³ · mega 10⁶ · giga 10⁹ · tera 10¹² · peta 10¹⁵ · exa 10¹⁸ · zetta 10²¹.
 The first exascale supercomputer (Frontier, 2022) passed 10¹⁸ FLOPS.
+
+- Point: computing power is cheap too; the question is what to compute
 :::
 
 ## Is it enough with collecting data and having the power to analyze it?
@@ -126,11 +143,18 @@ The first exascale supercomputer (Frontier, 2022) passed 10¹⁸ FLOPS.
 - *Prediction*: forecast outcomes for new cases as accurately as possible. The model may be a black box. Example: which citizens will turn out?
 - A model that predicts well need not reveal causes, and a credible causal estimate need not predict well.
 - The course returns to this in sessions 5–7 (descriptive, causal and predictive inference).
+- Syllabus learning outcome 1: differentiate the main targets of scientific inference
 :::
 
 ## In what topics are you interested?
 
 ![](topics.png){fig-align="center"}
+
+::: {.notes}
+- Collect topics on the board (chalkboard: B = board, C = draw on slide)
+- Link: applied readings (calendar slide), seminar paper topics, presentation proposals
+- Keep the list for assigning presentations
+:::
 
 ---
 
@@ -144,6 +168,8 @@ The first exascale supercomputer (Frontier, 2022) passed 10¹⁸ FLOPS.
 - What is the essay about?
 - Why is stupidity important in research?
 - Have you ever felt that way?
+- Session 1 basic reading (Schwartz 2008, one page)
+- Message: not knowing is the normal state of research; this seminar is a place to ask "stupid" questions
 :::
 
 ## Learning outcomes
@@ -157,6 +183,15 @@ The first exascale supercomputer (Frontier, 2022) passed 10¹⁸ FLOPS.
 4. ...communicate complex concepts effectively to a broad audience.
 
 5. ...perform simple descriptive and inferential statistical analyses.
+
+::: {.notes}
+- Syllabus labels: knowledge · reading research · research design · communication · statistical analysis
+- 1 (logic, targets of inference): sessions 2–7
+- 2 (read and critique): applied readings, presentations
+- 3 (design): presentation proposals, sessions 8–10 (experiments, large-N, small-N)
+- 4 (communication): presentations and discussion
+- 5 (statistics): take-home exercises, sessions 11–13
+:::
 
 # The course organization
 
@@ -178,6 +213,12 @@ Therefore, ***active participation*** is the most important tool:
 
 - At least one **presentation** by student
 
+::: {.notes}
+- Each session: part 1 = my introduction + discussion of the basic reading; part 2 = student presentation + discussion (syllabus: Course organization)
+- Seminar questions prepare the discussion
+- Bottom-up: students raise questions and debate after the presentation
+:::
+
 ## Integration and interaction policy
 
 <br>
@@ -190,6 +231,12 @@ Therefore, ***active participation*** is the most important tool:
 
 - **Everyone** should participate in equal terms
 
+::: {.notes}
+- Syllabus: no discrimination (race, gender, ethnicity, sexual orientation); respect gender identification
+- I actively promote equal participation, e.g. calling on quieter people, limiting long interventions
+- Disagree with arguments, not people
+:::
+
 ## Artificial intelligence (AI) policy
 
 <br>
@@ -199,6 +246,12 @@ Therefore, ***active participation*** is the most important tool:
 - They should augment, not replace, human work
 
 - Mandatory declaration policy
+
+::: {.notes}
+- Allowed for preparing materials; no copy-paste
+- Concern is the quality of discussion, not policing grades
+- Declaration: appendix with use and scope of AI for presentation slides, take-home exercises and seminar question answers
+:::
 
 ## Evaluation I
 
@@ -215,6 +268,14 @@ Therefore, ***active participation*** is the most important tool:
     - Specific folder in OLAT
     
     - To be uploaded the day before the class (but not graded!)
+
+::: {.notes}
+- Attendance: max. two missed sessions; more without a certificate = fail
+- Studying = reading + critical thinking; texts in OLAT materials folder
+- Seminar questions: one paragraph per question, Word file, seminar_questions_sessionXX_SURNAME
+- Upload to Students responses/Seminar questions in the session folder, previous Wednesday 12:00
+- Content not graded, but submitting counts 10% (next slides)
+:::
 
 ## Evaluation II
 
@@ -237,6 +298,12 @@ Therefore, ***active participation*** is the most important tool:
     - Two different tracks (beginner and advanced, more on this later)
     
 </div>
+
+::: {.notes}
+- Presentations individually or in pairs; details and rubric later today
+- Slides on OLAT by Wednesday 12:00: presentation_slides_sessionXX_SURNAME(S), PowerPoint or PDF
+- Take-home exercises: second half of the course, tracks explained later today
+:::
     
 ## 
 
@@ -267,6 +334,13 @@ ggplot(grades, aes(x = reorder(Category, -Percentage), y = Percentage, fill = Ca
         plot.title = element_text(hjust = 0.5))  # Center title
 ```
 
+::: {.notes}
+- 10% submitting seminar questions · 20% participation (quality and quantity) · 30% take-home exercises · 40% presentation
+- Personal progress over the semester also counts (syllabus: Grading policy)
+- Lucerne grades in whole or half steps only
+- Presentation rubric comes later in this session
+:::
+
 ## Masterseminar paper
 
 <div style="font-size:90%">
@@ -291,6 +365,13 @@ ggplot(grades, aes(x = reorder(Category, -Percentage), y = Percentage, fill = Ca
 
 </div>
 
+::: {.notes}
+- Optional: 6 extra credits on top of the 4 mandatory credits
+- Outline (1–2 pages): intro, research question, relevance, theory/hypotheses, approach incl. tentative empirical design; due 1 Dec 2026
+- Paper: 7000–9000 words, roughly 1 April 2027; POLSEM guidelines linked in the syllabus
+- A presentation proposal can be a good starting point
+:::
+
 ## Office hours
 
 <br>
@@ -300,6 +381,12 @@ No **office hours**!
 <br>
 
 Send an email to the lecturer ([klueser@ipz.uzh.ch](mailto:klueser@ipz.uzh.ch)) to schedule a meeting one week in advance (**via Zoom**)
+
+::: {.notes}
+- Zoom only, no office in Lucerne
+- E-mail klueser@ipz.uzh.ch, meeting within a week
+- Typical reasons: presentation preparation, seminar paper topic, R problems
+:::
 
 ## Resources (OLAT)
 
@@ -325,6 +412,13 @@ Additionally...
 
 </div>
 
+::: {.notes}
+- Basic readings mostly come from these textbooks; all basic and applied readings are on OLAT
+- BCH is open access online (DeclareDesign)
+- Additional readings are optional and not on OLAT
+- Macartan Humphreys' guides on reading and critiquing papers help with presentations
+:::
+
 ## Schedule I {.smaller}
 
 - Session 1. **Introduction** (17.09.26 / 14:15–16:00 / HS 3)
@@ -335,6 +429,13 @@ Additionally...
 
 - Session 4. **Data and measurement** (08.10.26 / 14:15–16:00 / 4.B51)
 
+::: {.notes}
+- Rooms change almost weekly; current rooms in the course catalogue (UniPortal, HS261648)
+- Today in HS 3 (moved because of a technical problem); no session on 24 September
+- 1 October in 2.A45: presentations only from the installed university laptop
+- Session 2: my deepfake paper as applied reading; session 3: first student presentation
+:::
+
 ## Schedule II {.smaller}
 
 - Session 5. **Descriptive inference** (08.10.26 / 16:15–18:00 / 4.B51)
@@ -343,35 +444,54 @@ Additionally...
 
 - Session 7. **Predictive inference** (15.10.26 / 16:15–18:00 / 3.B48)
 
+    - Publication take-home exercise I
+
 - Session 8. **Experimental studies** (22.10.26 / 14:15–16:00 / 4.B51)
 
-    - Publication take-home exercise I
+::: {.notes}
+- Sessions 5–7: the three targets of inference (descriptive, causal, predictive), see the "design" slide at the start
+- Session 8: experiments (Gerber & Green)
+- Take-home I: published 15.10, due 29.10
+:::
 
 ## Schedule III {.smaller}
 
 - Session 9. **Large-N observational studies** (22.10.26 / 16:15–18:00 / 4.B51)
 
+    - Publication take-home exercise II
+
 - Session 10. **Small-N observational studies** (29.10.26 / 14:15–16:00 / 3.B47)
 
     - Deadline take-home exercise I
-    
-    - Publication take-home exercise II
+
+::: {.notes}
+- Session 9: large-N observational designs, good and bad controls
+- Session 10: small-N designs, comparisons and process tracing
+- Take-home II: published 22.10, due 05.11
+:::
 
 ## Schedule IV {.smaller}
 
 - Session 11. **Statistical testing** (29.10.26 / 16:15–18:00 / 3.B47)
 
+    - Publication take-home exercise III
+
 - Session 12. **Introduction to regression I** (05.11.26 / 14:15–16:00 / 4.B51)
 
     - Deadline take-home exercise II
-    
-    - Publication take-home exercise III
 
 - Session 13. **Introduction to regression II** (05.11.26 / 16:15–18:00 / 4.B51) 
 
 - Session 14. **Conclusion**  (12.11.26 / 14:15–16:00 / 2.A45)
 
     - Deadline take-home exercise III
+
+::: {.notes}
+- Session 11: statistical testing (KW ch. 7–8)
+- Sessions 12–13: regression (KW ch. 9–11), reading regression tables
+- Session 14: conclusion, hidden researcher decisions (Huntington-Klein et al. 2021)
+- Take-home III: published 29.10, due 12.11
+:::
 
 # Let's dig deeper!
 
@@ -389,11 +509,24 @@ Additionally...
 
 - After the presentations, there will be a *20 minutes Q&A*
 
+::: {.notes}
+- Fills the second part of a session: 25 min presentation + about 20 min discussion
+- Always the applied reading of that session
+- Build on the paper, don't tear it down
+- Details: syllabus sections "Present the applied reading" and "How to Make a Good Presentation"
+:::
+
 ## Checklist Part I – Summary (~10 min)
 
 - **Core ideas (1–2 slides, ~3 min):** Summarize the argument and main takeaways.  
 - **Research design (~4 min):** Present the research question, hypotheses, method, data type, unit of analysis, and key findings.  
 - **Critique (~3 min):** Identify strengths and main limitations of the research design (measures, validity, scope, etc.). Use clear communication: diagrams, step-by-step reasoning, examples, visual aids.  
+
+::: {.notes}
+- Rough split: 3 min core ideas · 4 min design · 3 min critique
+- Rubric link: understanding and critique quality
+- Design elements to name: research question, hypotheses, method, data type, unit of analysis, findings
+:::
 
 ## Checklist Part II – Proposal (~15 min)
 
@@ -401,6 +534,12 @@ Additionally...
 - **Propose one solution or extension:** Suggest a feasible new design, replication, different data, or alternative method.  
 - **Be realistic:** Assume research funds are available, but do not “change the world” (e.g., deciding election dates).  
 - **Seek guidance if needed:** Contact the lecturer if unsure about preparation.  
+
+::: {.notes}
+- Longest part of the presentation
+- Rubric link: reasoning (one key limitation, why it matters) and feasibility
+- Realistic: funds yes, but no deciding election dates or invented countries
+:::
 
 ## Additional Information Checklist
 
@@ -411,6 +550,12 @@ Additionally...
   - Manage time (25 min total).  
   - Prepare early, rehearse, and refine slides.  
   - Practice in front of a friend and ask for feedback.  
+
+::: {.notes}
+- Rubric on the next slide
+- Slides on OLAT by Wednesday 12:00
+- In 2.A45 only the installed university laptop works for presenting
+:::
 
 ## How your presentation is graded {.smaller}
 
@@ -425,12 +570,25 @@ Each criterion earns **0–5 points**. **15 points** (half the maximum) = 4.0 (p
 | **Feasibility** | Propose a concrete, realistic design that addresses the limitation |
 | **Discussion** | Answer questions accurately and use the feedback to improve your proposal |
 
+::: {.notes}
+- 6 criteria × 0–5 points = 30; 15 points = 4.0, 30 = 6.0, linear, rounded to half grades; below 15 at most 3.5
+- Pairs get the same grade
+- Full conversion table: syllabus, Grading rubric section; printed sheet in 00_grading
+- The presentation is 40% of the course grade
+:::
+
 ## Let's organize the calendar! {.smaller}
 
 - Is there a week in which you **absolutely cannot** present? Tell me before the end of today's session.
 - I will assign the presentations and share the schedule on OLAT.
 
 ![](calendar.png){fig-align="center" width="80%"}
+
+::: {.notes}
+- Collect weeks students absolutely cannot present before the end of today (write them down)
+- I assign presentations afterwards and post the schedule on OLAT
+- Session 2 is my presentation; sessions 11–13: a different reading can be agreed on request
+:::
 
 
 ## Three take-home assignments
@@ -446,6 +604,13 @@ Each criterion earns **0–5 points**. **15 points** (half the maximum) = 4.0 (p
     - **Beginner** – installation, getting started with RStudio, comment (maybe perform) basic statistical analyses  
     - **Advanced** – everything in Beginner + additional statistical analyses  
 
+::: {.notes}
+- Exercises build on each other; each works with a published study's replication data
+- Typical tasks: summarize the paper, explore the data, replicate or extend a result; advanced adds more analyses (plots, interactions, fixed effects)
+- Submit PDF + .qmd to Students responses/Take-home exercises; file name take-home_exercise_X_SURNAME(S); AI appendix
+- Two weeks per exercise (dates on the schedule slides)
+:::
+
 
 ## Which track fits you? Self-assessment {.smaller}
 
@@ -458,6 +623,12 @@ Rate each statement: **0** = not at all · **1** = with help · **2** = confiden
 3. I can clean and transform variables (recode, handle missing values, create categories).
 4. I can plot distributions and relationships between variables (e.g. with `ggplot2`).
 5. I can write a Quarto or R Markdown document and render it to PDF.
+
+::: {.notes}
+- Give 3–4 minutes, individually, on paper or in their head
+- Items 1–5 = what take-home exercise I asks for in its preparation steps (R, RStudio, Quarto to PDF)
+- No need to share scores
+:::
 
 ## Self-assessment (continued) {.smaller}
 
@@ -473,9 +644,20 @@ Rate each statement: **0** = not at all · **1** = with help · **2** = confiden
 - **10–16 points**: advanced track recommended
 - The score is a guide. You choose your track, and you are evaluated against the expectations of the track you choose.
 
+::: {.notes}
+- 0–9 beginner, 10–16 advanced; a guide, not a rule
+- Item 8 (regression with interactions) is what only the advanced exercises require
+- The self-check is also in the syllabus for anyone absent today
+:::
+
 ## Please send me an email with your decision next week!
 
 ![](mail.png){fig-align="center"}
+
+::: {.notes}
+- Track decision by e-mail before the next session (01.10); no session on 24.09
+- Blocked presentation weeks were collected today
+:::
 
 # Conclusion
 
@@ -494,14 +676,34 @@ Presentation of ongoing research by the lecturer:
 
 - **Klüser, S., Klüser, K. J.**, & Hoes, E. (2026). AI-Generated Explicit Deepfakes Damage Politicians’ Perceived Leadership Competence, Trustworthiness and Electoral Prospects. *Revised and resubmitted, Communications Psychology*
 
+::: {.notes}
+- 1 October, 14:15, room 2.A45
+- Basic reading: KKV ch. 1 (pp. 3–33); additional: BCH ch. 1–2
+- Seminar questions due Wednesday 30.09, 12:00
+- Deepfake paper: preregistered US survey experiment (N = 1829), mock social media feed with explicit, private or control images of a fictitious politician
+- Explicit deepfakes lowered evaluations and vote intentions, more so for the male candidate
+- 16:15 same day: session 3, theory and research design, first student presentation
+:::
+
 
 ## Do not forget to register at UniPortal!
 
 ![](registration_uniportal.png){fig-align="center"}
 
+::: {.notes}
+- Registration period: 31 August to 25 September 2026
+- Without UniPortal registration no credits; OLAT enrolment is not enough
+- QR code leads to UniPortal
+:::
+
 ------------------------------------------------------------------------
 
 ![](questions.png){fig-align="center"}
+
+::: {.notes}
+- Open questions
+- Recap: register on UniPortal by 25.09 · e-mail track decision · seminar questions for session 2 by 30.09, 12:00
+:::
 
 ## Thanks! :slightly_smiling_face:
 
