@@ -88,27 +88,32 @@ Either implicitly or explicitly, it conveys a set of **causal relationships** be
 
 <br>
 
+::: {.incremental}
+
 - **Rational Choice Theory** *(Downs)*  
-Individuals vote to maximize utility
+  [Individuals vote to maximize utility]{.fragment}
 
 - **Partisan Identification Theory** *(Campbell et al.)*  
-Partisanship as a “perceptual screen”  
+  [Partisanship as a "perceptual screen"]{.fragment}
 
 - **Modernization Theory** *(Lipset)*  
-Economic development fosters democracy  
+  [Economic development fosters democracy]{.fragment}
 
 - **Social Identity Theory** *(Tajfel & Turner)*  
-Group membership leads to group bias
+  [Group membership leads to group bias]{.fragment}
+
+:::
 
 ::: {.notes}
-**Background for the four examples**
+- Reveal one theory at a time: the name appears first, the one-line claim on the next click
+- For each name ask: "Who has heard of this? What does it claim? What is X, what is Y?", then reveal the claim
+
+**Background**
 
 - *Rational choice*: Downs, *An Economic Theory of Democracy* (1957). Voters maximise expected utility; leads to the "paradox of voting" (KW 2.7.2, "The Puzzle of Turnout", pp. 45-47)
 - *Party identification*: Campbell, Converse, Miller & Stokes, *The American Voter* (1960). Partisanship as a long-term "perceptual screen" that filters information
 - *Modernization*: Lipset, "Some Social Requisites of Democracy", APSR (1959). Economic development -> democracy
 - *Social identity*: Tajfel & Turner (1979). Group membership -> in-group favouritism and out-group bias; today's applied reading (Turnbull-Dugarte & Wagner 2025) also deals with political identities
-
-- Ask: what is X and what is Y in each?
 :::
 
 ## Good theories should be...
@@ -128,6 +133,14 @@ Group membership leads to group bias
 - Slide shows four of the five; the missing one ("don't let data alone drive your theories") comes up on the next slide
 - Generality and parsimony pull against each other: a more general theory usually needs more conditions (KW p. 20)
 - KKV p. 20 on parsimony: "Simple theories have higher prior probabilities" (Jeffreys); a judgement about the world, not a rule
+
+**Bad examples to contrast with each criterion**
+
+- *Not causal*: "Populist parties are successful in Europe" (a description, no why); "Countries with more universities are more democratic" (an association with no mechanism)
+- *Normative*: "Switzerland should lower the voting age to 16 because young people deserve a voice" (says what ought to be, not what is)
+- *Not general*: "Brexit happened because of the Leave campaign's bus slogan" (explains one case only; no claim about other referendums)
+- *Not parsimonious*: "Turnout depends on the weather, income, age, education, candidate charisma, TV ads, the day of the week ..." (a list that explains everything and therefore nothing)
+- Bonus, violating "don't let data alone drive your theories" (KW 1.5.2): correlate 200 variables with turnout and write a theory around whichever one is significant
 :::
 
 ## From ideas to good theories
@@ -142,8 +155,10 @@ But some ***strategies***:
 
 - Is it **relevant**? (starting with the RQ)  
 - Is there **interesting variation**? (e.g., puzzles)  
-- Are they **rooted in knowledge of the world** (specific events; know local, think global: drop the proper nouns)  
-- Do they **build on the literature** (e.g., gaps, extensions, implications)
+- Is it **rooted in knowledge of the world**? (e.g., specific events)  
+  - *Know local, think global*: can you drop the **proper nouns** (names of people, places, dates)?  
+  - "Why did the SVP gain in 2023?" ⟶ "Why do radical right parties gain when immigration is salient?"
+- Does it **build on the literature**? (e.g., gaps, extensions, implications)
 
 ::: {.notes}
 **KW ch. 2 strategies** (basic reading, pp. 25-52)
@@ -153,8 +168,10 @@ But some ***strategies***:
 - *Interesting variation* (KW 2.3): look at the dependent variable; cross-sectional (military spending across countries, Fig. 2.1) vs. time-series (US presidential approval 1995-2005, Fig. 2.2)
   - Caveat: examine variation in Y only; developing theory after seeing X and Y move together violates "don't let data alone drive your theories" (p. 30)
 - *Knowledge of the world* (KW 2.4):
-  - From a specific event to a general theory: 9/11 rally -> Mueller's (1973) theory of rallies around the flag
-  - "Know local, think global: can you drop the proper nouns?" (KW 2.4.2): Lewis-Beck (1997) "Who's the Chef?" turned French cohabitation (Mitterrand/Chirac) into a general theory of economic accountability under divided control
+  - From a specific event to a general theory: 9/11 rally -> Mueller's (1973) theory of rallies around the flag (KW 2.4.1)
+  - **Drop the proper nouns** (KW 2.4.2, pp. 32-33): "Physicists don't have theories that apply only in France, and neither should we." Proper nouns = names of people, countries and, KW add, specific dates. If your theory still makes sense once you replace "Mitterrand", "France" or "1986" with general concepts (president, country, period of divided control), it is general; if it collapses, you only have an account of one case.
+  - KW's example: Lewis-Beck (1997), "Who's the Chef?": French cohabitation 1986-88 (socialist president Mitterrand, Gaullist prime minister Chirac) -> general theory: under divided control, voters hold whoever controls the economy (there: the prime minister) accountable for economic outcomes
+  - SVP example on the slide is ours: from one party and one election to a claim about a class of parties and a condition (issue salience)
 - *Build on the literature* (KW 2.5-2.6): three strategies: a new Y; an existing Y with a new X; a new Z that modifies an established X -> Y. Also: critically examine previous research; "someone already did it" is not the end (2.6.2)
 :::
 
@@ -218,32 +235,36 @@ By removing complexity, they help us make theoretical claims **testable** (and t
 - "More later on hypotheses": two slides ahead
 :::
 
-## Thinking in terms of variables 
-
-
-. . .
-
-<br>
-
-**Variables** are how we represent the **concepts** in our model
-
-<br>
+## From concepts to variables
 
 . . .
 
-- **Dependent variable (DV):**  The outcome we want to explain  
+**Concepts** are the abstract building blocks of a theory  
+*e.g., economic performance, political trust, democracy*
 
-- **Independent variable (IV):**  The factor(s) we think explain the DV 
+. . .
 
-- **Other variables:** Moderators, mediators, confounders...
+**Variables** are measurable representations of concepts: quantities that take two or more values  
+*e.g., real GDP growth in %, trust on a 0–10 scale*
+
+From concept to variable = **operationalization** (session 4)
+
+. . .
+
+- **Dependent variable (DV):** the outcome we want to explain  
+- **Independent variable (IV):** the factor(s) we think explain the DV  
+- **Other variables:** moderators, mediators, confounders...
 
 ::: {.notes}
-- KW p. 3 (footnote 1): a variable is "a definable quantity that can take on two or more values" (e.g., turnout as % of eligible voters)
+- Why concepts first: theories are stated in concepts; hypotheses and tests need variables. The move between them is measurement (operationalization), the topic of session 4 (KW ch. 5)
+- KW p. 7: political scientists "order their thoughts about the political world in terms of concepts that scientists call variables and causal relationships between variables"
+- KW p. 9 (Figure 1.2, "From theory to hypothesis"): at the theory level, variables "do not need to be explicitly defined"; economic performance is a concept ranging from very strong to very poor. At the hypothesis level we measure it, e.g., "one-year real economic growth per capita"
+- KW p. 3 (fn. 1): a variable is "a definable quantity that can take on two or more values" (e.g., turnout as % of eligible voters)
+- One concept, many possible variables: economic performance -> inflation, unemployment, real growth (KW p. 10); each choice gives a different hypothesis
 - DV = outcome (Y); IV = explanatory factor (X)
 - Moderator: changes the size or direction of X -> Y (e.g., candidate gender in the deepfake paper from session 2)
 - Mediator: the channel through which X affects Y
-- Confounder: a common cause of X and Y (next slide, DAG 3)
-- Measurement of variables: session 4
+- Confounder: a common cause of X and Y (next slide)
 :::
 
 ## Models as variables and relationships
@@ -254,37 +275,33 @@ Examples with **Directed Acyclic Graphs (DAGs)**:
 
 <br>
 
-<div class="fragment">
+:::: {.columns}
+
+::: {.column width="33%" .fragment}
+**1. Direct effect**
+
+$$X \longrightarrow Y$$
+:::
+
+::: {.column width="33%" .fragment}
+**2. Mediation**
+
+$$X \rightarrow M \rightarrow Y$$
+:::
+
+::: {.column width="34%" .fragment}
+**3. Confounding**
+
 $$
-\begin{array}{ll}
-1. & X \longrightarrow Y
+\begin{array}{ccc}
+ & Z & \\
+\swarrow & & \searrow \\
+X & \longrightarrow & Y
 \end{array}
 $$
-</div>
+:::
 
-
-<div class="fragment">
-$$
-\begin{array}{ll}
-2. & X \longrightarrow M \longrightarrow Y
-\end{array}
-$$
-</div>
-
-
-<div class="fragment">
-$$
-\begin{array}{ll}
-3. &
-  \begin{array}{ccc}
-     & Z &  \\
-     & \swarrow \searrow &  \\
-    X & \longrightarrow & Y
-  \end{array}
-\end{array}
-$$
-</div>
-
+::::
 
 ::: {.notes}
 - DAG 1: direct effect of X on Y
@@ -296,31 +313,36 @@ $$
 
 ## From models to hypotheses
 
-<br>
+. . .
+
+**Models** specify relationships between variables; **hypotheses** translate them into testable claims
 
 . . .
 
-**Models** specify relationships between variables
-
-**Hypotheses** translate those relationships into testable claims
-
 <br>
+
+**Example: the theory of economic voting** (KW, pp. 8–10)
 
 . . .
 
-**Example:**  
-*Model*: 
-Election results ⟶ Satisfaction with democracy  
+*Theory*: voters hold the government responsible for the economy, so they reward incumbents for good and punish them for bad economic performance
 
-*Hypothesis*:  
-Individuals who voted for a party that lost the election  
-will report **lower satisfaction with democracy**.
+. . .
+
+*Model*: Economic performance ⟶ Incumbent vote
+
+. . .
+
+*Hypothesis*: The higher real economic growth per capita in the year before an election, the higher the **vote share of the incumbent** party
 
 ::: {.notes}
-- Example from the losers' consent literature (Anderson et al. 2005, *Losers' Consent*): electoral losers are less satisfied with democracy than winners
-- Model: election result -> satisfaction with democracy; hypothesis: losers report lower satisfaction
-- KW p. 4: a hypothesis is "a theory-based statement about a relationship that we expect to observe"; each has a null hypothesis (no relationship)
-- Returns in session 10 (losers' dissent slides) and session 11 (statistical testing)
+- KW's running example in ch. 1 (pp. 8-10), so students have read it (KW ch. 1 is background to today's ch. 2)
+- *Theory* = the causal explanation: why should X affect Y? KW p. 9: "because voters hold the president responsible for management of the national economy"
+- *Model*: two concepts and one arrow; everything else (candidates, campaigns, war) deliberately left out
+- *Hypothesis*: the concepts are now measured (economic performance -> one-year real growth per capita; incumbent vote -> incumbent party's vote share); directional (positive)
+- Other hypotheses from the same theory: unemployment instead of growth; individual level (people who think the economy got worse are less likely to vote for the incumbent); other countries
+- Literature if asked: Key (1966), *The Responsible Electorate*; Fiorina (1981), *Retrospective Voting in American National Elections*
+- KW test it with US presidential elections: scatter of GDP change and incumbent-party vote share (KW ch. 8, Figs. 8.3-8.4)
 :::
 
 ## Hypotheses
@@ -577,19 +599,16 @@ Presentation by **Alessio Gallonetto, Lea Hafen and Benjamin Seiwert**:
 
 <br>
 
-***Data and measurement***
-
-<br>
-
-Basic reading: KW, Chapter 5 (pp. 104–124)
+***Data and measurement*** · Basic reading: KW, ch. 5 (pp. 104–124)
 
 . . .
 
 <br>
 
-Presentation by **Nuraida Abdykapar Kyzy, Simon Ferdinand Eibach and Martins Titilola**:
+Presentation by **Nuraida Abdykapar Kyzy, Simon Ferdinand Eibach and Martins Titilola**:  
+Little & Meng (2023), *Measuring democratic backsliding*
 
-- Little, A. T., & Meng, A. (2023). Measuring democratic backsliding. *PS: Political Science & Politics*
+. . .
 
 <br>
 

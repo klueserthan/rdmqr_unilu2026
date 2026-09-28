@@ -305,7 +305,7 @@ Connect real-world observations to theory and methods
 
 Presentation of ongoing research by the lecturer, in the **same format** as your presentations:
 
-- **Klüser, S., Klüser, K. J.**, & Hoes, E. (2026). AI-Generated Explicit Deepfakes Damage Politicians' Perceived Leadership Competence, Trustworthiness and Electoral Prospects. *Revised and resubmitted, Communications Psychology*
+- Klüser, S., Klüser, K. J., & Hoes, E. (2026). AI-Generated Explicit Deepfakes Damage Politicians' Perceived Leadership Competence, Trustworthiness and Electoral Prospects. *Revised and resubmitted, Communications Psychology*
 
 <br>
 
@@ -322,19 +322,14 @@ Part I: summary and critique (~10 min) · Part II: alternative design (~15 min) 
 
 <br>
 
-***Theory and research design***
-
-<br>
-
-Basic reading: KW, Chapter 2 (pp. 25–52)
+***Theory and research design*** · Basic reading: KW, ch. 2 (pp. 25–52)
 
 . . .
 
 <br>
 
-Presentation by **Alessio Gallonetto, Lea Hafen and Benjamin Seiwert**:
-
-- Turnbull-Dugarte, S. J., & Wagner, M. (2025). Heroes and villains: motivated projection of political identities. *Political Science Research and Methods*
+Presentation by **Alessio Gallonetto, Lea Hafen and Benjamin Seiwert**:  
+Turnbull-Dugarte & Wagner (2025), *Heroes and villains: motivated projection of political identities*
 
 ::: {.notes}
 - Same day: session 3, 16:15-18:00, room 2.A45 (syllabus schedule)
