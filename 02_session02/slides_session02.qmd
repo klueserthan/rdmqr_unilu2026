@@ -37,6 +37,7 @@ format:
       buttons: false
     transition: slide
     background-transition: fade
+    slide-number: true
 ---
 
 ## The goal of *good* research
@@ -58,6 +59,15 @@ format:
 The process of drawing conclusions from what we **observe** to what we do **not (yet) observe**.
 
 
+::: {.notes}
+- Quote: KKV p. 3 (ch. 1, "The Science in Social Science"); basic reading today, pp. 3-33
+- **Inference** = using what we observe to learn about what we do not observe (KKV p. 8)
+  - *Descriptive*: from observed facts to unobserved facts (e.g., a survey sample -> the population)
+  - *Causal*: from data to causal effects (e.g., does canvassing raise turnout?)
+- Collecting facts alone is not science: the step beyond the data is (KKV p. 8)
+- Links to session 1 digression (inference vs. prediction) and to sessions 5-7 (descriptive, causal, predictive inference)
+:::
+
 ## Scientific inference
 
 <br>
@@ -74,6 +84,53 @@ Inferences that draw on evidence and reasoning, following a series of rules (or 
 - They must provide a **measure of uncertainty**  
   *(scientific conclusions are always tentative!)*
 
+::: {.notes}
+**KKV's four characteristics of scientific research** (pp. 7-9)
+
+1. *The goal is inference*: go beyond the particular observations collected
+2. *The procedures are public*: explicit, codified methods, so others can judge and replicate them (Merton: "science ... is public, not private")
+3. *The conclusions are uncertain*: inference without an uncertainty estimate is "uninterpretable"
+4. *The content is the method*: science is defined by its rules, not its subject matter (Pearson 1892: "The unity of all science consists alone in its method")
+
+- Implication (p. 9): science is a social enterprise; work does not have to be beyond criticism to contribute
+- Slide shows 2-4 as bullets; 1 was the previous slide
+:::
+
+## 
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+**Share your answers!**
+
+[*Seminar questions 2*]{style="color:gray"}
+
+<br>
+
+- Which of KKV's four characteristics did you pick, and why does it matter?
+
+- Do qualitative and quantitative research share the same logic of inference?
+
+:::
+
+::: {.column width="50%"}
+
+![](volunteers.png){width=75% fig-align="center"}
+
+:::
+
+::::
+
+
+::: {.notes}
+- Picks up seminar questions 2 (Q2 and Q3); answers were due Wednesday 30.09, 12:00
+- Q2: ask 2-3 students which characteristic they picked and their example; map each answer onto the list (previous notes)
+- Q3 (one logic of inference): KKV's claim (pp. 3-4) is that qualitative and quantitative research differ in style and technique, not in the underlying logic
+  - Counterpoint if the debate takes off: Brady & Collier (eds.), *Rethinking Social Inquiry* (2004), argue KKV judge qualitative work by quantitative standards
+  - Our course: quantitative focus, but small-N designs in session 10
+- Keep it short (~5 min); the RQ exercise comes later
+:::
 
 ## Components of a research design
 
@@ -85,6 +142,13 @@ Inferences that draw on evidence and reasoning, following a series of rules (or 
 - **Methods**: depend on inferential goals (sessions 5, 6, 7), resources, and data availability (sessions 8, 9, 10).  
   We will focus on **quantitative methods** (sessions 11, 12, 13)
 
+
+::: {.notes}
+- KKV p. 13: four components of every research design: the research question, the theory, the data, and the use of the data
+- They are rarely developed in this order; researchers go back and forth (KKV pp. 12-13: "taking down the scaffolding")
+- Course map (syllabus schedule): 3 theory - 4 data and measurement - 5/6/7 descriptive, causal, predictive inference - 8/9/10 experimental, large-N, small-N - 11 statistical testing - 12/13 regression - 14 conclusion
+- Today and session 3 happen on the same afternoon: research question now, theory at 16:15
+:::
 
 ## The research question
 
@@ -105,6 +169,18 @@ However, some guidelines:
 - Should be **focused**
 
 
+::: {.notes}
+- "No logical recipe": KKV p. 14, quoting Popper: "there is no such thing as a logical method of having new ideas"
+- KKV's two criteria (p. 15), also in seminar question 1:
+  1. *Important in the real world*: consequential for political, social or economic life
+  2. *A specific contribution to an identifiable scholarly literature*
+- Six ways to contribute (KKV pp. 16-17): (1) test an important hypothesis nobody has studied systematically; (2) challenge an accepted hypothesis; (3) help resolve a controversy; (4) examine unquestioned assumptions; (5) show an important topic has been overlooked; (6) apply theories or evidence from one literature to another
+- Personal motivation is fine but not a justification: "no one cares what we think - the scholarly community only cares what we can demonstrate" (p. 15)
+- *Researchable*: KKV p. 18: a topic that cannot be refined into a specific project permitting valid inference "should be modified along the way or abandoned"
+- *Focused* is our addition: narrow enough to answer with one design
+- Private-sector aside: there the "contribution" is to the organisation's goal, not a literature
+:::
+
 ## Types of research questions
 
 <br>
@@ -117,13 +193,19 @@ However, some guidelines:
 
 <br>
 
-## Group exercise: Think of a research question!
+::: {.notes}
+- What/How/Why maps roughly onto the inferential goals of sessions 5-7: descriptive (what), mechanisms (how), causal (why)
+- Descriptive questions are legitimate research questions (session 5 readings: Gerring 2012, *Mere Description*; de Kadt & Grzymala-Busse 2025)
+- Ask: which type is your seminar-question RQ?
+:::
+
+## Group exercise: Assess your research question!
 
 . . .
 
 <div style="font-size:90%">
 
-- Take **two minutes** to write a research question on something that interests you  
+- Take the research question you wrote for the **seminar questions** (question 1)  
 - Choose a partner next to you and share your research question  
 - Your partner should do the same with you  
 - Assess your partner's question (**three minutes**):  
@@ -132,12 +214,47 @@ However, some guidelines:
 
 </div>
 
-## Share your research question!
+::: {.notes}
+- Students use the RQ from seminar question 1 (uploaded by Wednesday 12:00); no new writing step
+- ~5 minutes in pairs; walk around, note 2-3 good examples to call on
+- Criteria to check: relevant, contribution, researchable, focused (previous slides); KKV's two criteria are in the seminar question
+- Anyone without a question: pair them with someone and let them assess
+:::
+
+## 
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+**Share your research question!**
+
+[*Seminar questions 2*]{style="color:gray"}
 
 <br>
 
-![](volunteer_meme.png){fig-align="center"}
+- What is your question?
 
+- Is it relevant, researchable and focused?
+
+- How did your partner improve it?
+
+:::
+
+::: {.column width="50%"}
+
+![](volunteer_meme.png){width=75% fig-align="center"}
+
+:::
+
+::::
+
+
+::: {.notes}
+- 2-3 volunteers; for each: which criterion is weakest, and how did the partner fix it?
+- Typical problems: too broad ("What drives populism?"), normative ("Should we ban ...?"), not researchable (no data), or already answered
+- Keep the questions in mind: session 3 builds on them (seminar question 3 asks for a hypothesis derived from the same RQ)
+:::
 
 ## Conclusion
 
@@ -147,8 +264,13 @@ A good **research question** is the first component of an effective research des
 
 . . .
 
-In two weeks, we will examine more of your research questions and assess how to connect them with a **theory and hypotheses**  
+Later today (session 3, 16:15), we will examine more of your research questions and assess how to connect them with a **theory and hypotheses**  
 
+
+::: {.notes}
+- The RQ is component 1 of 4 (KKV p. 13)
+- Session 3 today at 16:15: from RQ to theory, models and hypotheses (seminar question 3 builds on seminar question 1 of today)
+:::
 
 ---
 
@@ -170,9 +292,65 @@ Connect real-world observations to theory and methods
 
 **Remain skeptical!**  
 
+::: {.notes}
+- "Thinking like a social scientist": KKV section 1.3.4, pp. 32-33, "Skepticism and Rival Hypotheses"
+- KKV example: Japanese eat less red meat and have fewer heart attacks than Americans. A skeptic asks: are the data accurate and comparable? What else differs (other diet, genes, lifestyle)?
+- Ask these questions of your own research, not just of others'
+- Bridge: that is exactly what the presentations do with each applied reading
+:::
+
+## Up next: applied reading
+
+<br>
+
+Presentation of ongoing research by the lecturer, in the **same format** as your presentations:
+
+- **Klüser, S., Klüser, K. J.**, & Hoes, E. (2026). AI-Generated Explicit Deepfakes Damage Politicians' Perceived Leadership Competence, Trustworthiness and Electoral Prospects. *Revised and resubmitted, Communications Psychology*
+
+<br>
+
+Part I: summary and critique (~10 min) · Part II: alternative design (~15 min) · discussion
+
+::: {.notes}
+- Switch to the PowerPoint deck: 02_session02/presentation_slides_session02_KLUESER.pptx (speaker notes inside)
+- Same format and rubric as the student presentations: ~10 min summary and critique, ~15 min alternative design, then discussion (syllabus section 5, grading sheet)
+- The paper is the applied reading in OLAT (July 2026 revision, R&R at Communications Psychology)
+- Content note: the treatment videos in the deck are blurred; no explicit imagery is shown
+:::
+
+## Next session (01.10.26 - 16:15, room 2.A45)
+
+<br>
+
+***Theory and research design***
+
+<br>
+
+Basic reading: KW, Chapter 2 (pp. 25–52)
+
+. . .
+
+<br>
+
+Presentation by **Alessio Gallonetto, Lea Hafen and Benjamin Seiwert**:
+
+- Turnbull-Dugarte, S. J., & Wagner, M. (2025). Heroes and villains: motivated projection of political identities. *Political Science Research and Methods*
+
+::: {.notes}
+- Same day: session 3, 16:15-18:00, room 2.A45 (syllabus schedule)
+- Basic reading: KW (Kellstedt & Whitten), ch. 2, "The Art of Theory Building", pp. 25-52
+- First student presentation: Alessio Gallonetto, Lea Hafen, Benjamin Seiwert (three presenters in sessions 3 and 4)
+- This group may upload their slides on the morning of 1 October instead of Wednesday noon (OLAT message of 23.09)
+- Seminar questions 3 were due Wednesday 30.09, 12:00, together with today's
+:::
+
 ---
 
 ![](questions.png){fig-align="center"}
+
+::: {.notes}
+- Open floor: questions on KKV, the research question exercise, or the presentation format
+:::
 
 ## Thanks! :slightly_smiling_face:
 
@@ -184,4 +362,7 @@ Connect real-world observations to theory and methods
 
 <center>[klueser@ipz.uzh.ch](mailto:klueser@ipz.uzh.ch)</center>
 
+::: {.notes}
+- Contact: klueser@ipz.uzh.ch; meetings via Zoom on request within a week (syllabus: no fixed office hours)
+:::
 

@@ -46,10 +46,22 @@ format:
 
 ![](flat_earth.png)
 
+::: {.notes}
+- Opener: a flat Earth was a theory too, a tentative conjecture that fitted everyday observation
+- Ask: what evidence would make you give it up? (KKV p. 19: "What evidence would convince us that we are wrong?")
+- Next slide (Blue Marble photo) = new evidence overturning a theory
+:::
+
+
 ---
 
 
 ![](blue_marble.png){fig-align="center"}
+
+::: {.notes}
+- Theories are revised when evidence contradicts them; scientific knowledge stays open to the next test (KW pp. 4-5, on skepticism)
+- Bridge from session 2: "Remain skeptical!"
+:::
 
 ## What is a theory?
 
@@ -66,6 +78,12 @@ A **tentative conjecture** of how a phenomenon of the world works
 Either implicitly or explicitly, it conveys a set of **causal relationships** between **concepts**
 
 
+::: {.notes}
+- Definition: KW p. 3: "a tentative conjecture about the causes of some phenomenon of interest"
+- Concepts are abstract (e.g., "political trust"); variables are their measurable counterparts (session 4: measurement)
+- KW p. 4, Figure 1.1: theory -> hypotheses -> empirical test -> evaluate hypotheses -> evaluate theory -> scientific knowledge (shown again at the end)
+:::
+
 ## Some social science examples
 
 <br>
@@ -80,19 +98,37 @@ Partisanship as a “perceptual screen”
 Economic development fosters democracy  
 
 - **Social Identity Theory** *(Tajfel & Turner)*  
-Group membership shapes leads to group bias
+Group membership leads to group bias
+
+::: {.notes}
+**Background for the four examples**
+
+- *Rational choice*: Downs, *An Economic Theory of Democracy* (1957). Voters maximise expected utility; leads to the "paradox of voting" (KW 2.7.2, "The Puzzle of Turnout", pp. 45-47)
+- *Party identification*: Campbell, Converse, Miller & Stokes, *The American Voter* (1960). Partisanship as a long-term "perceptual screen" that filters information
+- *Modernization*: Lipset, "Some Social Requisites of Democracy", APSR (1959). Economic development -> democracy
+- *Social identity*: Tajfel & Turner (1979). Group membership -> in-group favouritism and out-group bias; today's applied reading (Turnbull-Dugarte & Wagner 2025) also deals with political identities
+
+- Ask: what is X and what is Y in each?
+:::
 
 ## Good theories should be...
 
 <br>
 
-- **Causal** *(explain why something happen)*
+- **Causal** *(explain why something happens)*
 
 - **Non-normative** *(does not prescribe what ought to happen)*
 
 - **General** *(work across contexts)*
 
 - **Parsimonious** *(explain much with little)*
+
+::: {.notes}
+- KW "rules of the road", ch. 1.5 (pp. 17-20): focus on causality; don't let data alone drive your theories; consider only empirical evidence; check your ideology at the door and avoid normative statements; pursue both generality and parsimony
+- Slide shows four of the five; the missing one ("don't let data alone drive your theories") comes up on the next slide
+- Generality and parsimony pull against each other: a more general theory usually needs more conditions (KW p. 20)
+- KKV p. 20 on parsimony: "Simple theories have higher prior probabilities" (Jeffreys); a judgement about the world, not a rule
+:::
 
 ## From ideas to good theories
 
@@ -106,8 +142,21 @@ But some ***strategies***:
 
 - Is it **relevant**? (starting with the RQ)  
 - Is there **interesting variation**? (e.g., puzzles)  
-- Are they **rooted in knowledge of the world** (specific events, local without pronouns)  
+- Are they **rooted in knowledge of the world** (specific events; know local, think global: drop the proper nouns)  
 - Do they **build on the literature** (e.g., gaps, extensions, implications)
+
+::: {.notes}
+**KW ch. 2 strategies** (basic reading, pp. 25-52)
+
+- "No magic formula": KW's lightning analogy (pp. 25-26); you can't guarantee being struck, but you can climb a hill in a thunderstorm
+- *Relevant*: promising theories answer interesting research questions (KW 2.2)
+- *Interesting variation* (KW 2.3): look at the dependent variable; cross-sectional (military spending across countries, Fig. 2.1) vs. time-series (US presidential approval 1995-2005, Fig. 2.2)
+  - Caveat: examine variation in Y only; developing theory after seeing X and Y move together violates "don't let data alone drive your theories" (p. 30)
+- *Knowledge of the world* (KW 2.4):
+  - From a specific event to a general theory: 9/11 rally -> Mueller's (1973) theory of rallies around the flag
+  - "Know local, think global: can you drop the proper nouns?" (KW 2.4.2): Lewis-Beck (1997) "Who's the Chef?" turned French cohabitation (Mitterrand/Chirac) into a general theory of economic accountability under divided control
+- *Build on the literature* (KW 2.5-2.6): three strategies: a new Y; an existing Y with a new X; a new Z that modifies an established X -> Y. Also: critically examine previous research; "someone already did it" is not the end (2.6.2)
+:::
 
 ## From theories to models
 
@@ -124,9 +173,21 @@ A **model** is a *simplified* representation of reality
 > *“All models are wrong, but some are **useful**.”*  
 > — George E. P. Box
 
+::: {.notes}
+- Theory = the general account; model = a simplified version focused on specific concepts and relationships
+- Box quote: George E. P. Box, statistician; the phrase appears in Box & Draper (1987)
+- Next slide: the Lucerne transport map as a model
+:::
+
 ---
 
 ![](lucerne_transport_map.png)
+
+::: {.notes}
+- Map analogy from KW p. 16, quoting James Rogers (2006): a street map distorts reality, and "it is precisely because the map distorts reality ... that it is a useful tool"
+- Ask: what does this map leave out? (distances, streets, terrain) Why is it still useful? (it answers one question: how to get from A to B)
+- KW p. 16: models are "often more useful to us when they are inaccurate"; glaring failures point to new theories
+:::
 
 ## When are models useful?
 
@@ -151,6 +212,12 @@ By removing complexity, they help us make theoretical claims **testable** (and t
 
 ⟶ *More later on* ***hypotheses***
 
+::: {.notes}
+- Models make theories testable by choosing which concepts and relationships to keep
+- Falsifiability (KKV pp. 19-20): choose theories that could be wrong; derive as many observable implications as possible; be as concrete as possible
+- "More later on hypotheses": two slides ahead
+:::
+
 ## Thinking in terms of variables 
 
 
@@ -169,6 +236,15 @@ By removing complexity, they help us make theoretical claims **testable** (and t
 - **Independent variable (IV):**  The factor(s) we think explain the DV 
 
 - **Other variables:** Moderators, mediators, confounders...
+
+::: {.notes}
+- KW p. 3 (footnote 1): a variable is "a definable quantity that can take on two or more values" (e.g., turnout as % of eligible voters)
+- DV = outcome (Y); IV = explanatory factor (X)
+- Moderator: changes the size or direction of X -> Y (e.g., candidate gender in the deepfake paper from session 2)
+- Mediator: the channel through which X affects Y
+- Confounder: a common cause of X and Y (next slide, DAG 3)
+- Measurement of variables: session 4
+:::
 
 ## Models as variables and relationships
 
@@ -210,6 +286,14 @@ $$
 </div>
 
 
+::: {.notes}
+- DAG 1: direct effect of X on Y
+- DAG 2: mediation, X affects Y through M (e.g., education -> political knowledge -> turnout)
+- DAG 3: confounding, Z causes both X and Y; the naive X-Y association is biased unless we account for Z (e.g., income -> education and income -> turnout)
+- Arrows = assumed causal direction; "acyclic" = no feedback loops
+- Returns in session 6 (causal inference) and session 9 (Cinelli et al. 2022, good and bad controls)
+:::
+
 ## From models to hypotheses
 
 <br>
@@ -231,6 +315,13 @@ Election results ⟶ Satisfaction with democracy
 *Hypothesis*:  
 Individuals who voted for a party that lost the election  
 will report **lower satisfaction with democracy**.
+
+::: {.notes}
+- Example from the losers' consent literature (Anderson et al. 2005, *Losers' Consent*): electoral losers are less satisfied with democracy than winners
+- Model: election result -> satisfaction with democracy; hypothesis: losers report lower satisfaction
+- KW p. 4: a hypothesis is "a theory-based statement about a relationship that we expect to observe"; each has a null hypothesis (no relationship)
+- Returns in session 10 (losers' dissent slides) and session 11 (statistical testing)
+:::
 
 ## Hypotheses
 
@@ -257,6 +348,13 @@ Directional hypotheses can be **positive** (variables move in the same direction
 </div>
 
 </div>
+
+::: {.notes}
+- Non-directional example: income is related to turnout. Directional: higher income increases turnout (positive relationship)
+- Negative example: more distance to the polling station -> lower turnout
+- Directional hypotheses are more falsifiable (KKV p. 20: be concrete), so prefer them when theory allows
+- Null hypothesis (KW p. 4): no relationship; statistical testing in session 11
+:::
 
 ## RQs, theory and hypotheses
 
@@ -397,6 +495,50 @@ question
 :::
 
 
+::: {.notes}
+- The motivating question leads to a theory; the model simplifies it; the empirical question it yields becomes a testable hypothesis
+- Read top to bottom on the left (abstract), then left to right (from theory to what we test)
+- Session 2's research question is the "motivating question"; seminar question 3 asks students to go the whole way
+:::
+
+## 
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+**Share your research question and hypothesis!**
+
+[*Seminar questions 3*]{style="color:gray"}
+
+<br>
+
+- What is your research question?
+
+- What is your hypothesis? Is it directional?
+
+- Would testing it answer your question?
+
+:::
+
+::: {.column width="50%"}
+
+![](volunteer_meme.png){width=75% fig-align="center"}
+
+:::
+
+::::
+
+::: {.notes}
+- Picks up seminar questions 3 (due Wednesday 30.09, 12:00): RQ, one hypothesis, does testing it answer the RQ?
+- 2-3 volunteers; check for each:
+  - Is the hypothesis derived from the RQ, and is it testable and falsifiable?
+  - Directional or non-directional?
+  - X, Y, and a plausible confounder?
+  - Does a test answer the RQ, or only part of it? (common gap: a "why" RQ with a purely descriptive hypothesis)
+- Students may have reused or refined their RQ from session 2 (seminar question 1)
+:::
+
 # Conclusion
 
 
@@ -409,29 +551,66 @@ question
 </div>
 
 
-## Next session (16:15)
+::: {.notes}
+- KW p. 4, Figure 1.1: causal theory -> hypotheses -> empirical test -> evaluate hypotheses -> evaluate causal theory -> scientific knowledge
+- KW note: in practice much messier than the diagram
+- Today covered the first two boxes; sessions 4-13 cover the rest
+:::
+
+## Up next: applied reading
 
 <br>
 
-Data and Measurement
+Presentation by **Alessio Gallonetto, Lea Hafen and Benjamin Seiwert**:
+
+- Turnbull-Dugarte, S. J., & Wagner, M. (2025). Heroes and villains: motivated projection of political identities. *Political Science Research and Methods*
+
+::: {.notes}
+- Presenters: Alessio Gallonetto, Lea Hafen, Benjamin Seiwert (three presenters: first slot, shortest preparation time)
+- Slides were allowed until the morning of 1 October (OLAT message of 23.09); check they are in Students responses/Presentation slides
+- Grade with 00_grading/presentation_grading_sheet.pdf: clarity, understanding, critique quality, reasoning, feasibility, discussion (0-5 each; 15/30 = pass)
+- Paper: Turnbull-Dugarte & Wagner (2025), PSRM: motivated projection of political identities; a good link to today's hypotheses and identity theory
+- Timing: 25 minutes max., then discussion to improve the proposal
+:::
+
+## Next session (08.10.26 - 14:15, room 4.B51)
 
 <br>
 
+***Data and measurement***
+
 <br>
+
+Basic reading: KW, Chapter 5 (pp. 104–124)
 
 . . .
 
-**Before...**
+<br>
+
+Presentation by **Nuraida Abdykapar Kyzy, Simon Ferdinand Eibach and Martins Titilola**:
+
+- Little, A. T., & Meng, A. (2023). Measuring democratic backsliding. *PS: Political Science & Politics*
 
 <br>
 
-Presentation by **Laura Rios Quiroz**:
+Seminar questions for sessions 4 and 5 due **Wednesday 07.10, 12:00**
 
-*Heroes and villains: motivated projection of political identities*
+::: {.notes}
+- Session 4: Thursday 08.10.26, 14:15-16:00, room 4.B51; session 5 (descriptive inference) follows 16:15-18:00, same room
+- Basic reading session 4: KW ch. 5, "Measuring Concepts of Interest", pp. 104-124
+- Presenters: Nuraida Abdykapar Kyzy, Simon Ferdinand Eibach, Martins Titilola (three presenters); slides due Wednesday 07.10, 12:00
+- Session 5 presenters: Rika Elena Hünerbach and Samantha Irving, Barnes & Karim (2025), *The Manosphere and politics*
+- Seminar questions for sessions 4 and 5 due Wednesday 07.10, 12:00
+- Admin: Martins Titilola's registration still to be checked (00_admin/pending_updates.md)
+:::
 
 ---
 
 ![](questions.png){fig-align="center"}
+
+::: {.notes}
+- Open floor: questions on theory building, hypotheses, or the presentation
+:::
 
 ## Thanks! :slightly_smiling_face:
 
@@ -443,4 +622,7 @@ Presentation by **Laura Rios Quiroz**:
 
 <center>[klueser@ipz.uzh.ch](mailto:klueser@ipz.uzh.ch)</center>
 
+::: {.notes}
+- Contact: klueser@ipz.uzh.ch; meetings via Zoom on request within a week (syllabus: no fixed office hours)
+:::
 
