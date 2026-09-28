@@ -307,8 +307,6 @@ Presentation of ongoing research by the lecturer, in the **same format** as your
 
 - Klüser, S., Klüser, K. J., & Hoes, E. (2026). AI-Generated Explicit Deepfakes Damage Politicians' Perceived Leadership Competence, Trustworthiness and Electoral Prospects. *Revised and resubmitted, Communications Psychology*
 
-<br>
-
 Part I: summary and critique (~10 min) · Part II: alternative design (~15 min) · discussion
 
 ::: {.notes}

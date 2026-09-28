@@ -143,7 +143,7 @@ Either implicitly or explicitly, it conveys a set of **causal relationships** be
 - Bonus, violating "don't let data alone drive your theories" (KW 1.5.2): correlate 200 variables with turnout and write a theory around whichever one is significant
 :::
 
-## From ideas to good theories
+## From ideas to good theories {.smaller}
 
 *Again, no magic formula!*
 
@@ -237,6 +237,8 @@ By removing complexity, they help us make theoretical claims **testable** (and t
 
 ## From concepts to variables
 
+<div style="font-size:90%">
+
 . . .
 
 **Concepts** are the abstract building blocks of a theory  
@@ -254,6 +256,8 @@ From concept to variable = **operationalization** (session 4)
 - **Dependent variable (DV):** the outcome we want to explain  
 - **Independent variable (IV):** the factor(s) we think explain the DV  
 - **Other variables:** moderators, mediators, confounders...
+
+</div>
 
 ::: {.notes}
 - Why concepts first: theories are stated in concepts; hypotheses and tests need variables. The move between them is measurement (operationalization), the topic of session 4 (KW ch. 5)
@@ -313,6 +317,8 @@ $$
 
 ## From models to hypotheses
 
+<div style="font-size:90%">
+
 . . .
 
 **Models** specify relationships between variables; **hypotheses** translate them into testable claims
@@ -334,6 +340,8 @@ $$
 . . .
 
 *Hypothesis*: The higher real economic growth per capita in the year before an election, the higher the **vote share of the incumbent** party
+
+</div>
 
 ::: {.notes}
 - KW's running example in ch. 1 (pp. 8-10), so students have read it (KW ch. 1 is background to today's ch. 2)
@@ -596,8 +604,6 @@ Presentation by **Alessio Gallonetto, Lea Hafen and Benjamin Seiwert**:
 :::
 
 ## Next session (08.10.26 - 14:15, room 4.B51)
-
-<br>
 
 ***Data and measurement*** · Basic reading: KW, ch. 5 (pp. 104–124)
 
