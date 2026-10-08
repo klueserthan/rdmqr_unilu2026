@@ -56,21 +56,39 @@ format:
 
   → They depend on our **goals**
 
+::: {.notes}
+**Time:** 16:15-16:17 (2 min). Session plan (90 min): lecture and interaction 16:15-17:08 (53 min) · student presentation and discussion 17:08-17:42 (at least 30 min) · wrap-up 17:42-17:45. Tight session: the "if behind" cues below say what to cut
+
+- KKV p. 13: four components of every research design (session 2): research question, theory, data, use of the data
+- Sessions 2-4 covered the first three (RQ; theory and hypotheses; measurement). Today starts the fourth: what we do with the data
+- Sessions 5-7: three inferential goals: descriptive (today), causal (session 6), predictive (session 7). The empirical strategy follows from the goal
+:::
+
 ## Descriptive inference
 
 > The goal of *good* research is to *“produce valid inferences about social and political life”* (King, Keohane, & Verba 1994, p. 3)
 
 . . .
 
-<br>
-
 What is **descriptive** inference?
 
-. . . 
-
-<br>
+. . .
 
 → To infer **features** [(including associations, but non-causal relationships)]{style="color:gray"} of a broader population
+
+. . .
+
+Description is not *"mere"* description: we cannot explain what we have not described [(KKV, p. 34)]{style="color:gray"}
+
+::: {.notes}
+**Time:** 16:17-16:21 (4 min)
+
+- Quote: KKV p. 3 (also session 2)
+- KKV p. 55: "Descriptive inference is the process of understanding an unobserved phenomenon on the basis of a set of observations"
+- KKV p. 34: description (collecting facts) is not yet descriptive inference; the inference is the step from observed to unobserved facts, and separating what is systematic from what is nonsystematic
+- KKV p. 34 against "mere" description: "We cannot construct meaningful causal explanations without good description"; it is not description vs. explanation that makes research scientific, but systematic inference by valid procedures
+- Associations count as description as long as we do not claim that one variable causes the other (de Kadt & Grzymala-Busse's ladder, later)
+:::
 
 ## Two main goals
 
@@ -81,6 +99,14 @@ What is **descriptive** inference?
 
 - Infer descriptive information about **two or more variables**
 
+::: {.notes}
+**Time:** 16:21-16:22 (1 min)
+
+- One variable: what are typical values, how spread out are they? (KW 6.1, p. 125); this is most of KW ch. 6 and of the R demo
+- Two or more variables: associations and conditional associations; the last plot of the demo
+- KW p. 130: we need to know each variable's variation before we can assess covariation (causal hurdle 3) or confounding (hurdle 4)
+:::
+
 ## A practical example: our classroom
 
 ```{r}
@@ -90,46 +116,21 @@ What is **descriptive** inference?
 library(dplyr)
 library(stringr)
 
-# Create dataset 
-data <- tribble(
-  ~Surname,         ~Name,
-  "Brown",          "Elli Margaret",
-  "Demir",          "Rojhat Yigit",
-  "Djogova",        "Nikolina",
-  "Eymann",         "Bernhard",
-  "Flütsch",        "Reto",
-  "Gaggini",        "Clelia",
-  "Graf",           "Robin",
-  "Hager",          "Lisa Anna",
-  "Herrera Garcia", "Juan Manuel",
-  "Hofer",          "Nadja Alexandra",
-  "Klamt",          "Reachel",
-  "Landis",         "Olivia Lea",
-  "Lunkova",        "Anastasiia",
-  "Michel",         "Fabian",
-  "Moses",          "Emmanuel Saba",
-  "Paraboni",       "Giulio",
-  "Rios Quiroz",    "Laura",
-  "Robatel",        "Annick France",
-  "Schwegler",      "Salome Claudia"
-)
-
-# Combine Surname and Name into Full_Name
-data <- data |>
+# Class list: kept locally in 00_admin/ (gitignored), not in the public repo
+set.seed(2026)
+data <- read.csv("../00_admin/classroom_2026.csv", fileEncoding = "UTF-8") |>
   mutate(
+    # Combine Surname and Name into Full_Name
     Full_Name = paste(Surname, Name),
-    
-    # Simple heuristic to infer gender
-    Gender = case_when(
-      Name %in% c("Bernhard", "Reto", "Robin", "Juan Manuel", "Fabian",
-                  "Emmanuel Saba", "Giulio", "Rojhat Yigit") ~ "Male",
-      TRUE ~ "Female"
-    ),
-    
-    # Count number of words in full name
+
+    # Count number of letters in full name
     Name_Length = str_length(str_remove_all(Full_Name, "\\s"))
   ) |>
-  select(Full_Name, Gender, Name_Length)
+  # Shuffle the rows and replace names with IDs, so no names appear on the slides
+  slice_sample(prop = 1) |>
+  mutate(Student = paste("Student", row_number())) |>
+  select(Student, Gender, Name_Length) |>
+  as_tibble()
 
 ```
 
@@ -142,17 +143,48 @@ data <- data |>
 
 - Variables:
 
-  - Gender [(apologies for the assumption!)]{style="color:gray"}: **categorical**
+  - Gender [(apologies for the assumption!)]{style="color:gray"}
 
-  - Name length (in number of letters): **continuous**
+  - Name length (in number of letters)
+
+::: {.notes}
+**Time:** 16:22-16:24 (2 min)
+
+- Data: the 2026 class list (registered participants), read from a local file that is not in the public repo
+- Population vs. sample: can we infer anything about all UniLu students from this classroom? Not without assumptions: it is a convenience sample (master students in one seminar), not a random one. Ask: which features of UniLu students would we get badly wrong? (study programme, age, ...)
+- Gender here was recorded by the lecturer from first names, not self-reported: a measurement-validity issue from session 4 (and it leaves out non-binary students)
+- Next slide: what kind of variables are these? Do not give the answer yet
+:::
+
+## Variable types
+
+Which **types of variables** do you know?
 
 . . .
 
-Other variable type?
+Can you give an **example** of each?
 
-. . .
+- **Categorical**: values differ, but cannot be ranked  
+  [→ in our data: *gender*]{.fragment}
 
-→ **Ordinal**: ranked values without exact same distance between  values
+- **Ordinal**: values can be ranked, but the distances between them are not equal  
+  [→ in our data: none. *Your example?*]{.fragment}
+
+- **Continuous**: equal distances; a one-unit increase always means the same  
+  [→ in our data: *name length*]{.fragment}
+
+::: {.notes}
+**Time:** 16:24-16:29 (5 min)
+
+- Ask first which types students know (collect answers), then click 1 shows KW's three types with definitions and the question "Can you give an example of each?"; collect one or two student examples per type before revealing ours (clicks 2-4)
+- KW 6.2 (pp. 126-130), the variable's "measurement metric":
+  - *Categorical* (p. 127): cases are the same or different, no ranking. KW: religious identification (Catholic, Muslim, nonreligious, ...)
+  - *Ordinal* (pp. 127-128): rankable, but no equal unit differences. KW: retrospective family financial situation ("much better" ... "much worse"); party ID (Republican, Independent, Democrat) only if Independents really lie between the two parties
+  - *Continuous* (p. 129): equal unit differences. KW: age in years; one more year means the same at 21 and at 55
+- Good student examples for ordinal: education level, agreement scales ("strongly disagree" ... "strongly agree"), interest in politics (not at all ... very)
+- If asked: KW also call continuous variables "interval"; with a meaningful zero (like name length) "ratio" (p. 129, fn. 4). Not needed today
+- KW p. 130: in practice we must treat every variable as either categorical or continuous. Ordinal variables are the hard case: treat them as categorical and you throw information away; treat them as continuous and you assume equal distances. Check whether results change under the other choice
+:::
 
 ## A look into our data
 
@@ -175,6 +207,15 @@ data
 data
 ```
 
+:::
+
+::: {.notes}
+**Time:** 16:29-16:30 (1 min)
+
+- A tibble prints the first 10 rows, the dimensions and each column's type (`<chr>`, `<int>`)
+- Names are replaced by IDs (rows shuffled) so the slides can be shared; name length was computed from the full names before that
+- KW p. 126: once we go beyond a few observations, a listing of values becomes unwieldy ("lost in the trees"); hence summary statistics and graphs
+- Ask: from the list alone, what is a typical name length? (KW's "Your turn", p. 126)
 :::
 
 ## Barplot: categorical variables
@@ -229,11 +270,20 @@ ggplot(data, aes(x = Gender, fill = Gender)) +
 
 :::
 
+::: {.notes}
+**Time:** 16:30-16:32 (2 min)
+
+- KW 6.3 (pp. 130-132): for categorical variables we want the frequency of each value: frequency table, pie graph or bar graph
+- KW p. 131: many statisticians "argue strongly against" pie graphs and prefer bar graphs; and a simple frequency table often shows the same information more precisely
+- `geom_bar()` counts the rows per category itself; no need to aggregate first
+- Show the Code tab: `aes()` maps variables to the plot, `fill` colours by gender, `labs()` sets the labels
+:::
+
 ## Histogram: continuous variables
 
 ::: {.panel-tabset}
 
-### Output
+### Bin width 2
 
 ```{r}
 #| echo: false
@@ -245,10 +295,31 @@ library(ggplot2)
 
 # Histogram with density overlay
 ggplot(data, aes(x = Name_Length)) +
-  geom_histogram(aes(y = ..density..),bins = 6, fill = "#A1C9F4", color = "white", alpha = 0.7) +
-  geom_density(color = "#FFB482", size = 1.2) +
+  geom_histogram(aes(y = after_stat(density)), binwidth = 2, boundary = 0, fill = "#A1C9F4", color = "white", alpha = 0.7) +
+  geom_density(color = "#FFB482", linewidth = 1.2) +
   labs(
     title = "Distribution of name length",
+    x = "Name length (letters)",
+    y = "Density") +
+  theme_minimal(base_size = 14)
+```
+
+### Bin width 5
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| eval: true
+
+library(ggplot2)
+
+# Histogram with density overlay
+ggplot(data, aes(x = Name_Length)) +
+  geom_histogram(aes(y = after_stat(density)), binwidth = 5, boundary = 0, fill = "#A1C9F4", color = "white", alpha = 0.7) +
+  geom_density(color = "#FFB482", linewidth = 1.2) +
+  labs(
+    title = "Distribution of name length (bin width 5)",
     x = "Name length (letters)",
     y = "Density") +
   theme_minimal(base_size = 14)
@@ -266,15 +337,53 @@ library(ggplot2)
 
 # Histogram with density overlay
 ggplot(data, aes(x = Name_Length)) +
-  geom_histogram(aes(y = ..density..),bins = 10, fill = "#A1C9F4", color = "white", alpha = 0.7) +
-  geom_density(color = "#FFB482", size = 1.2) +
+  geom_histogram(aes(y = after_stat(density)), binwidth = 2, boundary = 0, fill = "#A1C9F4", color = "white", alpha = 0.7) +
+  geom_density(color = "#FFB482", linewidth = 1.2) +
   labs(
-    title = "Distribution of name length (letters, no spaces)",
+    title = "Distribution of name length",
     x = "Name length (letters)",
     y = "Density") +
   theme_minimal(base_size = 14)
 ```
 
+:::
+
+::: {.notes}
+**Time:** 16:32-16:35 (3 min). If behind schedule: skip the bin width 5 tab
+
+- KW p. 138 (Fig. 6.5): a histogram shows the values on the x axis and their relative frequency on the y axis
+- Each bar covers 2 letters (`binwidth = 2`; `boundary = 0` makes the bins start at even numbers: 8-10, 10-12, ...)
+- The bin width is a choice and changes the impression of the distribution (KW Fig. 6.6, two vs. ten blocks): click between the "Bin width 2" and "Bin width 5" tabs. Ask: which one would you report, and does the story change?
+- The orange line is a kernel density plot (KW p. 139, Fig. 6.7), a smoothed estimate that does not depend on bins
+- `after_stat(density)` puts the histogram on the density scale so both layers share one y axis
+:::
+
+## Central tendency
+
+Which measures of **central tendency** do you know?
+
+. . .
+
+<br>
+
+<div style="font-size:85%">
+
+| | **Categorical** | **Ordinal** | **Continuous** |
+|---|:---:|:---:|:---:|
+| **Mode**: most frequent value | ✓ | ✓ | ✓ |
+| **Median**: middle case when ranked | | ✓ | ✓ |
+| **Mean**: sum of values / n | | | ✓ |
+
+</div>
+
+::: {.notes}
+**Time:** 16:35-16:39 (4 min)
+
+- Ask first, collect answers on the board (usually: mean, median, maybe mode), then click to show the table
+- Logic of the table: each measure needs a property of the variable. The mode only needs categories; the median needs a ranking; the mean needs equal distances (KW 6.2)
+- KW p. 131: the mode is the only measure of central tendency appropriate for a categorical variable
+- Ordinal: the median is fine; a mean of an agreement scale assumes equal distances, i.e. treats it as continuous (KW p. 130). Common in practice, but a choice to be aware of
+- Next two slides: the code and our results, first for gender, then for name length
 :::
 
 ## Central tendency measures: categorical variables
@@ -324,6 +433,13 @@ mode_gender
 
 :::
 
+::: {.notes}
+**Time:** 16:39-16:40 (1 min). If behind schedule: show the result only, skip the code walkthrough
+
+- Ask: why not the mean of gender? (KW exercise 3, p. 141: the mean of religious identification is meaningless; the category labels have no numeric meaning)
+- Code: count the rows per category, keep the largest (`slice_max`), extract the label (`pull`). If two categories tie, `slice_max` returns both
+:::
+
 ## Central tendency measures: continuous variables
 
 ::: {.fragment}
@@ -365,6 +481,43 @@ data |>
 
 :::
 
+::: {.notes}
+**Time:** 16:40-16:42 (2 min)
+
+- *Median* (KW 6.4.1, p. 133): the value of the case at the exact centre when cases are ranked; with an even number of cases, the average of the two middle ones (KW's incumbent vote: 51.4575)
+- *Mean* (KW 6.4.2, p. 136): sum of all values divided by n. Two properties (pp. 136-137): zero-sum (deviations from the mean add up to 0) and least squares (the mean minimises the sum of squared deviations), which is why it is the "expected value", our best guess for a single case
+- Ask: why can the median name length be 16.5 letters, although nobody's name has half a letter? With an even number of cases (24 students) there is no single middle case, so the median is the average of the 12th and 13th ranked values (16 and 17 letters with the current class list). Same rule as KW's incumbent vote example (p. 133)
+- Mean vs. median: the median is robust to outliers, the mean is not. Ask: what happens to each if one student had a 60-letter name?
+:::
+
+## Spread
+
+Which measures of **spread** (dispersion) do you know?
+
+. . .
+
+<div style="font-size:78%">
+
+| | **Categorical** | **Ordinal** | **Continuous** |
+|---|:---:|:---:|:---:|
+| **Range**: max − min | | | ✓ |
+| **Q1, Q3**: values at 25% and 75% of the ranked cases | | ✓ | ✓ |
+| **IQR**: Q3 − Q1, the middle 50% | | | ✓ |
+| **Variance**: mean squared distance from the mean | | | ✓ |
+| **Standard deviation**: √variance, in original units | | | ✓ |
+
+</div>
+
+::: {.notes}
+**Time:** 16:42-16:45 (3 min)
+
+- Same logic as for central tendency: ask first, then click to show the table
+- Quartiles only need a ranking, so they work for ordinal variables (e.g., "a quarter answered 'disagree' or lower"); range, IQR, variance and SD subtract values, so they need equal distances
+- Categorical variables have none of these: their "spread" is the frequency distribution itself (bar plot, frequency table)
+- For ordinal variables you can still report the lowest and highest category, just not their difference
+- Next slide: the code and our results for name length
+:::
+
 ## Dispersion (spread measures)
 
 ::: {.fragment}
@@ -377,15 +530,15 @@ data |>
 
 library(dplyr)
 
-# Dispersion measures (name lenght)
+# Dispersion measures (name length)
 data |>
   summarise(
     variance = var(Name_Length),
     sd = sd(Name_Length),
     range = max(Name_Length) - min(Name_Length),
-    q1 = quantile(Name_Length, 0.25),
-    q3 = quantile(Name_Length, 0.75),
-    iqr = IQR(Name_Length)
+    q1 = quantile(Name_Length, 0.25, type = 2),
+    q3 = quantile(Name_Length, 0.75, type = 2),
+    iqr = IQR(Name_Length, type = 2)
   )
 ```
 
@@ -400,18 +553,28 @@ data |>
 
 library(dplyr)
 
-# Dispersion measures (name lenght)
+# Dispersion measures (name length)
 data |>
   summarise(
     variance = var(Name_Length),
     sd = sd(Name_Length),
     range = max(Name_Length) - min(Name_Length),
-    q1 = quantile(Name_Length, 0.25),
-    q3 = quantile(Name_Length, 0.75),
-    iqr = IQR(Name_Length)
+    q1 = quantile(Name_Length, 0.25, type = 2),
+    q3 = quantile(Name_Length, 0.75, type = 2),
+    iqr = IQR(Name_Length, type = 2)
   )
 ```
 
+:::
+
+::: {.notes}
+**Time:** 16:45-16:47 (2 min). If behind schedule: show the result only, skip the code walkthrough
+
+- *Rank statistics* (KW 6.4.1, p. 134): quartiles Q1 (25%) and Q3 (75%); IQR = Q3 - Q1, the spread of the middle 50%; range = max - min
+- *Moments* (KW 6.4.2, p. 137): variance = sum of squared deviations from the mean, divided by n - 1 (degrees of freedom, KW fn. 8, more in session 11); standard deviation = its square root, back in the original units ("roughly ... the average difference" from the mean)
+- Squaring keeps positive and negative deviations from cancelling out (p. 137)
+- `type = 2` = KW's hand method (p. 134): if the quartile falls between two ranked cases, average them, so Q1 here is the mean of the 6th and 7th of 24 names. R's default (type 7) interpolates instead and would give 12.75. Different software, different quartiles: the method is a choice, so state it
+- Transition: keep these numbers in mind (median from the previous slide, Q1, Q3, IQR); the next plot draws exactly them
 :::
 
 ## Boxplot: continuous variables
@@ -464,24 +627,65 @@ ggplot(data, aes(x = "", y = Name_Length)) +
 
 :::
 
+::: {.notes}
+**Time:** 16:47-16:49 (2 min)
+
+- Transition from the last slide: "These are the numbers we just computed, as a picture". Point at each part and ask the room to match it to the output: the line is the median, the box runs from Q1 to Q3 (its height is the IQR), the whiskers reach the lowest and highest non-outlier values (KW pp. 135-136, Fig. 6.4)
+- Outlier rule (KW p. 136): more than 1.5 x IQR above Q3 or below Q1; ggplot2 uses the same rule and draws outliers as dots
+- If someone checks: ggplot2 computes the box with R's default quartiles (type 7), so the lower edge sits at 12.75, not the 12.5 of the previous slide; invisible at this scale
+- KW p. 135: when you see an outlier, first check whether it is a data-entry error; KW's 1920 incumbent vote (36.1%) turned out to be correct
+- Why it matters for later: one box summarises a whole distribution in little space, so we can put several side by side. Keep that in mind for the question in two slides
+:::
+
 ## Summary of descriptive measures
 
-<br> 
+<div style="font-size:65%; line-height:1.2;">
 
-<div style="font-size:70%; line-height:1.2;">
-
-| **Measure** | **Symbol / Formula** | **Meaning** |
-|--------------|----------------------|--------------|
-| **Mode** | — | Most frequent value |
-| **Median** | — | Middle observation |
-| **Mean** | $\bar{X} = \frac{\sum X_i}{n}$ | Average value |
-| **IQR** | $Q_3 - Q_1$ | Middle 50% range |
-| **Variance** | $s^2 = \frac{\sum (X_i - \bar{X})^2}{n - 1}$ | Spread (squared units) |
-| **Std. Deviation** | $s = \sqrt{s^2}$ | Spread (original units) |
-| **Skewness** | $g_1 = \frac{\sum (X_i - \bar{X})^3 / n}{s^3}$ | Asymmetry |
-| **Kurtosis** | $g_2 = \frac{\sum (X_i - \bar{X})^4 / n}{s^4}$ | Peakedness |
+| | **Measure** | **Formula** | **Meaning** | **Based on** |
+|---|---|---|---|---|
+| ***Central tendency*** | **Mode** | — | Most frequent value | Frequencies |
+| | **Median** | — | Middle observation | Ranks |
+| | **Mean** | $\bar{X} = \frac{\sum X_i}{n}$ | Average value | 1st moment |
+| ***Spread*** | **IQR** | $Q_3 - Q_1$ | Middle 50% range | Ranks |
+| | **Variance** | $s^2 = \frac{\sum (X_i - \bar{X})^2}{n - 1}$ | Spread (squared units) | 2nd moment |
+| | **Std. deviation** | $s = \sqrt{s^2}$ | Spread (original units) | 2nd moment |
+| ***Shape*** | **Skewness** | $g_1 = \frac{\sum (X_i - \bar{X})^3 / n}{s^3}$ | Asymmetry | 3rd moment |
+| | **Kurtosis** | $g_2 = \frac{\sum (X_i - \bar{X})^4 / n}{s^4}$ | Peakedness | 4th moment |
 
 </div>
+
+::: {.notes}
+**Time:** 16:49-16:51 (2 min). If behind schedule: 30 seconds, point to the grouping and move on
+
+- Three questions about a distribution: where is its centre, how spread out is it, what shape does it have?
+- Two ways of computing (KW p. 133; Stata's `summarize, detail` in Fig. 6.3 shows both): *rank statistics* (median, quartiles, IQR) rank the cases and read off positions; *moments* are based on deviations from the mean, raised to the 1st, 2nd, 3rd and 4th power. The mode is neither: it just counts
+- Rank statistics are robust to outliers; moments use every value and are pulled by extreme ones
+- Skewness (KW p. 137, fn. 10): 0 = symmetric; negative = longer tail to the left, positive = longer tail to the right
+- Kurtosis: how peaked the distribution is; the normal distribution has skewness 0 and kurtosis 3 (session 11)
+- Base R has no skewness/kurtosis functions; packages such as `moments` or `e1071` do (not needed for the take-home exercises)
+:::
+
+## Two variables: your turn
+
+<br>
+
+How would you **visualize** the relationship between **gender** and **name length**?
+
+. . .
+
+<br>
+
+[Gender: categorical · Name length: continuous]{style="color:gray"}
+
+::: {.notes}
+**Time:** 16:51-16:53 (2 min)
+
+- Give the room a minute; let two or three students describe their plot before showing ours
+- The hint (click) is the key: one categorical and one continuous variable -> one distribution of name length per gender
+- Good answers: box plots side by side (ours, next slide); two histograms or density curves; a strip or dot plot with every student as a point; the mean per group with its spread
+- Weaker answer: a bar chart of the two means. It hides the spread, and the spread is what tells us whether the groups really differ
+- If someone suggests a scatter plot: works for two continuous variables, not with a categorical one on the x axis (points pile up in two columns, which is basically a strip plot)
+:::
 
 ## Bivariate relationship plot
 
@@ -533,6 +737,15 @@ ggplot(data, aes(x = Gender, y = Name_Length, fill = Gender)) +
 
 :::
 
+::: {.notes}
+**Time:** 16:53-16:55 (2 min)
+
+- Two variables: a continuous one (name length) by a categorical one (gender) -> one box plot per group
+- This is an *association*: do the two vary together? It says nothing about causes. KW 6.5 (p. 139): we cannot test causal theories with a single variable; an association between two is not a causal test either (session 6)
+- Ask: is the difference between the boxes meaningful or noise? With small groups, a few names move the median a lot; statistical testing in session 11
+- Code: the only change from the single box plot is `x = Gender`
+:::
+
 ## Good descriptive inference
 
 . . .
@@ -541,26 +754,78 @@ ggplot(data, aes(x = Gender, y = Name_Length, fill = Gender)) +
 
 **Good estimators are:**
 
-- **Unbiased** → valid  
+- **Unbiased**: right on average, no systematic error  
+  [(session 4: *valid*, low bias)]{style="color:gray"}
 
-- **Consistent** → reliable  
+- **Efficient**: little spread across repeated samples  
+  [(session 4: *reliable*, low variance)]{style="color:gray"}
 
-- **Efficient** → precise  
+- **Consistent**: closer to the true value as n grows  
+  [(session 4: the "more data" simulation)]{style="color:gray"}
 
 . . .
 
 →  Ultimately, how **useful** is your description for your [**theory**]{style="color:red"}?
 
----
+::: {.notes}
+**Time:** 16:55-16:58 (3 min)
 
-![](mere_description.png){fig-align="center"}
+- KKV 2.7 (pp. 63-74): three criteria for judging methods of inference, used again for causal inference in KKV ch. 3
+- Session 4 was about *measures* (one measurement of one case); these are properties of *estimators*, the procedures that turn a sample into an estimate (e.g., the sample mean as an estimate of the population mean). Same logic, one level up
+- *Unbiased* (KKV p. 63): applied again and again, the estimator gives the right answer on average; bias = systematic error that shifts estimates in one direction (KKV: leaders inflating conflict for the researcher; corrupt vote counters)
+- *Efficient* (KKV p. 66): among unbiased estimators, the one with the smaller variance across hypothetical replications; KKV accept a little bias for a large gain in efficiency. 25 communities beat one "typical" community
+- *Consistent* (KKV p. 67): as n grows, the estimator's variability shrinks to zero and it converges on the true value. Session 4's simulation: the left panel is consistent; the right panel also settles, but on the wrong value
+- KKV fn. 14: an estimator can be unbiased but inconsistent (use only the first observation, however large n) or biased but consistent (the bias shrinks as n grows)
+- Last line: bridge to the next slides; description is judged by what it does for theory
+:::
 
+## From description to research questions
 
-## 
+Session 2: research questions ask **what**, **how** or **why**
+
+. . .
+
+A theory raises **many** questions, not only a causal one
+
+*Example (session 3):* economic performance ⟶ incumbent vote
+
+. . .
+
+<div style="font-size:85%">
+
+- What is "economic performance", and how do we measure it?
+- How often do incumbents lose elections?
+- Do bad economic years and incumbent losses go together?
+- Do they still go together once we account for other factors?
+- Does a bad economy *cause* incumbents to lose? *How*?
+
+</div>
+
+::: {.notes}
+**Time:** 16:58-17:00 (2 min)
+
+- Recall session 2's table of question types: what (descriptive), how (explanatory), why (causal); and session 3's running example, the theory of economic voting (KW pp. 8-10)
+- Point: the causal question is only the last of many questions one theory raises. Most of the earlier ones are descriptive, and we need answers to them before the causal one makes sense
+- Read the five questions top to bottom; the next slide gives each of them a name
+:::
+
+## The ladder of research questions
 
 ![Source: de Kadt & Grzymala-Busse 2025](dekadt_grzymala-busse.png){fig-align="center"}
 
-## 
+::: {.notes}
+**Time:** 17:00-17:02 (2 min)
+
+- de Kadt & Grzymala-Busse (2025), "Good Description", working paper (May 2025 version), Fig. 1 (p. 8): the same ladder for any theory A -> B
+- Map the previous slide's questions onto the rungs: concept (what is economic performance?) -> characteristic (how often do incumbents lose?) -> association (bad years and losses together?) -> conditional association (still, given other factors?) -> causal effect -> explanatory mechanism (how?)
+- The upper four rungs are descriptive; only the bottom two are causal (session 6)
+- Not a ranking of importance, but you cannot answer a lower rung without being able to answer the higher ones (p. 8): no causal claim without knowing what A and B are and how often they occur. Session 4's measurement problem is the top rung
+- Good descriptive *questions* (p. 11) reflect theory, build theory (describe phenomena that need explaining) or evaluate theory (check non-causal implications)
+- Further reading if students ask why description has a bad name: Gerring (2012), *Mere Description* (additional reading)
+- Seminar question 5 asked for exactly this: a descriptive question useful for your theory
+:::
+
+##
 
 :::: {.columns}
 
@@ -586,29 +851,83 @@ ggplot(data, aes(x = Gender, y = Name_Length, fill = Gender)) +
 
 ::::
 
+::: {.notes}
+**Time:** 17:02-17:07 (5 min). Hard stop at 17:07; take fewer volunteers before cutting the presentation time
 
+- Picks up seminar questions 5 (due Wednesday 07.10, 12:00): (1) the revised RQ and its type (descriptive, causal, other); (2) a descriptive question that helps understand or evaluate the theory, and why it is useful
+- 2-3 volunteers; for each:
+  - Which rung of the ladder is it on (characteristic, association, conditional association)?
+  - Does it reflect, build or evaluate the theory (de Kadt & Grzymala-Busse's three goals)?
+  - Population and sample: what would the data be, and could we generalise from it?
+  - Is the main concept measurable (session 4)?
+- Common slip: a "descriptive" question that is really causal ("Does X increase Y?")
+:::
 
-## Next session (16:15)
+## Up next: applied reading
 
 <br>
 
-*→ Causal Inference*
+Presentation by **Rika Elena Hünerbach and Samantha Irving**:
 
-<br>
+- Barnes, M. J., & Karim, S. M. (2025). The Manosphere and politics. *Comparative Political Studies*
+
+::: {.notes}
+**Time:** 17:07-17:08 hand over; presentation 17:08-17:33 (25 min max.), discussion 17:33-17:42
+
+- Presenters: Rika Elena Hünerbach and Samantha Irving
+- Slides were due Wednesday 07.10, 12:00 in Students responses/Presentation slides; check they are there
+- Grade with 00_grading/presentation_grading_sheet.pdf: clarity, understanding, critique quality, reasoning, feasibility, discussion (0-5 each; 15/30 = pass)
+- Timing: 25 minutes max., then discussion to improve the proposal
+- Citation: online first 2025 (as in the syllabus); print version *CPS* 59(1), 2026, pp. 3-43
+- Content note: the paper discusses misogyny and violence against women, including the 2014 Isla Vista attack
+
+**The paper, in today's terms**
+
+- A theory-building paper with two goals (abstract): a descriptive analysis of the manosphere from an original dataset, and a typology to theorise which subgroups turn violent
+- Data (pp. 10-11): 140 websites, blogs and forums from the Western, English-speaking world; seeded with the Southern Poverty Law Center's list, then snowball sampling via blogrolls; unit = organisation-year
+- Measurement (pp. 11-13): two scope criteria (commentary on men and masculinity + hostility to women, feminism or gender equality); double coding of ~20% of sites: exact agreement on post counts 63.8% (86.6% ignoring discrepancies under 10 posts), on subgroup 75.9%. Reliability from session 4
+- Description (pp. 13-15): new sites per year rise from the mid-2000s and spike in 2012-13 (Fig. 1); Men's Rights Activists dominate (Fig. 2); activity by subgroup (Fig. 3)
+- Typology (p. 17, Table 1): communitarianism x romantic/sexual interaction with women. Expectation: isolated, low-interaction groups (MGTOW, incels) more prone to violence
+- Discussion hooks: does snowball sampling from one starting list represent the manosphere (descriptive inference to which population)? Platforms left out (4chan, private channels); is the typology built inductively from the same data it later supports?
+:::
+
+## Next session (15.10.26 - 14:15, room 3.B48)
+
+***Causal inference*** · Basic reading: BF, ch. 2–3 (pp. 11–52)
 
 . . .
 
-**Before...**
+<br>
+
+Presentation by **Stephanie Lindegger and Leonie Schär**:
+Alrababa'h, Marble, Mousa & Siegel (2021), *Can exposure to celebrities reduce prejudice? The effect of Mohamed Salah on Islamophobic behaviors and attitudes*
+
+. . .
 
 <br>
 
-Presentation by **Lisa Anna Hager & Annick France Robatel**:
+Seminar questions for sessions 6 and 7 due **Wednesday 14.10, 12:00**
 
-*The Manosphere and politics*
+::: {.notes}
+**Time:** 17:42-17:44 (2 min)
+
+- Session 6: Thursday 15.10.26, 14:15-16:00, room 3.B48; session 7 (predictive inference) follows 16:15-18:00, same room
+- Basic reading session 6: BF (Bueno de Mesquita & Fowler), ch. 2 "Correlation" and ch. 3 "Causation", pp. 11-52; additional: KKV ch. 3
+- Presenters: Stephanie Lindegger and Leonie Schär; slides due Wednesday 14.10, 12:00
+- Paper: *APSR* 115(4), 1111-1128. The syllabus lists it as "Marble, Mousa & Siegel (2021)", but the first author is Ala' Alrababa'h
+- Session 7 presenters: Noa Flückiger and Malte Jonas Kohm, Hewitt et al. (2024), *Predicting results of social science experiments using large language models*
+- Session 7: take-home exercise I is published in OLAT (deadline 29.10.26)
+:::
 
 ---
 
 ![](questions.png){fig-align="center"}
+
+::: {.notes}
+**Time:** 17:44-17:45 (1 min)
+
+- Open floor: questions on descriptive statistics, the R code, or the presentation
+:::
 
 ## Thanks! :slightly_smiling_face:
 
@@ -619,3 +938,9 @@ Presentation by **Lisa Anna Hager & Annick France Robatel**:
 <br>
 
 <center>[klueser@ipz.uzh.ch](mailto:klueser@ipz.uzh.ch)</center>
+
+::: {.notes}
+**Time:** 17:45 end
+
+- Contact: klueser@ipz.uzh.ch; meetings via Zoom on request within a week (syllabus: no fixed office hours)
+:::

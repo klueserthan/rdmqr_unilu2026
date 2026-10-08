@@ -1,0 +1,54 @@
+---
+title: "Session plan 4: Data and measurement"
+format:
+  pdf:
+    documentclass: article
+    papersize: a4
+    geometry:
+      - landscape
+      - margin=1.2cm
+    fontsize: 10pt
+    number-sections: false
+    header-includes:
+      - \usepackage{etoolbox}
+      - \AtBeginEnvironment{longtable}{\small\renewcommand{\arraystretch}{1.35}}
+      - \pagestyle{empty}
+      - \usepackage{titling}
+      - \setlength{\droptitle}{-1.5cm}
+      - \pretitle{\begin{flushleft}\Large\bfseries}
+      - \posttitle{\end{flushleft}\vspace{-1.2cm}}
+---
+
+**Thu 08.10.26, 14:15–15:45 · Room 4.B51** · Basic reading: KW ch. 5 (pp. 104–124) · Applied reading: Little & Meng (2023), *Measuring democratic backsliding* · Presenters: **Nuraida Abdykapar Kyzy, Simon Ferdinand Eibach, Martins Titilola**
+
+**Learning goals:** students can (1) tell a concept from a variable and explain operationalization; (2) define reliability and face, content and construct validity; (3) explain why more data reduces random error but not bias.
+
+**Before class:** presentation slides in OLAT (due Wed 07.10, 12:00)? · seminar questions 3 and 4 uploaded? · grading sheet printed (`00_grading/presentation_grading_sheet.pdf`) · count of missing R tracks (`00_admin/track_choices.csv`) · deck in speaker view (press S)
+
+**Checkpoints:** 14:43 start "Assessing validity" · **15:05 end group exercise** · **15:08 presentation starts** (25 min max., then discussion until 15:42)
+
+| Time | Slide | Content | Interaction | Guiding questions | If behind |
+|:----------|:---|:-------------------------------|:--------------|:----------------------------------|:--------------|
+| 14:15–14:18 | 2 | Recap session 3: motivating question $\rightarrow$ theory $\rightarrow$ model $\rightarrow$ **hypothesis**; theories relate concepts, hypotheses relate variables | Input | Where did we stop last time? | |
+| 14:18–14:22 | 3 | Concepts are abstract and not directly observable; example political sophistication (KW p. 110) | Question to the room | Can you *see* political sophistication? What do you see instead? | |
+| 14:22–14:27 | 4 | Operationalization = concept $\rightarrow$ variable (KW p. 105); even income is tricky: student with wealthy parents earns zero (KW pp. 111–112) | Input + question | Is income easy to measure? What would you ask instead? | |
+| 14:27–14:29 | 5 | KW Fig. 1.2: top row concepts, bottom row variables; KW say "variable" for both, we keep it for what we measure | Input | | |
+| 14:29–14:33 | 6 | Reliability (bathroom scale, coders); validity: face, content, construct (KW pp. 112–115) | Input | Scale shows 150, then 146: unreliable? And 157 a week later? | |
+| 14:33–14:39 | 7 | **Target quiz**: labels hidden, revealed on click; then valid $\approx$ low bias, reliable $\approx$ low variance | Whole-class quiz | Which target is valid but not reliable? Reliable but not valid? Which is a scale that always adds 5 kg? | |
+| 14:39–14:43 | 8 | Simulation: running mean settles on the truth with random error, on the wrong value with bias; KW: biased but reliable beats unreliable for theory tests | Input | Would 10,000 more measurements fix a biased scale? | |
+| 14:43–14:50 | 9 | Validity types in depth: Polity has face validity (Brazil) but lacks content validity (no participation, US = 10); tolerance: Stouffer vs. Sullivan (KW pp. 116–122) | Input + question | What does Polity leave out? Why does "tolerance presupposes opposition" change the findings? | Skip tolerance, keep Polity |
+| 14:50–14:53 | 10 | Callback session 3: Turnbull-Dugarte & Wagner measure projection with a forced choice between fictional characters | Input | How do you measure something people would not tell you? | One sentence |
+| 14:53–15:05 | 11–12 | **Pair exercise** on seminar questions 3 and 4: refine RQ and hypothesis, improve indicators | Pairs (~7 min) + 1–2 pairs report (~5 min) | Is there an indicator for every concept? Does it cover the whole concept? Would someone else measure it the same way? | Cut reporting; **hard stop 15:05** |
+| 15:05–15:07 | 13–14 | KW Fig. 5.1: reliable? then valid? Only both are useful; measurement needs theory (KW pp. 122–123) | Input | | |
+| 15:07–15:08 | 15 | Hand over to the presenters | | | |
+| 15:08–15:33 | — | **Student presentation** (25 min max.): summary and critique ~10 min, alternative design ~15 min | Presentation; grade with the sheet | | Signal at 20 min |
+| 15:33–15:42 | — | **Discussion** to improve the proposal (prompts below) | Plenary | See prompts below | |
+| 15:42–15:45 | 16–19 | Session 5 at 16:15, same room (KW ch. 6; Hünerbach & Irving on Barnes & Karim); missing R tracks (no names) | Admin | | |
+
+**Discussion prompts (if the room is quiet):** Is an "objective" indicator unbiased? Incumbents can also lose for performance reasons (p. 158). · Are elections and turnover all of democracy (content validity)? · Can coder bias change over time, and why does that matter more than constant bias (KW p. 114 vs. Little & Meng p. 152)? · Population weights or unweighted country averages (p. 151)? · What would the presenters' alternative design measure, and how reliably?
+
+**Grading (0–5 each, 15/30 = pass):** clarity · understanding · critique quality · reasoning · feasibility · discussion. Three presenters, one grade.
+
+**Notes during class:**
+
+\vspace{2.5cm}

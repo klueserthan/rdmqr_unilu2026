@@ -1,0 +1,63 @@
+---
+title: "Session plan 5: Descriptive inference"
+format:
+  pdf:
+    documentclass: article
+    papersize: a4
+    geometry:
+      - landscape
+      - margin=1.2cm
+    fontsize: 10pt
+    number-sections: false
+    header-includes:
+      - \usepackage{etoolbox}
+      - \AtBeginEnvironment{longtable}{\small\renewcommand{\arraystretch}{1.35}}
+      - \pagestyle{empty}
+      - \usepackage{titling}
+      - \setlength{\droptitle}{-1.5cm}
+      - \pretitle{\begin{flushleft}\Large\bfseries}
+      - \posttitle{\end{flushleft}\vspace{-1.2cm}}
+---
+
+**Thu 08.10.26, 16:15–17:45 · Room 4.B51** · Basic reading: KW ch. 6 (pp. 125–141); additional: KKV ch. 2, Gerring (2012), de Kadt & Grzymala-Busse (2025) · Applied reading: Barnes & Karim (2025), *The Manosphere and politics* · Presenters: **Rika Elena Hünerbach, Samantha Irving**
+
+**Learning goals:** students can (1) classify variables as categorical, ordinal or continuous; (2) choose central tendency and spread measures by variable type and compute them in R; (3) read a histogram and a box plot; (4) name the criteria for good estimators; (5) derive descriptive questions from a theory.
+
+**Before class:** presentation slides in OLAT (due Wed 07.10, 12:00)? · seminar question 5 uploaded? · grading sheet printed · deck rendered with the 2026 class list (`00_admin/classroom_2026.csv`) · deck in speaker view (press S)
+
+**Checkpoints:** 16:35 start "Central tendency" · 16:55 start "Good descriptive inference" · **17:07 end share round** · **17:08 presentation starts** (25 min max., then discussion until 17:42) · **Content note** before the presentation: misogyny and violence against women
+
+| Time | Slide | Content | Interaction | Guiding questions | If behind |
+|:----------|:---|:-------------------------------|:--------------|:----------------------------------|:--------------|
+| 16:15–16:17 | 2 | Four components of a research design (KKV p. 13); today: the use of the data. Sessions 5–7: descriptive, causal, predictive | Input | | |
+| 16:17–16:21 | 3 | Descriptive inference = understanding the unobserved from observations (KKV p. 55); description is not "mere" (KKV p. 34) | Input + question | What is the step from describing to *inferring*? | |
+| 16:21–16:22 | 4 | One variable vs. two or more | Input | | |
+| 16:22–16:24 | 5 | Our classroom: population (UniLu students), sample (this class), gender and name length | Question to the room | Can we generalise from this room to all UniLu students? | |
+| 16:24–16:29 | 6 | **Variable types**: categorical, ordinal, continuous (KW pp. 126–130); reveal gender = categorical, name length = continuous | Students give examples | Give an example of each type. Which ordinal variables do you know? | |
+| 16:29–16:30 | 7 | Data listing (tibble) | Input | What is a typical name length? | |
+| 16:30–16:32 | 8 | Bar plot for categorical variables; bars over pies (KW p. 131) | Input | Why a bar plot and not a pie chart? | |
+| 16:32–16:35 | 9 | Histogram (bin width 2) and density curve; bins change the impression (KW Fig. 6.6) | Input; click between the bin width 2 and 5 tabs | Does the shape change with the bin width? Which would you report? | Skip the bin width 5 tab |
+| 16:35–16:39 | 10 | **Central tendency** table: mode, median, mean by variable type | Ask first, then reveal | Which measures do you know? What does each one need from the variable? | |
+| 16:39–16:42 | 11–12 | Mode of gender; mean and median of name length (code + result) | Demo | Why not the mean of gender? What if one name had 60 letters? | Results only |
+| 16:42–16:45 | 13 | **Spread** table: range, Q1/Q3, IQR, variance, SD by variable type | Ask first, then reveal | Which measures of spread do you know? Which need equal distances? | |
+| 16:45–16:47 | 14 | Spread for name length (quartiles with `type = 2` = KW's method: Q1 = 12.5) | Demo | Why square the deviations? | Results only |
+| 16:47–16:49 | 15 | Box plot = the numbers just computed; 1.5 × IQR outlier rule (KW pp. 135–136) | Students match parts to numbers | Where are the median, Q1 and the IQR? | |
+| 16:49–16:51 | 16 | Summary: centre, spread, shape; frequencies, ranks, moments | Input | | 30 seconds |
+| 16:51–16:53 | 17 | **Your turn**: visualise gender × name length (hint: categorical × continuous) | Think, then 2–3 answers | How would you plot it? Why is a bar chart of means weaker? | |
+| 16:53–16:55 | 18 | Box plots by gender: an association, not a cause | Input + question | Real difference or noise? | |
+| 16:55–16:58 | 19 | Good estimators: unbiased, efficient, consistent (KKV pp. 63–67), linked to session 4 | Input + question | Which session 4 idea matches each criterion? | |
+| 16:58–17:00 | 20 | From description to research questions: five questions from economic voting (session 3) | Input | Which of these questions are descriptive? | |
+| 17:00–17:02 | 21 | Ladder of research questions (de Kadt & Grzymala-Busse, Fig. 1) | Map the questions onto the rungs | On which rung is your own question? | |
+| 17:02–17:07 | 22 | **Share your descriptive question** (seminar question 5) | 2–3 volunteers | Which rung? Does it reflect, build or evaluate the theory? Is it really descriptive? | Fewer volunteers; **hard stop 17:07** |
+| 17:07–17:08 | 23 | Hand over; content note | | | |
+| 17:08–17:33 | — | **Student presentation** (25 min max.): summary and critique ~10 min, alternative design ~15 min | Presentation; grade with the sheet | | Signal at 20 min |
+| 17:33–17:42 | — | **Discussion** to improve the proposal (prompts below) | Plenary | See prompts below | |
+| 17:42–17:45 | 24–26 | Session 6 on 15.10, 14:15, room 3.B48 (BF ch. 2–3; Lindegger & Schär); seminar questions 6–7 due Wed 14.10, 12:00; take-home exercise I published 15.10 | Admin | | |
+
+**Discussion prompts (if the room is quiet):** Snowball sampling from one starting list (SPLC): which population can the 140 sites describe? · What is left out (4chan, private channels, non-English sites)? · Intercoder agreement of 75.9% on subgroups: reliable enough (session 4)? · The typology is built from the same data it is meant to support: what would an independent test look like? · Which rung of the ladder does the paper reach?
+
+**Grading (0–5 each, 15/30 = pass):** clarity · understanding · critique quality · reasoning · feasibility · discussion. Both presenters, one grade.
+
+**Notes during class:**
+
+\vspace{2cm}
