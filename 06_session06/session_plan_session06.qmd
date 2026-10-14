@@ -1,0 +1,55 @@
+---
+title: "Session plan 6: Causal inference"
+format:
+  pdf:
+    documentclass: article
+    papersize: a4
+    geometry:
+      - landscape
+      - margin=1.2cm
+    fontsize: 10pt
+    number-sections: false
+    header-includes:
+      - \usepackage{etoolbox}
+      - \AtBeginEnvironment{longtable}{\small\renewcommand{\arraystretch}{1.35}}
+      - \pagestyle{empty}
+      - \usepackage{titling}
+      - \setlength{\droptitle}{-1.5cm}
+      - \pretitle{\begin{flushleft}\Large\bfseries}
+      - \posttitle{\end{flushleft}\vspace{-1.2cm}}
+---
+
+**Thu 15.10.26, 14:15–15:45 · Room 3.B48** · Basic reading: BF ch. 2–3 (pp. 13–52); additional: KKV ch. 3 · Applied reading: Alrababa'h, Marble, Mousa & Siegel (2021), *Can exposure to celebrities reduce prejudice?* · Presenters: **Stephanie Lindegger, Leonie Schär**
+
+**Learning goals:** students can (1) name three uses of a correlation (description, forecasting, causal inference) with the age-turnout example; (2) explain why r can miss a relationship; (3) name four patterns why a correlation need not be causal (confounding, reverse causation, selection, chance); (4) define a causal effect with potential outcomes; (5) explain the fundamental problem of causal inference and why every design substitutes for a missing counterfactual.
+
+**Before class:** presentation slides in OLAT (due Wed 14.10, 12:00)? · seminar questions 6 uploaded? · grading sheet `session06_handwritten.pdf` ready · board/whiteboard pen for the attendance list · deck in speaker view (press S)
+
+**Checkpoints:** 14:30 start "Why correlation is not causation" · 14:44 start "Causation" · **15:07 end group exercise** · **15:08 presentation starts** (25 min max., then discussion until 15:42)
+
+| Time | Slide | Content | Interaction | Guiding questions | If behind |
+|:----------|:---|:-------------------------------|:--------------|:----------------------------------|:--------------|
+| 14:15–14:19 | 2 | **Hook**: attendance and grades (hypothetical) | Show of hands; collect "no" reasons on the board | Should attendance be mandatory? Why not? | |
+| 14:19–14:25 | 3 | Correlation = features that tend to occur together (BF p. 13); **older people vote more** (BF Fig. 2.4): describe, predict, explain (BF pp. 19–24) | Ask first, then reveal | What can we do with this fact? Does getting older *make* people vote? | |
+| 14:25–14:28 | 4 | What r does not tell you: six simulated panels; linearity (BF pp. 30–31) | Question | Is r ≈ 0 evidence of no relationship? | 1 min |
+| 14:28–14:30 | 5 | Ice cream and drownings | Students explain | Does ice cream make people drown? | |
+| 14:30–14:34 | 6 | **Four patterns**: confounding, reverse causation, selection, chance; calculus and college (BF pp. 23–24) | Map the board list | Which board reason is which? | |
+| 14:34–14:44 | 7 | **Pairs**: police and crime, chocolate and Nobel prizes, old buildings; bonus: admission, grades and test scores (hypothetical) | 6 min pairs, 4 min debrief | Which pattern fits each? | Debrief only C (selection: survivors) |
+| 14:44–14:47 | 8 | Causal effect (BF pp. 37–38); "does X change Y?", not "the cause" (BF pp. 42–43) | Input | | |
+| 14:47–14:50 | 9 | Potential outcomes Y(1), Y(0), τ (BF p. 39) | Question | Which of your two outcomes will you see? | |
+| 14:50–14:53 | 10 | **Fundamental problem** (BF p. 41); "We can't" | Students propose | What would you need to observe to know whether studying helped *you*? | |
+| 14:53–14:59 | 11 | **Which comparison would you trust?** Before/after, self-selected, coin flip (BF pp. 41–42) | Vote, then problems with each | What could go wrong with A, B, C? | Vote only |
+| 14:59–15:01 | 12 | Back to attendance; sessions 8–10 | Plenary | What would you need to claim attendance *causes* grades? | Skip |
+| 15:01–15:07 | 13 | **Group exercise** on seminar questions 6 | Pairs, 1–2 share | Is it the right counterfactual? How to approximate it? | No sharing; **hard stop 15:07** |
+| 15:07–15:08 | 14 | Hand over | | | |
+| 15:08–15:33 | — | **Student presentation** (25 min max.): summary and critique ~10 min, alternative design ~15 min | Presentation; grade with the sheet | | Signal at 20 min |
+| 15:33–15:42 | — | **Discussion** to improve the proposal (prompts below) | Plenary | See prompts below | |
+| 15:42–15:45 | 15–18 | Session 7 at 16:15, same room (Kleinberg et al. 2015; Hofman et al. 2021; Flückiger & Kohm); take-home exercise I goes online in session 7; R track | Admin | | |
+
+**Discussion prompts (if the room is quiet):** Salah is Muslim *and* very successful: which of the two does the paper's design isolate? · Synthetic control for Merseyside: what else changed in Liverpool around 2017 that could also affect hate crimes? · Tweets of Liverpool fans vs. fans of other clubs: are they comparable, and who tweets at all (selection)? · Which counterfactual does each of the three designs (hate crimes, tweets, survey experiment) construct? · Does the effect travel to celebrities who are less successful or less liked?
+
+**Grading (0–5 each, 15/30 = pass):** clarity · understanding · critique quality · reasoning · feasibility · discussion. Both presenters, one grade.
+
+**Notes during class:**
+
+\vspace{2cm}

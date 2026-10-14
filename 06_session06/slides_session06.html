@@ -6,8 +6,8 @@
 <script src="slides_session06_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="slides_session06_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="slides_session06_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="slides_session06_files/libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.32">
+<link href="slides_session06_files/libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Research Design and Methods in Quantitative Research">
   <title>Causal Inference</title>
@@ -17,10 +17,16 @@
   <link rel="stylesheet" href="slides_session06_files/libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="slides_session06_files/libs/revealjs/dist/reveal.css">
   <style>
-    code{white-space: pre-wrap;}
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -28,74 +34,8 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-    /* CSS for syntax highlighting */
-    html { -webkit-text-size-adjust: 100%; }
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-        color: #aaaaaa;
-      }
-    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-    div.sourceCode
-      { color: #003b4f; background-color: #f1f3f5; }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span { color: #003b4f; } /* Normal */
-    code span.al { color: #ad0000; } /* Alert */
-    code span.an { color: #5e5e5e; } /* Annotation */
-    code span.at { color: #657422; } /* Attribute */
-    code span.bn { color: #ad0000; } /* BaseN */
-    code span.bu { } /* BuiltIn */
-    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
-    code span.ch { color: #20794d; } /* Char */
-    code span.cn { color: #8f5902; } /* Constant */
-    code span.co { color: #5e5e5e; } /* Comment */
-    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
-    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
-    code span.dt { color: #ad0000; } /* DataType */
-    code span.dv { color: #ad0000; } /* DecVal */
-    code span.er { color: #ad0000; } /* Error */
-    code span.ex { } /* Extension */
-    code span.fl { color: #ad0000; } /* Float */
-    code span.fu { color: #4758ab; } /* Function */
-    code span.im { color: #00769e; } /* Import */
-    code span.in { color: #5e5e5e; } /* Information */
-    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
-    code span.op { color: #5e5e5e; } /* Operator */
-    code span.ot { color: #003b4f; } /* Other */
-    code span.pp { color: #ad0000; } /* Preprocessor */
-    code span.sc { color: #5e5e5e; } /* SpecialChar */
-    code span.ss { color: #20794d; } /* SpecialString */
-    code span.st { color: #20794d; } /* String */
-    code span.va { color: #111111; } /* Variable */
-    code span.vs { color: #20794d; } /* VerbatimString */
-    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="slides_session06_files/libs/revealjs/dist/theme/quarto-fdaf0edbff08a1a191e6e659ed8ee648.css">
+  <link rel="stylesheet" href="slides_session06_files/libs/revealjs/dist/theme/quarto-708f5b2de77caeea480a951ad599cc27.css">
   <link href="slides_session06_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="slides_session06_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="slides_session06_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -202,7 +142,7 @@
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Research Design and Methods in Quantitative Research 
+Research Design and Methods in Quantitative Research
 </div>
         <p class="quarto-title-affiliation">
             Dr.&nbsp;K. Jonathan Klüser
@@ -211,371 +151,206 @@ Research Design and Methods in Quantitative Research
 </div>
 
 </section>
-<section id="correlation" class="slide level2">
-<h2>Correlation</h2>
+<section id="should-attendance-be-mandatory" class="slide level2">
+<h2>Should attendance be mandatory?</h2>
 <p><br></p>
+<p>Suppose we find: students who <strong>attend more sessions</strong> get <strong>better grades</strong></p>
 <div class="fragment">
-<p>The extent to which two variables co-occur (i.e.&nbsp;occur together)</p>
+<p><br></p>
+<p>✋ Should the university make attendance <strong>mandatory</strong>?</p>
+<aside class="notes">
+<p><strong>Time:</strong> 14:15-14:19 (4 min). Session plan (90 min): lecture and interaction 14:15-15:07 (52 min) · student presentation and discussion 15:08-15:42 (at least 30 min) · wrap-up 15:42-15:45</p>
 <ul>
-<li><p><em>Positive</em> correlation</p></li>
-<li><p><em>Negative</em> correlation</p></li>
-<li><p><em>Uncorrelated</em></p></li>
+<li>Hypothetical finding, not a real study; say so</li>
+<li>Show of hands: yes / no / it depends. Take two or three reasons from each side, do not resolve it</li>
+<li>Write the “no” reasons on the board (motivation, prior knowledge, time budgets, reverse direction); they come back as the four patterns at 14:30 and at the end (14:59)</li>
+<li>Today: when does a correlation tell us something about causes? Sessions 5-7: descriptive, causal, predictive inference</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</div>
+</section>
+<section id="correlation-what-is-it-good-for" class="slide level2 smaller">
+<h2>Correlation: what is it good for?</h2>
+<p>Variables are <strong>correlated</strong> when they tend to move together</p>
+<div class="columns">
+<div class="column" style="width:52%;">
+<p><strong>Older people are more likely to vote</strong></p>
+<p>✋ What can we do with this fact?</p>
+<div class="fragment">
+<ul>
+<li><p><strong>Describe</strong>: the young are underrepresented <span style="color:gray">(session 5)</span></p></li>
+<li><p><strong>Predict</strong>: which doors should a campaign knock on? <span style="color:gray">(session 7)</span></p></li>
+<li><p><strong>Explain</strong>: does getting older <em>make</em> people vote? <span style="color:gray">(today)</span></p></li>
 </ul>
 </div>
-</section>
-<section id="extending-our-classroom-data" class="slide level2">
-<h2>Extending our classroom data</h2>
+</div><div class="column" style="width:48%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="bf_fig2_4_age_turnout.png" style="width:100.0%"></p>
+<figcaption>Turnout by age, US 2014 (BF, Fig. 2.4)</figcaption>
+</figure>
+</div>
+</div></div>
+<aside class="notes">
+<p><strong>Time:</strong> 14:19-14:25 (6 min)</p>
 <ul>
-<li>New <strong>continuous variable</strong>: inferred age (ChatGPT v5)</li>
+<li>BF ch.&nbsp;2: correlation = the extent to which two features of the world tend to occur together (p.&nbsp;13); three uses: description, forecasting, causal inference (p.&nbsp;19). “Older people vote more than younger people” is one of BF’s example statements (p.&nbsp;19)</li>
+<li>Description (BF pp.&nbsp;20-21): age cohorts and turnout in the 2014 US congressional election (Fig. 2.4, p.&nbsp;20); younger people were underrepresented</li>
+<li>Look at the figure: turnout rises until about 70, then falls. The straight line misses this; a bridge to the next slide (what r does not tell you)</li>
+<li>Forecasting (BF pp.&nbsp;21-22): a campaign does not need to knock on doors of people who will vote anyway; age helps predict who they are, no causal story needed</li>
+<li>Ask first: “What can we do with this fact?” Collect answers, then reveal the three uses</li>
+<li>Stay on the third one: does ageing itself make people vote? Let students propose alternatives: older people differ in other ways (settled in one place, own a home, more routine); or it is a generation, not age (cohort). These are the four patterns coming up at 14:30</li>
+<li>If asked: covariance = average product of deviations from the means, r = Cov(X,Y)/(sX sY), runs from −1 to 1 (BF p.&nbsp;28)</li>
 </ul>
-<div class="fragment">
-<div class="panel-tabset">
-<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Data check</a></li><li><a href="#tabset-1-2">Prompt</a></li><li><a href="#tabset-1-3">Justifications</a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1" data-code-line-numbers="|1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="co"># View first few rows of the new variable</span></span>
-<span id="cb1-2"><a href=""></a><span class="fu">head</span>(data <span class="sc">%&gt;%</span> <span class="fu">select</span>(Full_Name, Age_Est))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="fragment">
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 2
-  Full_Name           Age_Est
-  &lt;chr&gt;                 &lt;dbl&gt;
-1 Brown Elli Margaret      33
-2 Demir Rojhat Yigit       36
-3 Djogova Nikolina         32
-4 Eymann Bernhard          60
-5 Flütsch Reto             56
-6 Gaggini Clelia           33</code></pre>
-</div>
-</div>
-</div>
-</div>
-<div id="tabset-1-2">
-<p>“Infer the approximate age in 2025 for each person in this list of names based on European naming patterns, but add some random variation (±9 years) to make the estimates look more realistic.”</p>
-</div>
-<div id="tabset-1-3">
-<div style="font-size:70%; line-height:1.2;">
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th>Full Name</th>
-<th>Est. Age</th>
-<th>Reason</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Elli Margaret Brown</td>
-<td>30</td>
-<td>Modern revival of Elli, 1990s–2000s</td>
-</tr>
-<tr class="even">
-<td>Rojhat Yigit Demir</td>
-<td>30</td>
-<td>Common among 1990s Turkish names</td>
-</tr>
-<tr class="odd">
-<td>Nikolina Djogova</td>
-<td>30</td>
-<td>Popular in 1990s Balkans</td>
-</tr>
-<tr class="even">
-<td>Bernhard Eymann</td>
-<td>60</td>
-<td>Classic mid-20th-century name</td>
-</tr>
-<tr class="odd">
-<td>Reto Flütsch</td>
-<td>50</td>
-<td>Typical Swiss 1970s–80s</td>
-</tr>
-<tr class="even">
-<td>Clelia Gaggini</td>
-<td>40</td>
-<td>Italian 1980s style</td>
-</tr>
-<tr class="odd">
-<td>Robin Graf</td>
-<td>30</td>
-<td>1990s unisex trend</td>
-</tr>
-<tr class="even">
-<td>Lisa Anna Hager</td>
-<td>30</td>
-<td>1980s–90s peak</td>
-</tr>
-<tr class="odd">
-<td>Juan Manuel Herrera Garcia</td>
-<td>40</td>
-<td>Spanish 1970s–80s double name</td>
-</tr>
-<tr class="even">
-<td>Nadja Alexandra Hofer</td>
-<td>40</td>
-<td>1970s–80s Germanic pair</td>
-</tr>
-<tr class="odd">
-<td>Reachel Klamt</td>
-<td>30</td>
-<td>1990s variant of Rachel</td>
-</tr>
-<tr class="even">
-<td>Olivia Lea Landis</td>
-<td>20</td>
-<td>Olivia boom after 2000</td>
-</tr>
-<tr class="odd">
-<td>Anastasiia Lunkova</td>
-<td>30</td>
-<td>Eastern Europe 1990s</td>
-</tr>
-<tr class="even">
-<td>Fabian Michel</td>
-<td>30</td>
-<td>German 1980s–90s</td>
-</tr>
-<tr class="odd">
-<td>Emmanuel Saba Moses</td>
-<td>40</td>
-<td>Stable 1970s–80s name</td>
-</tr>
-<tr class="even">
-<td>Giulio Paraboni</td>
-<td>40</td>
-<td>Italian 1970s–80s</td>
-</tr>
-<tr class="odd">
-<td>Laura Rios Quiroz</td>
-<td>30</td>
-<td>1980s–90s international peak</td>
-</tr>
-<tr class="even">
-<td>Annick France Robatel</td>
-<td>60</td>
-<td>French 1950s–60s</td>
-</tr>
-<tr class="odd">
-<td>Salome Claudia Schwegler</td>
-<td>30</td>
-<td>Swiss revival 1980s–90s</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-</div>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section id="visualizing-correlations" class="slide level2">
-<h2>Visualizing correlations</h2>
-<div class="panel-tabset">
-<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Output</a></li><li><a href="#tabset-2-2">Code</a></li></ul>
-<div class="tab-content">
-<div id="tabset-2-1">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="slides_session06_files/figure-revealjs/unnamed-chunk-4-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<div id="tabset-2-2">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb3-2"><a href=""></a></span>
-<span id="cb3-3"><a href=""></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> Age_Est, <span class="at">y =</span> Name_Length)) <span class="sc">+</span></span>
-<span id="cb3-4"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
-<span id="cb3-5"><a href=""></a>  <span class="fu">geom_abline</span>(</span>
-<span id="cb3-6"><a href=""></a>    <span class="at">intercept =</span> <span class="fu">coef</span>(<span class="fu">lm</span>(Name_Length <span class="sc">~</span> Age_Est, <span class="at">data =</span> data))[<span class="dv">1</span>],</span>
-<span id="cb3-7"><a href=""></a>    <span class="at">slope =</span> <span class="fu">coef</span>(<span class="fu">lm</span>(Name_Length <span class="sc">~</span> Age_Est, <span class="at">data =</span> data))[<span class="dv">2</span>],</span>
-<span id="cb3-8"><a href=""></a>    <span class="at">color =</span> <span class="st">"gray40"</span>,</span>
-<span id="cb3-9"><a href=""></a>    <span class="at">linewidth =</span> <span class="fl">1.1</span></span>
-<span id="cb3-10"><a href=""></a>  ) <span class="sc">+</span></span>
-<span id="cb3-11"><a href=""></a>  <span class="fu">labs</span>(</span>
-<span id="cb3-12"><a href=""></a>    <span class="at">title =</span> <span class="st">"Relationship Between Estimated Age and Name Length"</span>,</span>
-<span id="cb3-13"><a href=""></a>    <span class="at">x =</span> <span class="st">"Estimated Age (years)"</span>,</span>
-<span id="cb3-14"><a href=""></a>    <span class="at">y =</span> <span class="st">"Name Length (letters)"</span></span>
-<span id="cb3-15"><a href=""></a>  ) <span class="sc">+</span></span>
-<span id="cb3-16"><a href=""></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">14</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="possible-correlations" class="slide level2">
-<h2>Possible correlations</h2>
-<div class="panel-tabset">
-<ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">Output</a></li><li><a href="#tabset-3-2">Code</a></li></ul>
-<div class="tab-content">
-<div id="tabset-3-1">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="slides_session06_files/figure-revealjs/unnamed-chunk-6-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<div id="tabset-3-2">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb4-2"><a href=""></a></span>
-<span id="cb4-3"><a href=""></a><span class="fu">set.seed</span>(<span class="dv">123</span>)  <span class="co"># ensure reproducibility</span></span>
-<span id="cb4-4"><a href=""></a></span>
-<span id="cb4-5"><a href=""></a><span class="co"># simulate three datasets: positive, negative, and no correlation</span></span>
-<span id="cb4-6"><a href=""></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb4-7"><a href=""></a>  <span class="at">x =</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">50</span>, <span class="dv">3</span>),</span>
-<span id="cb4-8"><a href=""></a>  <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">50</span> <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">50</span>,<span class="dv">0</span>,<span class="dv">5</span>),   <span class="co"># positive</span></span>
-<span id="cb4-9"><a href=""></a>        <span class="dv">50</span><span class="sc">:</span><span class="dv">1</span> <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">50</span>,<span class="dv">0</span>,<span class="dv">5</span>),   <span class="co"># negative</span></span>
-<span id="cb4-10"><a href=""></a>        <span class="fu">rnorm</span>(<span class="dv">50</span>,<span class="dv">25</span>,<span class="dv">5</span>)),        <span class="co"># none</span></span>
-<span id="cb4-11"><a href=""></a>  <span class="at">type =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"Positive"</span>, <span class="st">"Negative"</span>, <span class="st">"None"</span>), <span class="at">each =</span> <span class="dv">50</span>)</span>
-<span id="cb4-12"><a href=""></a>)</span>
-<span id="cb4-13"><a href=""></a></span>
-<span id="cb4-14"><a href=""></a><span class="co"># plot all three side by side</span></span>
-<span id="cb4-15"><a href=""></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
-<span id="cb4-16"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb4-17"><a href=""></a>  <span class="fu">stat_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">color =</span> <span class="st">"gray40"</span>, <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb4-18"><a href=""></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>type) <span class="sc">+</span></span>
-<span id="cb4-19"><a href=""></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="non-linearities" class="slide level2">
-<h2>Non-linearities</h2>
-<div class="panel-tabset">
-<ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-4-1">Output</a></li><li><a href="#tabset-4-2">Code</a></li></ul>
-<div class="tab-content">
-<div id="tabset-4-1">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="slides_session06_files/figure-revealjs/unnamed-chunk-8-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<div id="tabset-4-2">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb5-2"><a href=""></a></span>
-<span id="cb5-3"><a href=""></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb5-4"><a href=""></a></span>
-<span id="cb5-5"><a href=""></a><span class="co"># simulate three nonlinear datasets with same linear slope ~0</span></span>
-<span id="cb5-6"><a href=""></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb5-7"><a href=""></a>  <span class="at">x =</span> <span class="fu">rep</span>(<span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">50</span>, <span class="at">length.out =</span> <span class="dv">50</span>), <span class="dv">3</span>),</span>
-<span id="cb5-8"><a href=""></a>  <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">25</span> <span class="sc">+</span> <span class="dv">10</span> <span class="sc">*</span> <span class="fu">sin</span>(<span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">50</span>, <span class="at">length.out =</span> <span class="dv">50</span>)),          <span class="co"># sine wave</span></span>
-<span id="cb5-9"><a href=""></a>        <span class="dv">25</span> <span class="sc">+</span> (<span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">50</span>, <span class="at">length.out =</span> <span class="dv">50</span>) <span class="sc">-</span> <span class="dv">25</span>)<span class="sc">^</span><span class="dv">2</span> <span class="sc">/</span> <span class="dv">25</span>,      <span class="co"># U-shape</span></span>
-<span id="cb5-10"><a href=""></a>        <span class="dv">25</span> <span class="sc">+</span> <span class="fu">abs</span>(<span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">50</span>, <span class="at">length.out =</span> <span class="dv">50</span>) <span class="sc">-</span> <span class="dv">25</span>) <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">50</span>)), <span class="co"># V + noise</span></span>
-<span id="cb5-11"><a href=""></a>  <span class="at">type =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"Sine pattern"</span>, <span class="st">"U-shape"</span>, <span class="st">"V-shape"</span>), <span class="at">each =</span> <span class="dv">50</span>)</span>
-<span id="cb5-12"><a href=""></a>)</span>
-<span id="cb5-13"><a href=""></a></span>
-<span id="cb5-14"><a href=""></a><span class="co"># add random noise</span></span>
-<span id="cb5-15"><a href=""></a>df<span class="sc">$</span>y <span class="ot">&lt;-</span> df<span class="sc">$</span>y <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="fu">nrow</span>(df), <span class="dv">0</span>, <span class="dv">2</span>)</span>
-<span id="cb5-16"><a href=""></a></span>
-<span id="cb5-17"><a href=""></a><span class="co"># plot with points + misleading linear fit</span></span>
-<span id="cb5-18"><a href=""></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
-<span id="cb5-19"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb5-20"><a href=""></a>  <span class="fu">stat_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">color =</span> <span class="st">"gray40"</span>) <span class="sc">+</span></span>
-<span id="cb5-21"><a href=""></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>type) <span class="sc">+</span></span>
-<span id="cb5-22"><a href=""></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="quantifying-correlations" class="slide level2">
-<h2>Quantifying correlations</h2>
-<div class="fragment">
-<p><br></p>
-<div style="font-size:80%; line-height:1.2;">
-<p><strong>Covariance:</strong> measures how two variables vary together → direction</p>
-<p><span class="math display">\[
-\mathrm{Cov}(X, Y) = \frac{\sum_{i=1}^{n} (X_i - \bar{X})(Y_i - \bar{Y})}{n - 1}
-\]</span></p>
-<p><br></p>
-<p><strong>Pearson Correlation Coefficient:</strong> standardized covariance (–1 to 1) → direction and strength</p>
-<p><span class="math display">\[
-r_{XY} = \frac{\mathrm{Cov}(X, Y)}{s_X \, s_Y}
-\]</span></p>
-</div>
-</div>
-</section>
-<section id="covariance-correlation" class="slide level2">
-<h2>Covariance &amp; correlation</h2>
-<div class="fragment">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6" data-code-line-numbers="|1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="co"># Covariance and correlation coefficient</span></span>
-<span id="cb6-2"><a href=""></a><span class="fu">cov</span>(data<span class="sc">$</span>Name_Length, data<span class="sc">$</span>Age_Est, <span class="at">use =</span> <span class="st">"complete.obs"</span>)</span>
-<span id="cb6-3"><a href=""></a><span class="fu">cor</span>(data<span class="sc">$</span>Name_Length, data<span class="sc">$</span>Age_Est, <span class="at">use =</span> <span class="st">"complete.obs"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-<div class="fragment">
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 13.20468
-[1] 0.2848635</code></pre>
-</div>
-</div>
-</div>
-</section>
-<section id="correlation-does-not-imply-causation" class="slide level2">
-<h2>Correlation does not imply causation</h2>
-<p><br></p>
-<div class="fragment">
-<p>corr(X,Y) ≠ X → Y</p>
-<p><br></p>
-</div>
-<div class="fragment">
-<p><span class="math display">\[
-1.\; Z \longrightarrow X,\; Z \longrightarrow Y \quad \text{(Confounding)}
-\]</span></p>
-</div>
-<div class="fragment">
-<p><span class="math display">\[
-2.\; Y \longrightarrow X \quad \text{(Reverse causation)}
-\]</span></p>
-</div>
-<div class="fragment">
-<p><span class="math display">\[
-3.\; X \longrightarrow M \longleftarrow Y \quad \text{(Collider / selection)}
-\]</span></p>
-</div>
-<div class="fragment">
-<p><span class="math display">\[
-4.\; T \longrightarrow X,\; T \longrightarrow Y \quad \text{(Common trend/shock)}
-\]</span></p>
-</div>
-</section>
-<section class="slide level2">
+<section id="what-r-does-not-tell-you" class="slide level2">
+<h2>What r does not tell you</h2>
 
+<img data-src="slides_session06_files/figure-revealjs/unnamed-chunk-1-1.png" width="864" class="r-stretch"><div class="fragment">
+<p>Is <span class="math inline">\(r \approx 0\)</span> evidence that two variables are <strong>unrelated</strong>?</p>
+<aside class="notes">
+<p><strong>Time:</strong> 14:25-14:28 (3 min)</p>
+<ul>
+<li><p>BF “Straight talk about linearity” (pp.&nbsp;30-31): all these measures capture linear relationships only; a zero correlation can hide a U-shape (Fig. 2.5). r runs from -1 to 1 but says nothing about the size of the relationship (p.&nbsp;29)</p></li>
+<li><p>Top row: the three textbook cases. Bottom row: strong relationships the linear correlation misses (U-shape, wave) and a strong correlation that still hides a non-linear shape (ceiling: steep rise, then flat)</p></li>
+<li><p>Answer: no. r measures how well a straight line fits; always plot the data first (session 5)</p></li>
+<li><p>Simulated data, not real</p></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</div>
+</section>
+<section id="ice-cream-and-drownings" class="slide level2">
+<h2>Ice cream and drownings</h2>
 
-<img data-src="icecream_drowning.png" class="quarto-figure quarto-figure-center r-stretch"></section>
-<section id="causal-inference" class="slide level2">
-<h2>Causal inference</h2>
-<blockquote>
-<p>The goal of <em>good</em> research is to <em>“produce valid inferences about social and political life”</em> (King, Keohane, &amp; Verba 1994, p.&nbsp;3)</p>
-</blockquote>
+<img data-src="icecream_drowning.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"><div class="fragment">
+<p>Does ice cream make people <strong>drown</strong>? If not, <strong>why</strong> do these lines move together?</p>
+<aside class="notes">
+<p><strong>Time:</strong> 14:28-14:30 (2 min)</p>
+<ul>
+<li>Let them explain it: summer heat drives both ice cream sales and swimming (a confounder)</li>
+<li>Then ask: are there other reasons why two variables could move together without one causing the other? Use the board list from the attendance question</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</div>
+</section>
+<section id="why-correlation-is-not-causation" class="slide level2 scrollable">
+<h2>Why correlation is not causation</h2>
+<p>When <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are correlated, maybe…</p>
 <div class="fragment">
-<p><br></p>
-<p>What is <strong>causal</strong> inference?</p>
+<ol type="1">
+<li><strong>Confounding</strong>: something else drives both</li>
+</ol>
 </div>
 <div class="fragment">
-<p><br></p>
-<p>→ To infer <strong>causal relationships</strong> in a broader population</p>
+<ol start="2" type="1">
+<li><strong>Reverse causation</strong>: <span class="math inline">\(Y\)</span> drives <span class="math inline">\(X\)</span></li>
+</ol>
 </div>
+<div class="fragment">
+<ol start="3" type="1">
+<li><strong>Selection</strong>: looking only at a selected group creates the pattern</li>
+</ol>
+</div>
+<div class="fragment">
+<ol start="4" type="1">
+<li><strong>Chance</strong>: in a small sample, patterns appear by accident</li>
+</ol>
+</div>
+<div class="fragment">
+<p>… and only then: <span class="math inline">\(X\)</span> <strong>causes</strong> <span class="math inline">\(Y\)</span></p>
+<aside class="notes">
+<p><strong>Time:</strong> 14:30-14:34 (4 min)</p>
+<p>Reveal one at a time; for each, ask “which reason on the board is this?” and give the attendance version.</p>
+<ul>
+<li><strong>Confounding:</strong> a third factor causes both X and Y. <em>Attendance:</em> motivated students attend more <em>and</em> study more. <em>Ice cream:</em> summer heat. BF’s own example: motivated students both take calculus and finish college (pp.&nbsp;23-24)</li>
+<li><strong>Reverse causation:</strong> Y causes X. <em>Attendance:</em> students who do well enjoy the seminar and therefore keep coming; students who are lost stop coming</li>
+<li><strong>Selection:</strong> we only see a filtered group, and the filter creates the pattern. Easiest example: “old buildings are sturdier than new ones” — the badly built old ones were torn down long ago; we only see the survivors (comes back in the exercise)</li>
+<li><strong>Chance:</strong> with few cases, patterns appear by accident. <em>Attendance:</em> in one seminar of 24, three strong students who happen to attend a lot are enough</li>
+<li>Only when we can rule these out does “X causes Y” become plausible; how to rule them out is sessions 8-10</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</div>
+</section>
+<section id="what-else-could-explain-it" class="slide level2">
+<h2>What else could explain it?</h2>
+<p>In <strong>pairs</strong> (6 min): <em>suppose</em> a study finds…</p>
+<p><strong>A.</strong> Cities with <strong>more police officers</strong> have <strong>more crime</strong></p>
+<p><strong>B.</strong> Countries that eat <strong>more chocolate</strong> win <strong>more Nobel prizes</strong></p>
+<p><strong>C.</strong> Buildings from the <strong>1800s</strong> are <strong>sturdier</strong> than buildings from the <strong>1980s</strong></p>
+<p><strong>D.</strong> <em>(Bonus)</em> Among students admitted to a selective master’s programme, those with <strong>better grades</strong> have <strong>worse test scores</strong></p>
+<p>Which of the four patterns fits each finding?</p>
+<aside class="notes">
+<p><strong>Time:</strong> 14:34-14:44 (6 min in pairs, 4 min debrief)</p>
+<ul>
+<li>All three are posed as hypotheticals (“suppose”); do not present them as findings of real studies</li>
+<li>A: reverse causation (cities with more crime hire more police; BF p.&nbsp;19 uses this as an example of a correlation); also confounding (big cities have more of both)</li>
+<li>B: confounding (rich countries consume more chocolate and fund more research). Some students may know the published chocolate-Nobel correlation (Messerli 2012, <em>NEJM</em>); do not quote numbers from memory</li>
+<li>C: selection (survivorship). Badly built old buildings collapsed or were torn down long ago; the 1800s buildings we see today are the ones that were built well. Builders 150 years ago were not better on average</li>
+<li>D (bonus, for fast pairs; debrief only if time): selection. Suppose admission needs grade + test score above a threshold. A student with a weak grade only gets in with a strong test score, and one with a weak test score only with a strong grade; weak-weak applicants are rejected. So <em>among the admitted</em>, weak grades go with strong scores and vice versa. Nobody claims that good grades cause bad scores; the comparison is only within the admitted group. Simulation (admit the top 20% on grade + score): a correlation of 0 among all applicants becomes about −0.6 among the admitted, 0.3 becomes about −0.4, 0.5 becomes about −0.2; only a strong 0.7 stays positive (about 0.1). Selection pushes the correlation down</li>
+<li>Debrief: one pair per finding; ask the others whether they found another explanation</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="causation" class="slide level2">
 <h2>Causation</h2>
@@ -584,148 +359,276 @@ r_{XY} = \frac{\mathrm{Cov}(X, Y)}{s_X \, s_Y}
 </blockquote>
 <div class="fragment">
 <p><br></p>
-<p>Social phenomena are <strong>multicausal</strong>, so our goal is not to find <em>the</em> single cause <span style="color:gray"><em>(e.g.&nbsp;what causes X?)</em></span></p>
-</div>
-<div class="fragment">
-<p>Instead, we examine whether <strong>changes in one variable</strong> produce <strong>changes in another</strong> <span style="color:gray"><em>(e.g.&nbsp;does X have an effect on Y?)</em></span></p>
-</div>
-</section>
-<section id="the-potential-outcomes-framework" class="slide level2">
-<h2>The potential outcomes framework</h2>
-<p><br></p>
-<p>For each unit <em>i</em>, we define two potential outcomes:</p>
-<p><span class="math display">\[
-Y_i(1) = \text{Outcome if exposed to the treatment} \\
-Y_i(0) = \text{Outcome if not exposed to the treatment}
-\]</span></p>
-<p>The <strong>causal effect</strong> for that unit is:</p>
-<p><span class="math display">\[
-\tau_i = Y_i(1) - Y_i(0)
-\]</span></p>
-</section>
-<section class="slide level2">
-
-
-<img data-src="study.png" class="quarto-figure quarto-figure-center r-stretch"></section>
-<section class="slide level2">
-
-<p>Let treatment = studying more hours 📚</p>
-<p><br></p>
-<p><span class="math inline">\(Y_i(1)\)</span> = Exam result if student <span class="math inline">\(i\)</span> studies a lot</p>
-<p><span class="math inline">\(Y_i(0)\)</span> = Exam result if student <span class="math inline">\(i\)</span> does not study</p>
-<div class="fragment">
-<p><br></p>
-<p>The individual causal effect is:</p>
-<p><span class="math display">\[
-\tau_i = Y_i(1) - Y_i(0)
-\]</span></p>
-<p>The <strong>difference in exam results</strong> between studying more and studying less</p>
-</div>
-</section>
-<section class="slide level2">
-
-<h3 id="the-fundamental-problem-of-causal-inference">The fundamental problem of causal inference</h3>
-<div class="fragment">
-<div style="font-size:70%; line-height:1.2;">
-<p>We can never observe both potential outcomes for the same unit:</p>
-<p><span class="math display">\[
-Y_i(1) \quad \text{and} \quad Y_i(0)
-\]</span></p>
+<p>Not “what is <strong>the</strong> cause of <span class="math inline">\(Y\)</span>?”, but “<strong>does</strong> <span class="math inline">\(X\)</span> <strong>change</strong> <span class="math inline">\(Y\)</span>?”</p>
+<aside class="notes">
+<p><strong>Time:</strong> 14:44-14:47 (3 min)</p>
 <ul>
-<li><span class="math inline">\(Y_i(1)\)</span>: outcome if unit <em>i</em> receives the treatment<br>
-</li>
-<li><span class="math inline">\(Y_i(0)\)</span>: outcome if unit <em>i</em> does <em>not</em> receive the treatment</li>
+<li><p>BF p.&nbsp;37 (quote; same definition in the text, p.&nbsp;38); counterfactual thought experiments and the word “would” (p.&nbsp;39); “What is the cause?” with World War I (pp.&nbsp;42-43): ask whether something had an effect, not what <em>the</em> cause was</p></li>
+<li><p>Social phenomena have many causes; we ask about the effect of one cause, not for the full list of causes of an outcome</p></li>
+<li><p>Key word in the definition: “would”. A causal claim is about a world we do not see</p></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</div>
+</section>
+<section id="two-potential-outcomes" class="slide level2">
+<h2>Two potential outcomes</h2>
+
+<img data-src="study.png" class="quarto-figure quarto-figure-center r-stretch" style="width:35.0%"><p>Does studying more <strong>improve</strong> your exam result?</p>
+<div class="fragment">
+<ul>
+<li><span class="math inline">\(Y_i(1)\)</span>: your result if you <strong>study a lot</strong></li>
+<li><span class="math inline">\(Y_i(0)\)</span>: your result if you <strong>do not</strong></li>
 </ul>
 </div>
-</div>
 <div class="fragment">
-<div style="font-size:80%; line-height:1.2;">
-<p>For each unit (i):</p>
-<p><span class="math display">\[
-Y_i = D_i Y_i + (1 - D_i) Y_i
-\]</span></p>
-<p>We observe <strong>only one</strong> of these…</p>
-</div>
-</div>
-<div class="fragment">
-<div style="font-size:80%; line-height:1.2;">
-<p>…the other is a <span style="color:red"><strong>counterfactual</strong></span></p>
-</div>
+<p>Your causal effect: <span class="math inline">\(\tau_i = Y_i(1) - Y_i(0)\)</span></p>
+<aside class="notes">
+<p><strong>Time:</strong> 14:47-14:50 (3 min)</p>
+<ul>
+<li><p>BF p.&nbsp;39: potential outcomes Y1i and Y0i, individual effect = Y1i − Y0i (Body Vibes example, Table 3.1)</p></li>
+<li><p>Every student has two potential outcomes, one for each version of the treatment; the effect is the difference</p></li>
+<li><p>Ask: for you personally, which of the two outcomes will you observe at the next exam?</p></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </div>
 </section>
-<section id="the-fundamental-problem-of-causal-inference-1" class="slide level2">
-<h2>The fundamental problem of causal inference</h2>
-<p><br></p>
-<p><span class="math display">\[
-\text{Causal Effect}_i = Y_i(1) - Y_i(0)
-\]</span></p>
-<p><br></p>
-<p><strong><em>Causal effects</em></strong> are <strong>unobservable at the individual level</strong></p>
-</section>
-<section id="how-to-solve-the-problem" class="slide level2">
-<h2>How to solve the problem?</h2>
-<p><br></p>
-<p><br></p>
-<p><br></p>
+<section id="the-fundamental-problem" class="slide level2">
+<h2>The fundamental problem</h2>
+<p>We <strong>never see both</strong> outcomes for the same person</p>
+<div class="fragment">
+<p>You either studied a lot or you didn’t. The other result is a <span style="color:red"><strong>counterfactual</strong></span></p>
+</div>
+<div class="fragment">
+<p>✋ What would you need to observe to know whether studying more helped <strong>you</strong>?</p>
+</div>
 <div class="fragment">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="cant.png" class="quarto-figure quarto-figure-center"></p>
+<p><img data-src="cant.png" class="quarto-figure quarto-figure-center" style="width:18.0%"></p>
 </figure>
 </div>
+<aside class="notes">
+<p><strong>Time:</strong> 14:50-14:53 (3 min)</p>
+<ul>
+<li><p>BF p.&nbsp;41: the fundamental problem of causal inference, named with the college-and-income example; summary p.&nbsp;49</p></li>
+<li><p>Let them try: “take the exam twice” (but you learn from the first try, and you are a different person a week later); “compare with my friend” (but your friend is not you)</p></li>
+<li><p>Every answer is a substitute for the missing outcome; the question is how good the substitute is. That leads to the next slide</p></li>
+<li><p>If asked for the formal version: we observe Yi = Di·Yi(1) + (1 − Di)·Yi(0), where Di = 1 if treated</p></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </div>
 </section>
-<section id="but-we-can-address-it" class="slide level2">
-<h2>But we can address it…</h2>
+<section id="which-comparison-would-you-trust" class="slide level2">
+<h2>Which comparison would you trust?</h2>
+<p>Does a <strong>tutoring course</strong> improve exam grades?</p>
 <p><br></p>
-<div class="fragment">
-<p><strong><em>Approximating</em></strong> <span style="color:red"><strong>counterfactuals</strong></span></p>
+<p><strong>A.</strong> The same students’ grades <strong>before vs.&nbsp;after</strong> the course</p>
+<p><strong>B.</strong> Students who <strong>chose</strong> the course vs.&nbsp;those who <strong>didn’t</strong></p>
+<p><strong>C.</strong> A <strong>coin flip</strong> decides who gets a place in the course</p>
+<p><br></p>
+<p>✋ Rank them. What could go wrong with each?</p>
+<aside class="notes">
+<p><strong>Time:</strong> 14:53-14:59 (6 min)</p>
 <ul>
-<li><p>Experimental studies <span style="color:gray">(session 8)</span></p></li>
-<li><p>Large-N observational analyses <span style="color:gray">(session 9)</span></p></li>
-<li><p>Small-N observational analysis <span style="color:gray">(session 10)</span></p></li>
+<li>Vote first (which would you trust most?), then ask for the problem with each</li>
+<li>A: anything else that changed over time (more experience, an easier exam): a before/after comparison mixes the course with time</li>
+<li>B: selection and confounding: motivated students choose the course and would have done better anyway</li>
+<li>C: the coin flip makes the two groups alike on average in everything except the course; the “didn’t get a place” group stands in for the missing counterfactual</li>
+<li>Each design approximates the counterfactual differently: experiments (C) in session 8, large-N observational comparisons (B) in session 9, small-N comparisons in session 10; advanced designs in the applied readings of sessions 11-13</li>
+<li>BF pp.&nbsp;41-42: individual effects are invisible, so compare the average outcomes of groups (FDA randomized drug trial); averages of individual effects in the flu-shot example, pp.&nbsp;45-46. BF ch.&nbsp;3 does not use the term “average treatment effect”</li>
 </ul>
-</div>
-<div class="fragment">
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="back-to-attendance" class="slide level2">
+<h2>Back to attendance</h2>
+<p>Students who <strong>attend more</strong> get <strong>better grades</strong></p>
 <p><br></p>
-<p>→ Advanced <em>causal inference</em> methods in the <em>applied readings</em> of sessions 11, 12 and 13</p>
-</div>
+<ul>
+<li><p>Which of the four patterns worry you most?</p></li>
+<li><p>What would you need to claim that attendance <strong>causes</strong> better grades?</p></li>
+</ul>
+<aside class="notes">
+<p><strong>Time:</strong> 14:59-15:01 (2 min)</p>
+<ul>
+<li>Close the loop with the board list from 14:15</li>
+<li>Expected answers: confounding by motivation; you would want to compare similar students who differ only in attendance, ideally with attendance decided by chance (which is hard to do ethically). That is the question for sessions 8-10</li>
+<li>Mandatory attendance would only raise grades if attending itself helps, not if it only reveals who is motivated</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="group-exercise" class="slide level2">
 <h2>Group exercise</h2>
 <p><br></p>
-<div class="fragment">
-<p>In <strong>pairs</strong>:</p>
-<p>1️⃣ Share your <strong>causal claim</strong> (<em>X → Y</em>) and its <strong>counterfactual</strong></p>
-<p>2️⃣ Discuss: Is it the <strong>right counterfactual</strong>?</p>
-<p>3️⃣ How could you <strong>approximate it</strong> in the real world?</p>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="group_exercise.png" class="quarto-figure quarto-figure-center" style="width:40.0%"></p>
-</figure>
-</div>
-</div>
+<p>In <strong>pairs</strong>, using your seminar questions:</p>
+<p>1️⃣ Share your <strong>causal question</strong> (<em>X → Y</em>) and its <strong>counterfactual</strong></p>
+<p>2️⃣ Is it the <strong>right counterfactual</strong>? Which of the four patterns threatens a simple comparison?</p>
+<p>3️⃣ How could you <strong>approximate</strong> the counterfactual in the real world?</p>
+
+<img data-src="group_exercise.png" class="quarto-figure quarto-figure-center r-stretch" style="width:35.0%"><aside class="notes">
+<p><strong>Time:</strong> 15:01-15:07 (4 min in pairs, 2 min: one or two pairs share)</p>
+<ul>
+<li>Builds on the three seminar questions for today (causal question, individual causal effect and counterfactual, fundamental problem in their own case)</li>
+<li>If behind: skip sharing, go straight to the presentation at 15:07</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section id="next-session-15.10.26---1615" class="slide level2">
-<h2>Next session (15.10.26 - 16:15)</h2>
+<section id="up-next-applied-reading" class="slide level2">
+<h2>Up next: applied reading</h2>
 <p><br></p>
-<p><em>→ Predictive inference</em></p>
+<p>Presentation by <strong>Stephanie Lindegger and Leonie Schär</strong>:</p>
+<ul>
+<li>Alrababa’h, A., Marble, W., Mousa, S., &amp; Siegel, A. A. (2021). Can exposure to celebrities reduce prejudice? The effect of Mohamed Salah on Islamophobic behaviors and attitudes. <em>American Political Science Review</em></li>
+</ul>
+<aside class="notes">
+<p><strong>Time:</strong> 15:07-15:08 hand over; presentation 15:08-15:33 (25 min max.), discussion 15:33-15:42</p>
+<ul>
+<li>Presenters: Stephanie Lindegger and Leonie Schär</li>
+<li>Slides were due Wednesday 14.10, 12:00 in Students responses/Presentation slides; check they are there</li>
+<li>Grade with 00_grading/presentations/session06/session06_handwritten.pdf: clarity, understanding, critique quality, reasoning, feasibility, discussion (0-5 each; 15/30 = pass)</li>
+<li>Timing: 25 minutes max., then discussion to improve the proposal</li>
+<li>Citation: <em>APSR</em> 115(4), 1111-1128; the first author is Ala’ Alrababa’h</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="next-session-15.10.26---1615-room-3.b48" class="slide level2">
+<h2>Next session (15.10.26 - 16:15, room 3.B48)</h2>
 <p><br></p>
+<p><strong><em>Predictive inference</em></strong> · Basic readings: Kleinberg et al.&nbsp;(2015); Hofman et al.&nbsp;(2021), pp.&nbsp;181–184</p>
 <div class="fragment">
-<p><strong>Before…</strong></p>
 <p><br></p>
-<p>Presentation by <strong>Clelia Gaggini &amp; Emmanuel Saba Moses</strong>:</p>
-<p><em>The effect of Mohamed Salah on Islamophobic behaviors and attitudes</em></p>
+<p>Presentation by <strong>Noa Flückiger and Malte Jonas Kohm</strong>: Hewitt et al.&nbsp;(2024), <em>Predicting results of social science experiments using large language models</em></p>
+<aside class="notes">
+<p><strong>Time:</strong> 15:42-15:43 (1 min)</p>
+<ul>
+<li>Same day: session 7, 16:15-18:00, room 3.B48</li>
+<li>Basic readings: Kleinberg, Ludwig, Mullainathan &amp; Obermeyer (2015), <em>Prediction policy problems</em>, AER; Hofman et al.&nbsp;(2021), <em>Integrating explanation and prediction in computational social science</em>, Nature, focus on pp.&nbsp;181-184; additional: Grimmer, Roberts &amp; Stewart (2021)</li>
+<li>Presenters: Noa Flückiger and Malte Jonas Kohm</li>
+<li>Take-home exercise I is published in OLAT in session 7 (deadline 29.10.26)</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </div>
 </section>
 <section class="slide level2">
 
 
-<img data-src="questions.png" class="quarto-figure quarto-figure-center r-stretch"></section>
-<section id="choose-r-track" class="slide level2">
-<h2>Choose R track!</h2>
+<img data-src="questions.png" class="quarto-figure quarto-figure-center r-stretch"><aside class="notes">
+<p><strong>Time:</strong> 15:43-15:44 (1 min)</p>
+<ul>
+<li>Open floor: questions on correlation, causation, or the presentation</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="havent-chosen-your-r-track-yet" class="slide level2">
+<h2>Haven’t chosen your R track yet?</h2>
 
-<img data-src="reminder.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<img data-src="reminder.png" class="quarto-figure quarto-figure-center r-stretch"><aside class="notes">
+<p><strong>Time:</strong> 15:44-15:45 (1 min)</p>
+<ul>
+<li>Check 00_admin/track_choices.csv before class for the current count (do not name anyone in class)</li>
+<li>The track decides which version of take-home exercise I a student gets; it goes online in OLAT this afternoon (session 7)</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
 <section id="thanks" class="slide level2">
 <h2>Thanks! <span class="emoji" data-emoji="slightly_smiling_face">🙂</span></h2>
 <p><br></p>
@@ -734,6 +637,22 @@ Y_i = D_i Y_i + (1 - D_i) Y_i
 <center>
 <a href="mailto:klueser@ipz.uzh.ch">klueser@ipz.uzh.ch</a>
 </center>
+<aside class="notes">
+<p><strong>Time:</strong> 15:45 end; break until session 7 at 16:15</p>
+<ul>
+<li>Contact: klueser@ipz.uzh.ch; meetings via Zoom on request</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 
 </section>
     </div>
@@ -928,7 +847,7 @@ Y_i = D_i Y_i + (1 - D_i) Y_i
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
@@ -1040,13 +959,14 @@ Y_i = D_i Y_i + (1 - D_i) Y_i
           e.clearSelection();
         }
         const getTextToCopy = function(trigger) {
-            const codeEl = trigger.previousElementSibling.cloneNode(true);
-            for (const childEl of codeEl.children) {
-              if (isCodeAnnotation(childEl)) {
-                childEl.remove();
-              }
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
             }
-            return codeEl.innerText;
+          }
+          return codeEl.innerText;
         }
         const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
           text: getTextToCopy

@@ -914,7 +914,7 @@ Seminar questions for sessions 6 and 7 due **Wednesday 14.10, 12:00**
 - Session 6: Thursday 15.10.26, 14:15-16:00, room 3.B48; session 7 (predictive inference) follows 16:15-18:00, same room
 - Basic reading session 6: BF (Bueno de Mesquita & Fowler), ch. 2 "Correlation" and ch. 3 "Causation", pp. 11-52; additional: KKV ch. 3
 - Presenters: Stephanie Lindegger and Leonie Schär; slides due Wednesday 14.10, 12:00
-- Paper: *APSR* 115(4), 1111-1128. The syllabus lists it as "Marble, Mousa & Siegel (2021)", but the first author is Ala' Alrababa'h
+- Paper: *APSR* 115(4), 1111-1128; first author Ala' Alrababa'h
 - Session 7 presenters: Noa Flückiger and Malte Jonas Kohm, Hewitt et al. (2024), *Predicting results of social science experiments using large language models*
 - Session 7: take-home exercise I is published in OLAT (deadline 29.10.26)
 :::

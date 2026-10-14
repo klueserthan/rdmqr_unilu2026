@@ -40,248 +40,350 @@ format:
     slide-number: true
 ---
 
-## Session 6 - Causal inference
+## Before the break: causal inference
+
+<br>
+
+A causal effect compares two **potential outcomes**: $\tau_i = Y_i(1) - Y_i(0)$
+
+. . .
+
+We never see both → we need a good **counterfactual**
 
 . . .
 
 <br>
 
-The **fundamental problem of causal inference (FPCI)** 
+A correlation can come from **confounding**, **reverse causation**, **selection** or **chance**
 
-<div style="font-size:70%; line-height:1.2;">
+::: {.notes}
+**Time:** 16:15-16:17 (2 min). Session plan (90 min): lecture and interaction 16:15-17:07 (52 min, about 6 min buffer built in) · student presentation and discussion 17:08-17:42 · wrap-up 17:42-17:45
 
-$$
-Y_i(1) = \text{Outcome if exposed to the treatment} \\
-Y_i(0) = \text{Outcome if not exposed to the treatment} \\
-$$
+- One-sentence recap of session 6; the four patterns come back on slide 5
+- Today's question: what if we do not need to know the cause at all?
+:::
 
-$$
-\text{Individual treatment effect} = \tau_i = Y_i(1) - Y_i(0)
-$$
-</div>
+## Umbrella or rain dance?
 
-. . .
+Which of these decisions needs a **causal** answer, and which only a good **prediction**?
 
 <br>
 
-We *address* FPCI by thinking in ***counterfactual*** terms
+**A.** Should I take an umbrella today?
 
+**B.** Should the government fund rain dances to end a drought?
 
-## Group exercise session 6
+**C.** Which doors should a campaign knock on? [(session 6: older people vote more)]{style="color:gray"}
 
-<br>
+**D.** Does knocking on doors raise turnout?
 
-. . .
+::: {.notes}
+**Time:** 16:17-16:22 (5 min)
 
-In **pairs**:
-
-1️⃣ Share your **causal claim** (*X → Y*) and its **counterfactual**  
-
-2️⃣ Discuss: Is it the **right counterfactual**?  
-
-3️⃣ How could you **approximate it** in the real world?
-
-![](group_exercise.png){width=40% fig-align="center"}
-
-# Predictive Inference
+- From Kleinberg, Ludwig, Mullainathan & Obermeyer (2015), *AER* 105(5): the umbrella only needs a prediction (will it rain?), the rain dance needs a causal effect (does dancing cause rain?). The paper writes the decision's payoff as depending on a causal term and a prediction term; drop one and you get a pure case
+- Seminar question 7.1 asked exactly this; ask one or two students for their answer afterwards
+- Answers: A prediction; B causal; C mostly prediction (whom to skip because they will vote anyway, BF pp. 21-22, the age-turnout figure from session 6); D causal (the effect of canvassing)
+- C and D look alike but ask different questions: C needs to know *who* will vote, D needs to know what the knock *changes*
+:::
 
 ## Predictive inference
 
-> The goal of *good* research is to *“produce valid inferences about social and political life”* (King, Keohane, & Verba 1994, p. 3)
+<br>
+
+Estimate outcomes we **do not observe**: the future, new cases, unlabelled data
 
 . . .
 
 <br>
 
-What is **predictive** inference?
+Success = **accurate predictions for new cases**
 
-. . . 
+[not interpretable coefficients, not causal effects]{style="color:gray"}
 
-<br>
+::: {.notes}
+**Time:** 16:22-16:25 (3 min)
 
-→ Estimate **unobserved outcomes** (i.e., out-of-sample *Y* values) using information from sample data
+- Kleinberg et al.: only the prediction Ŷ enters the decision, so what matters is low prediction error, not unbiased coefficients. That is why machine learning (e.g. LASSO) can beat OLS here: it accepts some bias for less variance
+- "New cases" is the key: accuracy is judged out of sample (data the model did not see), not on the data it was fitted to (Hofman et al. 2021, p. 182)
+- Do not go into the ML details; Grimmer, Roberts & Stewart (2021) is the additional reading for that
+:::
 
----
+## Who should get a hip replacement?
 
-![](rain_clouds.png){fig-align="center"}
-
-## Forecasting the weather
-
-- **Prediction** focuses on finding variables that improve forecasts
-  
-- We don’t need to know *how* or *why* relationships exist
-  
-. . .
-
-<br>
-
-**Cloudy skies** ☁️ suggests **higher chance of rain**, therefore **bring an umbrella! ☂️**
+Surgery is **futile** if the patient dies within a year anyway [(Kleinberg et al. 2015)]{style="color:gray"}
 
 . . .
 
---- *We don't need to model the meteorological system!*
-
-## Explanation vs. prediction
-
-<br>
-
-<div style="font-size:85%; line-height:1.2;">
-
-**Causal inference**: a change in one variable **causes** a change in another  
-
-- The goal is to **identify causal relationships** by recovering **unbiased estimates** 
-- We **don't care** about how well the model predicts outcomes
-
-</div>
+- **Predict**: who will die within a year of surgery?
+- **For whom**: older patients in the US Medicare system
+- **Decision**: whom to operate on, where to spend the money instead
 
 . . .
 
-<div style="font-size:85%; line-height:1.2;">
+✋ Which variables would you use? Do they need to be **causes**? What could go wrong?
 
-**Prediction**: a set of variables explain outcome values
+::: {.notes}
+**Time:** 16:25-16:30 (5 min)
 
-- The goal is to maximize **explained variance**, even if estimates are *biased*
+- Kleinberg et al. (2015), author manuscript pp. 4-5 and Table 1: Medicare claims for hip and knee replacements in 2010; predict death in months 1-12 after surgery (month 1 is excluded so the surgery's own risk does not count). LASSO on about 3,300 claims variables; trained on one part of the data, evaluated on the rest
+- Numbers if asked (manuscript pp. 4-5): about 500,000 replacements a year at about $15,000 each; 4.2% of patients die within months 1-12. Avoid the "56%" figure for the riskiest 1%: the manuscript text and its Table 1 disagree
+- Variables: any that predict death (age, previous hospital stays, diagnoses), whether or not they cause it
+- What could go wrong: patients who would have lived get no surgery (false positives); the data only contain patients who were operated on (selection, from session 6); fairness if the predictors correlate with income or race
+- Other prediction problems in the paper: bail decisions, which restaurants to inspect, teacher hiring, creditworthiness
+:::
 
-- We **don't care** about underlying causal relationships
-
-</div>
-
-## Forecasting elections
+## The four patterns are fine now
 
 <br>
 
-🗳️ What variables would you use to *forecast* election outcomes?
+- **Ice cream sales** predict **drownings** → staff more lifeguards [(confounding)]{style="color:gray"}
+
+- **Umbrella sales** in the morning predict **rain** in the afternoon [(reverse causation)]{style="color:gray"}
+
+- **Age** predicts **turnout**, whatever the reason [(session 6)]{style="color:gray"}
 
 . . .
 
 <br>
 
-- 🤔 Are these variables **causally related** to voting?  
+✋ Why is a **bad cause** a **good predictor**?
 
-- 🎯 Are they **good predictors**?
+::: {.notes}
+**Time:** 16:30-16:35 (5 min)
 
+- This is seminar question 7.2 (good predictor, bad cause); ask one or two students for their example
+- Answer: prediction only needs the correlation to hold, not to know where it comes from. The four patterns from session 6 were problems for causal claims; for prediction they are information
+- Ice cream sales would be a fine predictor for a lifeguard service, and a useless lever: banning ice cream saves nobody
+- Bridge: but the correlation has to *keep* holding. Next slide
+:::
 
-## For what else might we want **prediction**?
+## When predictions break
 
 <br>
+
+A prediction assumes **tomorrow looks like yesterday**
 
 . . .
 
-Two additional examples:
+<br>
+
+✋ A campaign stops knocking on the doors of older voters. Does its turnout model still work next election?
+
+. . .
 
 <br>
 
-→ **Text classification**  
+- **Google Flu Trends** predicted flu from searches, but last week's flu cases predicted just as well [(Hofman et al. 2021)]{style="color:gray"}
 
-→ **Generative AI (LLMs)**
+- Always compare with a **simple baseline**
 
----
+::: {.notes}
+**Time:** 16:35-16:39 (4 min)
 
+- Hofman et al. (2021), p. 182: predictive models assume stable relationships and can break when the situation changes, especially under interventions
+- Campaign answer: perhaps not. If older voters stop being contacted, their turnout may fall; the model learned a world that the campaign has now changed. Prediction is safe for "what will happen if nothing changes", not for "what if we act"
+- Google Flu (Hofman p. 182): search-based predictions looked impressive, but a simple model using case counts from the previous weeks did about as well. Lesson: a prediction is only as good as the simplest alternative it beats
+- Hofman p. 182 also: choices in how accuracy is evaluated can make the same model look very good or rather poor
+:::
 
-![According to Google Scholar, this article had 4,641 citations as of November 4, 2025](text_as_data.png){fig-align="center"}
+## Explanation or prediction?
 
-## 📝 Text Classification
+**Social scientists** want to *explain*: estimate the effect of $X$ on $Y$ [(session 6)]{style="color:gray"}
 
-<br>
+**Computer scientists** want to *predict*: get $Y$ right for new cases [(today)]{style="color:gray"}
 
-- Treats **text as data**: words or documents as variables
+. . .
 
-- The goal is to **predict categories or labels** (e.g., ideology, sentiment, topic) to *reduce costs* for large amounts of data
+✋ Can a study **explain** well but **predict** badly? And the other way round?
 
-- The task itself is **predictive**, but the **goal is measurement**, enabling later **description or explanation**
-
-## Evolving Methods
-
-
-- Dictionary classification 
-
-- Bag-of-words models  
-
-- Topic models (e.g., LDA)  
-
-- Word embeddings (e.g., word2vec, GloVe)  
-
-- Contextual embeddings (e.g., BERT)  
-
-- Large Language Models (LLMs)
-
-
-**Note:** We don’t cover these methods here but **regression is the baseline!**
-
----
-
-![](chatgpt.png){fig-align="center"}
-
-## 🤖 Generative AI
+. . .
 
 <br>
 
-- Large Language Models (LLMs) **solve prediction problems** at scale
+Hofman et al. (2021): good research should be judged on **both**
 
-- They predict the **next word** (or token) given previous ones
+::: {.notes}
+**Time:** 16:39-16:43 (4 min)
 
-- No understanding or causal reasoning — just **pattern-based prediction**
+- Hofman et al. (2021), pp. 181-182: the two traditions value different things. Social science: causal effects estimated in sample, judged by whether the effect is significant. Computer science: accuracy out of sample. In practice the two are often confused
+- Explain well, predict badly: an effect can be clearly non-zero but small; a model with a significant coefficient may still predict very little of the outcome (Hofman pp. 182-183: a significance test is a weak test)
+- Predict well, explain nothing: the hip-replacement model or Google Flu; it tells you *who*, not *why*, and can break when the world changes
+- Today's applied reading sits in between: it predicts the outcomes of experiments, but does it explain anything? Leave this for the discussion after the presentation
+:::
 
-- Their uses can be multiple! (e.g., today's applied reading)
+## Prediction as a tool
+
+<br>
+
+Often prediction is **not the goal** but a **step**
+
+. . .
+
+- **Measurement**: a model predicts labels for millions of texts (topic, tone, ideology) → then we *describe* or *explain*
+
+- **Design**: predict which experiments are worth running [(today's applied reading)]{style="color:gray"}
+
+. . .
+
+<br>
+
+✋ Where could prediction help in **your** project?
+
+::: {.notes}
+**Time:** 16:43-16:46 (3 min)
+
+- Grimmer, Roberts & Stewart (2021), Fig. 1, p. 396: four tasks for machine learning in social science: discovery, measurement, causal inference, prediction. Their "agnostic approach" (p. 404): no single true model; pick the method that works best for the task and validate it ("doubt our models but trust our validations")
+- Text classification: the task is predictive, the goal is measurement, which then feeds description or explanation
+- Grimmer et al. sec. 6 (pp. 411-413): causal inference is not "just another prediction problem", because the counterfactual is never observed, so we cannot check the answer
+:::
+
+## LLMs are prediction machines
+
+<br>
+
+A large language model predicts the **next word** from the words before it
+
+. . .
+
+<br>
+
+✋ Could an LLM predict the **result of an experiment** before we run it?
+
+. . .
+
+<br>
+
+Guess now. The presenters will tell us
+
+::: {.notes}
+**Time:** 16:46-16:49 (3 min)
+
+- Have students commit to a guess (show of hands: badly / about as well as laypeople / better than experts) so they listen to the presentation for the answer
+- Do not give away the results; the presenters cover them
+- Background for you (Ashokkumar, Hewitt, Ghezae & Willer, accepted *Nature* manuscript, the version students read; syllabus cites the 2024 working paper): GPT-4 simulated participants for 70 US survey experiments; predicted and observed effects correlate at r = 0.85 (p. 3), similar to lay forecasters, but effect sizes are overestimated by about a factor of two; much weaker for megastudies (r = 0.39, p. 4)
+- Optional next slide: live autocomplete demo (needs internet; skip if behind)
+:::
 
 ---
 
 <iframe src="https://banana-projects-transformer-autocomplete.hf.space/doc/gpt2-large" width="100%" height="500px"></iframe>
 
+::: {.notes}
+**Optional**, only if ahead of time: type a sentence and show the next-word suggestions. Skip if the page does not load
+:::
 
-# Conclusion
-
-## When do we need prediction?
-
-. . .
-
-<br>
-
-It depends on our ***research needs***!
+## Your prediction problem
 
 <br>
 
-. . .
+In **pairs**, using your seminar questions:
 
-- We may use **prediction as our final goal**, when forecasting itself is the objective
+1️⃣ What do you predict, **for whom**, and which **decision** does it help?
 
-- Or we may use **prediction to solve a problem** that serves a larger aim (e.g., classification for measurement, forecasting experimental results for experimental design)
+2️⃣ Your **good predictor, bad cause**: why is it fine for prediction but a problem for your causal question from session 6?
 
-## Inferential goals summary
+3️⃣ What could make your prediction **break**?
+
+![](group_exercise.png){width=30% fig-align="center"}
+
+::: {.notes}
+**Time:** 16:49-16:57 (5 min in pairs, 3 min: two or three pairs share)
+
+- Builds directly on seminar questions 7.1 and 7.2; the third question applies slide 6
+- If behind: skip sharing
+:::
+
+## Three inferential goals
 
 <br>
 
 <div style="font-size:90%; line-height:1.2;">
 
-| **Type** | **What It Infers** | **Goal** |
+| **Type** | **What it infers** | **Question** |
 |-----------|--------------------|-----------|
-| **Descriptive** | **Summary information** | Describe features of *Y* |
-| **Causal** | **Counterfactual outcomes** | Identify how changes in *X* affect *Y* |
-| **Predictive** | **Unobserved outcomes** | Estimate values of *Y* |
+| **Descriptive** | Features of what we observe | What is the case? |
+| **Causal** | Counterfactual outcomes | What would change if we changed *X*? |
+| **Predictive** | Unobserved outcomes | What will *Y* be for new cases? |
+
 </div>
 
+::: {.notes}
+**Time:** 16:57-16:59 (2 min)
 
-## Next session (16:15)
+- Sessions 5, 6 and 7 in one table; the same data and even the same regression can serve all three goals, depending on what you use it for (Hofman et al., Box 1, p. 186)
+- From session 8 on: research designs for causal inference (experiments, large-N and small-N observational studies)
+:::
+
+## Take-home exercise I
 
 <br>
 
-*→ Experimental studies*
+- Now online in OLAT, in the version for your **R track** (beginner or advanced)
+
+- Replication files of an experimental study: Turnbull-Dugarte & Ortega (2024), *Instrumentally inclusive*, Study 1
+
+- Submit the `.qmd` and the compiled PDF to *Students responses/Take-home exercises/Take-home exercise I*
+
+- Deadline: **29.10.26**
+
+::: {.notes}
+**Time:** 16:59-17:01 (2 min); then up to 6 min buffer until 17:07
+
+- Upload both PDFs (beginner, advanced) and the materials folder (paper PDF, study1_data.csv, study1.R) to OLAT before or during the session; do not upload the advanced solutions
+- Beginner: summary, data exploration I and II, covariate balance table. Advanced: adds balance plots and re-estimating the treatment x imm_1 interaction on random subsamples (N = 400, 100, 10)
+- Questions about R: contact the lecturer, meetings via Zoom
+:::
+
+## Up next: applied reading
 
 <br>
+
+Presentation by **Noa Flückiger and Malte Jonas Kohm**:
+
+- Hewitt, L., Ashokkumar, A., Ghezae, I., & Willer, R. (2024). Predicting results of social science experiments using large language models. *Working paper*
+
+::: {.notes}
+**Time:** 17:07-17:08 hand over; presentation 17:08-17:33 (25 min max.), discussion 17:33-17:42
+
+- Presenters: Noa Flückiger and Malte Jonas Kohm
+- Slides were due Wednesday 14.10, 12:00 in Students responses/Presentation slides; check they are there
+- Grade with 00_grading/presentations/session07/session07_handwritten.pdf: clarity, understanding, critique quality, reasoning, feasibility, discussion (0-5 each; 15/30 = pass)
+- Timing: 25 minutes max., then discussion to improve the proposal
+- Students read the accepted *Nature* manuscript: Ashokkumar, Hewitt, Ghezae & Willer, "Large language models can predict the results of social science experiments"; the slide keeps the syllabus citation
+- Discussion hooks: what is the counterfactual an LLM "simulates"? Which hypothesis would you pilot with an LLM, and which never? Does the paper explain anything, or only predict (Hofman's distinction)? Does it work outside US survey experiments with text stimuli (the authors' own limitation)?
+:::
+
+## Next session (22.10.26 - 14:15, room 4.B51)
+
+***Experimental studies*** · Basic reading: AJ, ch. 1 (pp. 1–33)
 
 . . .
 
-**Before...**
+Presentation by **Chantal Hüsler and Nina Franziska Jäggi**:
+Haas et al. (2024), *Beyond Persuasion: Protest's direct behavioral impact on bystanders*
 
-<br>
+. . .
 
-Presentation by **Fabian Michel**:
+Seminar questions for sessions 8 and 9 due **Wednesday 21.10, 12:00**
 
-*Predicting results of social science experiments using large language models*
+::: {.notes}
+**Time:** 17:42-17:43 (1 min)
+
+- Session 8: Thursday 22.10.26, 14:15-16:00, room 4.B51; session 9 (large-N observational studies) follows 16:15-18:00, same room
+- Basic reading: AJ, ch. 1 "Randomized trials", pp. 1-33; additional: GG, ch. 1, pp. 1-17
+- Presenters: Chantal Hüsler and Nina Franziska Jäggi; slides due Wednesday 21.10, 12:00
+- Session 9 presenters: Ibrahima Khalil Ndiaye and Ella Schertenleib, Ziblatt, Hilbig & Bischof (2024), *Wealth of tongues*
+:::
 
 ---
 
 ![](questions.png){fig-align="center"}
+
+::: {.notes}
+**Time:** 17:43-17:44 (1 min)
+
+- Open floor: questions on prediction, the take-home exercise, or the presentation
+:::
 
 ## Thanks! :slightly_smiling_face:
 
@@ -292,3 +394,9 @@ Presentation by **Fabian Michel**:
 <br>
 
 <center>[klueser@ipz.uzh.ch](mailto:klueser@ipz.uzh.ch)</center>
+
+::: {.notes}
+**Time:** 17:45 end
+
+- Contact: klueser@ipz.uzh.ch; meetings via Zoom on request
+:::

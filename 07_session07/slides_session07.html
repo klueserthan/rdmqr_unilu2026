@@ -6,8 +6,8 @@
 <script src="slides_session07_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="slides_session07_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="slides_session07_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="slides_session07_files/libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.32">
+<link href="slides_session07_files/libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Research Design and Methods in Quantitative Research">
   <title>Predictive Inference</title>
@@ -17,10 +17,16 @@
   <link rel="stylesheet" href="slides_session07_files/libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="slides_session07_files/libs/revealjs/dist/reveal.css">
   <style>
-    code{white-space: pre-wrap;}
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -29,7 +35,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="slides_session07_files/libs/revealjs/dist/theme/quarto-fdaf0edbff08a1a191e6e659ed8ee648.css">
+  <link rel="stylesheet" href="slides_session07_files/libs/revealjs/dist/theme/quarto-708f5b2de77caeea480a951ad599cc27.css">
   <link href="slides_session07_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="slides_session07_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="slides_session07_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -136,7 +142,7 @@
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Research Design and Methods in Quantitative Research 
+Research Design and Methods in Quantitative Research
 </div>
         <p class="quarto-title-affiliation">
             Dr.&nbsp;K. Jonathan Klüser
@@ -145,185 +151,334 @@ Research Design and Methods in Quantitative Research
 </div>
 
 </section>
-<section id="session-6---causal-inference" class="slide level2">
-<h2>Session 6 - Causal inference</h2>
-<div class="fragment">
+<section id="before-the-break-causal-inference" class="slide level2">
+<h2>Before the break: causal inference</h2>
 <p><br></p>
-<p>The <strong>fundamental problem of causal inference (FPCI)</strong></p>
-<div style="font-size:70%; line-height:1.2;">
-<p><span class="math display">\[
-Y_i(1) = \text{Outcome if exposed to the treatment} \\
-Y_i(0) = \text{Outcome if not exposed to the treatment} \\
-\]</span></p>
-<p><span class="math display">\[
-\text{Individual treatment effect} = \tau_i = Y_i(1) - Y_i(0)
-\]</span></p>
-</div>
+<p>A causal effect compares two <strong>potential outcomes</strong>: <span class="math inline">\(\tau_i = Y_i(1) - Y_i(0)\)</span></p>
+<div class="fragment">
+<p>We never see both → we need a good <strong>counterfactual</strong></p>
 </div>
 <div class="fragment">
 <p><br></p>
-<p>We <em>address</em> FPCI by thinking in <strong><em>counterfactual</em></strong> terms</p>
+<p>A correlation can come from <strong>confounding</strong>, <strong>reverse causation</strong>, <strong>selection</strong> or <strong>chance</strong></p>
+<aside class="notes">
+<p><strong>Time:</strong> 16:15-16:17 (2 min). Session plan (90 min): lecture and interaction 16:15-17:07 (52 min, about 6 min buffer built in) · student presentation and discussion 17:08-17:42 · wrap-up 17:42-17:45</p>
+<ul>
+<li>One-sentence recap of session 6; the four patterns come back on slide 5</li>
+<li>Today’s question: what if we do not need to know the cause at all?</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </div>
 </section>
-<section id="group-exercise-session-6" class="slide level2">
-<h2>Group exercise session 6</h2>
+<section id="umbrella-or-rain-dance" class="slide level2">
+<h2>Umbrella or rain dance?</h2>
+<p>Which of these decisions needs a <strong>causal</strong> answer, and which only a good <strong>prediction</strong>?</p>
 <p><br></p>
-<div class="fragment">
-<p>In <strong>pairs</strong>:</p>
-<p>1️⃣ Share your <strong>causal claim</strong> (<em>X → Y</em>) and its <strong>counterfactual</strong></p>
-<p>2️⃣ Discuss: Is it the <strong>right counterfactual</strong>?</p>
-<p>3️⃣ How could you <strong>approximate it</strong> in the real world?</p>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="group_exercise.png" class="quarto-figure quarto-figure-center" style="width:40.0%"></p>
-</figure>
-</div>
-</div>
+<p><strong>A.</strong> Should I take an umbrella today?</p>
+<p><strong>B.</strong> Should the government fund rain dances to end a drought?</p>
+<p><strong>C.</strong> Which doors should a campaign knock on? <span style="color:gray">(session 6: older people vote more)</span></p>
+<p><strong>D.</strong> Does knocking on doors raise turnout?</p>
+<aside class="notes">
+<p><strong>Time:</strong> 16:17-16:22 (5 min)</p>
+<ul>
+<li>From Kleinberg, Ludwig, Mullainathan &amp; Obermeyer (2015), <em>AER</em> 105(5): the umbrella only needs a prediction (will it rain?), the rain dance needs a causal effect (does dancing cause rain?). The paper writes the decision’s payoff as depending on a causal term and a prediction term; drop one and you get a pure case</li>
+<li>Seminar question 7.1 asked exactly this; ask one or two students for their answer afterwards</li>
+<li>Answers: A prediction; B causal; C mostly prediction (whom to skip because they will vote anyway, BF pp.&nbsp;21-22, the age-turnout figure from session 6); D causal (the effect of canvassing)</li>
+<li>C and D look alike but ask different questions: C needs to know <em>who</em> will vote, D needs to know what the knock <em>changes</em></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section>
-<section id="predictive-inference" class="title-slide slide level1 center">
-<h1>Predictive Inference</h1>
-
-</section>
-<section id="predictive-inference-1" class="slide level2">
+<section id="predictive-inference" class="slide level2">
 <h2>Predictive inference</h2>
-<blockquote>
-<p>The goal of <em>good</em> research is to <em>“produce valid inferences about social and political life”</em> (King, Keohane, &amp; Verba 1994, p.&nbsp;3)</p>
-</blockquote>
+<p><br></p>
+<p>Estimate outcomes we <strong>do not observe</strong>: the future, new cases, unlabelled data</p>
 <div class="fragment">
 <p><br></p>
-<p>What is <strong>predictive</strong> inference?</p>
-</div>
-<div class="fragment">
-<p><br></p>
-<p>→ Estimate <strong>unobserved outcomes</strong> (i.e., out-of-sample <em>Y</em> values) using information from sample data</p>
-</div>
-</section>
-<section class="slide level2">
-
-
-<img data-src="rain_clouds.png" class="quarto-figure quarto-figure-center r-stretch"></section>
-<section id="forecasting-the-weather" class="slide level2">
-<h2>Forecasting the weather</h2>
+<p>Success = <strong>accurate predictions for new cases</strong></p>
+<p><span style="color:gray">not interpretable coefficients, not causal effects</span></p>
+<aside class="notes">
+<p><strong>Time:</strong> 16:22-16:25 (3 min)</p>
 <ul>
-<li><p><strong>Prediction</strong> focuses on finding variables that improve forecasts</p></li>
-<li><p>We don’t need to know <em>how</em> or <em>why</em> relationships exist</p></li>
+<li>Kleinberg et al.: only the prediction Ŷ enters the decision, so what matters is low prediction error, not unbiased coefficients. That is why machine learning (e.g.&nbsp;LASSO) can beat OLS here: it accepts some bias for less variance</li>
+<li>“New cases” is the key: accuracy is judged out of sample (data the model did not see), not on the data it was fitted to (Hofman et al.&nbsp;2021, p.&nbsp;182)</li>
+<li>Do not go into the ML details; Grimmer, Roberts &amp; Stewart (2021) is the additional reading for that</li>
 </ul>
-<div class="fragment">
-<p><br></p>
-<p><strong>Cloudy skies</strong> ☁️ suggests <strong>higher chance of rain</strong>, therefore <strong>bring an umbrella! ☂️</strong></p>
-</div>
-<div class="fragment">
-<p>— <em>We don’t need to model the meteorological system!</em></p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </div>
 </section>
-<section id="explanation-vs.-prediction" class="slide level2">
-<h2>Explanation vs.&nbsp;prediction</h2>
-<p><br></p>
-<div style="font-size:85%; line-height:1.2;">
-<p><strong>Causal inference</strong>: a change in one variable <strong>causes</strong> a change in another</p>
+<section id="who-should-get-a-hip-replacement" class="slide level2">
+<h2>Who should get a hip replacement?</h2>
+<p>Surgery is <strong>futile</strong> if the patient dies within a year anyway <span style="color:gray">(Kleinberg et al.&nbsp;2015)</span></p>
+<div class="fragment">
 <ul>
-<li>The goal is to <strong>identify causal relationships</strong> by recovering <strong>unbiased estimates</strong></li>
-<li>We <strong>don’t care</strong> about how well the model predicts outcomes</li>
+<li><strong>Predict</strong>: who will die within a year of surgery?</li>
+<li><strong>For whom</strong>: older patients in the US Medicare system</li>
+<li><strong>Decision</strong>: whom to operate on, where to spend the money instead</li>
 </ul>
 </div>
 <div class="fragment">
-<div style="font-size:85%; line-height:1.2;">
-<p><strong>Prediction</strong>: a set of variables explain outcome values</p>
+<p>✋ Which variables would you use? Do they need to be <strong>causes</strong>? What could go wrong?</p>
+<aside class="notes">
+<p><strong>Time:</strong> 16:25-16:30 (5 min)</p>
 <ul>
-<li><p>The goal is to maximize <strong>explained variance</strong>, even if estimates are <em>biased</em></p></li>
-<li><p>We <strong>don’t care</strong> about underlying causal relationships</p></li>
+<li>Kleinberg et al.&nbsp;(2015), author manuscript pp.&nbsp;4-5 and Table 1: Medicare claims for hip and knee replacements in 2010; predict death in months 1-12 after surgery (month 1 is excluded so the surgery’s own risk does not count). LASSO on about 3,300 claims variables; trained on one part of the data, evaluated on the rest</li>
+<li>Numbers if asked (manuscript pp.&nbsp;4-5): about 500,000 replacements a year at about $15,000 each; 4.2% of patients die within months 1-12. Avoid the “56%” figure for the riskiest 1%: the manuscript text and its Table 1 disagree</li>
+<li>Variables: any that predict death (age, previous hospital stays, diagnoses), whether or not they cause it</li>
+<li>What could go wrong: patients who would have lived get no surgery (false positives); the data only contain patients who were operated on (selection, from session 6); fairness if the predictors correlate with income or race</li>
+<li>Other prediction problems in the paper: bail decisions, which restaurants to inspect, teacher hiring, creditworthiness</li>
 </ul>
-</div>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </div>
 </section>
-<section id="forecasting-elections" class="slide level2">
-<h2>Forecasting elections</h2>
+<section id="the-four-patterns-are-fine-now" class="slide level2">
+<h2>The four patterns are fine now</h2>
 <p><br></p>
-<p>🗳️ What variables would you use to <em>forecast</em> election outcomes?</p>
+<ul>
+<li><p><strong>Ice cream sales</strong> predict <strong>drownings</strong> → staff more lifeguards <span style="color:gray">(confounding)</span></p></li>
+<li><p><strong>Umbrella sales</strong> in the morning predict <strong>rain</strong> in the afternoon <span style="color:gray">(reverse causation)</span></p></li>
+<li><p><strong>Age</strong> predicts <strong>turnout</strong>, whatever the reason <span style="color:gray">(session 6)</span></p></li>
+</ul>
+<div class="fragment">
+<p><br></p>
+<p>✋ Why is a <strong>bad cause</strong> a <strong>good predictor</strong>?</p>
+<aside class="notes">
+<p><strong>Time:</strong> 16:30-16:35 (5 min)</p>
+<ul>
+<li>This is seminar question 7.2 (good predictor, bad cause); ask one or two students for their example</li>
+<li>Answer: prediction only needs the correlation to hold, not to know where it comes from. The four patterns from session 6 were problems for causal claims; for prediction they are information</li>
+<li>Ice cream sales would be a fine predictor for a lifeguard service, and a useless lever: banning ice cream saves nobody</li>
+<li>Bridge: but the correlation has to <em>keep</em> holding. Next slide</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</div>
+</section>
+<section id="when-predictions-break" class="slide level2">
+<h2>When predictions break</h2>
+<p><br></p>
+<p>A prediction assumes <strong>tomorrow looks like yesterday</strong></p>
+<div class="fragment">
+<p><br></p>
+<p>✋ A campaign stops knocking on the doors of older voters. Does its turnout model still work next election?</p>
+</div>
 <div class="fragment">
 <p><br></p>
 <ul>
-<li><p>🤔 Are these variables <strong>causally related</strong> to voting?</p></li>
-<li><p>🎯 Are they <strong>good predictors</strong>?</p></li>
+<li><p><strong>Google Flu Trends</strong> predicted flu from searches, but last week’s flu cases predicted just as well <span style="color:gray">(Hofman et al.&nbsp;2021)</span></p></li>
+<li><p>Always compare with a <strong>simple baseline</strong></p></li>
 </ul>
+<aside class="notes">
+<p><strong>Time:</strong> 16:35-16:39 (4 min)</p>
+<ul>
+<li>Hofman et al.&nbsp;(2021), p.&nbsp;182: predictive models assume stable relationships and can break when the situation changes, especially under interventions</li>
+<li>Campaign answer: perhaps not. If older voters stop being contacted, their turnout may fall; the model learned a world that the campaign has now changed. Prediction is safe for “what will happen if nothing changes”, not for “what if we act”</li>
+<li>Google Flu (Hofman p.&nbsp;182): search-based predictions looked impressive, but a simple model using case counts from the previous weeks did about as well. Lesson: a prediction is only as good as the simplest alternative it beats</li>
+<li>Hofman p.&nbsp;182 also: choices in how accuracy is evaluated can make the same model look very good or rather poor</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </div>
 </section>
-<section id="for-what-else-might-we-want-prediction" class="slide level2">
-<h2>For what else might we want <strong>prediction</strong>?</h2>
-<p><br></p>
+<section id="explanation-or-prediction" class="slide level2">
+<h2>Explanation or prediction?</h2>
+<p><strong>Social scientists</strong> want to <em>explain</em>: estimate the effect of <span class="math inline">\(X\)</span> on <span class="math inline">\(Y\)</span> <span style="color:gray">(session 6)</span></p>
+<p><strong>Computer scientists</strong> want to <em>predict</em>: get <span class="math inline">\(Y\)</span> right for new cases <span style="color:gray">(today)</span></p>
 <div class="fragment">
-<p>Two additional examples:</p>
+<p>✋ Can a study <strong>explain</strong> well but <strong>predict</strong> badly? And the other way round?</p>
+</div>
+<div class="fragment">
 <p><br></p>
-<p>→ <strong>Text classification</strong></p>
-<p>→ <strong>Generative AI (LLMs)</strong></p>
+<p>Hofman et al.&nbsp;(2021): good research should be judged on <strong>both</strong></p>
+<aside class="notes">
+<p><strong>Time:</strong> 16:39-16:43 (4 min)</p>
+<ul>
+<li>Hofman et al.&nbsp;(2021), pp.&nbsp;181-182: the two traditions value different things. Social science: causal effects estimated in sample, judged by whether the effect is significant. Computer science: accuracy out of sample. In practice the two are often confused</li>
+<li>Explain well, predict badly: an effect can be clearly non-zero but small; a model with a significant coefficient may still predict very little of the outcome (Hofman pp.&nbsp;182-183: a significance test is a weak test)</li>
+<li>Predict well, explain nothing: the hip-replacement model or Google Flu; it tells you <em>who</em>, not <em>why</em>, and can break when the world changes</li>
+<li>Today’s applied reading sits in between: it predicts the outcomes of experiments, but does it explain anything? Leave this for the discussion after the presentation</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </div>
 </section>
-<section class="slide level2">
-
-
-<img data-src="text_as_data.png" class="r-stretch quarto-figure-center"><p class="caption">According to Google Scholar, this article had 4,641 citations as of November 4, 2025</p></section>
-<section id="text-classification" class="slide level2">
-<h2>📝 Text Classification</h2>
+<section id="prediction-as-a-tool" class="slide level2">
+<h2>Prediction as a tool</h2>
 <p><br></p>
+<p>Often prediction is <strong>not the goal</strong> but a <strong>step</strong></p>
+<div class="fragment">
 <ul>
-<li><p>Treats <strong>text as data</strong>: words or documents as variables</p></li>
-<li><p>The goal is to <strong>predict categories or labels</strong> (e.g., ideology, sentiment, topic) to <em>reduce costs</em> for large amounts of data</p></li>
-<li><p>The task itself is <strong>predictive</strong>, but the <strong>goal is measurement</strong>, enabling later <strong>description or explanation</strong></p></li>
+<li><p><strong>Measurement</strong>: a model predicts labels for millions of texts (topic, tone, ideology) → then we <em>describe</em> or <em>explain</em></p></li>
+<li><p><strong>Design</strong>: predict which experiments are worth running <span style="color:gray">(today’s applied reading)</span></p></li>
 </ul>
-</section>
-<section id="evolving-methods" class="slide level2">
-<h2>Evolving Methods</h2>
-<ul>
-<li><p>Dictionary classification</p></li>
-<li><p>Bag-of-words models</p></li>
-<li><p>Topic models (e.g., LDA)</p></li>
-<li><p>Word embeddings (e.g., word2vec, GloVe)</p></li>
-<li><p>Contextual embeddings (e.g., BERT)</p></li>
-<li><p>Large Language Models (LLMs)</p></li>
-</ul>
-<p><strong>Note:</strong> We don’t cover these methods here but <strong>regression is the baseline!</strong></p>
-</section>
-<section class="slide level2">
-
-
-<img data-src="chatgpt.png" class="quarto-figure quarto-figure-center r-stretch"></section>
-<section id="generative-ai" class="slide level2">
-<h2>🤖 Generative AI</h2>
+</div>
+<div class="fragment">
 <p><br></p>
+<p>✋ Where could prediction help in <strong>your</strong> project?</p>
+<aside class="notes">
+<p><strong>Time:</strong> 16:43-16:46 (3 min)</p>
 <ul>
-<li><p>Large Language Models (LLMs) <strong>solve prediction problems</strong> at scale</p></li>
-<li><p>They predict the <strong>next word</strong> (or token) given previous ones</p></li>
-<li><p>No understanding or causal reasoning — just <strong>pattern-based prediction</strong></p></li>
-<li><p>Their uses can be multiple! (e.g., today’s applied reading)</p></li>
+<li>Grimmer, Roberts &amp; Stewart (2021), Fig. 1, p.&nbsp;396: four tasks for machine learning in social science: discovery, measurement, causal inference, prediction. Their “agnostic approach” (p.&nbsp;404): no single true model; pick the method that works best for the task and validate it (“doubt our models but trust our validations”)</li>
+<li>Text classification: the task is predictive, the goal is measurement, which then feeds description or explanation</li>
+<li>Grimmer et al.&nbsp;sec.&nbsp;6 (pp.&nbsp;411-413): causal inference is not “just another prediction problem”, because the counterfactual is never observed, so we cannot check the answer</li>
 </ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</div>
+</section>
+<section id="llms-are-prediction-machines" class="slide level2">
+<h2>LLMs are prediction machines</h2>
+<p><br></p>
+<p>A large language model predicts the <strong>next word</strong> from the words before it</p>
+<div class="fragment">
+<p><br></p>
+<p>✋ Could an LLM predict the <strong>result of an experiment</strong> before we run it?</p>
+</div>
+<div class="fragment">
+<p><br></p>
+<p>Guess now. The presenters will tell us</p>
+<aside class="notes">
+<p><strong>Time:</strong> 16:46-16:49 (3 min)</p>
+<ul>
+<li>Have students commit to a guess (show of hands: badly / about as well as laypeople / better than experts) so they listen to the presentation for the answer</li>
+<li>Do not give away the results; the presenters cover them</li>
+<li>Background for you (Ashokkumar, Hewitt, Ghezae &amp; Willer, accepted <em>Nature</em> manuscript, the version students read; syllabus cites the 2024 working paper): GPT-4 simulated participants for 70 US survey experiments; predicted and observed effects correlate at r = 0.85 (p.&nbsp;3), similar to lay forecasters, but effect sizes are overestimated by about a factor of two; much weaker for megastudies (r = 0.39, p.&nbsp;4)</li>
+<li>Optional next slide: live autocomplete demo (needs internet; skip if behind)</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</div>
 </section>
 <section class="slide level2">
 
 <iframe src="https://banana-projects-transformer-autocomplete.hf.space/doc/gpt2-large" width="100%" height="500px">
 </iframe>
-</section></section>
-<section>
-<section id="conclusion" class="title-slide slide level1 center">
-<h1>Conclusion</h1>
+<aside class="notes">
+<p><strong>Optional</strong>, only if ahead of time: type a sentence and show the next-word suggestions. Skip if the page does not load</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="your-prediction-problem" class="slide level2">
+<h2>Your prediction problem</h2>
+<p><br></p>
+<p>In <strong>pairs</strong>, using your seminar questions:</p>
+<p>1️⃣ What do you predict, <strong>for whom</strong>, and which <strong>decision</strong> does it help?</p>
+<p>2️⃣ Your <strong>good predictor, bad cause</strong>: why is it fine for prediction but a problem for your causal question from session 6?</p>
+<p>3️⃣ What could make your prediction <strong>break</strong>?</p>
 
-</section>
-<section id="when-do-we-need-prediction" class="slide level2">
-<h2>When do we need prediction?</h2>
-<div class="fragment">
-<p><br></p>
-<p>It depends on our <strong><em>research needs</em></strong>!</p>
-<p><br></p>
-</div>
-<div class="fragment">
+<img data-src="group_exercise.png" class="quarto-figure quarto-figure-center r-stretch" style="width:30.0%"><aside class="notes">
+<p><strong>Time:</strong> 16:49-16:57 (5 min in pairs, 3 min: two or three pairs share)</p>
 <ul>
-<li><p>We may use <strong>prediction as our final goal</strong>, when forecasting itself is the objective</p></li>
-<li><p>Or we may use <strong>prediction to solve a problem</strong> that serves a larger aim (e.g., classification for measurement, forecasting experimental results for experimental design)</p></li>
+<li>Builds directly on seminar questions 7.1 and 7.2; the third question applies slide 6</li>
+<li>If behind: skip sharing</li>
 </ul>
-</div>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section id="inferential-goals-summary" class="slide level2">
-<h2>Inferential goals summary</h2>
+<section id="three-inferential-goals" class="slide level2">
+<h2>Three inferential goals</h2>
 <p><br></p>
 <div style="font-size:90%; line-height:1.2;">
 <table class="caption-top">
@@ -335,46 +490,153 @@ Y_i(0) = \text{Outcome if not exposed to the treatment} \\
 <thead>
 <tr class="header">
 <th><strong>Type</strong></th>
-<th><strong>What It Infers</strong></th>
-<th><strong>Goal</strong></th>
+<th><strong>What it infers</strong></th>
+<th><strong>Question</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td><strong>Descriptive</strong></td>
-<td><strong>Summary information</strong></td>
-<td>Describe features of <em>Y</em></td>
+<td>Features of what we observe</td>
+<td>What is the case?</td>
 </tr>
 <tr class="even">
 <td><strong>Causal</strong></td>
-<td><strong>Counterfactual outcomes</strong></td>
-<td>Identify how changes in <em>X</em> affect <em>Y</em></td>
+<td>Counterfactual outcomes</td>
+<td>What would change if we changed <em>X</em>?</td>
 </tr>
 <tr class="odd">
 <td><strong>Predictive</strong></td>
-<td><strong>Unobserved outcomes</strong></td>
-<td>Estimate values of <em>Y</em></td>
+<td>Unobserved outcomes</td>
+<td>What will <em>Y</em> be for new cases?</td>
 </tr>
 </tbody>
 </table>
 </div>
+<aside class="notes">
+<p><strong>Time:</strong> 16:57-16:59 (2 min)</p>
+<ul>
+<li>Sessions 5, 6 and 7 in one table; the same data and even the same regression can serve all three goals, depending on what you use it for (Hofman et al., Box 1, p.&nbsp;186)</li>
+<li>From session 8 on: research designs for causal inference (experiments, large-N and small-N observational studies)</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section id="next-session-1615" class="slide level2">
-<h2>Next session (16:15)</h2>
+<section id="take-home-exercise-i" class="slide level2">
+<h2>Take-home exercise I</h2>
 <p><br></p>
-<p><em>→ Experimental studies</em></p>
+<ul>
+<li><p>Now online in OLAT, in the version for your <strong>R track</strong> (beginner or advanced)</p></li>
+<li><p>Replication files of an experimental study: Turnbull-Dugarte &amp; Ortega (2024), <em>Instrumentally inclusive</em>, Study 1</p></li>
+<li><p>Submit the <code>.qmd</code> and the compiled PDF to <em>Students responses/Take-home exercises/Take-home exercise I</em></p></li>
+<li><p>Deadline: <strong>29.10.26</strong></p></li>
+</ul>
+<aside class="notes">
+<p><strong>Time:</strong> 16:59-17:01 (2 min); then up to 6 min buffer until 17:07</p>
+<ul>
+<li>Upload both PDFs (beginner, advanced) and the materials folder (paper PDF, study1_data.csv, study1.R) to OLAT before or during the session; do not upload the advanced solutions</li>
+<li>Beginner: summary, data exploration I and II, covariate balance table. Advanced: adds balance plots and re-estimating the treatment x imm_1 interaction on random subsamples (N = 400, 100, 10)</li>
+<li>Questions about R: contact the lecturer, meetings via Zoom</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="up-next-applied-reading" class="slide level2">
+<h2>Up next: applied reading</h2>
 <p><br></p>
+<p>Presentation by <strong>Noa Flückiger and Malte Jonas Kohm</strong>:</p>
+<ul>
+<li>Hewitt, L., Ashokkumar, A., Ghezae, I., &amp; Willer, R. (2024). Predicting results of social science experiments using large language models. <em>Working paper</em></li>
+</ul>
+<aside class="notes">
+<p><strong>Time:</strong> 17:07-17:08 hand over; presentation 17:08-17:33 (25 min max.), discussion 17:33-17:42</p>
+<ul>
+<li>Presenters: Noa Flückiger and Malte Jonas Kohm</li>
+<li>Slides were due Wednesday 14.10, 12:00 in Students responses/Presentation slides; check they are there</li>
+<li>Grade with 00_grading/presentations/session07/session07_handwritten.pdf: clarity, understanding, critique quality, reasoning, feasibility, discussion (0-5 each; 15/30 = pass)</li>
+<li>Timing: 25 minutes max., then discussion to improve the proposal</li>
+<li>Students read the accepted <em>Nature</em> manuscript: Ashokkumar, Hewitt, Ghezae &amp; Willer, “Large language models can predict the results of social science experiments”; the slide keeps the syllabus citation</li>
+<li>Discussion hooks: what is the counterfactual an LLM “simulates”? Which hypothesis would you pilot with an LLM, and which never? Does the paper explain anything, or only predict (Hofman’s distinction)? Does it work outside US survey experiments with text stimuli (the authors’ own limitation)?</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="next-session-22.10.26---1415-room-4.b51" class="slide level2">
+<h2>Next session (22.10.26 - 14:15, room 4.B51)</h2>
+<p><strong><em>Experimental studies</em></strong> · Basic reading: AJ, ch.&nbsp;1 (pp.&nbsp;1–33)</p>
 <div class="fragment">
-<p><strong>Before…</strong></p>
-<p><br></p>
-<p>Presentation by <strong>Fabian Michel</strong>:</p>
-<p><em>Predicting results of social science experiments using large language models</em></p>
+<p>Presentation by <strong>Chantal Hüsler and Nina Franziska Jäggi</strong>: Haas et al.&nbsp;(2024), <em>Beyond Persuasion: Protest’s direct behavioral impact on bystanders</em></p>
+</div>
+<div class="fragment">
+<p>Seminar questions for sessions 8 and 9 due <strong>Wednesday 21.10, 12:00</strong></p>
+<aside class="notes">
+<p><strong>Time:</strong> 17:42-17:43 (1 min)</p>
+<ul>
+<li>Session 8: Thursday 22.10.26, 14:15-16:00, room 4.B51; session 9 (large-N observational studies) follows 16:15-18:00, same room</li>
+<li>Basic reading: AJ, ch.&nbsp;1 “Randomized trials”, pp.&nbsp;1-33; additional: GG, ch.&nbsp;1, pp.&nbsp;1-17</li>
+<li>Presenters: Chantal Hüsler and Nina Franziska Jäggi; slides due Wednesday 21.10, 12:00</li>
+<li>Session 9 presenters: Ibrahima Khalil Ndiaye and Ella Schertenleib, Ziblatt, Hilbig &amp; Bischof (2024), <em>Wealth of tongues</em></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </div>
 </section>
 <section class="slide level2">
 
 
-<img data-src="questions.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<img data-src="questions.png" class="quarto-figure quarto-figure-center r-stretch"><aside class="notes">
+<p><strong>Time:</strong> 17:43-17:44 (1 min)</p>
+<ul>
+<li>Open floor: questions on prediction, the take-home exercise, or the presentation</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
 <section id="thanks" class="slide level2">
 <h2>Thanks! <span class="emoji" data-emoji="slightly_smiling_face">🙂</span></h2>
 <p><br></p>
@@ -383,8 +645,24 @@ Y_i(0) = \text{Outcome if not exposed to the treatment} \\
 <center>
 <a href="mailto:klueser@ipz.uzh.ch">klueser@ipz.uzh.ch</a>
 </center>
+<aside class="notes">
+<p><strong>Time:</strong> 17:45 end</p>
+<ul>
+<li>Contact: klueser@ipz.uzh.ch; meetings via Zoom on request</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 
-</section></section>
+</section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <p><img src="../00_images/logo_unilu.png" class="slide-logo"></p>
@@ -577,7 +855,7 @@ Y_i(0) = \text{Outcome if not exposed to the treatment} \\
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
@@ -651,13 +929,14 @@ Y_i(0) = \text{Outcome if not exposed to the treatment} \\
           e.clearSelection();
         }
         const getTextToCopy = function(trigger) {
-            const codeEl = trigger.previousElementSibling.cloneNode(true);
-            for (const childEl of codeEl.children) {
-              if (isCodeAnnotation(childEl)) {
-                childEl.remove();
-              }
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
             }
-            return codeEl.innerText;
+          }
+          return codeEl.innerText;
         }
         const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
           text: getTextToCopy

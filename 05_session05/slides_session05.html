@@ -6,8 +6,8 @@
 <script src="slides_session05_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="slides_session05_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="slides_session05_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="slides_session05_files/libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.32">
+<link href="slides_session05_files/libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Research Design and Methods in Quantitative Research">
   <title>Descriptive Inference</title>
@@ -17,10 +17,16 @@
   <link rel="stylesheet" href="slides_session05_files/libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="slides_session05_files/libs/revealjs/dist/reveal.css">
   <style>
-    code{white-space: pre-wrap;}
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -95,7 +101,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="slides_session05_files/libs/revealjs/dist/theme/quarto-fdaf0edbff08a1a191e6e659ed8ee648.css">
+  <link rel="stylesheet" href="slides_session05_files/libs/revealjs/dist/theme/quarto-708f5b2de77caeea480a951ad599cc27.css">
   <link href="slides_session05_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="slides_session05_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="slides_session05_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -202,7 +208,7 @@
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Research Design and Methods in Quantitative Research 
+Research Design and Methods in Quantitative Research
 </div>
         <p class="quarto-title-affiliation">
             Dr.&nbsp;K. Jonathan Klüser
@@ -381,8 +387,8 @@ Research Design and Methods in Quantitative Research
 <section id="a-look-into-our-data" class="slide level2">
 <h2>A look into our data</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1" data-code-line-numbers="|1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="co"># Show whole dataset</span></span>
-<span id="cb1-2"><a href=""></a>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" data-code-line-numbers="|1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="" aria-label="1"></a><span class="co"># Show whole dataset</span></span>
+<span id="cb1-2"><a href="" aria-label="2"></a>data</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="fragment">
 <div class="cell">
@@ -442,19 +448,19 @@ Research Design and Methods in Quantitative Research
 </div>
 <div id="tabset-1-2">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb3-2"><a href=""></a></span>
-<span id="cb3-3"><a href=""></a><span class="co"># Bar plot of gender</span></span>
-<span id="cb3-4"><a href=""></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> Gender, <span class="at">fill =</span> Gender)) <span class="sc">+</span></span>
-<span id="cb3-5"><a href=""></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
-<span id="cb3-6"><a href=""></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Female"</span> <span class="ot">=</span> <span class="st">"#A1C9F4"</span>, <span class="st">"Male"</span> <span class="ot">=</span> <span class="st">"#FFB482"</span>)) <span class="sc">+</span></span>
-<span id="cb3-7"><a href=""></a>  <span class="fu">labs</span>(</span>
-<span id="cb3-8"><a href=""></a>    <span class="at">title =</span> <span class="st">"Gender distribution in the class"</span>,</span>
-<span id="cb3-9"><a href=""></a>    <span class="at">x =</span> <span class="st">"Gender"</span>,</span>
-<span id="cb3-10"><a href=""></a>    <span class="at">y =</span> <span class="st">"Count"</span></span>
-<span id="cb3-11"><a href=""></a>  ) <span class="sc">+</span></span>
-<span id="cb3-12"><a href=""></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">14</span>) <span class="sc">+</span></span>
-<span id="cb3-13"><a href=""></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="" aria-label="1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb3-2"><a href="" aria-label="2"></a></span>
+<span id="cb3-3"><a href="" aria-label="3"></a><span class="co"># Bar plot of gender</span></span>
+<span id="cb3-4"><a href="" aria-label="4"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> Gender, <span class="at">fill =</span> Gender)) <span class="sc">+</span></span>
+<span id="cb3-5"><a href="" aria-label="5"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb3-6"><a href="" aria-label="6"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Female"</span> <span class="ot">=</span> <span class="st">"#A1C9F4"</span>, <span class="st">"Male"</span> <span class="ot">=</span> <span class="st">"#FFB482"</span>)) <span class="sc">+</span></span>
+<span id="cb3-7"><a href="" aria-label="7"></a>  <span class="fu">labs</span>(</span>
+<span id="cb3-8"><a href="" aria-label="8"></a>    <span class="at">title =</span> <span class="st">"Gender distribution in the class"</span>,</span>
+<span id="cb3-9"><a href="" aria-label="9"></a>    <span class="at">x =</span> <span class="st">"Gender"</span>,</span>
+<span id="cb3-10"><a href="" aria-label="10"></a>    <span class="at">y =</span> <span class="st">"Count"</span></span>
+<span id="cb3-11"><a href="" aria-label="11"></a>  ) <span class="sc">+</span></span>
+<span id="cb3-12"><a href="" aria-label="12"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">14</span>) <span class="sc">+</span></span>
+<span id="cb3-13"><a href="" aria-label="13"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -508,17 +514,17 @@ Research Design and Methods in Quantitative Research
 </div>
 <div id="tabset-2-3">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb4-2"><a href=""></a></span>
-<span id="cb4-3"><a href=""></a><span class="co"># Histogram with density overlay</span></span>
-<span id="cb4-4"><a href=""></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> Name_Length)) <span class="sc">+</span></span>
-<span id="cb4-5"><a href=""></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">after_stat</span>(density)), <span class="at">binwidth =</span> <span class="dv">2</span>, <span class="at">boundary =</span> <span class="dv">0</span>, <span class="at">fill =</span> <span class="st">"#A1C9F4"</span>, <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
-<span id="cb4-6"><a href=""></a>  <span class="fu">geom_density</span>(<span class="at">color =</span> <span class="st">"#FFB482"</span>, <span class="at">linewidth =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
-<span id="cb4-7"><a href=""></a>  <span class="fu">labs</span>(</span>
-<span id="cb4-8"><a href=""></a>    <span class="at">title =</span> <span class="st">"Distribution of name length"</span>,</span>
-<span id="cb4-9"><a href=""></a>    <span class="at">x =</span> <span class="st">"Name length (letters)"</span>,</span>
-<span id="cb4-10"><a href=""></a>    <span class="at">y =</span> <span class="st">"Density"</span>) <span class="sc">+</span></span>
-<span id="cb4-11"><a href=""></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">14</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="" aria-label="1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb4-2"><a href="" aria-label="2"></a></span>
+<span id="cb4-3"><a href="" aria-label="3"></a><span class="co"># Histogram with density overlay</span></span>
+<span id="cb4-4"><a href="" aria-label="4"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> Name_Length)) <span class="sc">+</span></span>
+<span id="cb4-5"><a href="" aria-label="5"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">after_stat</span>(density)), <span class="at">binwidth =</span> <span class="dv">2</span>, <span class="at">boundary =</span> <span class="dv">0</span>, <span class="at">fill =</span> <span class="st">"#A1C9F4"</span>, <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb4-6"><a href="" aria-label="6"></a>  <span class="fu">geom_density</span>(<span class="at">color =</span> <span class="st">"#FFB482"</span>, <span class="at">linewidth =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
+<span id="cb4-7"><a href="" aria-label="7"></a>  <span class="fu">labs</span>(</span>
+<span id="cb4-8"><a href="" aria-label="8"></a>    <span class="at">title =</span> <span class="st">"Distribution of name length"</span>,</span>
+<span id="cb4-9"><a href="" aria-label="9"></a>    <span class="at">x =</span> <span class="st">"Name length (letters)"</span>,</span>
+<span id="cb4-10"><a href="" aria-label="10"></a>    <span class="at">y =</span> <span class="st">"Density"</span>) <span class="sc">+</span></span>
+<span id="cb4-11"><a href="" aria-label="11"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">14</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -607,15 +613,15 @@ Research Design and Methods in Quantitative Research
 <h2>Central tendency measures: categorical variables</h2>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5" data-code-line-numbers="|3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb5-2"><a href=""></a></span>
-<span id="cb5-3"><a href=""></a><span class="co"># Mode for the categorical variable (Gender)</span></span>
-<span id="cb5-4"><a href=""></a>mode_gender <span class="ot">&lt;-</span> data <span class="sc">|&gt;</span></span>
-<span id="cb5-5"><a href=""></a>  <span class="fu">count</span>(Gender) <span class="sc">|&gt;</span></span>
-<span id="cb5-6"><a href=""></a>  <span class="fu">slice_max</span>(n, <span class="at">n =</span> <span class="dv">1</span>) <span class="sc">|&gt;</span></span>
-<span id="cb5-7"><a href=""></a>  <span class="fu">pull</span>(Gender)</span>
-<span id="cb5-8"><a href=""></a></span>
-<span id="cb5-9"><a href=""></a>mode_gender</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5" data-code-line-numbers="|3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="" aria-label="1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb5-2"><a href="" aria-label="2"></a></span>
+<span id="cb5-3"><a href="" aria-label="3"></a><span class="co"># Mode for the categorical variable (Gender)</span></span>
+<span id="cb5-4"><a href="" aria-label="4"></a>mode_gender <span class="ot">&lt;-</span> data <span class="sc">|&gt;</span></span>
+<span id="cb5-5"><a href="" aria-label="5"></a>  <span class="fu">count</span>(Gender) <span class="sc">|&gt;</span></span>
+<span id="cb5-6"><a href="" aria-label="6"></a>  <span class="fu">slice_max</span>(n, <span class="at">n =</span> <span class="dv">1</span>) <span class="sc">|&gt;</span></span>
+<span id="cb5-7"><a href="" aria-label="7"></a>  <span class="fu">pull</span>(Gender)</span>
+<span id="cb5-8"><a href="" aria-label="8"></a></span>
+<span id="cb5-9"><a href="" aria-label="9"></a>mode_gender</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <div class="fragment">
@@ -647,14 +653,14 @@ Research Design and Methods in Quantitative Research
 <h2>Central tendency measures: continuous variables</h2>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7" data-code-line-numbers="|3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb7-2"><a href=""></a></span>
-<span id="cb7-3"><a href=""></a><span class="co"># Mean and Median for the continuous variable (Name_Length)</span></span>
-<span id="cb7-4"><a href=""></a>data <span class="sc">|&gt;</span></span>
-<span id="cb7-5"><a href=""></a>  <span class="fu">summarise</span>(</span>
-<span id="cb7-6"><a href=""></a>    <span class="at">mean_length =</span> <span class="fu">mean</span>(Name_Length),</span>
-<span id="cb7-7"><a href=""></a>    <span class="at">median_length =</span> <span class="fu">median</span>(Name_Length)</span>
-<span id="cb7-8"><a href=""></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7" data-code-line-numbers="|3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="" aria-label="1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb7-2"><a href="" aria-label="2"></a></span>
+<span id="cb7-3"><a href="" aria-label="3"></a><span class="co"># Mean and Median for the continuous variable (Name_Length)</span></span>
+<span id="cb7-4"><a href="" aria-label="4"></a>data <span class="sc">|&gt;</span></span>
+<span id="cb7-5"><a href="" aria-label="5"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb7-6"><a href="" aria-label="6"></a>    <span class="at">mean_length =</span> <span class="fu">mean</span>(Name_Length),</span>
+<span id="cb7-7"><a href="" aria-label="7"></a>    <span class="at">median_length =</span> <span class="fu">median</span>(Name_Length)</span>
+<span id="cb7-8"><a href="" aria-label="8"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <div class="fragment">
@@ -761,18 +767,18 @@ Research Design and Methods in Quantitative Research
 <h2>Dispersion (spread measures)</h2>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9" data-code-line-numbers="|3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb9-2"><a href=""></a></span>
-<span id="cb9-3"><a href=""></a><span class="co"># Dispersion measures (name length)</span></span>
-<span id="cb9-4"><a href=""></a>data <span class="sc">|&gt;</span></span>
-<span id="cb9-5"><a href=""></a>  <span class="fu">summarise</span>(</span>
-<span id="cb9-6"><a href=""></a>    <span class="at">variance =</span> <span class="fu">var</span>(Name_Length),</span>
-<span id="cb9-7"><a href=""></a>    <span class="at">sd =</span> <span class="fu">sd</span>(Name_Length),</span>
-<span id="cb9-8"><a href=""></a>    <span class="at">range =</span> <span class="fu">max</span>(Name_Length) <span class="sc">-</span> <span class="fu">min</span>(Name_Length),</span>
-<span id="cb9-9"><a href=""></a>    <span class="at">q1 =</span> <span class="fu">quantile</span>(Name_Length, <span class="fl">0.25</span>, <span class="at">type =</span> <span class="dv">2</span>),</span>
-<span id="cb9-10"><a href=""></a>    <span class="at">q3 =</span> <span class="fu">quantile</span>(Name_Length, <span class="fl">0.75</span>, <span class="at">type =</span> <span class="dv">2</span>),</span>
-<span id="cb9-11"><a href=""></a>    <span class="at">iqr =</span> <span class="fu">IQR</span>(Name_Length, <span class="at">type =</span> <span class="dv">2</span>)</span>
-<span id="cb9-12"><a href=""></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9" data-code-line-numbers="|3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="" aria-label="1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb9-2"><a href="" aria-label="2"></a></span>
+<span id="cb9-3"><a href="" aria-label="3"></a><span class="co"># Dispersion measures (name length)</span></span>
+<span id="cb9-4"><a href="" aria-label="4"></a>data <span class="sc">|&gt;</span></span>
+<span id="cb9-5"><a href="" aria-label="5"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb9-6"><a href="" aria-label="6"></a>    <span class="at">variance =</span> <span class="fu">var</span>(Name_Length),</span>
+<span id="cb9-7"><a href="" aria-label="7"></a>    <span class="at">sd =</span> <span class="fu">sd</span>(Name_Length),</span>
+<span id="cb9-8"><a href="" aria-label="8"></a>    <span class="at">range =</span> <span class="fu">max</span>(Name_Length) <span class="sc">-</span> <span class="fu">min</span>(Name_Length),</span>
+<span id="cb9-9"><a href="" aria-label="9"></a>    <span class="at">q1 =</span> <span class="fu">quantile</span>(Name_Length, <span class="fl">0.25</span>, <span class="at">type =</span> <span class="dv">2</span>),</span>
+<span id="cb9-10"><a href="" aria-label="10"></a>    <span class="at">q3 =</span> <span class="fu">quantile</span>(Name_Length, <span class="fl">0.75</span>, <span class="at">type =</span> <span class="dv">2</span>),</span>
+<span id="cb9-11"><a href="" aria-label="11"></a>    <span class="at">iqr =</span> <span class="fu">IQR</span>(Name_Length, <span class="at">type =</span> <span class="dv">2</span>)</span>
+<span id="cb9-12"><a href="" aria-label="12"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <div class="fragment">
@@ -824,18 +830,18 @@ Research Design and Methods in Quantitative Research
 </div>
 <div id="tabset-3-2">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb11-2"><a href=""></a></span>
-<span id="cb11-3"><a href=""></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">""</span>, <span class="at">y =</span> Name_Length)) <span class="sc">+</span></span>
-<span id="cb11-4"><a href=""></a>  <span class="fu">geom_boxplot</span>(<span class="at">width =</span> <span class="fl">0.3</span>, <span class="at">fill =</span> <span class="st">"#A1C9F4"</span>, <span class="at">color =</span> <span class="st">"gray40"</span>) <span class="sc">+</span></span>
-<span id="cb11-5"><a href=""></a>  <span class="fu">labs</span>(</span>
-<span id="cb11-6"><a href=""></a>    <span class="at">title =</span> <span class="st">"Box-and-Whisker Plot of Name Lengths"</span>,</span>
-<span id="cb11-7"><a href=""></a>    <span class="at">x =</span> <span class="cn">NULL</span>,</span>
-<span id="cb11-8"><a href=""></a>    <span class="at">y =</span> <span class="st">"Name Length (letters)"</span></span>
-<span id="cb11-9"><a href=""></a>  ) <span class="sc">+</span></span>
-<span id="cb11-10"><a href=""></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">14</span>) <span class="sc">+</span></span>
-<span id="cb11-11"><a href=""></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb11-12"><a href=""></a>        <span class="at">axis.ticks.x =</span> <span class="fu">element_blank</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="" aria-label="1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb11-2"><a href="" aria-label="2"></a></span>
+<span id="cb11-3"><a href="" aria-label="3"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">""</span>, <span class="at">y =</span> Name_Length)) <span class="sc">+</span></span>
+<span id="cb11-4"><a href="" aria-label="4"></a>  <span class="fu">geom_boxplot</span>(<span class="at">width =</span> <span class="fl">0.3</span>, <span class="at">fill =</span> <span class="st">"#A1C9F4"</span>, <span class="at">color =</span> <span class="st">"gray40"</span>) <span class="sc">+</span></span>
+<span id="cb11-5"><a href="" aria-label="5"></a>  <span class="fu">labs</span>(</span>
+<span id="cb11-6"><a href="" aria-label="6"></a>    <span class="at">title =</span> <span class="st">"Box-and-Whisker Plot of Name Lengths"</span>,</span>
+<span id="cb11-7"><a href="" aria-label="7"></a>    <span class="at">x =</span> <span class="cn">NULL</span>,</span>
+<span id="cb11-8"><a href="" aria-label="8"></a>    <span class="at">y =</span> <span class="st">"Name Length (letters)"</span></span>
+<span id="cb11-9"><a href="" aria-label="9"></a>  ) <span class="sc">+</span></span>
+<span id="cb11-10"><a href="" aria-label="10"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">14</span>) <span class="sc">+</span></span>
+<span id="cb11-11"><a href="" aria-label="11"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb11-12"><a href="" aria-label="12"></a>        <span class="at">axis.ticks.x =</span> <span class="fu">element_blank</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -1010,18 +1016,18 @@ Research Design and Methods in Quantitative Research
 </div>
 <div id="tabset-4-2">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb12-2"><a href=""></a></span>
-<span id="cb12-3"><a href=""></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> Gender, <span class="at">y =</span> Name_Length, <span class="at">fill =</span> Gender)) <span class="sc">+</span></span>
-<span id="cb12-4"><a href=""></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha =</span> <span class="fl">0.8</span>, <span class="at">width =</span> <span class="fl">0.5</span>, <span class="at">color =</span> <span class="st">"gray40"</span>) <span class="sc">+</span></span>
-<span id="cb12-5"><a href=""></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Female"</span> <span class="ot">=</span> <span class="st">"#A1C9F4"</span>, <span class="st">"Male"</span> <span class="ot">=</span> <span class="st">"#FFB482"</span>)) <span class="sc">+</span></span>
-<span id="cb12-6"><a href=""></a>  <span class="fu">labs</span>(</span>
-<span id="cb12-7"><a href=""></a>    <span class="at">title =</span> <span class="st">"Name Length by Gender"</span>,</span>
-<span id="cb12-8"><a href=""></a>    <span class="at">x =</span> <span class="st">"Gender"</span>,</span>
-<span id="cb12-9"><a href=""></a>    <span class="at">y =</span> <span class="st">"Name Length (letters)"</span></span>
-<span id="cb12-10"><a href=""></a>  ) <span class="sc">+</span></span>
-<span id="cb12-11"><a href=""></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">14</span>) <span class="sc">+</span></span>
-<span id="cb12-12"><a href=""></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="" aria-label="1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb12-2"><a href="" aria-label="2"></a></span>
+<span id="cb12-3"><a href="" aria-label="3"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> Gender, <span class="at">y =</span> Name_Length, <span class="at">fill =</span> Gender)) <span class="sc">+</span></span>
+<span id="cb12-4"><a href="" aria-label="4"></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha =</span> <span class="fl">0.8</span>, <span class="at">width =</span> <span class="fl">0.5</span>, <span class="at">color =</span> <span class="st">"gray40"</span>) <span class="sc">+</span></span>
+<span id="cb12-5"><a href="" aria-label="5"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Female"</span> <span class="ot">=</span> <span class="st">"#A1C9F4"</span>, <span class="st">"Male"</span> <span class="ot">=</span> <span class="st">"#FFB482"</span>)) <span class="sc">+</span></span>
+<span id="cb12-6"><a href="" aria-label="6"></a>  <span class="fu">labs</span>(</span>
+<span id="cb12-7"><a href="" aria-label="7"></a>    <span class="at">title =</span> <span class="st">"Name Length by Gender"</span>,</span>
+<span id="cb12-8"><a href="" aria-label="8"></a>    <span class="at">x =</span> <span class="st">"Gender"</span>,</span>
+<span id="cb12-9"><a href="" aria-label="9"></a>    <span class="at">y =</span> <span class="st">"Name Length (letters)"</span></span>
+<span id="cb12-10"><a href="" aria-label="10"></a>  ) <span class="sc">+</span></span>
+<span id="cb12-11"><a href="" aria-label="11"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">14</span>) <span class="sc">+</span></span>
+<span id="cb12-12"><a href="" aria-label="12"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -1246,7 +1252,7 @@ Research Design and Methods in Quantitative Research
 <li>Session 6: Thursday 15.10.26, 14:15-16:00, room 3.B48; session 7 (predictive inference) follows 16:15-18:00, same room</li>
 <li>Basic reading session 6: BF (Bueno de Mesquita &amp; Fowler), ch.&nbsp;2 “Correlation” and ch.&nbsp;3 “Causation”, pp.&nbsp;11-52; additional: KKV ch.&nbsp;3</li>
 <li>Presenters: Stephanie Lindegger and Leonie Schär; slides due Wednesday 14.10, 12:00</li>
-<li>Paper: <em>APSR</em> 115(4), 1111-1128. The syllabus lists it as “Marble, Mousa &amp; Siegel (2021)”, but the first author is Ala’ Alrababa’h</li>
+<li>Paper: <em>APSR</em> 115(4), 1111-1128; first author Ala’ Alrababa’h</li>
 <li>Session 7 presenters: Noa Flückiger and Malte Jonas Kohm, Hewitt et al.&nbsp;(2024), <em>Predicting results of social science experiments using large language models</em></li>
 <li>Session 7: take-home exercise I is published in OLAT (deadline 29.10.26)</li>
 </ul>
@@ -1501,7 +1507,7 @@ Research Design and Methods in Quantitative Research
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
@@ -1613,13 +1619,14 @@ Research Design and Methods in Quantitative Research
           e.clearSelection();
         }
         const getTextToCopy = function(trigger) {
-            const codeEl = trigger.previousElementSibling.cloneNode(true);
-            for (const childEl of codeEl.children) {
-              if (isCodeAnnotation(childEl)) {
-                childEl.remove();
-              }
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
             }
-            return codeEl.innerText;
+          }
+          return codeEl.innerText;
         }
         const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
           text: getTextToCopy

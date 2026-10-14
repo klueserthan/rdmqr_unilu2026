@@ -55,3 +55,12 @@ readings/
 02_session02/_readings_2025_olat/
 02_session02/AI-GeneratedDeepfakes.pptx
 02_session02/presentation_slides_session02_KLUESER.pptx
+
+# filled presentation evaluations (student names, scores, grades)
+00_grading/presentations/
+
+# Temporary files
+notes.md
+
+# Textbook figure (copyright): local use only, not in the public repo
+06_session06/bf_fig2_4_age_turnout.png

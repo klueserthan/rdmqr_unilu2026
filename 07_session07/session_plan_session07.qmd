@@ -1,0 +1,55 @@
+---
+title: "Session plan 7: Predictive inference"
+format:
+  pdf:
+    documentclass: article
+    papersize: a4
+    geometry:
+      - landscape
+      - margin=1.2cm
+    fontsize: 10pt
+    number-sections: false
+    header-includes:
+      - \usepackage{etoolbox}
+      - \AtBeginEnvironment{longtable}{\small\renewcommand{\arraystretch}{1.35}}
+      - \pagestyle{empty}
+      - \usepackage{titling}
+      - \setlength{\droptitle}{-1.5cm}
+      - \pretitle{\begin{flushleft}\Large\bfseries}
+      - \posttitle{\end{flushleft}\vspace{-1.2cm}}
+---
+
+**Thu 15.10.26, 16:15–17:45 · Room 3.B48** · Basic readings: Kleinberg, Ludwig, Mullainathan & Obermeyer (2015); Hofman et al. (2021), pp. 181–184; additional: Grimmer, Roberts & Stewart (2021) · Applied reading: Ashokkumar, Hewitt, Ghezae & Willer, *Large language models can predict the results of social science experiments* (accepted *Nature* manuscript; syllabus: Hewitt et al. 2024) · Presenters: **Noa Flückiger, Malte Jonas Kohm**
+
+**Learning goals:** students can (1) tell prediction problems from causal problems (umbrella vs. rain dance); (2) explain why a bad cause can be a good predictor; (3) say when predictions break and why a baseline matters; (4) explain why research should be judged on both explanation and prediction (Hofman et al.); (5) name uses of prediction as a step towards measurement or design.
+
+**Before class:** take-home exercise I uploaded to OLAT (beginner + advanced PDFs, materials folder; **not** the solutions) · presentation slides in OLAT (due Wed 14.10, 12:00)? · seminar questions 7 uploaded? · grading sheet `session07_handwritten.pdf` ready · deck in speaker view (press S)
+
+**Checkpoints:** 16:35 start "When predictions break" · 16:49 start pairs exercise · **17:07 hand over** · **17:08 presentation starts** (25 min max., then discussion until 17:42). About 6 min buffer before 17:07
+
+| Time | Slide | Content | Interaction | Guiding questions | If behind |
+|:----------|:---|:-------------------------------|:--------------|:----------------------------------|:--------------|
+| 16:15–16:17 | 2 | Recap session 6: potential outcomes, counterfactual, four patterns | Input | | |
+| 16:17–16:22 | 3 | **Umbrella or rain dance?** Four decisions (Kleinberg et al. 2015) | Classify A–D, then seminar question 7.1 | Which decisions need a causal answer, which only a prediction? | Skip 7.1 answers |
+| 16:22–16:25 | 4 | Predictive inference: unobserved outcomes; success = accuracy on new cases | Input | | |
+| 16:25–16:30 | 5 | **Hip replacements**: predict futile surgery (Kleinberg et al., pp. 4–5) | Question to the room | Which variables? Must they be causes? What could go wrong? | |
+| 16:30–16:35 | 6 | **The four patterns are fine now**: ice cream, umbrellas, age | Seminar question 7.2 | Why is a bad cause a good predictor? | |
+| 16:35–16:39 | 7 | **When predictions break**; Google Flu and baselines (Hofman p. 182) | Question | Does the turnout model still work if the campaign changes what it does? | |
+| 16:39–16:43 | 8 | **Explanation or prediction?** Two traditions; judge research on both (Hofman pp. 181–183) | Question | Can a study explain well but predict badly? The other way round? | 2 min |
+| 16:43–16:46 | 9 | Prediction as a step: measurement, design (Grimmer et al. 2021) | Question | Where could prediction help in your project? | Skip question |
+| 16:46–16:49 | 10–11 | LLMs predict the next word; could they predict experiments? (optional autocomplete demo) | Students guess | How well would an LLM do? | Skip demo |
+| 16:49–16:57 | 12 | **Pairs**: own prediction problem, good predictor/bad cause, what could break it | 5 min pairs, 3 min share | | No sharing |
+| 16:57–16:59 | 13 | Three inferential goals | Input | | |
+| 16:59–17:01 | 14 | **Take-home exercise I** (deadline 29.10.26) | Admin | | |
+| 17:07–17:08 | 15 | Hand over | | | |
+| 17:08–17:33 | — | **Student presentation** (25 min max.): summary and critique ~10 min, alternative design ~15 min | Presentation; grade with the sheet | | Signal at 20 min |
+| 17:33–17:42 | — | **Discussion** to improve the proposal (prompts below) | Plenary | See prompts below | |
+| 17:42–17:45 | 16–18 | Session 8 on 22.10, 14:15, room 4.B51 (AJ ch. 1; Hüsler & Jäggi); seminar questions 8–9 due Wed 21.10, 12:00 | Admin | | |
+
+**Discussion prompts (if the room is quiet):** What does the LLM actually "simulate" — participants, or what researchers expected? · Effects are overestimated about twofold: what does that mean for using LLMs in power analysis? · Which hypothesis would you pilot with an LLM, and which never? · Does it travel beyond US survey experiments with text stimuli (the authors' own limitation)? · Does the paper explain anything, or only predict?
+
+**Grading (0–5 each, 15/30 = pass):** clarity · understanding · critique quality · reasoning · feasibility · discussion. Both presenters, one grade.
+
+**Notes during class:**
+
+\vspace{2cm}

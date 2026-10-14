@@ -40,680 +40,390 @@ format:
     slide-number: true
 ---
 
-## Correlation
+## Should attendance be mandatory?
 
 <br>
 
-. . .
-
-The extent to which two variables co-occur (i.e. occur together)
-
-- *Positive* correlation
-  
-- *Negative* correlation
-
-- *Uncorrelated*
-
-## Extending our classroom data
-
-```{r}
-#| echo: false
-
-# Load libraries
-library(dplyr)
-library(stringr)
-
-# Create dataset 
-data <- tribble(
-  ~Surname,         ~Name,
-  "Brown",          "Elli Margaret",
-  "Demir",          "Rojhat Yigit",
-  "Djogova",        "Nikolina",
-  "Eymann",         "Bernhard",
-  "Flütsch",        "Reto",
-  "Gaggini",        "Clelia",
-  "Graf",           "Robin",
-  "Hager",          "Lisa Anna",
-  "Herrera Garcia", "Juan Manuel",
-  "Hofer",          "Nadja Alexandra",
-  "Klamt",          "Reachel",
-  "Landis",         "Olivia Lea",
-  "Lunkova",        "Anastasiia",
-  "Michel",         "Fabian",
-  "Moses",          "Emmanuel Saba",
-  "Paraboni",       "Giulio",
-  "Rios Quiroz",    "Laura",
-  "Robatel",        "Annick France",
-  "Schwegler",      "Salome Claudia"
-)
-
-# Combine Surname and Name into Full_Name
-data <- data |>
-  mutate(
-    Full_Name = paste(Surname, Name),
-    
-    # Simple heuristic to infer gender
-    Gender = case_when(
-      Name %in% c("Bernhard", "Reto", "Robin", "Juan Manuel", "Fabian",
-                  "Emmanuel Saba", "Giulio", "Rojhat Yigit") ~ "Male",
-      TRUE ~ "Female"
-    ),
-    
-    # Count number of words in full name
-    Name_Length = str_length(str_remove_all(Full_Name, "\\s"))
-  ) |>
-  select(Full_Name, Gender, Name_Length)
-
-# For random jitter reproducibility
-set.seed(789)
-
-# Add ChatGPT (v5) estimated ages
-data <- data |>
-  mutate(
-    Age_Base = case_when(
-      Full_Name == "Brown Elli Margaret" ~ 30,
-      Full_Name == "Demir Rojhat Yigit" ~ 30,
-      Full_Name == "Djogova Nikolina" ~ 30,
-      Full_Name == "Eymann Bernhard" ~ 60,
-      Full_Name == "Flütsch Reto" ~ 50,
-      Full_Name == "Gaggini Clelia" ~ 40,
-      Full_Name == "Graf Robin" ~ 30,
-      Full_Name == "Hager Lisa Anna" ~ 30,
-      Full_Name == "Herrera Garcia Juan Manuel" ~ 40,
-      Full_Name == "Hofer Nadja Alexandra" ~ 40,
-      Full_Name == "Klamt Reachel" ~ 30,
-      Full_Name == "Landis Olivia Lea" ~ 20,
-      Full_Name == "Lunkova Anastasiia" ~ 30,
-      Full_Name == "Michel Fabian" ~ 30,
-      Full_Name == "Moses Emmanuel Saba" ~ 40,
-      Full_Name == "Paraboni Giulio" ~ 40,
-      Full_Name == "Rios Quiroz Laura" ~ 30,
-      Full_Name == "Robatel Annick France" ~ 60,
-      Full_Name == "Schwegler Salome Claudia" ~ 30,
-      TRUE ~ NA_real_
-    ),
-    # Add random variation between -3 and +3 years
-    Age_Est = Age_Base + sample(-9:9, n(), replace = TRUE)
-  )
-
-
-
-```
-
-- New **continuous variable**: inferred age (ChatGPT v5)
+Suppose we find: students who **attend more sessions** get **better grades**
 
 . . .
 
-::: {.panel-tabset}
+<br>
 
-### Data check
+✋ Should the university make attendance **mandatory**?
 
+::: {.notes}
+**Time:** 14:15-14:19 (4 min). Session plan (90 min): lecture and interaction 14:15-15:07 (52 min) · student presentation and discussion 15:08-15:42 (at least 30 min) · wrap-up 15:42-15:45
 
-```{r}
-#| echo: true
-#| message: false
-#| warning: false
-#| code-line-numbers: "|1"
-#| eval: false
+- Hypothetical finding, not a real study; say so
+- Show of hands: yes / no / it depends. Take two or three reasons from each side, do not resolve it
+- Write the "no" reasons on the board (motivation, prior knowledge, time budgets, reverse direction); they come back as the four patterns at 14:30 and at the end (14:59)
+- Today: when does a correlation tell us something about causes? Sessions 5-7: descriptive, causal, predictive inference
+:::
 
-# View first few rows of the new variable
-head(data %>% select(Full_Name, Age_Est))
-```
+## Correlation: what is it good for? {.smaller}
+
+Variables are **correlated** when they tend to move together
+
+:::: {.columns}
+
+::: {.column width="52%"}
+
+**Older people are more likely to vote**
+
+✋ What can we do with this fact?
 
 ::: {.fragment}
 
-```{r}
-#| echo: false
-#| message: false
-#| warning: false
-#| code-line-numbers: "|1"
+- **Describe**: the young are underrepresented [(session 5)]{style="color:gray"}
 
-# View first few rows of the new variable
-head(data %>% select(Full_Name, Age_Est))
-```
+- **Predict**: which doors should a campaign knock on? [(session 7)]{style="color:gray"}
+
+- **Explain**: does getting older *make* people vote? [(today)]{style="color:gray"}
 
 :::
 
-### Prompt
+:::
 
-"Infer the approximate age in 2025 for each person in this list of names based on European naming patterns, but add some random variation (±9 years) to make the estimates look more realistic."
+::: {.column width="48%"}
 
-### Justifications
-
-<div style="font-size:70%; line-height:1.2;">
-
-| Full Name | Est. Age | Reason |
-|------------|-----------|--------|
-| Elli Margaret Brown | 30 | Modern revival of Elli, 1990s–2000s |
-| Rojhat Yigit Demir | 30 | Common among 1990s Turkish names |
-| Nikolina Djogova | 30 | Popular in 1990s Balkans |
-| Bernhard Eymann | 60 | Classic mid-20th-century name |
-| Reto Flütsch | 50 | Typical Swiss 1970s–80s |
-| Clelia Gaggini | 40 | Italian 1980s style |
-| Robin Graf | 30 | 1990s unisex trend |
-| Lisa Anna Hager | 30 | 1980s–90s peak |
-| Juan Manuel Herrera Garcia | 40 | Spanish 1970s–80s double name |
-| Nadja Alexandra Hofer | 40 | 1970s–80s Germanic pair |
-| Reachel Klamt | 30 | 1990s variant of Rachel |
-| Olivia Lea Landis | 20 | Olivia boom after 2000 |
-| Anastasiia Lunkova | 30 | Eastern Europe 1990s |
-| Fabian Michel | 30 | German 1980s–90s |
-| Emmanuel Saba Moses | 40 | Stable 1970s–80s name |
-| Giulio Paraboni | 40 | Italian 1970s–80s |
-| Laura Rios Quiroz | 30 | 1980s–90s international peak |
-| Annick France Robatel | 60 | French 1950s–60s |
-| Salome Claudia Schwegler | 30 | Swiss revival 1980s–90s |
-
-</div>
+![Turnout by age, US 2014 (BF, Fig. 2.4)](bf_fig2_4_age_turnout.png){width=100%}
 
 :::
 
-## Visualizing correlations
+::::
 
-::: {.panel-tabset}
+::: {.notes}
+**Time:** 14:19-14:25 (6 min)
 
-### Output
-
-```{r}
-#| echo: false
-#| message: false
-#| warning: false
-#| eval: true
-
-library(ggplot2)
-
-ggplot(data, aes(x = Age_Est, y = Name_Length)) +
-  geom_point(size = 3, color = "black", alpha = 0.8) +
-  geom_abline(
-    intercept = coef(lm(Name_Length ~ Age_Est, data = data))[1],
-    slope = coef(lm(Name_Length ~ Age_Est, data = data))[2],
-    color = "gray40",
-    linewidth = 1.1
-  ) +
-  labs(
-    title = "Relationship Between Estimated Age and Name Length",
-    x = "Estimated Age (years)",
-    y = "Name Length (letters)"
-  ) +
-  theme_minimal(base_size = 14)
-```
-
-### Code
-
-```{r}
-#| echo: true
-#| message: false
-#| warning: false
-#| eval: false
-
-library(ggplot2)
-
-ggplot(data, aes(x = Age_Est, y = Name_Length)) +
-  geom_point(size = 3, color = "black", alpha = 0.8) +
-  geom_abline(
-    intercept = coef(lm(Name_Length ~ Age_Est, data = data))[1],
-    slope = coef(lm(Name_Length ~ Age_Est, data = data))[2],
-    color = "gray40",
-    linewidth = 1.1
-  ) +
-  labs(
-    title = "Relationship Between Estimated Age and Name Length",
-    x = "Estimated Age (years)",
-    y = "Name Length (letters)"
-  ) +
-  theme_minimal(base_size = 14)
-```
-
+- BF ch. 2: correlation = the extent to which two features of the world tend to occur together (p. 13); three uses: description, forecasting, causal inference (p. 19). "Older people vote more than younger people" is one of BF's example statements (p. 19)
+- Description (BF pp. 20-21): age cohorts and turnout in the 2014 US congressional election (Fig. 2.4, p. 20); younger people were underrepresented
+- Look at the figure: turnout rises until about 70, then falls. The straight line misses this; a bridge to the next slide (what r does not tell you)
+- Forecasting (BF pp. 21-22): a campaign does not need to knock on doors of people who will vote anyway; age helps predict who they are, no causal story needed
+- Ask first: "What can we do with this fact?" Collect answers, then reveal the three uses
+- Stay on the third one: does ageing itself make people vote? Let students propose alternatives: older people differ in other ways (settled in one place, own a home, more routine); or it is a generation, not age (cohort). These are the four patterns coming up at 14:30
+- If asked: covariance = average product of deviations from the means, r = Cov(X,Y)/(sX sY), runs from −1 to 1 (BF p. 28)
 :::
 
-## Possible correlations
-
-::: {.panel-tabset}
-
-### Output
+## What r does not tell you
 
 ```{r}
 #| echo: false
-#| message: false
-#| warning: false
-#| eval: true
-
-library(ggplot2)
-
-set.seed(123)  # ensure reproducibility
-
-# simulate three datasets: positive, negative, and no correlation
-df <- data.frame(
-  x = rep(1:50, 3),
-  y = c(1:50 + rnorm(50,0,5),   # positive
-        50:1 + rnorm(50,0,5),   # negative
-        rnorm(50,25,5)),        # none
-  type = rep(c("Positive", "Negative", "None"), each = 50)
-)
-
-# plot all three side by side
-ggplot(df, aes(x, y)) +
-  geom_point() +
-  stat_smooth(method = "lm", se = FALSE, color = "gray40", linewidth = 1) +
-  facet_wrap(~type) +
-  theme_minimal()
-```
-
-### Code
-
-```{r}
-#| echo: true
-#| message: false
-#| warning: false
-#| eval: false
-
-library(ggplot2)
-
-set.seed(123)  # ensure reproducibility
-
-# simulate three datasets: positive, negative, and no correlation
-df <- data.frame(
-  x = rep(1:50, 3),
-  y = c(1:50 + rnorm(50,0,5),   # positive
-        50:1 + rnorm(50,0,5),   # negative
-        rnorm(50,25,5)),        # none
-  type = rep(c("Positive", "Negative", "None"), each = 50)
-)
-
-# plot all three side by side
-ggplot(df, aes(x, y)) +
-  geom_point() +
-  stat_smooth(method = "lm", se = FALSE, color = "gray40", linewidth = 1) +
-  facet_wrap(~type) +
-  theme_minimal()
-```
-
-:::
-
-## Non-linearities
-
-::: {.panel-tabset}
-
-### Output
-
-```{r}
-#| echo: false
-#| message: false
-#| warning: false
-#| eval: true
+#| fig-width: 9
+#| fig-height: 4.6
 
 library(ggplot2)
 
 set.seed(123)
-
-# simulate three nonlinear datasets with same linear slope ~0
-df <- data.frame(
-  x = rep(seq(1, 50, length.out = 50), 3),
-  y = c(25 + 10 * sin(seq(1, 50, length.out = 50)),          # sine wave
-        25 + (seq(1, 50, length.out = 50) - 25)^2 / 25,      # U-shape
-        25 + abs(seq(1, 50, length.out = 50) - 25) + rnorm(50)), # V + noise
-  type = rep(c("Sine pattern", "U-shape", "V-shape"), each = 50)
+x <- seq(1, 50, length.out = 60)
+panels <- list(
+  "Positive" = 10 + 0.8 * x + rnorm(60, 0, 5),
+  "Negative" = 50 - 0.8 * x + rnorm(60, 0, 5),
+  "None"     = 30 + rnorm(60, 0, 5),
+  "U-shape"  = 25 + (x - 25)^2 / 25 + rnorm(60, 0, 2),
+  "Wave"     = 25 + 10 * sin(x / 4) + rnorm(60, 0, 2),
+  "Ceiling"  = 40 * (1 - exp(-x / 6)) + rnorm(60, 0, 2)
 )
+df <- do.call(rbind, lapply(names(panels), function(n) {
+  y <- panels[[n]]
+  data.frame(x = x, y = y, panel = sprintf("%s (r = %.2f)", n, cor(x, y)))
+}))
+df$panel <- factor(df$panel, levels = unique(df$panel))
 
-# add random noise
-df$y <- df$y + rnorm(nrow(df), 0, 2)
-
-# plot with points + misleading linear fit
 ggplot(df, aes(x, y)) +
-  geom_point() +
-  stat_smooth(method = "lm", se = FALSE, color = "gray40") +
-  facet_wrap(~type) +
-  theme_minimal()
+  geom_point(size = 1.5, alpha = 0.7) +
+  geom_smooth(method = "lm", se = FALSE, color = "gray40", formula = y ~ x) +
+  facet_wrap(~panel, nrow = 2, scales = "free_y") +
+  labs(x = NULL, y = NULL) +
+  theme_minimal(base_size = 13) +
+  theme(axis.text = element_blank())
 ```
 
-### Code
+. . .
 
-```{r}
-#| echo: true
-#| message: false
-#| warning: false
-#| eval: false
+Is $r \approx 0$ evidence that two variables are **unrelated**?
 
-library(ggplot2)
+::: {.notes}
+**Time:** 14:25-14:28 (3 min)
 
-set.seed(123)
+- BF "Straight talk about linearity" (pp. 30-31): all these measures capture linear relationships only; a zero correlation can hide a U-shape (Fig. 2.5). r runs from -1 to 1 but says nothing about the size of the relationship (p. 29)
 
-# simulate three nonlinear datasets with same linear slope ~0
-df <- data.frame(
-  x = rep(seq(1, 50, length.out = 50), 3),
-  y = c(25 + 10 * sin(seq(1, 50, length.out = 50)),          # sine wave
-        25 + (seq(1, 50, length.out = 50) - 25)^2 / 25,      # U-shape
-        25 + abs(seq(1, 50, length.out = 50) - 25) + rnorm(50)), # V + noise
-  type = rep(c("Sine pattern", "U-shape", "V-shape"), each = 50)
-)
-
-# add random noise
-df$y <- df$y + rnorm(nrow(df), 0, 2)
-
-# plot with points + misleading linear fit
-ggplot(df, aes(x, y)) +
-  geom_point() +
-  stat_smooth(method = "lm", se = FALSE, color = "gray40") +
-  facet_wrap(~type) +
-  theme_minimal()
-```
-
+- Top row: the three textbook cases. Bottom row: strong relationships the linear correlation misses (U-shape, wave) and a strong correlation that still hides a non-linear shape (ceiling: steep rise, then flat)
+- Answer: no. r measures how well a straight line fits; always plot the data first (session 5)
+- Simulated data, not real
 :::
 
-## Quantifying correlations
+## Ice cream and drownings
+
+![](icecream_drowning.png){fig-align="center" width=70%}
 
 . . .
 
-<br>
+Does ice cream make people **drown**? If not, **why** do these lines move together?
 
-<div style="font-size:80%; line-height:1.2;">
+::: {.notes}
+**Time:** 14:28-14:30 (2 min)
 
-
-**Covariance:** measures how two variables vary together → direction
-
-$$
-\mathrm{Cov}(X, Y) = \frac{\sum_{i=1}^{n} (X_i - \bar{X})(Y_i - \bar{Y})}{n - 1}
-$$
-
-<br>
-
-**Pearson Correlation Coefficient:** standardized covariance (–1 to 1) → direction and strength  
-
-$$
-r_{XY} = \frac{\mathrm{Cov}(X, Y)}{s_X \, s_Y}
-$$
-
-</div>
-
-## Covariance & correlation
-
-::: {.fragment}
-
-
-```{r}
-#| echo: true
-#| results: false
-#| message: false
-#| code-line-numbers: "|1"
-
-# Covariance and correlation coefficient
-cov(data$Name_Length, data$Age_Est, use = "complete.obs")
-cor(data$Name_Length, data$Age_Est, use = "complete.obs")
-
-```
-
+- Let them explain it: summer heat drives both ice cream sales and swimming (a confounder)
+- Then ask: are there other reasons why two variables could move together without one causing the other? Use the board list from the attendance question
 :::
 
-::: {.fragment}
+## Why correlation is not causation
 
+When $X$ and $Y$ are correlated, maybe...
 
-```{r}
-#| echo: false
-#| results: hold
-#| message: false
+. . .
 
-library(dplyr)
+1. **Confounding**: something else drives both
 
-# Covariance and correlation coefficient
-cov(data$Name_Length, data$Age_Est, use = "complete.obs")
-cor(data$Name_Length, data$Age_Est, use = "complete.obs")
+. . .
 
-```
+2. **Reverse causation**: $Y$ drives $X$
 
+. . .
+
+3. **Selection**: looking only at a selected group creates the pattern
+
+. . .
+
+4. **Chance**: in a small sample, patterns appear by accident
+
+. . .
+
+... and only then: $X$ **causes** $Y$
+
+::: {.notes}
+**Time:** 14:30-14:34 (4 min)
+
+Reveal one at a time; for each, ask "which reason on the board is this?" and give the attendance version.
+
+- **Confounding:** a third factor causes both X and Y. *Attendance:* motivated students attend more *and* study more. *Ice cream:* summer heat. BF's own example: motivated students both take calculus and finish college (pp. 23-24)
+- **Reverse causation:** Y causes X. *Attendance:* students who do well enjoy the seminar and therefore keep coming; students who are lost stop coming
+- **Selection:** we only see a filtered group, and the filter creates the pattern. Easiest example: "old buildings are sturdier than new ones" — the badly built old ones were torn down long ago; we only see the survivors (comes back in the exercise)
+- **Chance:** with few cases, patterns appear by accident. *Attendance:* in one seminar of 24, three strong students who happen to attend a lot are enough
+- Only when we can rule these out does "X causes Y" become plausible; how to rule them out is sessions 8-10
 :::
 
+## What else could explain it?
 
-## Correlation does not imply causation
+In **pairs** (6 min): *suppose* a study finds...
 
-<br>
+**A.** Cities with **more police officers** have **more crime**
 
-. . .
+**B.** Countries that eat **more chocolate** win **more Nobel prizes**
 
-corr(X,Y) ≠ X → Y
+**C.** Buildings from the **1800s** are **sturdier** than buildings from the **1980s**
 
-<br>
+**D.** *(Bonus)* Among students admitted to a selective master's programme, those with **better grades** have **worse test scores**
 
-. . .
+Which of the four patterns fits each finding?
 
-$$
-1.\; Z \longrightarrow X,\; Z \longrightarrow Y \quad \text{(Confounding)}
-$$
+::: {.notes}
+**Time:** 14:34-14:44 (6 min in pairs, 4 min debrief)
 
-. . .
-
-$$
-2.\; Y \longrightarrow X \quad \text{(Reverse causation)}
-$$
-
-. . .
-
-$$
-3.\; X \longrightarrow M \longleftarrow Y \quad \text{(Collider / selection)}
-$$
-
-. . .
-
-$$
-4.\; T \longrightarrow X,\; T \longrightarrow Y \quad \text{(Common trend/shock)}
-$$
-
----
-
-![](icecream_drowning.png){fig-align="center"}
-
-## Causal inference
-
-> The goal of *good* research is to *“produce valid inferences about social and political life”* (King, Keohane, & Verba 1994, p. 3)
-
-. . .
-
-<br>
-
-What is **causal** inference?
-
-. . . 
-
-<br>
-
-→ To infer **causal relationships** in a broader population
-
+- All three are posed as hypotheticals ("suppose"); do not present them as findings of real studies
+- A: reverse causation (cities with more crime hire more police; BF p. 19 uses this as an example of a correlation); also confounding (big cities have more of both)
+- B: confounding (rich countries consume more chocolate and fund more research). Some students may know the published chocolate-Nobel correlation (Messerli 2012, *NEJM*); do not quote numbers from memory
+- C: selection (survivorship). Badly built old buildings collapsed or were torn down long ago; the 1800s buildings we see today are the ones that were built well. Builders 150 years ago were not better on average
+- D (bonus, for fast pairs; debrief only if time): selection. Suppose admission needs grade + test score above a threshold. A student with a weak grade only gets in with a strong test score, and one with a weak test score only with a strong grade; weak-weak applicants are rejected. So *among the admitted*, weak grades go with strong scores and vice versa. Nobody claims that good grades cause bad scores; the comparison is only within the admitted group. Simulation (admit the top 20% on grade + score): a correlation of 0 among all applicants becomes about −0.6 among the admitted, 0.3 becomes about −0.4, 0.5 becomes about −0.2; only a strong 0.7 stays positive (about 0.1). Selection pushes the correlation down
+- Debrief: one pair per finding; ask the others whether they found another explanation
+:::
 
 ## Causation
 
-> "A *causal effect* is a change in some feature of the world that would result from
-a change to some other feature of the world." (Bueno de Mesquita & Fowler 2021, p. 37)
+> "A *causal effect* is a change in some feature of the world that would result from a change to some other feature of the world." (Bueno de Mesquita & Fowler 2021, p. 37)
 
 . . .
 
 <br>
 
-Social phenomena are **multicausal**, so our goal is not to find *the* single cause [*(e.g. what causes X?)*]{style="color:gray"}
+Not "what is **the** cause of $Y$?", but "**does** $X$ **change** $Y$?"
 
-. . .
+::: {.notes}
+**Time:** 14:44-14:47 (3 min)
 
-Instead, we examine whether **changes in one variable** produce **changes in another** [*(e.g. does X have an effect on Y?)*]{style="color:gray"}
+- BF p. 37 (quote; same definition in the text, p. 38); counterfactual thought experiments and the word "would" (p. 39); "What is the cause?" with World War I (pp. 42-43): ask whether something had an effect, not what *the* cause was
 
-## The potential outcomes framework
-
-<br>
-
-For each unit *i*, we define two potential outcomes:
-
-$$
-Y_i(1) = \text{Outcome if exposed to the treatment} \\
-Y_i(0) = \text{Outcome if not exposed to the treatment}
-$$
-
-The **causal effect** for that unit is:
-
-$$
-\tau_i = Y_i(1) - Y_i(0)
-$$
-
----
-
-![](study.png){fig-align="center"}
-
----
-
-
-Let treatment = studying more hours 📚
-
-<br>
-
-$Y_i(1)$ = Exam result if student $i$ studies a lot
-
-$Y_i(0)$ = Exam result if student $i$ does not study
-
-. . .
-
-<br>
-
-The individual causal effect is:
-
-$$
-\tau_i = Y_i(1) - Y_i(0)
-$$
-
-The **difference in exam results** between studying more and studying less
-
----
-
-### The fundamental problem of causal inference
-
-::: {.fragment}
-
-<div style="font-size:70%; line-height:1.2;">
-
-We can never observe both potential outcomes for the same unit:
-
-$$
-Y_i(1) \quad \text{and} \quad Y_i(0)
-$$
-
-- $Y_i(1)$: outcome if unit *i* receives the treatment  
-- $Y_i(0)$: outcome if unit *i* does *not* receive the treatment  
-
-</div>
-
+- Social phenomena have many causes; we ask about the effect of one cause, not for the full list of causes of an outcome
+- Key word in the definition: "would". A causal claim is about a world we do not see
 :::
 
-::: {.fragment}
+## Two potential outcomes
 
+![](study.png){fig-align="center" width=35%}
 
-<div style="font-size:80%; line-height:1.2;">
+Does studying more **improve** your exam result?
 
-For each unit \(i\):
+. . .
 
-$$
-Y_i = D_i Y_i + (1 - D_i) Y_i
-$$
+- $Y_i(1)$: your result if you **study a lot**
+- $Y_i(0)$: your result if you **do not**
 
-We observe **only one** of these...
+. . .
 
-</div>
+Your causal effect: $\tau_i = Y_i(1) - Y_i(0)$
 
+::: {.notes}
+**Time:** 14:47-14:50 (3 min)
+
+- BF p. 39: potential outcomes Y1i and Y0i, individual effect = Y1i − Y0i (Body Vibes example, Table 3.1)
+
+- Every student has two potential outcomes, one for each version of the treatment; the effect is the difference
+- Ask: for you personally, which of the two outcomes will you observe at the next exam?
 :::
 
-::: {.fragment}
+## The fundamental problem
 
-<div style="font-size:80%; line-height:1.2;">
+We **never see both** outcomes for the same person
 
-...the other is a [**counterfactual**]{style="color:red"}
+. . .
 
-</div>
+You either studied a lot or you didn't. The other result is a [**counterfactual**]{style="color:red"}
 
+. . .
+
+✋ What would you need to observe to know whether studying more helped **you**?
+
+. . .
+
+![](cant.png){fig-align="center" width=18%}
+
+::: {.notes}
+**Time:** 14:50-14:53 (3 min)
+
+- BF p. 41: the fundamental problem of causal inference, named with the college-and-income example; summary p. 49
+
+- Let them try: "take the exam twice" (but you learn from the first try, and you are a different person a week later); "compare with my friend" (but your friend is not you)
+- Every answer is a substitute for the missing outcome; the question is how good the substitute is. That leads to the next slide
+- If asked for the formal version: we observe Yi = Di·Yi(1) + (1 − Di)·Yi(0), where Di = 1 if treated
 :::
 
+## Which comparison would you trust?
 
-## The fundamental problem of causal inference
-
-<br>
-
-$$
-\text{Causal Effect}_i = Y_i(1) - Y_i(0)
-$$
-
+Does a **tutoring course** improve exam grades?
 
 <br>
 
-***Causal effects*** are **unobservable at the individual level**
+**A.** The same students' grades **before vs. after** the course
 
-## How to solve the problem?
+**B.** Students who **chose** the course vs. those who **didn't**
 
-<br>
-
-<br>
+**C.** A **coin flip** decides who gets a place in the course
 
 <br>
 
-. . .
+✋ Rank them. What could go wrong with each?
 
-![](cant.png){fig-align="center"}
+::: {.notes}
+**Time:** 14:53-14:59 (6 min)
 
-## But we can address it...
+- Vote first (which would you trust most?), then ask for the problem with each
+- A: anything else that changed over time (more experience, an easier exam): a before/after comparison mixes the course with time
+- B: selection and confounding: motivated students choose the course and would have done better anyway
+- C: the coin flip makes the two groups alike on average in everything except the course; the "didn't get a place" group stands in for the missing counterfactual
+- Each design approximates the counterfactual differently: experiments (C) in session 8, large-N observational comparisons (B) in session 9, small-N comparisons in session 10; advanced designs in the applied readings of sessions 11-13
+- BF pp. 41-42: individual effects are invisible, so compare the average outcomes of groups (FDA randomized drug trial); averages of individual effects in the flu-shot example, pp. 45-46. BF ch. 3 does not use the term "average treatment effect"
+:::
 
+## Back to attendance
 
-
-<br>
-
-. . .
-
-***Approximating*** [**counterfactuals**]{style="color:red"}
-
-- Experimental studies [(session 8)]{style="color:gray"}
-
-- Large-N observational analyses [(session 9)]{style="color:gray"}
-
-- Small-N observational analysis [(session 10)]{style="color:gray"}
-
-. . .
+Students who **attend more** get **better grades**
 
 <br>
 
-→ Advanced *causal inference* methods in the *applied readings* of sessions 11, 12 and 13
+- Which of the four patterns worry you most?
+
+- What would you need to claim that attendance **causes** better grades?
+
+::: {.notes}
+**Time:** 14:59-15:01 (2 min)
+
+- Close the loop with the board list from 14:15
+- Expected answers: confounding by motivation; you would want to compare similar students who differ only in attendance, ideally with attendance decided by chance (which is hard to do ethically). That is the question for sessions 8-10
+- Mandatory attendance would only raise grades if attending itself helps, not if it only reveals who is motivated
+:::
 
 ## Group exercise
 
 <br>
 
+In **pairs**, using your seminar questions:
+
+1️⃣ Share your **causal question** (*X → Y*) and its **counterfactual**
+
+2️⃣ Is it the **right counterfactual**? Which of the four patterns threatens a simple comparison?
+
+3️⃣ How could you **approximate** the counterfactual in the real world?
+
+![](group_exercise.png){width=35% fig-align="center"}
+
+::: {.notes}
+**Time:** 15:01-15:07 (4 min in pairs, 2 min: one or two pairs share)
+
+- Builds on the three seminar questions for today (causal question, individual causal effect and counterfactual, fundamental problem in their own case)
+- If behind: skip sharing, go straight to the presentation at 15:07
+:::
+
+## Up next: applied reading
+
+<br>
+
+Presentation by **Stephanie Lindegger and Leonie Schär**:
+
+- Alrababa'h, A., Marble, W., Mousa, S., & Siegel, A. A. (2021). Can exposure to celebrities reduce prejudice? The effect of Mohamed Salah on Islamophobic behaviors and attitudes. *American Political Science Review*
+
+::: {.notes}
+**Time:** 15:07-15:08 hand over; presentation 15:08-15:33 (25 min max.), discussion 15:33-15:42
+
+- Presenters: Stephanie Lindegger and Leonie Schär
+- Slides were due Wednesday 14.10, 12:00 in Students responses/Presentation slides; check they are there
+- Grade with 00_grading/presentations/session06/session06_handwritten.pdf: clarity, understanding, critique quality, reasoning, feasibility, discussion (0-5 each; 15/30 = pass)
+- Timing: 25 minutes max., then discussion to improve the proposal
+- Citation: *APSR* 115(4), 1111-1128; the first author is Ala' Alrababa'h
+:::
+
+## Next session (15.10.26 - 16:15, room 3.B48)
+
+<br>
+
+***Predictive inference*** · Basic readings: Kleinberg et al. (2015); Hofman et al. (2021), pp. 181–184
+
 . . .
 
-In **pairs**:
-
-1️⃣ Share your **causal claim** (*X → Y*) and its **counterfactual**
-
-2️⃣ Discuss: Is it the **right counterfactual**?  
-
-3️⃣ How could you **approximate it** in the real world?
-
-![](group_exercise.png){width=40% fig-align="center"}
-
-## Next session (15.10.26 - 16:15)
-
 <br>
 
-*→ Predictive inference*
+Presentation by **Noa Flückiger and Malte Jonas Kohm**:
+Hewitt et al. (2024), *Predicting results of social science experiments using large language models*
 
-<br>
+::: {.notes}
+**Time:** 15:42-15:43 (1 min)
 
-. . .
-
-**Before...**
-
-<br>
-
-Presentation by **Clelia Gaggini & Emmanuel Saba Moses**:
-
-*The effect of Mohamed Salah on Islamophobic behaviors and attitudes*
+- Same day: session 7, 16:15-18:00, room 3.B48
+- Basic readings: Kleinberg, Ludwig, Mullainathan & Obermeyer (2015), *Prediction policy problems*, AER; Hofman et al. (2021), *Integrating explanation and prediction in computational social science*, Nature, focus on pp. 181-184; additional: Grimmer, Roberts & Stewart (2021)
+- Presenters: Noa Flückiger and Malte Jonas Kohm
+- Take-home exercise I is published in OLAT in session 7 (deadline 29.10.26)
+:::
 
 ---
 
 ![](questions.png){fig-align="center"}
 
-## Choose R track!
+::: {.notes}
+**Time:** 15:43-15:44 (1 min)
+
+- Open floor: questions on correlation, causation, or the presentation
+:::
+
+## Haven't chosen your R track yet?
 
 ![](reminder.png){fig-align="center"}
+
+::: {.notes}
+**Time:** 15:44-15:45 (1 min)
+
+- Check 00_admin/track_choices.csv before class for the current count (do not name anyone in class)
+- The track decides which version of take-home exercise I a student gets; it goes online in OLAT this afternoon (session 7)
+:::
 
 ## Thanks! :slightly_smiling_face:
 
@@ -724,3 +434,9 @@ Presentation by **Clelia Gaggini & Emmanuel Saba Moses**:
 <br>
 
 <center>[klueser@ipz.uzh.ch](mailto:klueser@ipz.uzh.ch)</center>
+
+::: {.notes}
+**Time:** 15:45 end; break until session 7 at 16:15
+
+- Contact: klueser@ipz.uzh.ch; meetings via Zoom on request
+:::
