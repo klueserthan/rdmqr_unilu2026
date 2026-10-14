@@ -64,3 +64,6 @@ notes.md
 
 # Textbook figure (copyright): local use only, not in the public repo
 06_session06/bf_fig2_4_age_turnout.png
+
+# OLAT upload packages (built from the tracked files)
+00_take_home_exercises/**/*.zip
