@@ -2,7 +2,7 @@
 title: "Replicating a Experimental Study (THE I)"
 subtitle: "Research Design and Methods in Quantitative Research"
 author: "Dr. K. Jonathan Klüser"
-date:  "`r format(as.Date('2026-10-15'), '%d %b %Y')`"
+date: 2026-10-15
 output: 
   pdf_document:
     keep_tex: false
@@ -29,7 +29,7 @@ To complete this exercise, you will need **R** and **RStudio**. If you don't hav
 
 - [RStudio](https://posit.co/download/rstudio-desktop/)
 
-A tutorial on how to start using R and R Studio is [here](https://hbctraining.github.io/Intro-to-R-flipped/lessons/01_introR-R-and-RStudio.html). Please **contact the lecturer** and collaborate with your classmates if you have any doubts or need help.
+A tutorial on how to start using R and R Studio is [here](https://hbctraining.github.io/Intro-to-R-flipped/lessons/01_R-and-RStudio.html). Please **contact the lecturer** and collaborate with your classmates if you have any doubts or need help.
 
 ## Preparation step 2: Prepare a Quarto Document
 
@@ -259,7 +259,7 @@ print(results_samples)
 
 Please submit both the PDF file and the `.qmd` file. Both files should report all the code used for analysis and annotations explaining each step.
 
-The name of the files must follow the structure *take-home_exercise_i_advanced_YOURSURNAME(S).pdf* and *take-home_exercise_i_advanced_YOURSURNAME(S).qmd*, respectively. They should be upload to the folder *Students responses/Take-home exercises/Take-home exercise I* in OLAT.
+The name of the files must follow the structure *take-home_exercise_i_advanced_YOURSURNAME(S).pdf* and *take-home_exercise_i_advanced_YOURSURNAME(S).qmd*, respectively. They should be uploaded to the folder *Students responses/Take-home exercises/Take-home exercise I* in OLAT.
 
 Deadline: **29.10.26**
 

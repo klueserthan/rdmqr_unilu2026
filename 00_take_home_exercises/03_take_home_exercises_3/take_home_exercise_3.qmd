@@ -105,7 +105,7 @@ Second, compare the results from all three models. What is your final assessment
 
 Please submit both the PDF file and the `.qmd` file. Both files should report all the code used for analysis and annotations explaining each step.
 
-The name of the files must follow the structure *take-home_exercise_iii_YOURSURNAME(S).pdf* and *take-home_exercise_iii_YOURSURNAME(S).qmd*, respectively. They should be upload to the folder *Students responses/Take-home exercises/Take-home exercise III* in OLAT.
+The name of the files must follow the structure *take-home_exercise_iii_YOURSURNAME(S).pdf* and *take-home_exercise_iii_YOURSURNAME(S).qmd*, respectively. They should be uploaded to the folder *Students responses/Take-home exercises/Take-home exercise III* in OLAT.
 
 Deadline: **12.11.26**
 
