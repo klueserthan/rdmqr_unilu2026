@@ -175,6 +175,26 @@ But some ***strategies***:
 - *Build on the literature* (KW 2.5-2.6): three strategies: a new Y; an existing Y with a new X; a new Z that modifies an established X -> Y. Also: critically examine previous research; "someone already did it" is not the end (2.6.2)
 :::
 
+## Concepts
+
+<br>
+
+**Concepts** are the abstract building blocks of a theory
+
+*e.g., economic performance, political trust, democracy*
+
+. . .
+
+<br>
+
+A theory states **causal relationships** between concepts: *which concept affects which, and why?*
+
+::: {.notes}
+- Theories are stated in concepts; hypotheses and tests need variables (after the models). The move between them is measurement (operationalization), the topic of session 4 (KW ch. 5)
+- KW p. 9 (Figure 1.2, "From theory to hypothesis"): at the theory level, variables "do not need to be explicitly defined"; economic performance is a concept ranging from very strong to very poor
+- Order today: theory -> concepts -> models -> variables -> hypotheses
+:::
+
 ## From theories to models
 
 <br>
@@ -232,50 +252,14 @@ By removing complexity, they help us make theoretical claims **testable** (and t
 ::: {.notes}
 - Models make theories testable by choosing which concepts and relationships to keep
 - Falsifiability (KKV pp. 19-20): choose theories that could be wrong; derive as many observable implications as possible; be as concrete as possible
-- "More later on hypotheses": two slides ahead
+- Next: drawing models (DAGs), then turning their concepts into variables, then hypotheses
 :::
 
-## From concepts to variables
-
-<div style="font-size:90%">
+## Models: concepts and relationships
 
 . . .
 
-**Concepts** are the abstract building blocks of a theory  
-*e.g., economic performance, political trust, democracy*
-
-. . .
-
-**Variables** are measurable representations of concepts: quantities that take two or more values  
-*e.g., real GDP growth in %, trust on a 0–10 scale*
-
-From concept to variable = **operationalization** (session 4)
-
-. . .
-
-- **Dependent variable (DV):** the outcome we want to explain  
-- **Independent variable (IV):** the factor(s) we think explain the DV  
-- **Other variables:** moderators, mediators, confounders...
-
-</div>
-
-::: {.notes}
-- Why concepts first: theories are stated in concepts; hypotheses and tests need variables. The move between them is measurement (operationalization), the topic of session 4 (KW ch. 5)
-- KW p. 7: political scientists "order their thoughts about the political world in terms of concepts that scientists call variables and causal relationships between variables"
-- KW p. 9 (Figure 1.2, "From theory to hypothesis"): at the theory level, variables "do not need to be explicitly defined"; economic performance is a concept ranging from very strong to very poor. At the hypothesis level we measure it, e.g., "one-year real economic growth per capita"
-- KW p. 3 (fn. 1): a variable is "a definable quantity that can take on two or more values" (e.g., turnout as % of eligible voters)
-- One concept, many possible variables: economic performance -> inflation, unemployment, real growth (KW p. 10); each choice gives a different hypothesis
-- DV = outcome (Y); IV = explanatory factor (X)
-- Moderator: changes the size or direction of X -> Y (e.g., candidate gender in the deepfake paper from session 2)
-- Mediator: the channel through which X affects Y
-- Confounder: a common cause of X and Y (next slide)
-:::
-
-## Models as variables and relationships
-
-. . .
-
-Examples with **Directed Acyclic Graphs (DAGs)**:
+Models can be drawn as **Directed Acyclic Graphs (DAGs)**: concepts as nodes, causal relationships as arrows
 
 <br>
 
@@ -311,8 +295,34 @@ $$
 - DAG 1: direct effect of X on Y
 - DAG 2: mediation, X affects Y through M (e.g., education -> political knowledge -> turnout)
 - DAG 3: confounding, Z causes both X and Y; the naive X-Y association is biased unless we account for Z (e.g., income -> education and income -> turnout)
+- X, Y, M, Z stand for concepts here; once measured, they become the variables of the next slide
 - Arrows = assumed causal direction; "acyclic" = no feedback loops
 - Returns in session 6 (causal inference) and session 9 (Cinelli et al. 2022, good and bad controls)
+:::
+
+## From concepts to variables
+
+. . .
+
+**Variables** are measurable representations of concepts: quantities that take two or more values  
+*e.g., real GDP growth in %, trust on a 0–10 scale*
+
+From concept to variable = **operationalization** (session 4)
+
+. . .
+
+- **Dependent variable (DV):** the outcome we want to explain  
+- **Independent variable (IV):** the factor(s) we think explain the DV  
+- **Other variables:** moderators, mediators, confounders...
+
+::: {.notes}
+- Each concept in the model now gets a measure: the model's X and Y become the IV and DV
+- KW p. 7: political scientists "order their thoughts about the political world in terms of concepts that scientists call variables and causal relationships between variables"
+- KW p. 3 (fn. 1): a variable is "a definable quantity that can take on two or more values" (e.g., turnout as % of eligible voters)
+- One concept, many possible variables: economic performance -> inflation, unemployment, real growth (KW p. 10); each choice gives a different hypothesis
+- Moderator: changes the size or direction of X -> Y (e.g., candidate gender in the deepfake paper from session 2)
+- Mediator: the channel through which X affects Y (DAG 2, previous slide)
+- Confounder: a common cause of X and Y (DAG 3, previous slide)
 :::
 
 ## From models to hypotheses
@@ -321,7 +331,7 @@ $$
 
 . . .
 
-**Models** specify relationships between variables; **hypotheses** translate them into testable claims
+**Models** specify relationships between concepts; **hypotheses** translate them into testable claims about variables
 
 . . .
 

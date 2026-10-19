@@ -1,0 +1,681 @@
+% Options for packages loaded elsewhere
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  letterpaper,
+  DIV=11,
+  numbers=noendperiod]{scrartcl}
+\usepackage{xcolor}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+
+\usepackage{longtable,booktabs,array}
+\newcounter{none} % for unnumbered tables
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+
+
+
+
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+
+ 
+
+
+\KOMAoption{captions}{tableheading}
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+% fallback for those not using the hyperref driver hyperxmp:
+\makeatletter
+\@ifundefined{xmpquote}{\newcommand{\xmpquote}[1]{#1}}{}
+\makeatother
+\hypersetup{
+  pdftitle={The Logic of Scientific Research},
+  pdfauthor={Research Design and Methods in Quantitative Research},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{The Logic of Scientific Research}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{Session 02}
+\author{Research Design and Methods in Quantitative Research}
+\date{}
+\begin{document}
+\maketitle
+
+\renewcommand*\contentsname{Table of contents}
+{
+\setcounter{tocdepth}{1}
+\tableofcontents
+}
+
+\subsection{\texorpdfstring{The goal of \emph{good}
+research}{The goal of good research}}\label{the-goal-of-good-research}
+
+\begin{quote}
+To \emph{``produce valid inferences about social and political life''}
+(King, Keohane, \& Verba 1994, p.~3)
+\end{quote}
+
+. . .
+
+\textbf{What is inference?}
+
+. . .
+
+The process of drawing conclusions from what we \textbf{observe} to what
+we do \textbf{not (yet) observe}.
+
+\begin{itemize}
+\tightlist
+\item
+  Quote: KKV p.~3 (ch.~1, ``The Science in Social Science''); basic
+  reading today, pp.~3-33
+\item
+  \textbf{Inference} = using what we observe to learn about what we do
+  not observe (KKV p.~8)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \emph{Descriptive}: from observed facts to unobserved facts (e.g., a
+    survey sample -\textgreater{} the population)
+  \item
+    \emph{Causal}: from data to causal effects (e.g., does canvassing
+    raise turnout?)
+  \end{itemize}
+\item
+  Collecting facts alone is not science: the step beyond the data is
+  (KKV p.~8)
+\item
+  Links to session 1 digression (inference vs.~prediction) and to
+  sessions 5-7 (descriptive, causal, predictive inference)
+\end{itemize}
+
+\subsection{Scientific inference}\label{scientific-inference}
+
+Inferences that draw on evidence and reasoning, following a series of
+rules (or methods)
+
+. . .
+
+\emph{The methods make the science, not the content}
+
+\begin{itemize}
+\tightlist
+\item
+  They must be \textbf{public}\\
+\item
+  They must provide a \textbf{measure of uncertainty}\\
+  \emph{(scientific conclusions are always tentative!)}
+\end{itemize}
+
+\textbf{KKV's four characteristics of scientific research} (pp.~7-9)
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \emph{The goal is inference}: go beyond the particular observations
+  collected
+\item
+  \emph{The procedures are public}: explicit, codified methods, so
+  others can judge and replicate them (Merton: ``science \ldots{} is
+  public, not private'')
+\item
+  \emph{The conclusions are uncertain}: inference without an uncertainty
+  estimate is ``uninterpretable''
+\item
+  \emph{The content is the method}: science is defined by its rules, not
+  its subject matter (Pearson 1892: ``The unity of all science consists
+  alone in its method'')
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  Implication (p.~9): science is a social enterprise; work does not have
+  to be beyond criticism to contribute
+\item
+  Slide shows 2-4 as bullets; 1 was the previous slide
+\end{itemize}
+
+\subsection{}\label{section}
+
+\textbf{Share your answers!}
+
+{\emph{Seminar questions 2}}
+
+\begin{itemize}
+\item
+  Which of KKV's four characteristics did you pick, and why does it
+  matter?
+\item
+  Do qualitative and quantitative research share the same logic of
+  inference?
+\end{itemize}
+
+\begin{center}
+\includegraphics[width=0.75\linewidth,height=\textheight,keepaspectratio]{volunteers.png}
+\end{center}
+
+\begin{itemize}
+\tightlist
+\item
+  Picks up seminar questions 2 (Q2 and Q3); answers were due Wednesday
+  30.09, 12:00
+\item
+  Q2: ask 2-3 students which characteristic they picked and their
+  example; map each answer onto the list (previous notes)
+\item
+  Q3 (one logic of inference): KKV's claim (pp.~3-4) is that qualitative
+  and quantitative research differ in style and technique, not in the
+  underlying logic
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Counterpoint if the debate takes off: Brady \& Collier (eds.),
+    \emph{Rethinking Social Inquiry} (2004), argue KKV judge qualitative
+    work by quantitative standards
+  \item
+    Our course: quantitative focus, but small-N designs in session 10
+  \end{itemize}
+\item
+  Keep it short (\textasciitilde5 min); the RQ exercise comes later
+\end{itemize}
+
+\subsection{Components of a research
+design}\label{components-of-a-research-design}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Research question} (this session)\\
+\item
+  \textbf{Theory} (session 3)\\
+\item
+  \textbf{Data} (session 4)\\
+\item
+  \textbf{Methods}: depend on inferential goals (sessions 5, 6, 7),
+  resources, and data availability (sessions 8, 9, 10).\\
+  We will focus on \textbf{quantitative methods} (sessions 11, 12, 13)
+\end{itemize}
+
+\begin{itemize}
+\tightlist
+\item
+  KKV p.~13: four components of every research design: the research
+  question, the theory, the data, and the use of the data
+\item
+  They are rarely developed in this order; researchers go back and forth
+  (KKV pp.~12-13: ``taking down the scaffolding'')
+\item
+  Course map (syllabus schedule): 3 theory - 4 data and measurement -
+  5/6/7 descriptive, causal, predictive inference - 8/9/10 experimental,
+  large-N, small-N - 11 statistical testing - 12/13 regression - 14
+  conclusion
+\item
+  Today and session 3 happen on the same afternoon: research question
+  now, theory at 16:15
+\end{itemize}
+
+\subsection{The research question}\label{the-research-question}
+
+There is no logical recipe for having good ideas.
+
+. . .
+
+It depends on interest, creativity, knowledge\ldots{} and luck.
+
+. . .
+
+However, some guidelines:
+
+\begin{itemize}
+\tightlist
+\item
+  Must be \textbf{relevant}\\
+\item
+  Answering it should make a \textbf{contribution}\\
+  (know your literature! or goal --- e.g., private company)\\
+\item
+  Should be \textbf{researchable} (realistic plans to answer it!)
+\item
+  Should be \textbf{focused}
+\end{itemize}
+
+\begin{itemize}
+\tightlist
+\item
+  ``No logical recipe'': KKV p.~14, quoting Popper: ``there is no such
+  thing as a logical method of having new ideas''
+\item
+  KKV's two criteria (p.~15), also in seminar question 1:
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \tightlist
+  \item
+    \emph{Important in the real world}: consequential for political,
+    social or economic life
+  \item
+    \emph{A specific contribution to an identifiable scholarly
+    literature}
+  \end{enumerate}
+\item
+  Six ways to contribute (KKV pp.~16-17): (1) test an important
+  hypothesis nobody has studied systematically; (2) challenge an
+  accepted hypothesis; (3) help resolve a controversy; (4) examine
+  unquestioned assumptions; (5) show an important topic has been
+  overlooked; (6) apply theories or evidence from one literature to
+  another
+\item
+  Personal motivation is fine but not a justification: ``no one cares
+  what we think - the scholarly community only cares what we can
+  demonstrate'' (p.~15)
+\item
+  \emph{Researchable}: KKV p.~18: a topic that cannot be refined into a
+  specific project permitting valid inference ``should be modified along
+  the way or abandoned''
+\item
+  \emph{Focused} is our addition: narrow enough to answer with one
+  design
+\item
+  Private-sector aside: there the ``contribution'' is to the
+  organisation's goal, not a literature
+\end{itemize}
+
+\subsection{Types of research
+questions}\label{types-of-research-questions}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.2206}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.1912}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.5882}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Question
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Focus
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Example
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{What} & Descriptive & What is voter turnout in country X? \\
+\textbf{How} & Explanatory & How do campaigns influence turnout? \\
+\textbf{Why} & Causal & Why do some groups vote more than others? \\
+\end{longtable}
+}
+
+\begin{itemize}
+\tightlist
+\item
+  What/How/Why maps roughly onto the inferential goals of sessions 5-7:
+  descriptive (what), mechanisms (how), causal (why)
+\item
+  Descriptive questions are legitimate research questions (session 5
+  readings: Gerring 2012, \emph{Mere Description}; de Kadt \&
+  Grzymala-Busse 2025)
+\item
+  Ask: which type is your seminar-question RQ?
+\end{itemize}
+
+\subsection{Group exercise: Assess your research
+question!}\label{group-exercise-assess-your-research-question}
+
+. . .
+
+\begin{itemize}
+\tightlist
+\item
+  Take the research question you wrote for the \textbf{seminar
+  questions} (question 1)\\
+\item
+  Choose a partner next to you and share your research question\\
+\item
+  Your partner should do the same with you\\
+\item
+  Assess your partner's question (\textbf{three minutes}):
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Does it meet the criteria above?\\
+  \item
+    How could it be improved?
+  \end{itemize}
+\end{itemize}
+
+\begin{itemize}
+\tightlist
+\item
+  Students use the RQ from seminar question 1 (uploaded by Wednesday
+  12:00); no new writing step
+\item
+  \textasciitilde5 minutes in pairs; walk around, note 2-3 good examples
+  to call on
+\item
+  Criteria to check: relevant, contribution, researchable, focused
+  (previous slides); KKV's two criteria are in the seminar question
+\item
+  Anyone without a question: pair them with someone and let them assess
+\end{itemize}
+
+\subsection{}\label{section-1}
+
+\textbf{Share your research question!}
+
+{\emph{Seminar questions 2}}
+
+\begin{itemize}
+\item
+  What is your question?
+\item
+  Is it relevant, researchable and focused?
+\item
+  How did your partner improve it?
+\end{itemize}
+
+\begin{center}
+\includegraphics[width=0.75\linewidth,height=\textheight,keepaspectratio]{volunteer_meme.png}
+\end{center}
+
+\begin{itemize}
+\tightlist
+\item
+  2-3 volunteers; for each: which criterion is weakest, and how did the
+  partner fix it?
+\item
+  Typical problems: too broad (``What drives populism?''), normative
+  (``Should we ban \ldots?''), not researchable (no data), or already
+  answered
+\item
+  Keep the questions in mind: session 3 builds on them (seminar question
+  3 asks for a hypothesis derived from the same RQ)
+\end{itemize}
+
+\subsection{Conclusion}\label{conclusion}
+
+A good \textbf{research question} is the first component of an effective
+research design
+
+. . .
+
+Later today (session 3, 16:15), we will examine more of your research
+questions and assess how to connect them with a \textbf{theory and
+hypotheses}
+
+\begin{itemize}
+\tightlist
+\item
+  The RQ is component 1 of 4 (KKV p.~13)
+\item
+  Session 3 today at 16:15: from RQ to theory, models and hypotheses
+  (seminar question 3 builds on seminar question 1 of today)
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+The ultimate goal of this course is to \textbf{\emph{think like a social
+scientist}}
+
+. . .
+
+Connect real-world observations to theory and methods
+
+. . .
+
+\textbf{Remain skeptical!}
+
+\begin{itemize}
+\tightlist
+\item
+  ``Thinking like a social scientist'': KKV section 1.3.4, pp.~32-33,
+  ``Skepticism and Rival Hypotheses''
+\item
+  KKV example: Japanese eat less red meat and have fewer heart attacks
+  than Americans. A skeptic asks: are the data accurate and comparable?
+  What else differs (other diet, genes, lifestyle)?
+\item
+  Ask these questions of your own research, not just of others'
+\item
+  Bridge: that is exactly what the presentations do with each applied
+  reading
+\end{itemize}
+
+\subsection{Up next: applied reading}\label{up-next-applied-reading}
+
+Presentation of ongoing research by the lecturer, in the \textbf{same
+format} as your presentations:
+
+\begin{itemize}
+\tightlist
+\item
+  Klüser, S., Klüser, K. J., \& Hoes, E. (2026). AI-Generated Explicit
+  Deepfakes Damage Politicians' Perceived Leadership Competence,
+  Trustworthiness and Electoral Prospects. \emph{Revised and
+  resubmitted, Communications Psychology}
+\end{itemize}
+
+Part I: summary and critique (\textasciitilde10 min) · Part II:
+alternative design (\textasciitilde15 min) · discussion
+
+\begin{itemize}
+\tightlist
+\item
+  Switch to the PowerPoint deck:
+  02\_session02/presentation\_slides\_session02\_KLUESER.pptx (speaker
+  notes inside)
+\item
+  Same format and rubric as the student presentations: \textasciitilde10
+  min summary and critique, \textasciitilde15 min alternative design,
+  then discussion (syllabus section 5, grading sheet)
+\item
+  The paper is the applied reading in OLAT (July 2026 revision, R\&R at
+  Communications Psychology)
+\item
+  Content note: the treatment videos in the deck are blurred; no
+  explicit imagery is shown
+\end{itemize}
+
+\subsection{Next session (01.10.26 - 16:15, room
+2.A45)}\label{next-session-01.10.26---1615-room-2.a45}
+
+\textbf{\emph{Theory and research design}} · Basic reading: KW, ch.~2
+(pp.~25--52)
+
+. . .
+
+Presentation by \textbf{Alessio Gallonetto, Lea Hafen and Benjamin
+Seiwert}:\\
+Turnbull-Dugarte \& Wagner (2025), \emph{Heroes and villains: motivated
+projection of political identities}
+
+\begin{itemize}
+\tightlist
+\item
+  Same day: session 3, 16:15-18:00, room 2.A45 (syllabus schedule)
+\item
+  Basic reading: KW (Kellstedt \& Whitten), ch.~2, ``The Art of Theory
+  Building'', pp.~25-52
+\item
+  First student presentation: Alessio Gallonetto, Lea Hafen, Benjamin
+  Seiwert (three presenters in sessions 3 and 4)
+\item
+  This group may upload their slides on the morning of 1 October instead
+  of Wednesday noon (OLAT message of 23.09)
+\item
+  Seminar questions 3 were due Wednesday 30.09, 12:00, together with
+  today's
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\begin{center}
+\pandocbounded{\includegraphics[keepaspectratio]{questions.png}}
+\end{center}
+
+\begin{itemize}
+\tightlist
+\item
+  Open floor: questions on KKV, the research question exercise, or the
+  presentation format
+\end{itemize}
+
+\subsection{\texorpdfstring{Thanks! {🙂}}{Thanks! 🙂}}\label{thanks}
+
+\href{mailto:klueser@ipz.uzh.ch}{\nolinkurl{klueser@ipz.uzh.ch}}
+
+\begin{itemize}
+\tightlist
+\item
+  Contact: klueser@ipz.uzh.ch; meetings via Zoom on request within a
+  week (syllabus: no fixed office hours)
+\end{itemize}
+
+
+
+
+\end{document}

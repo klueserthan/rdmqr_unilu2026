@@ -67,3 +67,19 @@ notes.md
 
 # OLAT upload packages (built from the tracked files)
 00_take_home_exercises/**/*.zip
+
+# Session slides (PDFs)
+slides_session01.pdf
+slides_session02.pdf
+slides_session03.pdf
+slides_session04.pdf
+slides_session05.pdf
+slides_session06.pdf
+slides_session07.pdf
+slides_session08.pdf
+slides_session09.pdf
+slides_session10.pdf
+slides_session11.pdf
+slides_session12.pdf
+slides_session13.pdf
+slides_session14.pdf
