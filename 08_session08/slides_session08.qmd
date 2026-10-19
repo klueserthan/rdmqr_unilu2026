@@ -18,7 +18,7 @@ format:
       - default
       - custom.scss
     logo: ../00_images/logo_unilu.png
-    footer: | 
+    footer: |
          Masterseminar - Fall Term 2026
     title-slide-attributes:
       data-background-image: "../00_images/unilu_building.png"
@@ -40,523 +40,355 @@ format:
     slide-number: true
 ---
 
-## Addressing the FPCI
+## Back to attendance
 
-<br>
+Last week: students who **attend more** get **better grades**
 
-<div style="font-size:70%; line-height:1.2;">
-
-$$
-Y_i(1) = \text{Outcome if exposed to the treatment} \\
-Y_i(0) = \text{Outcome if not exposed to the treatment} \\
-$$
-
-$$
-\text{Individual treatment effect} = \tau_i = Y_i(1) - Y_i(0) \\
-$$
-
-</div>
+But motivated students attend more *and* study more
 
 . . .
 
 <br>
 
-<div style="font-size:70%; line-height:1.2;">
-
-$$
-\text{Average Treatment Effect (ATE)} = \tau = E[Y_i(1) - Y_i(0)]
-$$
-
-</div>
-
-## 🎓 Studying example
+✋ What if we **flipped a coin** to decide who has to attend?
 
 . . .
 
-Our **quantity of interest (QOI)** is the **effect of studying** ($X$) on **grades** ($Y$)  
+- Would you **trust** the result?
+- Would it be **allowed**?
 
-$$
-\; X \longrightarrow Y \quad 
-$$
+::: {.notes}
+**Time:** 14:15-14:20 (5 min). Session plan (90 min): lecture and interaction 14:15-15:07 (52 min) · student presentation and discussion 15:08-15:42 (at least 30 min) · wrap-up 15:42-15:45
 
-. . .
-
-We cannot observe the effect for an individual student $i$, but we can compare **average grades** of students who studied ($X = 1$) and those who did not ($X = 0$)
-
-. . .
-
-<br>
-
-This **naïve comparison** provides an estimate of the effect of *X*, but is this the **ATE**?
-
-## Simulated classroom data
-
-```{r}
-#| echo: false
-
-# Load libraries
-library(dplyr)
-library(stringr)
-
-# Create dataset 
-data <- tribble(
-  ~Surname,         ~Name,
-  "Brown",          "Elli Margaret",
-  "Demir",          "Rojhat Yigit",
-  "Djogova",        "Nikolina",
-  "Eymann",         "Bernhard",
-  "Flütsch",        "Reto",
-  "Gaggini",        "Clelia",
-  "Graf",           "Robin",
-  "Hager",          "Lisa Anna",
-  "Herrera Garcia", "Juan Manuel",
-  "Hofer",          "Nadja Alexandra",
-  "Klamt",          "Reachel",
-  "Landis",         "Olivia Lea",
-  "Lunkova",        "Anastasiia",
-  "Michel",         "Fabian",
-  "Moses",          "Emmanuel Saba",
-  "Paraboni",       "Giulio",
-  "Rios Quiroz",    "Laura",
-  "Robatel",        "Annick France",
-  "Schwegler",      "Salome Claudia"
-)
-
-# Combine Surname and Name into Full_Name
-data <- data |>
-  mutate(
-    Full_Name = paste(Surname, Name),
-    
-    # Simple heuristic to infer gender
-    Gender = case_when(
-      Name %in% c("Bernhard", "Reto", "Robin", "Juan Manuel", "Fabian",
-                  "Emmanuel Saba", "Giulio", "Rojhat Yigit") ~ "Male",
-      TRUE ~ "Female"
-    ),
-    
-    # Count number of words in full name
-    Name_Length = str_length(str_remove_all(Full_Name, "\\s"))
-  ) |>
-  select(Full_Name, Gender, Name_Length)
-
-# Simulate study and grade variables
-set.seed(123)  # for reproducibility
-
-data <- data |>
-  mutate(
-    # Binary variable: probability of studying (some students study, some don't)
-    Study = rbinom(n(), 1, 0.5),
-
-    # Grades: base + effect of studying + random noise
-    Grades = pmin(
-      6,  # upper bound
-      pmax(
-        1,  # lower bound
-        round(
-          3 +                # base grade level
-          3.2 * Study +      # positive effect of studying
-          rnorm(n(), 0, 0.5),# random noise
-          1
-        )
-      )
-    )
-  )
-```
-
-
-::: {.panel-tabset}
-
-### Data check
-
-```{r}
-#| echo: true
-#| message: false
-#| warning: false
-#| code-line-numbers: "|1"
-#| eval: false
-
-# View first few rows of the new variable
-head(data |> select(Full_Name, Study, Grades))
-```
-
-::: {.fragment}
-
-```{r}
-#| echo: false
-#| message: false
-#| warning: false
-#| code-line-numbers: "|1"
-
-# View first few rows of the new variable
-head(data |> select(Full_Name, Study, Grades))
-```
-
+- Picks up session 6: the hypothetical attendance finding and the four patterns (confounding, reverse causation, selection, chance)
+- Ask first: would you trust a coin-flip comparison more than last week's comparison? Why? Expected: the coin does not care how motivated you are
+- Then: would it be allowed? Expected: forcing some students to stay away is unfair or unethical; nobody can force students to come, so some "attenders" will skip anyway (comes back at 14:49 as noncompliance)
+- Write two lists on the board: "why the coin helps" and "why we can't just do it". Both come back at the end (14:49)
+- Today: why randomization solves the selection problem, and where it stops working
 :::
 
+## Are insured people healthier?
 
-### Difference-in-means
-
-```{r}
-#| echo: true
-#| message: false
-#| warning: false
-#| code-line-numbers: "|1"
-#| eval: false
-
-# Difference in means
-mean(data$Grades[data$Study == 1]) - mean(data$Grades[data$Study == 0])
+```{=html}
+<table style="font-size:75%; margin:auto;">
+<thead><tr><th></th><th style="text-align:right;">Insured</th><th style="text-align:right;">Uninsured</th><th style="text-align:right;">Difference</th></tr></thead>
+<tbody>
+<tr><td>Health (1 = poor, 5 = excellent)</td><td style="text-align:right;">4.01</td><td style="text-align:right;">3.70</td><td style="text-align:right;"><b>0.31</b></td></tr>
+<tr class="fragment"><td>Years of education</td><td style="text-align:right;">14.3</td><td style="text-align:right;">11.6</td><td style="text-align:right;">2.7</td></tr>
+<tr class="fragment"><td>Employed</td><td style="text-align:right;">92%</td><td style="text-align:right;">85%</td><td style="text-align:right;">7 pts</td></tr>
+<tr class="fragment"><td>Family income (USD)</td><td style="text-align:right;">106,467</td><td style="text-align:right;">45,656</td><td style="text-align:right;">60,810</td></tr>
+</tbody>
+</table>
 ```
 
-::: {.fragment}
+[Married men, US National Health Interview Survey 2009 (AJ, Table 1.1)]{style="font-size:60%; color:gray;"}
 
-```{r}
-#| echo: false
-#| message: false
-#| warning: false
-#| code-line-numbers: "|1"
+✋ Does health insurance make people **healthier**?
 
-# Difference in means
-mean(data$Grades[data$Study == 1]) - mean(data$Grades[data$Study == 0])
-```
+::: {.notes}
+**Time:** 14:20-14:25 (5 min)
 
+- AJ pp. 3-5, Table 1.1 (husbands; wives look the same: health gap .39). Health index from "Would you say your health in general is excellent, very good, good, fair, or poor?", 5 = excellent, 1 = poor (AJ p. 3). A gap of .31 is large: the standard deviation is about 1 (AJ p. 4)
+- Show only the first row and ask the question. Let students answer yes first, then reveal the other rows one at a time
+- Ask after each row: what does this tell you? The insured are better educated, more often employed and earn more than twice as much
+- AJ's phrase: comparing the two groups is "apples to oranges, or worse" (p. 4)
+- Link to session 6: this is confounding, and the attendance problem in another setting
 :::
 
-<br>
+## Selection bias in words
 
-::: {.fragment}
+**Difference in group means** = **average causal effect** + [**selection bias**]{style="color:red"}
 
-What else may be capturing this difference?
-
+::: {.incremental}
+- We need the insured's health **without** insurance, but never see it [(session 6)]{style="color:gray"}
+- So the **uninsured** stand in. But they are poorer and less educated
+- [**Selection bias**]{style="color:red"}: how much healthier the insured would be **anyway**
 :::
 
+. . .
+
+✋ In the NHIS: is the selection bias **positive** or **negative**?
+
+::: {.notes}
+**Time:** 14:25-14:29 (4 min)
+
+- AJ eq. 1.3, p. 10: "Difference in group means = Average causal effect + Selection bias", with the words written under the formula in the book
+- Formal version (only if asked): E[Yi | Di = 1] − E[Yi | Di = 0] = κ + (E[Y0i | Di = 1] − E[Y0i | Di = 0]), where κ is the constant causal effect and Y0i the health of person i without insurance (AJ pp. 9-10)
+- Terminology: AJ says "average causal effect"; the seminar questions and session 6 say average treatment effect (ATE). Same thing
+- AJ's two-person example (pp. 6-8, Table 1.2): Khuzdar is insured, health 4, would be 3 without (effect +1); Maria is uninsured, health 5 either way. Naive comparison: 4 − 5 = −1, although insurance helps Khuzdar. Use it if students struggle with the idea of selection bias
+- Answer to the question: positive. Richer, better-educated people would be healthier even without insurance, so the naive comparison overstates the effect of insurance
+- Selection bias is the session 6 counterfactual problem: we never see Y0 for the insured
 :::
 
-
-## The problem of self-selection
+## Just randomize
 
 <br>
 
-**Selection bias**: students choose whether to study, so any difference is likely to be **confounded**  
+**RAND Health Insurance Experiment** (US, 1974–1982)
+
+. . .
+
+- 3,958 people **randomly assigned** to one of 14 insurance plans
+- From **free care** to **catastrophic coverage** (pay about 95% yourself)
 
 . . .
 
 <br>
 
-Our previous estimate captures both the **causal effect of studying** and ***selection bias*** (e.g., motivation)
+✋ Why should a **lottery** fix the problem we just saw?
 
-<div style="font-size:80%; line-height:1.2;">
+::: {.notes}
+**Time:** 14:29-14:32 (3 min)
 
-
-$$
-E[Y_i \mid X_i = 1] - E[Y_i \mid X_i = 0] = \text{ATE} + \text{Selection Bias}
-$$
-
-</div>
-
-## Operationalizing selection bias: motivation
-
-```{r}
-#| echo: false
-
-set.seed(123)
-
-data <- data |>
-  mutate(
-    # Motivation: continuous 0–1 scale
-    Motivation = pmin(pmax(rnorm(n(), mean = 0.5, sd = 0.5), 0), 1),
-
-    # Probability of studying increases with motivation
-    Study = rbinom(n(), 1, plogis(-0.2 + 0.6 * Motivation)),
-
-    # Grades: base + smaller effect of studying + motivation + noise
-    Grades = pmin(
-      6,  # upper bound
-      pmax(
-        1,  # lower bound
-        round(
-          3 +                    # base grade level
-          1.2 * Study +          # smaller causal effect of studying
-          2.0 * Motivation +     # motivation drives both study and grades
-          rnorm(n(), 0, 0.5),    # random noise
-          1
-        )
-      )
-    )
-  )
-
-```
-
-
-::: {.panel-tabset}
-
-### Data check
-
-```{r}
-#| echo: true
-#| message: false
-#| warning: false
-#| code-line-numbers: "|1"
-#| eval: false
-
-# View first few rows of the new variable
-head(data |> select(Full_Name, Study, Grades, Motivation))
-```
-
-::: {.fragment}
-
-```{r}
-#| echo: false
-#| message: false
-#| warning: false
-#| code-line-numbers: "|1"
-
-# View first few rows of the new variable
-head(data |> select(Full_Name, Study, Grades, Motivation))
-```
-
+- AJ pp. 16-18: 3,958 people aged 14 to 61 from six US areas; 14 plans grouped into catastrophic, deductible, coinsurance and free care. Catastrophic plans approximate no insurance
+- AJ section heading: "Breaking the deadlock: just RANDomize" (p. 12)
+- Answer: the lottery does not know how rich, educated or healthy you are. So the groups should be the same in everything except the plan, including how healthy they would have been without insurance (AJ p. 15: random assignment eliminates selection bias)
+- "Should be": let's test that in this room
 :::
 
-### Boxplot
+## Let's randomize this room
 
-```{r}
-#| echo: false
-#| message: false
-#| warning: false
-#| eval: true
+**Treatment:** born on an **even** day of the month
 
-library(ggplot2)
+**Control:** born on an **odd** day
 
-ggplot(data, aes(x = factor(Study), y = Grades, fill = factor(Study))) +
-  geom_boxplot(alpha = 0.7) +
-  scale_fill_manual(
-    name = "Studied",
-    values = c("0" = "tomato", "1" = "steelblue"),
-    labels = c("No", "Yes")
-  ) +
-  labs(
-    title = "Grades by Study Status",
-    x = "Studied",
-    y = "Grades (1–6)"
-  ) +
-  theme_minimal(base_size = 14) +
-  theme(legend.position = "none")
-```
+. . .
 
-### Scatterplot
+<br>
 
-```{r}
-#| echo: false
-#| message: false
-#| warning: false
-#| eval: true
+✋ Hands up in each group if you...
 
-library(ggplot2)
+- commuted **more than 30 minutes** today
+- have **at least one sibling**
+- had **coffee** today
 
-ggplot(data, aes(x = Motivation, y = Grades, color = factor(Study))) +
-  geom_point(size = 3, alpha = 0.8) +
-  geom_smooth(method = "lm", se = FALSE) +
-  scale_color_manual(
-    name = "Studied",
-    values = c("0" = "tomato", "1" = "steelblue"),
-    labels = c("No", "Yes")
-  ) +
-  labs(
-    title = "Motivation and Grades by Study Status",
-    x = "Motivation",
-    y = "Grades (1–6)"
-  ) +
-  theme_minimal(base_size = 14)
-```
+. . .
 
-### Code
+Are the two groups **alike**?
 
+::: {.notes}
+**Time:** 14:32-14:40 (8 min)
 
-```{r}
-#| echo: true
-#| message: false
-#| warning: false
-#| eval: false
-
-library(ggplot2)
-
-ggplot(data, aes(x = factor(Study), y = Grades, fill = factor(Study))) +
-  geom_boxplot(alpha = 0.7) +
-  scale_fill_manual(
-    name = "Studied",
-    values = c("0" = "tomato", "1" = "steelblue"),
-    labels = c("No", "Yes")
-  ) +
-  labs(
-    title = "Grades by Study Status",
-    x = "Studied",
-    y = "Grades (1–6)"
-  ) +
-  theme_minimal(base_size = 14) +
-  theme(legend.position = "none")
-
-ggplot(data, aes(x = Motivation, y = Grades, color = factor(Study))) +
-  geom_point(size = 3, alpha = 0.8) +
-  geom_smooth(method = "lm", se = FALSE) +
-  scale_color_manual(
-    name = "Studied",
-    values = c("0" = "tomato", "1" = "steelblue"),
-    labels = c("No", "Yes")
-  ) +
-  labs(
-    title = "Motivation and Grades by Study Status",
-    x = "Motivation",
-    y = "Grades (1–6)"
-  ) +
-  theme_minimal(base_size = 14)
-```
-
+- Birthday day is as good as random for our purposes: it is unrelated to commuting, siblings or coffee
+- Ask the two groups to sit on different sides of the room, or just ask each group to raise hands in turn. Count hands per group and write the shares on the board (e.g., 4 of 11 vs. 5 of 13)
+- Expected: the shares are close but not identical. Ask: is a difference of one or two people a problem? Where does it come from? (chance)
+- Then: take only two students, one from each group. Are those two alike? Clearly not: that is the next slides
+- If a group is very unbalanced, even better: that is chance in a small sample (session 6, pattern 4)
 :::
 
-## Observational vs. experimental data
+## Checking for balance
+
+```{=html}
+<table style="font-size:70%; margin:auto;">
+<thead><tr><th>Before the experiment</th><th style="text-align:right;">Catastrophic</th><th style="text-align:right;">Free care</th><th style="text-align:right;">Difference</th></tr></thead>
+<tbody>
+<tr><td>Female</td><td style="text-align:right;">56%</td><td style="text-align:right;">52%</td><td style="text-align:right;">−3.8 pts</td></tr>
+<tr><td>Age</td><td style="text-align:right;">32.4</td><td style="text-align:right;">32.8</td><td style="text-align:right;">0.4</td></tr>
+<tr><td>Years of education</td><td style="text-align:right;">12.1</td><td style="text-align:right;">11.8</td><td style="text-align:right;">−0.3</td></tr>
+<tr><td>Family income (USD)</td><td style="text-align:right;">31,603</td><td style="text-align:right;">30,627</td><td style="text-align:right;">−976</td></tr>
+<tr><td>General health index</td><td style="text-align:right;">70.9</td><td style="text-align:right;">69.6</td><td style="text-align:right;">−1.3</td></tr>
+</tbody>
+</table>
+```
+
+[RAND Health Insurance Experiment (AJ, Table 1.3)]{style="font-size:60%; color:gray;"}
+
+. . .
+
+Remember the NHIS income gap: **60,810 USD**
+
+::: {.notes}
+**Time:** 14:40-14:43 (3 min)
+
+- AJ pp. 16-20, Table 1.3, columns 1 and 4 (catastrophic plan means; free minus catastrophic). The free-care means are computed as catastrophic + difference
+- Checking for balance (AJ p. 16): compare characteristics measured *before* treatment. Randomization should make them similar; if they are not, something went wrong with the lottery, or chance was unkind
+- Compare with the room: same logic, larger groups (catastrophic 759, free care 1,295 people)
+- Only one difference here is larger than chance would usually produce: share female (−.038, SE .015, AJ p. 19). AJ's point: a few differences are expected by chance; there is no consistent pattern (the free group has slightly lower cholesterol but a slightly lower health index)
+- AJ (p. 30, Grasshopper): even in randomized trials we check for balance
+:::
+
+## Why size matters
+
+Flip a coin for **two** people: one gets insurance, one doesn't
+
+→ any difference could be **who** they are, not the insurance
+
+. . .
 
 <br>
 
-. . .
+With **thousands** of people, the group averages get **closer and closer**
 
-**Observational data:**  The researcher *does not control* who receives the treatment; treatment assignment arises *endogenously*, typically by *self-selection*
+→ **law of large numbers**
+
+. . .
 
 <br>
 
+✋ Our room has about 24 people. How **close** were our two groups?
+
+::: {.notes}
+**Time:** 14:43-14:46 (3 min)
+
+- AJ pp. 12-13: a coin toss for two people (Ashish and Zandile) does not make them comparable; randomization works through the law of large numbers
+- Law of large numbers in words (AJ p. 13): the average in a large sample is close to the average in the population it came from. Two random halves of a large sample therefore have nearly the same averages, for every characteristic, measured or not
+- Formal version only if asked: the sample mean converges in probability to the population mean
+- Back to the room: our groups were roughly alike but not exactly; RAND had about 4,000 people, NHIS more than 9,000 per sex. Large samples alone do not help (NHIS is huge and still biased): you need size *and* random assignment
+:::
+
+## What RAND found
+
+```{=html}
+<table style="font-size:70%; margin:auto;">
+<thead><tr><th>After 3–5 years</th><th style="text-align:right;">Catastrophic</th><th style="text-align:right;">Free care</th><th style="text-align:right;">Difference</th></tr></thead>
+<tbody>
+<tr><td>Doctor visits per year</td><td style="text-align:right;">2.8</td><td style="text-align:right;">4.4</td><td style="text-align:right;"><b>+1.7</b></td></tr>
+<tr><td>Total health expenses (USD)</td><td style="text-align:right;">636</td><td style="text-align:right;">921</td><td style="text-align:right;"><b>+285</b></td></tr>
+<tr class="fragment" data-fragment-index="1"><td>General health index</td><td style="text-align:right;">68.5</td><td style="text-align:right;">67.7</td><td style="text-align:right;">−0.8</td></tr>
+<tr class="fragment" data-fragment-index="1"><td>Mental health index</td><td style="text-align:right;">75.5</td><td style="text-align:right;">75.9</td><td style="text-align:right;">+0.4</td></tr>
+</tbody>
+</table>
+```
+
+[RAND Health Insurance Experiment (AJ, Table 1.4)]{style="font-size:60%; color:gray;"}
+
+✋ Free care: more doctor visits. **Healthier**?
+
+::: {.notes}
+**Time:** 14:46-14:49 (3 min)
+
+- AJ pp. 20-23, Table 1.4, columns 1 and 4. Health outcomes mostly measured 3 or 5 years after random assignment (AJ p. 22)
+- Show only the first two rows and ask: what do you expect for health? Then reveal
+- Free care raised use and spending (outpatient spending up by about two thirds, total by 45%) but did not make people measurably healthier: no health difference is statistically significant (AJ p. 22)
+- Compare with the NHIS: the naive comparison suggested a large health gap; the experiment finds none. The NHIS gap was mostly selection bias
+- If asked about significance and standard errors: AJ's chapter appendix (pp. 33-46); not part of today's reading
+:::
+
+## What experiments can't do
+
+Back to the coin flip for attendance: **why can't we just do it?**
+
 . . .
 
-**Experimental data:** The researcher *controls treatment assignment*, typically through ***randomization***
+- **Ethics**: you can't keep students away from class, or deny people care
+- **Can't be randomized**: age, gender, democracy, war
+- **Cost**: RAND ran for 8 years with almost 4,000 people
+- **People don't comply**: in Oregon's insurance lottery, winning ≠ being insured
+- **External validity**: does a US study from the 1970s tell us about Switzerland today?
 
-. . .
+::: {.notes}
+**Time:** 14:49-14:55 (6 min)
 
-→ <span style="color:red;">Why *randomization*?</span>
+- Start from the board list from 14:15 ("why we can't just do it"), then reveal and match
+- Ethics and feasibility: some treatments can't be assigned at all (age, gender, regime type), others shouldn't be (attendance, health care)
+- Noncompliance, one line only: AJ section 1.2, "The Oregon Trail" (pp. 24-29). In 2008 Oregon held a lottery for Medicaid places: about 75,000 registered, about 30,000 were invited to apply. Winning raised insurance coverage by only 26 percentage points (AJ Table 1.5, p. 26), because many winners never signed up. Comparing winners and losers measures the effect of *winning*, not of *being insured* (AJ ch. 3 handles this). The applied reading has the same problem
+- External validity: RAND sampled people aged 14 to 61 in six US areas in the 1970s; the Swiss health system works differently
+- Back to attendance: what could we randomize instead? E.g., reminder emails, or which sessions are recorded. That changes the question: the effect of a reminder, not of attendance
+- Bridge to session 9: when we cannot randomize, we need observational data and must deal with selection bias in other ways
+:::
 
-## Randomization cancels selection bias
+## Group exercise
 
 <br>
 
-. . .
+In **pairs**, using your seminar questions:
 
-**By random assignment**, treatment and potential outcomes are *independent in expectation*
+1️⃣ Check your partner's **treatment** and **control** groups: without randomization, would comparing them give the **ATE**?
+
+2️⃣ Check your partner's **confounders**: are they convincing? Can you add one?
+
+3️⃣ Could your partner **actually randomize** the treatment? If not, why not?
+
+![](group_exercise.png){width=22% fig-align="center"}
+
+::: {.notes}
+**Time:** 14:55-15:05 (6 min in pairs, 4 min plenary)
+
+- Builds on seminar questions 8.1 (treatment group, control group, outcome, ATE) and 8.2 (two confounders); prompt 3 applies the previous slide
+- Plenary (4 min): seminar question 8.3, "would randomization solve the selection bias problem completely?" Expected: in expectation yes, in a large sample; not if the sample is small (chance), people don't comply, or people drop out. And it says nothing about whether the result travels
+- One or two pairs: whose treatment can't be randomized, and why? Keep the answers; session 9 starts from there
+- If behind: skip the plenary and take 8.3 into session 9
+:::
+
+## Can you randomize a protest?
+
+. . .
 
 <br>
 
-. . .
-
-Because differences between the treated and control groups are random, ***as sample size increase***, they will **cancel out on average**
+No. But you can randomize **who walks past one**
 
 . . .
-
-<div style="font-size:70%; line-height:1.2;">
-
-$$
-\lim_{n \to \infty} 
-\big(E[Y_i(1) \mid X_i = 1] - E[Y_i(1) \mid X_i = 0]\big) = 0 \\
-\lim_{n \to \infty} 
-\big(E[Y_i(0) \mid X_i = 1] - E[Y_i(0) \mid X_i = 0]\big) = 0
-$$ 
-
-</div>
-
-## The Law of Large Numbers
 
 <br>
 
-. . .
+✋ What would be the **treatment**, the **control** and the **outcome**?
 
-As the **sample size increases**, the **sample mean** approaches the **population mean**:
+::: {.notes}
+**Time:** 15:05-15:07 (2 min)
 
-$$
-\bar{Y}_n \xrightarrow[]{p} E[Y]
-$$
+- Lead-in to the applied reading; do not give away the design, the presenters will explain it
+- Haas et al.: field experiment in Berlin during three Fridays for Future climate strikes (2023-2024), N = 261 paid participants. An app randomly assigned them to walk a route of about 2.6 km either past the strike (treatment) or in the opposite direction (control). Outcomes: norm perceptions, attitudes, vote intentions, and behaviour (donations from their payment, newsletter sign-ups)
+- Take two or three guesses, then hand over
+:::
 
-<br>
-
-. . .
-
-With **random assignment** and enough observations, the *treated* and *control* groups become **similar on average**, so any difference in outcomes captures the ***ATE***
-
----
-
-<iframe 
-  src="https://acanalejo.shinyapps.io/08_session08/" 
-  width="100%" 
-  height="100%" 
-  style="border:1px solid #ddd; border-radius:8px;"
-  allowfullscreen>
-</iframe>
-
-# Conclusion
-
-## Approximating counterfactuals
-
-. . .
-
-- Because of the **FPCI**, we focus on the **Average Treatment Effect (ATE)**
-
-
-. . .
-
-- However, **naïve comparisons** yield **biased estimates** due to **self-selection**  
-
-
-. . .
-
-- **Randomized experiments** are the *gold standard* because 
-  randomization removes **selection bias** in **large samples**
-
-
-. . .
-
-- But experiments can be **costly, unfeasible, or unethical** →  **alternative designs** (*next sessions!*)
-
-
-## 👥 Group activity
+## Up next: applied reading
 
 <br>
 
-<div style="font-size:95%; line-height:1.2;">
+Presentation by **Chantal Hüsler and Nina Franziska Jäggi**:
 
-In pairs, review each other’s exercise:  
+- Haas, V. I., Wappenhans, T., Geißler, F., Hartmann, F., Bischof, D., Giesecke, J., & Humphreys, M. (2024). Beyond Persuasion: Protest's Direct Behavioral Impact on Bystanders. *Working paper*
 
-1️⃣ Without randomization, would comparing your partner’s **treatment** and **control** groups' outcome values identify the **ATE**?  
-  → Why or why not? 💭 Help each other fix any issues!
+::: {.notes}
+**Time:** 15:07-15:08 hand over; presentation 15:08-15:33 (25 min max.), discussion 15:33-15:42
 
-<br>
+- Presenters: Chantal Hüsler and Nina Franziska Jäggi
+- Slides were due Wednesday 21.10, 12:00 in Students responses/Presentation slides; check they are there
+- Grade with 00_grading/presentations/session08/session08_handwritten.pdf: clarity, understanding, critique quality, reasoning, feasibility, discussion (0-5 each; 15/30 = pass)
+- Timing: 25 minutes max., then discussion to improve the proposal
+- The PDF students got is the version of 19 June 2025 (the file name still has the older title "Does protest affect bystanders?")
+- Results: no detectable effects on norms, attitudes or Green vote intention; donations to Fridays for Future rose by about 4.45 EUR (SE 1.51), donations to other causes and newsletter sign-ups did not. The authors call it "behavioral activation" rather than persuasion
+- Discussion hooks:
+  - Noncompliance: not everyone on the treatment route noticed the strike (manipulation checks vary by wave), so the authors estimate the effect of actual exposure, with the assigned route as an instrument. Same gap as Oregon: assigned vs. treated
+  - External validity: paid recruits on an assigned walk are not ordinary passers-by; Fridays for Future in Berlin as a "most likely case"; strikes of very different size across waves
+  - Attrition: only about half came back for the follow-up after 26 days
+  - Demand effects: the cover task (counting park benches) and the donation menu with three causes; does it work?
+:::
 
-2️⃣ Check your partner's **confounders**, do they threaten **causal identification**?  
-  → Can you suggest other potential confounders? 🧩
-
-</div>
-
----
-
-![](volunteers_meme.png){fig-align="center"}
-
-## Next session (22.10.26 - 16:15)
-
-<br>
-
-*→ Large-N observational studies*
+## Next session (22.10.26 - 16:00, room 4.B51)
 
 <br>
+
+***Large-N observational studies***
+
+Basic reading: AJ, ch. 2 (pp. 47–81)
 
 . . .
 
-**Before...**
-
 <br>
 
-Presentation by **Salome  Claudia Schwegler & Nadja Alexandra Hofer**:
+Presentation by **Ibrahima Khalil Ndiaye and Ella Schertenleib**:
+Ziblatt, Hilbig & Bischof (2024), *Wealth of tongues*
 
-*Does Protest Affect Bystanders? Field Experimental Evidence from Germany*
+::: {.notes}
+**Time:** 15:42-15:43 (1 min)
+
+- Same day: session 9, 16:00-17:45 (from today, the second session starts 15 minutes earlier), same room 4.B51
+- Basic reading: AJ, ch. 2 "Regression", pp. 47-81; additional: KW pp. 92-99; Cinelli, Forney & Pearl (2024), *A crash course in good and bad controls*
+- Presenters: Ibrahima Khalil Ndiaye and Ella Schertenleib; Ziblatt, Hilbig & Bischof (2024), *Wealth of tongues: Why peripheral regions vote for the radical right in Germany*, APSR
+- Take-home exercise II is published in OLAT in session 9 (deadline 05.11.26); take-home exercise I is due 29.10.26
+:::
 
 ---
 
 ![](questions.png){fig-align="center"}
 
-## Final reminder to choose R track!
+::: {.notes}
+**Time:** 15:43-15:45 (2 min)
 
-![](reminder.png){fig-align="center"}
+- Open floor: questions on experiments, the take-home exercise, or the presentation
+:::
 
 ## Thanks! :slightly_smiling_face:
 
@@ -567,3 +399,35 @@ Presentation by **Salome  Claudia Schwegler & Nadja Alexandra Hofer**:
 <br>
 
 <center>[klueser@ipz.uzh.ch](mailto:klueser@ipz.uzh.ch)</center>
+
+::: {.notes}
+**Time:** 15:45 end; break until session 9 at 16:00
+
+- Contact: klueser@ipz.uzh.ch; meetings via Zoom on request
+- Backup slide follows (lab, survey or field?); use it if there is time, or in the discussion of the applied reading
+:::
+
+## Backup: lab, survey or field?
+
+Experiments differ in **where** and **how real** they are
+
+. . .
+
+- **Lab**: participants come to the researcher
+- **Survey**: random variation inside a questionnaire [(session 7's LLM paper)]{style="color:gray"}
+- **Field**: real people, real treatments, real settings [(RAND; today's paper)]{style="color:gray"}
+
+. . .
+
+<br>
+
+✋ How "field" is a **paid** walk past a protest?
+
+::: {.notes}
+**Time:** optional, about 3 min
+
+- GG ch. 1, section 1.4 (pp. 8-13): "fieldness" has four dimensions: how authentic the treatment, the participants, the context and the outcome measure are. Most studies are field-like on some and not on others
+- Trade-offs (GG pp. 13-17): field experiments are less obtrusive and can measure long-run outcomes, but are harder to run, depend on partners, and must be argued to be ethical
+- Naturally occurring randomizations count as experiments (draft lottery, Oregon lottery); designs that rely on argument rather than randomization (e.g., close elections) do not
+- Haas et al.: real protest and real donations (field), but paid recruits on an assigned route (less field)
+:::

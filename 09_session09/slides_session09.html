@@ -6,8 +6,8 @@
 <script src="slides_session09_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="slides_session09_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="slides_session09_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="slides_session09_files/libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.32">
+<link href="slides_session09_files/libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Research Design and Methods in Quantitative Research">
   <title>Large-N Observational Studies</title>
@@ -17,10 +17,16 @@
   <link rel="stylesheet" href="slides_session09_files/libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="slides_session09_files/libs/revealjs/dist/reveal.css">
   <style>
-    code{white-space: pre-wrap;}
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -29,7 +35,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="slides_session09_files/libs/revealjs/dist/theme/quarto-fdaf0edbff08a1a191e6e659ed8ee648.css">
+  <link rel="stylesheet" href="slides_session09_files/libs/revealjs/dist/theme/quarto-708f5b2de77caeea480a951ad599cc27.css">
   <link href="slides_session09_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="slides_session09_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="slides_session09_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -136,7 +142,7 @@
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Research Design and Methods in Quantitative Research 
+Research Design and Methods in Quantitative Research
 </div>
         <p class="quarto-title-affiliation">
             Dr.&nbsp;K. Jonathan Klüser
@@ -145,264 +151,491 @@ Research Design and Methods in Quantitative Research
 </div>
 
 </section>
-<section id="take-home-exercises" class="slide level2">
-<h2>Take-home exercises</h2>
-<p><br></p>
-
-<img data-src="feedback.png" class="quarto-figure quarto-figure-center r-stretch"><div class="fragment">
-<p><br></p>
-<p><strong>Take-home exercises II</strong> already in <strong>OLAT</strong></p>
-<p><br></p>
-<p><br></p>
-</div>
-</section>
-<section id="session-8---experimental-studies" class="slide level2">
-<h2>Session 8 - Experimental studies</h2>
+<section id="when-we-cant-flip-a-coin" class="slide level2">
+<h2>When we can’t flip a coin</h2>
+<p>Before the break: many treatments <strong>can’t be randomized</strong></p>
+<p><span style="color:gray">Age, gender, democracy, a university degree</span></p>
 <div class="fragment">
+<p><br></p>
+<p><strong>Observational data</strong>: we see who got the treatment, but <strong>we didn’t assign it</strong></p>
+</div>
+<div class="fragment">
+<p><br></p>
+<p>✋ What is the main danger when we compare treated and untreated?</p>
+<aside class="notes">
+<p><strong>Time:</strong> 16:00-16:03 (3 min). Session plan (90 min): lecture and interaction 16:00-16:52 (52 min, about 6 min buffer built in) · student presentation and discussion 16:53-17:27 · wrap-up 17:27-17:30</p>
 <ul>
-<li>Because of the <strong>FPCI</strong>, we focus on the <strong>Average Treatment Effect (ATE)</strong></li>
+<li>Bridge from session 8: the “why we can’t just flip a coin” list (ethics, can’t be randomized, cost, noncompliance, external validity) and the treatments students said they could not randomize in the pairs exercise. Read two or three from the board</li>
+<li>Answer to the question: selection bias. People choose (or are chosen for) the treatment for reasons that also affect the outcome</li>
+<li>KW pp.&nbsp;93-94: in an observational study the researcher does not control the values of X; observational studies try to emulate experiments and face the same causal hurdles</li>
+<li>Today: two ways to deal with selection bias without our own coin flip</li>
 </ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </div>
+</section>
+<section id="is-a-top-university-worth-it" class="slide level2">
+<h2>Is a top university worth it?</h2>
+<p>Graduates of expensive private US universities <strong>earn more</strong> than graduates of public ones</p>
 <div class="fragment">
+<p>✋ Is that the <strong>effect</strong> of the university? Who goes there?</p>
+<aside class="notes">
+<p><strong>Time:</strong> 16:03-16:07 (4 min)</p>
 <ul>
-<li>However, <strong>naïve comparisons</strong> yield <strong>biased estimates</strong> due to <strong>self-selection</strong></li>
+<li>AJ ch.&nbsp;2 opens with this question (pp.&nbsp;47-50): is an elite private college worth the much higher tuition? Anecdotes of students who turned down Harvard for a public university (pp.&nbsp;49-50)</li>
+<li>Collect answers on the board: higher test scores, richer parents, more ambition, better networks. All of them would raise earnings anyway: selection bias, as with health insurance in session 8</li>
+<li>Ask: could we randomize who goes to Harvard? (No.) So what can we do?</li>
+<li>Swiss angle if useful: ETH vs.&nbsp;a smaller university, or a private business school; same logic</li>
 </ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </div>
-<div class="fragment">
+</section>
+<section id="two-routes" class="slide level2">
+<h2>Two routes</h2>
+<p><strong>Route 1: find a lottery someone else ran</strong> (natural experiment)</p>
 <ul>
-<li><strong>Randomized experiments</strong> are the <em>gold standard</em> because randomization removes <strong>selection bias</strong> in <strong>large samples</strong> (i.e., the <em>Law of Large Numbers</em>)</li>
+<li><strong>Oregon</strong> 2008: health insurance lottery <span style="color:gray">(session 8)</span></li>
+<li><strong>Vietnam</strong> 1969: birth dates drawn to decide who was drafted</li>
+<li>Also: <strong>thresholds</strong>, <strong>as-if random</strong> events (weather, disasters)</li>
 </ul>
-</div>
-</section>
-<section id="group-activity-session-8" class="slide level2">
-<h2>👥 Group activity session 8</h2>
-<p><br></p>
-<div style="font-size:95%; line-height:1.2;">
-<p>In pairs, review each other’s exercise:</p>
-<p>1️⃣ Without randomization, would comparing your partner’s <strong>treatment</strong> and <strong>control</strong> groups’ outcome values identify the <strong>ATE</strong>?<br>
-→ Why or why not? 💭 Help each other fix any issues!</p>
-<p><br></p>
-<p>2️⃣ Check your partner’s <strong>confounders</strong>, do they threaten <strong>causal identification</strong>?<br>
-→ Can you suggest other potential confounders? 🧩</p>
-</div>
-</section>
-<section id="the-caveats-of-experiments" class="slide level2">
-<h2>The caveats of experiments</h2>
-<p><br></p>
 <div class="fragment">
-<p>Experiments are the <em>gold standard</em> of causal inference but they have <strong>limitations</strong></p>
-</div>
-<div class="fragment">
+<p><strong>Route 2: compare like with like</strong> (control)</p>
+<p>✋ Which route is open for the university question?</p>
+<aside class="notes">
+<p><strong>Time:</strong> 16:07-16:11 (4 min)</p>
 <ul>
-<li><p>Costly</p></li>
-<li><p>Unethical</p></li>
-<li><p>Unfeasible</p></li>
+<li>Natural experiments: the researcher does not assign the treatment, but something as good as random does. The comparison then works like an experiment</li>
+<li>Oregon: AJ section 1.2 (pp.&nbsp;24-29). Vietnam: Erikson &amp; Stoker (2011, <em>APSR</em> 105(2)), “Caught in the draft”: the 1969 lottery assigned numbers to birth dates; men with low numbers (likely to be drafted) became more antiwar, more liberal and more Democratic than men whose high numbers protected them. Political science example; no need to quote numbers</li>
+<li>Thresholds and as-if random events come back as regression discontinuity and other designs in later applied readings; do not go into detail</li>
+<li>Gerber &amp; Green count naturally occurring randomizations as experiments; designs that rely on argument rather than randomization (close elections) do not (GG pp.&nbsp;13-17, from session 8)</li>
+<li>Answer: no lottery for Harvard places. So route 2: control. The rest of today is about route 2</li>
 </ul>
-</div>
-<div class="fragment">
-<p>In addition, while experiments excel in <strong>internal validity</strong>, they may have poor <strong><em>external validity</em></strong></p>
-</div>
-</section>
-<section id="experimental-vs.-observational-data" class="slide level2">
-<h2>Experimental vs.&nbsp;observational data</h2>
-<p><br></p>
-<p><strong>Experimental data:</strong> The researcher <em>controls treatment assignment</em>, typically through <strong><em>randomization</em></strong></p>
-<p><br></p>
-<p><strong>Observational data:</strong> The researcher <em>does not control</em> who receives the treatment; <strong>treatment assignment arises</strong> <strong><em>endogenously</em></strong>, typically by <em>self-selection</em></p>
-<div class="fragment">
-<p>→ However, <strong>natural settings</strong> typically allow better <strong>external validity</strong> and, in some cases, <em>might</em> be the <strong>only option</strong> available</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </div>
 </section>
-<section id="causal-inference-with-large-n-observational-data" class="slide level2 scrollable">
-<h2>Causal inference with (large-N) observational data</h2>
-<p><br></p>
-<div class="fragment">
-<p>Two <strong><em>approaches</em></strong>:</p>
+<section id="compare-like-with-like" class="slide level2">
+<h2>Compare like with like</h2>
+<div class="columns">
+<div class="column" style="width:38%;">
+<p><strong>All students</strong></p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="slides_session09_files/figure-revealjs/unnamed-chunk-2-1.png" width="384"></p>
+</figure>
 </div>
+</div>
+</div>
+</div><div class="column fragment" style="width:62%;">
+<p><strong>Split by test score</strong></p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="slides_session09_files/figure-revealjs/unnamed-chunk-3-1.png" width="624"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+<p><span style="font-size:60%; color:gray;">Hypothetical numbers</span></p>
 <div class="fragment">
+<p>✋ Where did the gap go?</p>
+<aside class="notes">
+<p><strong>Time:</strong> 16:11-16:16 (5 min)</p>
+<ul>
+<li>Hypothetical numbers; say so. Overall, private graduates earn about 84k, public graduates about 66k: an 18k gap</li>
+<li>Split by test score, the gap is only 1k in every group. The overall gap comes from <em>who</em> goes where: 60% of private students have high scores, but only 15% of public students (low: 10% vs.&nbsp;50%; middle: 30% vs.&nbsp;35%)</li>
+<li>Answer to the question: the gap was selection. Comparing only students with similar scores (like with like) removes it</li>
+<li>Ask: is the test score enough? What else differs between private and public students within a score group (family income, ambition)? That is why AJ compares students who applied to and were admitted by the same colleges</li>
+<li>AJ pp.&nbsp;51-55, “the college matching matrix” (Table 2.1): nine made-up students grouped by the colleges they applied to and were admitted to (idea from Dale &amp; Krueger). Naive gap 19,500; within group A −5,000, within group B +30,000; average 12,500. Only groups with both private and public students count</li>
+<li>AJ’s point: regression does exactly this, automatically, as a weighted average of within-group comparisons (“make me a match, run me a regression”, p.&nbsp;55). Regression mechanics: sessions 12-13</li>
+<li>Apples to apples, oranges to oranges (AJ p.&nbsp;55)</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</div>
+</section>
+<section id="the-private-premium-shrinks" class="slide level2">
+<h2>The private premium shrinks</h2>
+<table class="caption-top" style="font-size:70%; margin:auto;">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">Who is compared</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Private premium</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>All students, no controls</td>
+<td style="text-align: right;"><strong>14%</strong></td>
+</tr>
+<tr class="fragment even">
+<td>+ own test score (SAT)</td>
+<td style="text-align: right;">10%</td>
+</tr>
+<tr class="fragment odd">
+<td>+ parental income, gender, ethnicity, sports</td>
+<td style="text-align: right;">9%</td>
+</tr>
+<tr class="fragment even">
+<td>Only students admitted to <strong>equally selective</strong> colleges</td>
+<td style="text-align: right;"><strong>about 1%</strong></td>
+</tr>
+</tbody>
+</table>
+<p><span style="font-size:60%; color:gray;">Earnings in 1995 of students who started college in 1976 (Dale &amp; Krueger; AJ, Table 2.2)</span></p>
+<p>✋ Guess before each step: where does it end?</p>
+<aside class="notes">
+<p><strong>Time:</strong> 16:16-16:20 (4 min)</p>
+<ul>
+<li>AJ pp.&nbsp;59-64, Table 2.2 (p.&nbsp;63), 5,583 students from the College &amp; Beyond data, matched into 151 groups by the selectivity of the colleges they applied to and were admitted to (Barron’s categories)</li>
+<li>Coefficients on private school, log earnings: .135 (no controls), .095 (+ own SAT), .086 (+ log parental income and demographics), .007 / .003 / .013 with selectivity-group dummies; read log points as roughly percent. With the selectivity groups the premium is not statistically significant</li>
+<li>Students start in 1976, earnings in 1995 (AJ p.&nbsp;51)</li>
+<li>Table 2.3 (p.&nbsp;67) shows the same with a larger sample (14,238) and a simpler “self-revelation” control: the average SAT of the colleges a student applied to, plus the number of applications. Premium falls from .212 to about .03</li>
+<li>Message: most of the raw premium is selection. Who applies where tells us a lot about ambition and ability</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="good-control-a-confounder" class="slide level2">
+<h2>Good control: a confounder</h2>
+<svg viewbox="0 0 600 230" style="width:85%; display:block; margin:auto;" font-family="inherit" font-size="24">
+<defs><marker id="a1" markerwidth="10" markerheight="10" refx="9" refy="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"></path></marker></defs>
+<rect x="190" y="18" width="220" height="40" rx="8" fill="none" stroke="#c00" stroke-width="2"></rect>
+<text x="300" y="45" text-anchor="middle" fill="#c00" font-weight="bold">Family background</text>
+<text x="110" y="200" text-anchor="middle" font-weight="bold">Private college</text>
+<text x="490" y="200" text-anchor="middle" font-weight="bold">Earnings</text>
+<line x1="250" y1="62" x2="145" y2="172" stroke="currentColor" stroke-width="2.5" marker-end="url(#a1)"></line>
+<line x1="350" y1="62" x2="465" y2="172" stroke="currentColor" stroke-width="2.5" marker-end="url(#a1)"></line>
+<line x1="205" y1="193" x2="425" y2="193" stroke="currentColor" stroke-width="2.5" marker-end="url(#a1)"></line>
+</svg>
+<p>A <strong>common cause</strong> of treatment and outcome → <strong>control for it</strong></p>
+<div class="fragment">
+<p>✋ Which other confounders did we find for the university question?</p>
+<aside class="notes">
+<p><strong>Time:</strong> 16:20-16:23 (3 min)</p>
+<ul>
+<li>DAGs as in session 3 (slide 12, “DAG 3: Confounding”), now with names. The red box marks the variable we control for</li>
+<li>Cinelli, Forney &amp; Pearl (2024), Model 1: controlling for a common cause blocks the “back door” path private college ← family background → earnings</li>
+<li>Rich parents make private college more likely and raise earnings through many other channels (contacts, wealth). Comparing students with similar family background removes that part of the gap</li>
+<li>Back to the board list from 16:03: test scores, ambition, parental income. AJ’s selectivity groups are a way to capture ambition and ability that we cannot measure directly</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</div>
+</section>
+<section id="bad-control-a-mediator" class="slide level2">
+<h2>Bad control: a mediator</h2>
+<svg viewbox="0 0 600 230" style="width:85%; display:block; margin:auto;" font-family="inherit" font-size="24">
+<defs><marker id="a2" markerwidth="10" markerheight="10" refx="9" refy="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"></path></marker></defs>
+<rect x="175" y="18" width="250" height="40" rx="8" fill="none" stroke="#c00" stroke-width="2"></rect>
+<text x="300" y="45" text-anchor="middle" fill="#c00" font-weight="bold">First job and network</text>
+<text x="110" y="200" text-anchor="middle" font-weight="bold">Private college</text>
+<text x="490" y="200" text-anchor="middle" font-weight="bold">Earnings</text>
+<line x1="145" y1="172" x2="250" y2="62" stroke="currentColor" stroke-width="2.5" marker-end="url(#a2)"></line>
+<line x1="350" y1="62" x2="465" y2="172" stroke="currentColor" stroke-width="2.5" marker-end="url(#a2)"></line>
+<line x1="205" y1="193" x2="425" y2="193" stroke="currentColor" stroke-width="2.5" marker-end="url(#a2)"></line>
+</svg>
+<p>A step <strong>on the way</strong> from treatment to outcome</p>
+<div class="fragment">
+<p>✋ What happens to the private premium if we <strong>control</strong> for the first job?</p>
+<aside class="notes">
+<p><strong>Time:</strong> 16:23-16:26 (3 min)</p>
+<ul>
+<li>Cinelli et al., Model 11 (overcontrol bias): controlling for a mediator removes part of the effect we want to measure</li>
+<li>If a private college helps mainly through better first jobs and networks, comparing students with the same first job hides that benefit: the premium shrinks, but not because it was selection</li>
+<li>Rule of thumb: do not control for things that happen <em>after</em> the treatment and could be caused by it (“post-treatment” variables)</li>
+<li>Session 3 called this mediation (DAG 2). Useful if you want to know <em>how</em> X works, harmful if you want to know <em>whether</em> it works</li>
+<li>Comes back in the applied reading: are regional income and unemployment confounders or mediators of dialect distance?</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</div>
+</section>
+<section id="bad-control-a-collider" class="slide level2">
+<h2>Bad control: a collider</h2>
+<svg viewbox="0 0 600 230" style="width:85%; display:block; margin:auto;" font-family="inherit" font-size="24">
+<defs><marker id="a3" markerwidth="10" markerheight="10" refx="9" refy="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"></path></marker></defs>
+<rect x="200" y="18" width="200" height="40" rx="8" fill="none" stroke="#c00" stroke-width="2"></rect>
+<text x="300" y="45" text-anchor="middle" fill="#c00" font-weight="bold">Famous actor</text>
+<text x="110" y="200" text-anchor="middle" font-weight="bold">Talent</text>
+<text x="490" y="200" text-anchor="middle" font-weight="bold">Good looks</text>
+<line x1="145" y1="172" x2="250" y2="62" stroke="currentColor" stroke-width="2.5" marker-end="url(#a3)"></line>
+<line x1="465" y1="172" x2="350" y2="62" stroke="currentColor" stroke-width="2.5" marker-end="url(#a3)"></line>
+<line x1="205" y1="193" x2="395" y2="193" stroke="currentColor" stroke-width="2" stroke-dasharray="8,6"></line>
+<text x="300" y="185" text-anchor="middle" font-size="26">?</text>
+</svg>
+<p><em>Suppose</em> talent and looks are <strong>unrelated</strong>, and fame needs one or the other</p>
+<div class="fragment">
+<p>✋ Among <strong>famous actors</strong>: are the good-looking ones more or less talented?</p>
+<aside class="notes">
+<p><strong>Time:</strong> 16:26-16:29 (3 min)</p>
+<ul>
+<li>Hypothetical; say so. Talent and looks are assumed unrelated in the population; you become a famous actor through talent, looks, or both</li>
+<li>Among famous actors, someone without great looks must be very talented, and someone less talented must look very good. So within the famous group, looks and talent are <em>negatively</em> related, although they are unrelated overall</li>
+<li>Controlling for (or selecting on) a common <em>effect</em> of two variables creates a relationship that is not there: collider bias (Cinelli et al., Models 16-17; their example is the birth-weight paradox)</li>
+<li>Same logic as session 6’s bonus example (admitted master students: grades and test scores), there called selection. Ask whether anyone remembers it</li>
+<li>Confounder: arrows point <em>out of</em> the control. Collider: arrows point <em>into</em> it. Mediator: one in, one out</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</div>
+</section>
+<section id="what-you-leave-out" class="slide level2 scrollable">
+<h2>What you leave out</h2>
+<p>A left-out variable <strong>biases</strong> the estimate only if it…</p>
 <ol type="1">
-<li><strong>Design-based inference</strong> (e.g., natural experiments, quasi-experiments)</li>
+<li><strong>affects the outcome</strong>, and</li>
+<li><strong>differs</strong> between treated and untreated</li>
 </ol>
+<div class="fragment">
+<p><br></p>
+<p>Check: does the estimate <strong>survive</strong> different sets of controls? (<strong>robustness</strong>)</p>
 </div>
 <div class="fragment">
-<ol start="2" type="1">
-<li><strong>Statistical-based inference</strong></li>
-</ol>
+<p>✋ What could still be missing in the college comparison?</p>
+<aside class="notes">
+<p><strong>Time:</strong> 16:29-16:33 (4 min)</p>
+<ul>
+<li>AJ section 2.3 (pp.&nbsp;68-79): omitted variables bias (OVB), “short” regression (without the variable) vs.&nbsp;“long” regression (with it)</li>
+<li>OVB formula in words (AJ pp.&nbsp;71-72): effect of X in short = effect of X in long + (effect of omitted on Y in long) × (relationship of omitted with X). Both parts must be non-zero for bias</li>
+<li>AJ Table 2.5 (p.&nbsp;77): own SAT is strongly related to private school without the selection controls (1.165) but hardly at all with them (.066). That is why adding SAT barely changes the estimate once we compare like with like: .212 − .152 ≈ 1.165 × .051 (pp.&nbsp;77-78)</li>
+<li>AJ calls the OVB formula “the Prime Directive of applied econometrics” (p.&nbsp;77)</li>
+<li>Regression sensitivity analysis (AJ p.&nbsp;75): if adding controls barely moves the estimate once key controls are in, we are more confident. Table 2.2 columns 4-6 stay near zero</li>
+<li>Possible answers: ambition and motivation (partly captured by where you apply), family contacts, field of study, region. AJ’s family-size example (pp.&nbsp;73-75)</li>
+<li>KW pp.&nbsp;92-99 (additional): observational studies come in two flavours, cross-sectional (many units, one time) and time-series (one unit, many times). KW’s “major difficulty” (p.&nbsp;98): we must control for <em>all</em> confounders and can never be sure we have; conclusions stay tentative</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </div>
 </section>
-<section id="design-based-inference" class="slide level2">
-<h2>Design-based inference</h2>
-<p><br></p>
-<p>Exploiting <strong>naturally</strong> occurring <strong>random or quasi-random assignment</strong></p>
-<div class="fragment">
+<section id="group-exercise" class="slide level2">
+<h2>Group exercise</h2>
+<p>In <strong>pairs</strong>, swap your seminar questions:</p>
+<p>1️⃣ Check your partner’s <strong>DAG</strong>: does each confounder really cause <strong>both</strong> treatment and outcome?</p>
+<p>2️⃣ Is the chosen control a <strong>confounder</strong>, a <strong>mediator</strong> or a <strong>collider</strong>?</p>
+<p>3️⃣ What is still <strong>missing</strong>? Would it make the estimate too big or too small?</p>
+
+<img data-src="group_exercise.png" class="quarto-figure quarto-figure-center r-stretch" style="width:22.0%"><aside class="notes">
+<p><strong>Time:</strong> 16:33-16:43 (6 min in pairs, 4 min: two or three pairs share)</p>
 <ul>
-<li><p><strong>Lotteries</strong> (e.g., Vietnam draft lottery)</p></li>
-<li><p><strong>Policy thresholds</strong> (e.g., state funding only if a municipality exceeds a population cutoff)</p></li>
-<li><p><strong>Exogenous variation</strong> (e.g., natural disasters)</p></li>
+<li>Builds on seminar questions 9.1 (DAG with the two confounders from session 8) and 9.2 (one control and why)</li>
+<li>Typical problems to look for: arrows in only one direction (a “confounder” that only affects the outcome), a control that is caused by the treatment (mediator), confounders that are really the same thing measured twice</li>
+<li>For prompt 3: the direction of bias follows the two parts of the OVB rule (does the missing variable raise or lower the outcome? is it more common among the treated?)</li>
+<li>If behind: one pair shares, then move on</li>
 </ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="take-home-exercise-ii" class="slide level2">
+<h2>Take-home exercise II</h2>
+<p><br></p>
+<ul>
+<li><p>Now online in OLAT, in the version for your <strong>R track</strong></p></li>
+<li><p>Replicate Ziblatt, Hilbig &amp; Bischof (2024), then <strong>add your own controls</strong> and justify them</p></li>
+<li><p>Submit the <code>.qmd</code> and the compiled PDF to <em>Students responses/Take-home exercises/Take-home exercise II</em></p></li>
+<li><p>Deadline: <strong>05.11.26</strong></p></li>
+<li><p>Take-home exercise I is due <strong>29.10.26</strong></p></li>
+</ul>
+<aside class="notes">
+<p><strong>Time:</strong> 16:43-16:46 (3 min); then about 6 min buffer until 16:52 (backup slide “Dialect and AfD votes” if there is time)</p>
+<ul>
+<li>Upload both PDFs (beginner, advanced) and the materials folder (data_main.rds, tab_1_A4_A6_A7_A11.R, replication_overview.xlsx) to OLAT before or during the session; do not upload the advanced solutions</li>
+<li>Beginner: summary, data exploration I and II, baseline model with and without state fixed effects, then two covariates of their own choice from the authors’ model m01. Advanced: summary, one data exploration step, baseline model, then two rounds of own covariates (I and II)</li>
+<li>No codebook in the replication files; students must find the variables in the data and script (dialect distance hannover_dist, AfD share afd_party_17)</li>
+<li>Questions about R: contact the lecturer, meetings via Zoom</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="up-next-applied-reading" class="slide level2">
+<h2>Up next: applied reading</h2>
+<p><br></p>
+<p>Presentation by <strong>Ibrahima Khalil Ndiaye and Ella Schertenleib</strong>:</p>
+<ul>
+<li>Ziblatt, D., Hilbig, H., &amp; Bischof, D. (2024). Wealth of tongues: Why peripheral regions vote for the radical right in Germany. <em>American Political Science Review</em>, 118(3), 1480–1496</li>
+</ul>
+<aside class="notes">
+<p><strong>Time:</strong> 16:52-16:53 hand over; presentation 16:53-17:18 (25 min max.), discussion 17:18-17:27</p>
+<ul>
+<li>Presenters: Ibrahima Khalil Ndiaye and Ella Schertenleib</li>
+<li>Slides were due Wednesday 21.10, 12:00 in Students responses/Presentation slides; check they are there</li>
+<li>Grade with 00_grading/presentations/session09/session09_handwritten.pdf: clarity, understanding, critique quality, reasoning, feasibility, discussion (0-5 each; 15/30 = pass)</li>
+<li>Timing: 25 minutes max., then discussion to improve the proposal</li>
+<li>Published online in October 2023 (hence “2023” in some citations)</li>
+<li>Results: one standard deviation more dialect distance goes with about 0.8 to 1.2 percentage points more AfD vote (Table 1); the association roughly doubles between 2013 and 2015. Sensitivity analysis: a confounder twice as strong as unemployment would reduce the estimate from 1.2 to 0.73. Survey evidence on mechanisms: lower subjective status, anti-elitism, wanting immigration limited</li>
+<li>Discussion hooks:
+<ul>
+<li>Bad controls: the authors concede that the covariates are post-treatment for a historical measure (fn. 9). Are income, wages, unemployment and commuting confounders or mediators? Their sensitivity benchmark is unemployment</li>
+<li>Confounders: religion, terrain and remoteness, historical territories within states, out-migration of the young. What do state fixed effects buy, and what do they cost?</li>
+<li>Measurement: a self-selected online quiz; did people report where they grew up or where they live? Why Hannover as the standard?</li>
+<li>Level of analysis: counties vs.&nbsp;individual voters (ecological inference)</li>
+</ul></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="next-session-29.10.26---1415-room-3.b47" class="slide level2">
+<h2>Next session (29.10.26 - 14:15, room 3.B47)</h2>
+<p><br></p>
+<p><strong><em>Small-N observational studies</em></strong></p>
+<p>Basic readings: KW, pp.&nbsp;77–78; Mahoney (2000)</p>
+<div class="fragment">
+<p><br></p>
+<p>Presentation by <strong>Lukas Andreas Kurz and Cyrill Michael Schärer</strong>: Thelen (2018), <em>Regulating Uber</em></p>
+<aside class="notes">
+<p><strong>Time:</strong> 17:27-17:28 (1 min)</p>
+<ul>
+<li>Session 10: Thursday 29.10.26, 14:15-16:00, room 3.B47; session 11 (statistical testing) follows 16:00-17:45, same room</li>
+<li>Basic readings: KW ch.&nbsp;4.1, pp.&nbsp;77-78; Mahoney (2000), <em>Strategies of causal inference in small-N analysis</em>; additional: Hopkin (2010); Collier (2011)</li>
+<li>Presenters: Lukas Andreas Kurz and Cyrill Michael Schärer; slides due Wednesday 28.10, 12:00</li>
+<li>Take-home exercise I is due on the same day (29.10.26)</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </div>
 </section>
 <section class="slide level2">
 
 
-<img data-src="vietnam_draft.png" class="quarto-figure quarto-figure-center r-stretch"></section>
-<section id="statistical-based-inference" class="slide level2">
-<h2>Statistical-based inference</h2>
-<p><br></p>
-<p>When (quasi-)randomization is not possible, we can use <strong>statistical methods</strong> (e.g., regression) to artificially <strong>hold covariates constant</strong> (i.e., <em>ceteris paribus</em>)</p>
-<div class="fragment">
-<p><br></p>
-<p>We call this process <strong><em>control</em></strong>: adding measures of <strong>covariates</strong> into our statistical model to remove selection bias</p>
-</div>
-<div class="fragment">
-<p>However, <em>controlling for all other covariates</em> is ultimately <em>impossible</em>; therefore, <strong><em>we need to choose them carefully</em></strong></p>
-</div>
-</section>
-<section id="selecting-good-controls" class="slide level2 scrollable">
-<h2>Selecting good controls</h2>
-<p><br></p>
-<div class="fragment">
-<ol type="1">
-<li>Select variables that <strong>confound</strong> our relationship of interest</li>
-</ol>
-</div>
-<div class="fragment">
-<p><span class="math display">\[
-\text{In} \quad Z \longrightarrow X,\; Z \longrightarrow Y, \quad \text{Z  is a confounder}
-\]</span></p>
-</div>
-<div class="fragment">
-<p>In this case, controlling for <span class="math inline">\(Z\)</span> is a good idea!</p>
-</div>
-<div class="fragment">
-<p>Controlling for <span class="math inline">\(Z\)</span> removes the part of the association between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> that is actually <strong>due to</strong> <span class="math inline">\(Z\)</span>, giving us a cleaner estimate of the <em>ATE</em> of <span class="math inline">\(X\)</span></p>
-</div>
-</section>
-<section>
-<section id="section" class="title-slide slide level1 center">
-<h1></h1>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="fig1_cinelli.png" style="width:60.0%"></p>
-<figcaption>Control for Z in this cases (Cinelli et al.&nbsp;2024)</figcaption>
-</figure>
-</div>
-<div class="fragment">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="fig8_cinelli.png" style="width:45.0%"></p>
-<figcaption>DON’T control for Z in these cases (Cinelli et al.&nbsp;2024)</figcaption>
-</figure>
-</div>
-</div>
-</section>
-<section id="selecting-good-controls-1" class="slide level2 scrollable">
-<h2>Selecting good controls</h2>
-<p><br></p>
-<ol type="1">
-<li><p>Select variables that <strong>confound</strong> our relationship of interest</p></li>
-<li><p>Select those confounders <strong>closer</strong> to <span class="math inline">\(Y\)</span>, as long as they don’t introduce bias (e.g., avoid colliders or mediators)</p></li>
-</ol>
-</section>
-<section id="section-1" class="slide level2">
-<h2></h2>
-
-<img data-src="regtab_ajchap2.png" style="width:45.0%" class="r-stretch quarto-figure-center"><p class="caption">AJ Chapter 2</p></section>
-<section id="selecting-good-controls-2" class="slide level2 scrollable">
-<h2>Selecting good controls</h2>
-<p><br></p>
-<ol type="1">
-<li><p>Select variables that <strong>confound</strong> our relationship of interest</p></li>
-<li><p>Select those confounders <strong>closer</strong> to <span class="math inline">\(Y\)</span>, as long as they don’t introduce bias (e.g., avoid colliders or mediators)</p></li>
-<li><p>Collect <strong>good measures</strong> of the intended control variables <span style="color:grey;">(see session 4)</span></p></li>
-</ol>
-<div class="fragment">
-<ol start="4" type="1">
-<li>Avoid <strong>redundant controls</strong> (e.g., political interest and political discussion)</li>
-</ol>
-</div>
-</section>
-<section id="omitted-controls" class="slide level2">
-<h2>Omitted controls</h2>
-<p><br></p>
-<p>Even after <em>careful modeling</em>, we may not convince everyone that we have controlled for <strong>all relevant sources of bias</strong></p>
-<div class="fragment">
-<p>→ <strong>Omitted variable bias (OVB)</strong> arises when an important factor is left out of the model, distorting the estimated ATE</p>
-</div>
-<div class="fragment">
-<p>Our specification must be guided by <em>theoretical reasoning</em>, but we must always check the <strong>robustness</strong> of our results under <strong>different assumptions</strong> and <strong>model specifications</strong></p>
-</div>
-<div class="fragment">
-<p>→ I.e., we must perform <strong><em>sensitivity analyses</em></strong></p>
-</div>
-</section>
-<section id="section-2" class="slide level2">
-<h2></h2>
-
-<img data-src="ziblatt2023.png" class="r-stretch quarto-figure-center"><p class="caption">Ziblatt et al 2023</p></section>
-<section id="types-of-observational-data" class="slide level2">
-<h2>Types of observational data</h2>
-<div class="fragment">
-<p>Different data sources offer different possibilities for <strong>statistical control</strong></p>
-</div>
-<div class="fragment">
+<img data-src="questions.png" class="quarto-figure quarto-figure-center r-stretch"><aside class="notes">
+<p><strong>Time:</strong> 17:28-17:30 (2 min)</p>
 <ul>
-<li><p><strong>Cross-sectional data:</strong> many units at one point in time (use variation across units to control for time-invariant factors)</p></li>
-<li><p><strong>Longitudinal data:</strong> one unit observed over time (use within-unit changes to control for time-varying factors)</p></li>
-<li><p><strong>Panel data:</strong> many units over time (combines both sources of variation; useful for causal inference but <em>never better than randomization</em>)</p></li>
+<li>Open floor: questions on controls, the take-home exercises, or the presentation</li>
 </ul>
-</div>
-</section></section>
-<section>
-<section id="conclusion" class="title-slide slide level1 center">
-<h1>Conclusion</h1>
-
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section id="causal-inference-with-large-n-observational-data-1" class="slide level2">
-<h2>Causal inference with large-N observational data</h2>
-<div class="fragment">
-<ul>
-<li><strong>Design-based inference</strong> exploits naturally random or quasi-random (i.e., exogenous) variation</li>
-</ul>
-</div>
-<div class="fragment">
-<ul>
-<li><strong>Statistical-based inference</strong> uses statistical models to artificially hold other factors constant (i.e., <em>ceteris paribus</em> condition)</li>
-</ul>
-</div>
-<div class="fragment">
-<ul>
-<li>It requires solid <strong>theoretical reasoning</strong> (i.e., selecting <strong>good controls</strong>) and careful <strong>sensitivity analyses</strong></li>
-</ul>
-</div>
-</section>
-<section id="your-turn-using-dags-to-select-control-variables" class="slide level2">
-<h2>Your turn! Using DAGs to select control variables</h2>
-<p><br></p>
-<div class="fragment">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="later.png" class="quarto-figure quarto-figure-center" style="width:55.0%"></p>
-</figure>
-</div>
-</div>
-</section>
-<section id="next-session-1615" class="slide level2">
-<h2>Next session (16:15)</h2>
-<p><br></p>
-<p><em>→ Small-N observational studies (and DAGs’ exercise)</em></p>
-<p><br></p>
-<div class="fragment">
-<p><strong>Before…</strong></p>
-<p><br></p>
-<p>Presentation by <strong>Giulio Paraboni &amp; Nikolina Djogova</strong>:</p>
-<p><em>Wealth of tongues: Why peripheral regions vote for the radical right in Germany</em></p>
-</div>
-</section>
-<section class="slide level2">
-
-
-<img data-src="questions.png" class="quarto-figure quarto-figure-center r-stretch"></section>
 <section id="thanks" class="slide level2">
 <h2>Thanks! <span class="emoji" data-emoji="slightly_smiling_face">🙂</span></h2>
 <p><br></p>
@@ -411,8 +644,52 @@ Research Design and Methods in Quantitative Research
 <center>
 <a href="mailto:klueser@ipz.uzh.ch">klueser@ipz.uzh.ch</a>
 </center>
+<aside class="notes">
+<p><strong>Time:</strong> 17:30 end</p>
+<ul>
+<li>Contact: klueser@ipz.uzh.ch; meetings via Zoom on request</li>
+<li>Backup slide follows (dialect and AfD votes: which controls?)</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="backup-dialect-and-afd-votes" class="slide level2">
+<h2>Backup: dialect and AfD votes</h2>
+<p>German counties where the local <strong>dialect</strong> is far from <strong>standard German</strong> vote more for the <strong>AfD</strong></p>
+<div class="fragment">
+<p><br></p>
+<p>✋ Which <strong>controls</strong> would you add? Which would you <strong>not</strong>?</p>
+<aside class="notes">
+<p><strong>Time:</strong> optional, about 4 min; use it if there is time before the hand-over, or in the discussion of the applied reading</p>
+<ul>
+<li>Lead-in to the applied reading and to take-home exercise II; don’t give away the paper’s answer</li>
+<li>Ziblatt, Hilbig &amp; Bischof: about 400 German counties, AfD vote share in the 2017 federal election. Dialect distance from about 725,000 answers to Der Spiegel’s online dialect quiz, compared with standard German (Hannover)</li>
+<li>Expected answers: income, unemployment, East/West, population density, religion (Catholic share), rural vs.&nbsp;urban. Then ask: which of these could be <em>caused</em> by being on the periphery? Economic controls may be mediators</li>
+<li>The authors control for GDP per capita, wages, population density, unemployment, population, % Catholic, commuters, distances to the state capital and Hannover, CDU/CSU vote in 2013, and compare within states (state fixed effects)</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 
-</section></section>
+</div>
+</section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <p><img src="../00_images/logo_unilu.png" class="slide-logo"></p>
@@ -605,7 +882,7 @@ Research Design and Methods in Quantitative Research
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
@@ -631,6 +908,44 @@ Research Design and Methods in Quantitative Research
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
         const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
@@ -679,13 +994,14 @@ Research Design and Methods in Quantitative Research
           e.clearSelection();
         }
         const getTextToCopy = function(trigger) {
-            const codeEl = trigger.previousElementSibling.cloneNode(true);
-            for (const childEl of codeEl.children) {
-              if (isCodeAnnotation(childEl)) {
-                childEl.remove();
-              }
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
             }
-            return codeEl.innerText;
+          }
+          return codeEl.innerText;
         }
         const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
           text: getTextToCopy

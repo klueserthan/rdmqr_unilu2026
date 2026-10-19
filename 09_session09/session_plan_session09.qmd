@@ -1,0 +1,55 @@
+---
+title: "Session plan 9: Large-N observational studies"
+format:
+  pdf:
+    documentclass: article
+    papersize: a4
+    geometry:
+      - landscape
+      - margin=1.2cm
+    fontsize: 10pt
+    number-sections: false
+    header-includes:
+      - \usepackage{etoolbox}
+      - \AtBeginEnvironment{longtable}{\small\renewcommand{\arraystretch}{1.35}}
+      - \pagestyle{empty}
+      - \usepackage{titling}
+      - \setlength{\droptitle}{-1.5cm}
+      - \pretitle{\begin{flushleft}\Large\bfseries}
+      - \posttitle{\end{flushleft}\vspace{-1.2cm}}
+---
+
+**Thu 22.10.26, 16:00–17:30 · Room 4.B51** · Basic reading: AJ ch. 2 (pp. 47–81); additional: KW pp. 92–99; Cinelli, Forney & Pearl (2024) · Applied reading: Ziblatt, Hilbig & Bischof (2024), *Wealth of tongues* · Presenters: **Ibrahima Khalil Ndiaye, Ella Schertenleib**
+
+**Learning goals:** students can (1) explain why observational comparisons suffer from selection bias; (2) name two routes: natural experiments and control (compare like with like); (3) explain how the private-college premium shrinks when like is compared with like (AJ); (4) tell a good control (confounder) from bad controls (mediator, collider) in a DAG; (5) state when a left-out variable biases an estimate, and why robustness checks matter.
+
+**Before class:** take-home exercise II uploaded to OLAT (beginner + advanced PDFs, materials folder; **not** the solutions) · presentation slides in OLAT (due Wed 21.10, 12:00)? · grading sheet `session09_handwritten.pdf` ready · session 8 board list ("why we can't just flip a coin") still visible or photographed · deck in speaker view (press S)
+
+**Checkpoints:** 16:11 start "Compare like with like" · 16:20 start the three DAGs · **16:33 start pairs** · **16:52 hand over** · **16:53 presentation starts** (25 min max., then discussion until 17:27). About 6 min buffer before 16:52 (backup slide 17 if time)
+
+| Time | Slide | Content | Interaction | Guiding questions | If behind |
+|:----------|:---|:-------------------------------|:--------------|:----------------------------------|:--------------|
+| 16:00–16:03 | 2 | **Bridge**: what can't be randomized (session 8 board list and pairs) → observational data (KW pp. 93–94) | Question | What is the main danger? | |
+| 16:03–16:07 | 3 | **Is a top university worth it?** (AJ pp. 47–50) | Collect reasons on the board | Who goes there? Could we randomize it? | |
+| 16:07–16:11 | 4 | **Two routes**: natural experiments (Oregon; Vietnam draft lottery, Erikson & Stoker 2011; thresholds) vs. control | Question | Which route is open for the university question? | 2 min |
+| 16:11–16:16 | 5 | **Compare like with like**: college matching matrix, groups A and B (AJ Table 2.1, pp. 51–55) | Students compute | Premium within A? Within B? | Give the answers |
+| 16:16–16:20 | 6 | **The private premium shrinks**: 14% → 10% → 9% → about 1% (AJ Table 2.2, p. 63) | Guess before each reveal | Where does it end? | |
+| 16:20–16:23 | 7 | **Good control: confounder** (family background; Cinelli Model 1; session 3 DAG 3) | Question | Which other confounders? | |
+| 16:23–16:26 | 8 | **Bad control: mediator** (first job and network; Cinelli Model 11) | Question | What if we control for the first job? | |
+| 16:26–16:29 | 9 | **Bad control: collider** (famous actors: talent and looks, hypothetical; Cinelli Models 16–17; session 6 admission example) | Question | Good-looking ones more or less talented? | |
+| 16:29–16:33 | 10 | **What you leave out**: OVB in words, robustness (AJ pp. 68–79; formula and Table 2.5 in notes) | Question | What could still be missing? | 2 min |
+| 16:33–16:43 | 11 | **Pairs** on seminar questions 9.1–9.2: check DAGs; confounder, mediator or collider? what is missing? | 6 min pairs, 4 min share | | One pair shares |
+| 16:43–16:46 | 12 | **Take-home exercise II** (Ziblatt et al., own controls; deadline 05.11.26); exercise I due 29.10.26 | Admin | | |
+| 16:52–16:53 | 13 | Hand over | | | |
+| 16:53–17:18 | — | **Student presentation** (25 min max.): summary and critique ~10 min, alternative design ~15 min | Presentation; grade with the sheet | | Signal at 20 min |
+| 17:18–17:27 | — | **Discussion** to improve the proposal (prompts below) | Plenary | See prompts below | |
+| 17:27–17:30 | 14–16 | Session 10 on 29.10, 14:15, room 3.B47 (KW pp. 77–78, Mahoney 2000; Kurz & Schärer, Thelen 2018) | Admin | | |
+| optional | 17 | Backup: **dialect and AfD votes**: which controls would you add, which not? | Plenary | Could the periphery *cause* the economic controls? | Skip |
+
+**Discussion prompts (if the room is quiet):** The authors concede the covariates are post-treatment (fn. 9): are income, wages and unemployment confounders or mediators? · Their sensitivity benchmark is unemployment: does that help if unemployment is a mediator? · What do state fixed effects buy, and what do they cost? · A self-selected online dialect quiz: where people grew up or where they live now? Why Hannover as the standard? · Counties vs. voters: what can a county-level design say about individual motives?
+
+**Grading (0–5 each, 15/30 = pass):** clarity · understanding · critique quality · reasoning · feasibility · discussion. Both presenters, one grade.
+
+**Notes during class:**
+
+\vspace{2cm}

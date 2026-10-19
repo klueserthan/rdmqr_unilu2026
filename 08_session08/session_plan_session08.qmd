@@ -1,0 +1,55 @@
+---
+title: "Session plan 8: Experimental studies"
+format:
+  pdf:
+    documentclass: article
+    papersize: a4
+    geometry:
+      - landscape
+      - margin=1.2cm
+    fontsize: 10pt
+    number-sections: false
+    header-includes:
+      - \usepackage{etoolbox}
+      - \AtBeginEnvironment{longtable}{\small\renewcommand{\arraystretch}{1.35}}
+      - \pagestyle{empty}
+      - \usepackage{titling}
+      - \setlength{\droptitle}{-1.5cm}
+      - \pretitle{\begin{flushleft}\Large\bfseries}
+      - \posttitle{\end{flushleft}\vspace{-1.2cm}}
+---
+
+**Thu 22.10.26, 14:15–15:45 · Room 4.B51** · Basic reading: AJ ch. 1 (pp. 1–33); additional: GG ch. 1 (pp. 1–17) · Applied reading: Haas et al. (2024), *Beyond Persuasion: Protest's direct behavioral impact on bystanders* · Presenters: **Chantal Hüsler, Nina Franziska Jäggi**
+
+**Learning goals:** students can (1) explain why comparing insured and uninsured people mixes the effect of insurance with selection bias (difference in means = average causal effect + selection bias); (2) explain why random assignment removes selection bias, and why it needs large groups (law of large numbers); (3) read a balance table; (4) name what experiments can't do: ethics, unrandomizable treatments, cost, noncompliance, external validity; (5) say whether their own treatment could be randomized.
+
+**Before class:** presentation slides in OLAT (due Wed 21.10, 12:00)? · seminar questions 8–9 uploaded? · grading sheet `session08_handwritten.pdf` ready · board pen for two lists ("why the coin helps" / "why we can't just do it") and the show-of-hands counts · deck in speaker view (press S)
+
+**Checkpoints:** 14:32 start the live randomization · 14:49 start "What experiments can't do" · **15:05 end group exercise** · **15:08 presentation starts** (25 min max., then discussion until 15:42)
+
+| Time | Slide | Content | Interaction | Guiding questions | If behind |
+|:----------|:---|:-------------------------------|:--------------|:----------------------------------|:--------------|
+| 14:15–14:20 | 2 | **Hook**: back to attendance (session 6); flip a coin? | Two board lists | Would you trust it? Would it be allowed? | |
+| 14:20–14:25 | 3 | **Are insured people healthier?** NHIS 2009, married men (AJ Table 1.1, pp. 3–5); reveal rows one by one | Question first, then rows | Does insurance make people healthier? What else differs? | |
+| 14:25–14:29 | 4 | **Selection bias in words** (AJ eq. 1.3, p. 10); Khuzdar and Maria in reserve (pp. 6–8) | Question | Is the selection bias positive or negative? | Skip question |
+| 14:29–14:32 | 5 | **Just randomize**: RAND HIE, 3,958 people, 14 plans (AJ pp. 12, 16–18) | Question | Why should a lottery fix the problem? | |
+| 14:32–14:40 | 6 | **Live randomization**: even vs. odd birthday; commute > 30 min, sibling, coffee today | Show of hands; counts on the board | Are the groups alike? Are two people alike? | Two characteristics only |
+| 14:40–14:43 | 7 | **Checking for balance**: RAND Table 1.3 (AJ pp. 16–20); only "female" exceeds chance | Compare with the room | Why check balance at all? | |
+| 14:43–14:46 | 8 | **Why size matters**: two people vs. thousands; law of large numbers (AJ pp. 12–13) | Question | How close were our two groups? | 1 min |
+| 14:46–14:49 | 9 | **What RAND found**: more care, no better health (AJ Table 1.4, pp. 20–23) | Predict, then reveal | Free care: healthier? | |
+| 14:49–14:55 | 10 | **What experiments can't do**: ethics, unrandomizable, cost, noncompliance (Oregon, AJ pp. 24–29, one line), external validity | Match with board list | What could we randomize instead of attendance? | Skip attendance question |
+| 14:55–15:05 | 11 | **Pairs** on seminar questions 8.1–8.2 + "could you randomize it?"; plenary on 8.3 | 6 min pairs, 4 min plenary | Would randomization solve selection bias completely? | No plenary; 8.3 into session 9; **hard stop 15:05** |
+| 15:05–15:07 | 12 | **Can you randomize a protest?** Lead-in to the applied reading | Two or three guesses | Treatment, control, outcome? | Skip |
+| 15:07–15:08 | 13 | Hand over | | | |
+| 15:08–15:33 | — | **Student presentation** (25 min max.): summary and critique ~10 min, alternative design ~15 min | Presentation; grade with the sheet | | Signal at 20 min |
+| 15:33–15:42 | — | **Discussion** to improve the proposal (prompts below) | Plenary | See prompts below | |
+| 15:42–15:45 | 14–16 | Session 9 at **16:00** (new start time), same room (AJ ch. 2; Ndiaye & Schertenleib, Ziblatt et al.); take-home exercise II goes online in session 9 | Admin | | |
+| optional | 17 | Backup: lab, survey or field? (GG ch. 1, pp. 8–17) | Question | How "field" is a paid walk past a protest? | Skip |
+
+**Discussion prompts (if the room is quiet):** Not everyone on the treatment route noticed the strike: what does that do to the comparison of routes (assigned vs. treated, as in Oregon)? · Paid recruits on an assigned walk: who are they, and do the results travel to real passers-by? · Fridays for Future in Berlin as a "most likely case": would a smaller or less popular protest do the same? · Only about half came back for the follow-up: what could that do to the long-run results? · Donations rose but attitudes didn't: persuasion or "behavioral activation"?
+
+**Grading (0–5 each, 15/30 = pass):** clarity · understanding · critique quality · reasoning · feasibility · discussion. Both presenters, one grade.
+
+**Notes during class:**
+
+\vspace{2cm}

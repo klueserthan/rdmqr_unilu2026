@@ -18,7 +18,7 @@ format:
       - default
       - custom.scss
     logo: ../00_images/logo_unilu.png
-    footer: | 
+    footer: |
          Masterseminar - Fall Term 2026
     title-slide-attributes:
       data-background-image: "../00_images/unilu_building.png"
@@ -40,281 +40,396 @@ format:
     slide-number: true
 ---
 
-## Take-home exercises
+## When we can't flip a coin
 
-<br>
+Before the break: many treatments **can't be randomized**
 
-![](feedback.png){fig-align="center"}
-
-. . .
-
-<br>
-
-**Take-home exercises II** already in **OLAT**
-
-<br>
-
-<br>
-
-## Session 8 - Experimental studies
-
-. . .
-
-- Because of the **FPCI**, we focus on the **Average Treatment Effect (ATE)**
-
-
-. . .
-
-- However, **naïve comparisons** yield **biased estimates** due to **self-selection**  
-
-
-. . .
-
-- **Randomized experiments** are the *gold standard* because randomization removes **selection bias** in **large samples** (i.e., the *Law of Large Numbers*)
-
-
-## 👥 Group activity session 8
-
-<br>
-
-<div style="font-size:95%; line-height:1.2;">
-
-In pairs, review each other’s exercise:  
-
-1️⃣ Without randomization, would comparing your partner’s **treatment** and **control** groups' outcome values identify the **ATE**?  
-  → Why or why not? 💭 Help each other fix any issues!
-
-<br>
-
-2️⃣ Check your partner's **confounders**, do they threaten **causal identification**?  
-  → Can you suggest other potential confounders? 🧩
-
-</div>
-
-## The caveats of experiments
-
-<br>
-
-. . .
-
-Experiments are the *gold standard* of causal inference but they have **limitations**
-
-. . .
-
-- Costly
-
-- Unethical
-
-- Unfeasible
-
-. . .
-
-In addition, while experiments excel in **internal validity**, they may have poor ***external validity***
-
-## Experimental vs. observational data
-
-<br>
-
-**Experimental data:** The researcher *controls treatment assignment*, typically through ***randomization***
-
-<br>
-
-**Observational data:**  The researcher *does not control* who receives the treatment; **treatment assignment arises** ***endogenously***, typically by *self-selection*
-
-. . .
-
-→ However, **natural settings** typically allow better **external validity** and, in some cases, *might* be the **only option** available
-
-
-## Causal inference with (large-N) observational data
-
-<br>
-
-. . .
-
-Two ***approaches***:
-
-. . .
-
-  1. **Design-based inference** (e.g., natural experiments, quasi-experiments)
-
-. . .
-
-  2. **Statistical-based inference**
-
-## Design-based inference
-
-<br>
-
-Exploiting **naturally** occurring **random or quasi-random assignment**
-
-. . .
-
-- **Lotteries** (e.g., Vietnam draft lottery)
-
-- **Policy thresholds** (e.g., state funding only if a municipality exceeds a population cutoff)
-
-- **Exogenous variation** (e.g., natural disasters)
-
----
-
-![](vietnam_draft.png){fig-align="center"}
-
-
-## Statistical-based inference
-
-<br>
-
-When (quasi-)randomization is not possible, we can use **statistical methods** (e.g., regression) to artificially **hold covariates constant** (i.e., *ceteris paribus*)
+[Age, gender, democracy, a university degree]{style="color:gray"}
 
 . . .
 
 <br>
 
-We call this process ***control***: adding measures of **covariates** into our statistical model to remove selection bias 
+**Observational data**: we see who got the treatment, but **we didn't assign it**
 
 . . .
-
-However, *controlling for all other covariates* is ultimately *impossible*; therefore, ***we need to choose them carefully***
-
-## Selecting good controls
 
 <br>
 
-. . .
+✋ What is the main danger when we compare treated and untreated?
 
-1. Select variables that **confound** our relationship of interest
+::: {.notes}
+**Time:** 16:00-16:03 (3 min). Session plan (90 min): lecture and interaction 16:00-16:52 (52 min, about 6 min buffer built in) · student presentation and discussion 16:53-17:27 · wrap-up 17:27-17:30
 
-. . .
+- Bridge from session 8: the "why we can't just flip a coin" list (ethics, can't be randomized, cost, noncompliance, external validity) and the treatments students said they could not randomize in the pairs exercise. Read two or three from the board
+- Answer to the question: selection bias. People choose (or are chosen for) the treatment for reasons that also affect the outcome
+- KW pp. 93-94: in an observational study the researcher does not control the values of X; observational studies try to emulate experiments and face the same causal hurdles
+- Today: two ways to deal with selection bias without our own coin flip
+:::
 
-$$
- \text{In} \quad Z \longrightarrow X,\; Z \longrightarrow Y, \quad \text{Z  is a confounder}
-$$
+## Is a top university worth it?
 
-. . .
-
-In this case, controlling for $Z$ is a good idea!
-
-. . .
-
-Controlling for $Z$ removes the part of the association between $X$ and $Y$ that is actually **due to** $Z$, giving us a cleaner estimate of the *ATE* of $X$
-
-#
-
-![Control for Z in this cases (Cinelli et al. 2024)](fig1_cinelli.png){width=60% fig-align="center"}
+Graduates of expensive private US universities **earn more** than graduates of public ones
 
 . . .
 
-![DON'T control for Z in these cases (Cinelli et al. 2024)](fig8_cinelli.png){width=45% fig-align="center"}
+✋ Is that the **effect** of the university? Who goes there?
 
-## Selecting good controls
+::: {.notes}
+**Time:** 16:03-16:07 (4 min)
+
+- AJ ch. 2 opens with this question (pp. 47-50): is an elite private college worth the much higher tuition? Anecdotes of students who turned down Harvard for a public university (pp. 49-50)
+- Collect answers on the board: higher test scores, richer parents, more ambition, better networks. All of them would raise earnings anyway: selection bias, as with health insurance in session 8
+- Ask: could we randomize who goes to Harvard? (No.) So what can we do?
+- Swiss angle if useful: ETH vs. a smaller university, or a private business school; same logic
+:::
+
+## Two routes
+
+**Route 1: find a lottery someone else ran** (natural experiment)
+
+- **Oregon** 2008: health insurance lottery [(session 8)]{style="color:gray"}
+- **Vietnam** 1969: birth dates drawn to decide who was drafted
+- Also: **thresholds**, **as-if random** events (weather, disasters)
+
+. . .
+
+**Route 2: compare like with like** (control)
+
+✋ Which route is open for the university question?
+
+::: {.notes}
+**Time:** 16:07-16:11 (4 min)
+
+- Natural experiments: the researcher does not assign the treatment, but something as good as random does. The comparison then works like an experiment
+- Oregon: AJ section 1.2 (pp. 24-29). Vietnam: Erikson & Stoker (2011, *APSR* 105(2)), "Caught in the draft": the 1969 lottery assigned numbers to birth dates; men with low numbers (likely to be drafted) became more antiwar, more liberal and more Democratic than men whose high numbers protected them. Political science example; no need to quote numbers
+- Thresholds and as-if random events come back as regression discontinuity and other designs in later applied readings; do not go into detail
+- Gerber & Green count naturally occurring randomizations as experiments; designs that rely on argument rather than randomization (close elections) do not (GG pp. 13-17, from session 8)
+- Answer: no lottery for Harvard places. So route 2: control. The rest of today is about route 2
+:::
+
+## Compare like with like
+
+```{r}
+#| include: false
+library(ggplot2)
+
+# Hypothetical earnings (1,000 USD) by test-score group, and who goes where
+grp <- data.frame(
+  score   = factor(rep(c("Low", "Middle", "High"), 2), levels = c("Low", "Middle", "High")),
+  college = rep(c("Private", "Public"), each = 3),
+  earn    = c(55, 72, 95, 54, 71, 94),
+  share   = c(.10, .30, .60, .50, .35, .15)
+)
+all <- aggregate(cbind(earn = earn * share) ~ college, data = grp, FUN = sum)
+cols <- c(Private = "#1f4e79", Public = "#a6a6a6")
+
+bars <- function(d, x) {
+  ggplot(d, aes({{ x }}, earn, fill = college)) +
+    geom_col(position = position_dodge(width = 0.8), width = 0.75) +
+    geom_text(aes(label = paste0(round(earn), "k")),
+              position = position_dodge(width = 0.8), vjust = -0.4, size = 5) +
+    scale_fill_manual(values = cols, name = NULL) +
+    scale_y_continuous(limits = c(0, 105), breaks = NULL) +
+    labs(x = NULL, y = NULL) +
+    theme_minimal(base_size = 16) +
+    theme(legend.position = "top", panel.grid = element_blank())
+}
+```
+
+:::: {.columns}
+
+::: {.column width="38%"}
+**All students**
+
+```{r}
+#| fig-width: 4
+#| fig-height: 3.3
+bars(transform(all, x = ""), x)
+```
+:::
+
+::: {.column width="62%" .fragment}
+**Split by test score**
+
+```{r}
+#| fig-width: 6.5
+#| fig-height: 3.3
+bars(grp, score)
+```
+:::
+
+::::
+
+[Hypothetical numbers]{style="font-size:60%; color:gray;"}
+
+. . .
+
+✋ Where did the gap go?
+
+::: {.notes}
+**Time:** 16:11-16:16 (5 min)
+
+- Hypothetical numbers; say so. Overall, private graduates earn about 84k, public graduates about 66k: an 18k gap
+- Split by test score, the gap is only 1k in every group. The overall gap comes from *who* goes where: 60% of private students have high scores, but only 15% of public students (low: 10% vs. 50%; middle: 30% vs. 35%)
+- Answer to the question: the gap was selection. Comparing only students with similar scores (like with like) removes it
+- Ask: is the test score enough? What else differs between private and public students within a score group (family income, ambition)? That is why AJ compares students who applied to and were admitted by the same colleges
+- AJ pp. 51-55, "the college matching matrix" (Table 2.1): nine made-up students grouped by the colleges they applied to and were admitted to (idea from Dale & Krueger). Naive gap 19,500; within group A −5,000, within group B +30,000; average 12,500. Only groups with both private and public students count
+- AJ's point: regression does exactly this, automatically, as a weighted average of within-group comparisons ("make me a match, run me a regression", p. 55). Regression mechanics: sessions 12-13
+- Apples to apples, oranges to oranges (AJ p. 55)
+:::
+
+## The private premium shrinks
+
+```{=html}
+<table style="font-size:70%; margin:auto;">
+<thead><tr><th>Who is compared</th><th style="text-align:right;">Private premium</th></tr></thead>
+<tbody>
+<tr><td>All students, no controls</td><td style="text-align:right;"><b>14%</b></td></tr>
+<tr class="fragment"><td>+ own test score (SAT)</td><td style="text-align:right;">10%</td></tr>
+<tr class="fragment"><td>+ parental income, gender, ethnicity, sports</td><td style="text-align:right;">9%</td></tr>
+<tr class="fragment"><td>Only students admitted to <b>equally selective</b> colleges</td><td style="text-align:right;"><b>about 1%</b></td></tr>
+</tbody>
+</table>
+```
+
+[Earnings in 1995 of students who started college in 1976 (Dale & Krueger; AJ, Table 2.2)]{style="font-size:60%; color:gray;"}
+
+✋ Guess before each step: where does it end?
+
+::: {.notes}
+**Time:** 16:16-16:20 (4 min)
+
+- AJ pp. 59-64, Table 2.2 (p. 63), 5,583 students from the College & Beyond data, matched into 151 groups by the selectivity of the colleges they applied to and were admitted to (Barron's categories)
+- Coefficients on private school, log earnings: .135 (no controls), .095 (+ own SAT), .086 (+ log parental income and demographics), .007 / .003 / .013 with selectivity-group dummies; read log points as roughly percent. With the selectivity groups the premium is not statistically significant
+- Students start in 1976, earnings in 1995 (AJ p. 51)
+- Table 2.3 (p. 67) shows the same with a larger sample (14,238) and a simpler "self-revelation" control: the average SAT of the colleges a student applied to, plus the number of applications. Premium falls from .212 to about .03
+- Message: most of the raw premium is selection. Who applies where tells us a lot about ambition and ability
+:::
+
+## Good control: a confounder
+
+```{=html}
+<svg viewBox="0 0 600 230" style="width:85%; display:block; margin:auto;" font-family="inherit" font-size="24">
+<defs><marker id="a1" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker></defs>
+<rect x="190" y="18" width="220" height="40" rx="8" fill="none" stroke="#c00" stroke-width="2"/>
+<text x="300" y="45" text-anchor="middle" fill="#c00" font-weight="bold">Family background</text>
+<text x="110" y="200" text-anchor="middle" font-weight="bold">Private college</text>
+<text x="490" y="200" text-anchor="middle" font-weight="bold">Earnings</text>
+<line x1="250" y1="62" x2="145" y2="172" stroke="currentColor" stroke-width="2.5" marker-end="url(#a1)"/>
+<line x1="350" y1="62" x2="465" y2="172" stroke="currentColor" stroke-width="2.5" marker-end="url(#a1)"/>
+<line x1="205" y1="193" x2="425" y2="193" stroke="currentColor" stroke-width="2.5" marker-end="url(#a1)"/>
+</svg>
+```
+
+A **common cause** of treatment and outcome → **control for it**
+
+. . .
+
+✋ Which other confounders did we find for the university question?
+
+::: {.notes}
+**Time:** 16:20-16:23 (3 min)
+
+- DAGs as in session 3 (slide 12, "DAG 3: Confounding"), now with names. The red box marks the variable we control for
+- Cinelli, Forney & Pearl (2024), Model 1: controlling for a common cause blocks the "back door" path private college ← family background → earnings
+- Rich parents make private college more likely and raise earnings through many other channels (contacts, wealth). Comparing students with similar family background removes that part of the gap
+- Back to the board list from 16:03: test scores, ambition, parental income. AJ's selectivity groups are a way to capture ambition and ability that we cannot measure directly
+:::
+
+## Bad control: a mediator
+
+```{=html}
+<svg viewBox="0 0 600 230" style="width:85%; display:block; margin:auto;" font-family="inherit" font-size="24">
+<defs><marker id="a2" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker></defs>
+<rect x="175" y="18" width="250" height="40" rx="8" fill="none" stroke="#c00" stroke-width="2"/>
+<text x="300" y="45" text-anchor="middle" fill="#c00" font-weight="bold">First job and network</text>
+<text x="110" y="200" text-anchor="middle" font-weight="bold">Private college</text>
+<text x="490" y="200" text-anchor="middle" font-weight="bold">Earnings</text>
+<line x1="145" y1="172" x2="250" y2="62" stroke="currentColor" stroke-width="2.5" marker-end="url(#a2)"/>
+<line x1="350" y1="62" x2="465" y2="172" stroke="currentColor" stroke-width="2.5" marker-end="url(#a2)"/>
+<line x1="205" y1="193" x2="425" y2="193" stroke="currentColor" stroke-width="2.5" marker-end="url(#a2)"/>
+</svg>
+```
+
+A step **on the way** from treatment to outcome
+
+. . .
+
+✋ What happens to the private premium if we **control** for the first job?
+
+::: {.notes}
+**Time:** 16:23-16:26 (3 min)
+
+- Cinelli et al., Model 11 (overcontrol bias): controlling for a mediator removes part of the effect we want to measure
+- If a private college helps mainly through better first jobs and networks, comparing students with the same first job hides that benefit: the premium shrinks, but not because it was selection
+- Rule of thumb: do not control for things that happen *after* the treatment and could be caused by it ("post-treatment" variables)
+- Session 3 called this mediation (DAG 2). Useful if you want to know *how* X works, harmful if you want to know *whether* it works
+- Comes back in the applied reading: are regional income and unemployment confounders or mediators of dialect distance?
+:::
+
+## Bad control: a collider
+
+```{=html}
+<svg viewBox="0 0 600 230" style="width:85%; display:block; margin:auto;" font-family="inherit" font-size="24">
+<defs><marker id="a3" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker></defs>
+<rect x="200" y="18" width="200" height="40" rx="8" fill="none" stroke="#c00" stroke-width="2"/>
+<text x="300" y="45" text-anchor="middle" fill="#c00" font-weight="bold">Famous actor</text>
+<text x="110" y="200" text-anchor="middle" font-weight="bold">Talent</text>
+<text x="490" y="200" text-anchor="middle" font-weight="bold">Good looks</text>
+<line x1="145" y1="172" x2="250" y2="62" stroke="currentColor" stroke-width="2.5" marker-end="url(#a3)"/>
+<line x1="465" y1="172" x2="350" y2="62" stroke="currentColor" stroke-width="2.5" marker-end="url(#a3)"/>
+<line x1="205" y1="193" x2="395" y2="193" stroke="currentColor" stroke-width="2" stroke-dasharray="8,6"/>
+<text x="300" y="185" text-anchor="middle" font-size="26">?</text>
+</svg>
+```
+
+*Suppose* talent and looks are **unrelated**, and fame needs one or the other
+
+. . .
+
+✋ Among **famous actors**: are the good-looking ones more or less talented?
+
+::: {.notes}
+**Time:** 16:26-16:29 (3 min)
+
+- Hypothetical; say so. Talent and looks are assumed unrelated in the population; you become a famous actor through talent, looks, or both
+- Among famous actors, someone without great looks must be very talented, and someone less talented must look very good. So within the famous group, looks and talent are *negatively* related, although they are unrelated overall
+- Controlling for (or selecting on) a common *effect* of two variables creates a relationship that is not there: collider bias (Cinelli et al., Models 16-17; their example is the birth-weight paradox)
+- Same logic as session 6's bonus example (admitted master students: grades and test scores), there called selection. Ask whether anyone remembers it
+- Confounder: arrows point *out of* the control. Collider: arrows point *into* it. Mediator: one in, one out
+:::
+
+## What you leave out
+
+A left-out variable **biases** the estimate only if it...
+
+1. **affects the outcome**, and
+2. **differs** between treated and untreated
+
+. . .
 
 <br>
 
-1. Select variables that **confound** our relationship of interest
+Check: does the estimate **survive** different sets of controls? (**robustness**)
 
-2. Select those confounders **closer** to $Y$, as long as they don't introduce bias (e.g., avoid colliders or mediators)
+. . .
 
-##
+✋ What could still be missing in the college comparison?
 
+::: {.notes}
+**Time:** 16:29-16:33 (4 min)
 
-![AJ Chapter 2](regtab_ajchap2.png){width=45% fig-align="center"}
+- AJ section 2.3 (pp. 68-79): omitted variables bias (OVB), "short" regression (without the variable) vs. "long" regression (with it)
+- OVB formula in words (AJ pp. 71-72): effect of X in short = effect of X in long + (effect of omitted on Y in long) × (relationship of omitted with X). Both parts must be non-zero for bias
+- AJ Table 2.5 (p. 77): own SAT is strongly related to private school without the selection controls (1.165) but hardly at all with them (.066). That is why adding SAT barely changes the estimate once we compare like with like: .212 − .152 ≈ 1.165 × .051 (pp. 77-78)
+- AJ calls the OVB formula "the Prime Directive of applied econometrics" (p. 77)
+- Regression sensitivity analysis (AJ p. 75): if adding controls barely moves the estimate once key controls are in, we are more confident. Table 2.2 columns 4-6 stay near zero
+- Possible answers: ambition and motivation (partly captured by where you apply), family contacts, field of study, region. AJ's family-size example (pp. 73-75)
+- KW pp. 92-99 (additional): observational studies come in two flavours, cross-sectional (many units, one time) and time-series (one unit, many times). KW's "major difficulty" (p. 98): we must control for *all* confounders and can never be sure we have; conclusions stay tentative
+:::
 
-## Selecting good controls
+## Group exercise
+
+In **pairs**, swap your seminar questions:
+
+1️⃣ Check your partner's **DAG**: does each confounder really cause **both** treatment and outcome?
+
+2️⃣ Is the chosen control a **confounder**, a **mediator** or a **collider**?
+
+3️⃣ What is still **missing**? Would it make the estimate too big or too small?
+
+![](group_exercise.png){width=22% fig-align="center"}
+
+::: {.notes}
+**Time:** 16:33-16:43 (6 min in pairs, 4 min: two or three pairs share)
+
+- Builds on seminar questions 9.1 (DAG with the two confounders from session 8) and 9.2 (one control and why)
+- Typical problems to look for: arrows in only one direction (a "confounder" that only affects the outcome), a control that is caused by the treatment (mediator), confounders that are really the same thing measured twice
+- For prompt 3: the direction of bias follows the two parts of the OVB rule (does the missing variable raise or lower the outcome? is it more common among the treated?)
+- If behind: one pair shares, then move on
+:::
+
+## Take-home exercise II
 
 <br>
 
-1. Select variables that **confound** our relationship of interest
+- Now online in OLAT, in the version for your **R track**
 
-2. Select those confounders **closer** to $Y$, as long as they don't introduce bias (e.g., avoid colliders or mediators)
+- Replicate Ziblatt, Hilbig & Bischof (2024), then **add your own controls** and justify them
 
-3. Collect **good measures** of the intended control variables  <span style="color:grey;">(see session 4)</span>
+- Submit the `.qmd` and the compiled PDF to *Students responses/Take-home exercises/Take-home exercise II*
 
-. . .
+- Deadline: **05.11.26**
 
-4. Avoid **redundant controls** (e.g., political interest and political discussion)
+- Take-home exercise I is due **29.10.26**
 
-## Omitted controls
+::: {.notes}
+**Time:** 16:43-16:46 (3 min); then about 6 min buffer until 16:52 (backup slide "Dialect and AfD votes" if there is time)
 
-<br>
+- Upload both PDFs (beginner, advanced) and the materials folder (data_main.rds, tab_1_A4_A6_A7_A11.R, replication_overview.xlsx) to OLAT before or during the session; do not upload the advanced solutions
+- Beginner: summary, data exploration I and II, baseline model with and without state fixed effects, then two covariates of their own choice from the authors' model m01. Advanced: summary, one data exploration step, baseline model, then two rounds of own covariates (I and II)
+- No codebook in the replication files; students must find the variables in the data and script (dialect distance hannover_dist, AfD share afd_party_17)
+- Questions about R: contact the lecturer, meetings via Zoom
+:::
 
-Even after *careful modeling*, we may not convince everyone that we have controlled for **all relevant sources of bias**
-
-. . .
-
-→ **Omitted variable bias (OVB)** arises when an important factor is left out of the model, distorting the estimated ATE
-
-. . .
-
-Our specification must be guided by *theoretical reasoning*,  but we must always check the **robustness** of our results under **different assumptions** and **model specifications**
-
-. . .
-
-→ I.e., we must perform ***sensitivity analyses***
-
-## 
-
-![Ziblatt et al 2023](ziblatt2023.png){fig-align="center"}
-
-## Types of observational data
-
-. . .
-
-Different data sources offer different possibilities for **statistical control**
-
-. . .
-
-- **Cross-sectional data:** many units at one point in time (use variation across units to control for time-invariant factors)
-
-- **Longitudinal data:** one unit observed over time  (use within-unit changes to control for time-varying factors)
-
-- **Panel data:** many units over time (combines both sources of variation; useful for causal inference but *never better than randomization*)
-
-# Conclusion
-
-## Causal inference with large-N observational data 
-
-. . .
-
-- **Design-based inference** exploits naturally random or quasi-random (i.e., exogenous) variation
-
-. . .
-
-- **Statistical-based inference** uses statistical models to artificially hold other factors constant (i.e., *ceteris paribus* condition)
-
-. . .
-
-- It requires solid **theoretical reasoning** (i.e., selecting **good controls**) and careful **sensitivity analyses**
-
-## Your turn! Using DAGs to select control variables
+## Up next: applied reading
 
 <br>
 
+Presentation by **Ibrahima Khalil Ndiaye and Ella Schertenleib**:
+
+- Ziblatt, D., Hilbig, H., & Bischof, D. (2024). Wealth of tongues: Why peripheral regions vote for the radical right in Germany. *American Political Science Review*, 118(3), 1480–1496
+
+::: {.notes}
+**Time:** 16:52-16:53 hand over; presentation 16:53-17:18 (25 min max.), discussion 17:18-17:27
+
+- Presenters: Ibrahima Khalil Ndiaye and Ella Schertenleib
+- Slides were due Wednesday 21.10, 12:00 in Students responses/Presentation slides; check they are there
+- Grade with 00_grading/presentations/session09/session09_handwritten.pdf: clarity, understanding, critique quality, reasoning, feasibility, discussion (0-5 each; 15/30 = pass)
+- Timing: 25 minutes max., then discussion to improve the proposal
+- Published online in October 2023 (hence "2023" in some citations)
+- Results: one standard deviation more dialect distance goes with about 0.8 to 1.2 percentage points more AfD vote (Table 1); the association roughly doubles between 2013 and 2015. Sensitivity analysis: a confounder twice as strong as unemployment would reduce the estimate from 1.2 to 0.73. Survey evidence on mechanisms: lower subjective status, anti-elitism, wanting immigration limited
+- Discussion hooks:
+  - Bad controls: the authors concede that the covariates are post-treatment for a historical measure (fn. 9). Are income, wages, unemployment and commuting confounders or mediators? Their sensitivity benchmark is unemployment
+  - Confounders: religion, terrain and remoteness, historical territories within states, out-migration of the young. What do state fixed effects buy, and what do they cost?
+  - Measurement: a self-selected online quiz; did people report where they grew up or where they live? Why Hannover as the standard?
+  - Level of analysis: counties vs. individual voters (ecological inference)
+:::
+
+## Next session (29.10.26 - 14:15, room 3.B47)
+
+<br>
+
+***Small-N observational studies***
+
+Basic readings: KW, pp. 77–78; Mahoney (2000)
+
 . . .
 
-![](later.png){width=55% fig-align="center"}
-
-## Next session (16:15)
-
 <br>
 
-*→ Small-N observational studies (and DAGs' exercise)*
+Presentation by **Lukas Andreas Kurz and Cyrill Michael Schärer**:
+Thelen (2018), *Regulating Uber*
 
-<br>
+::: {.notes}
+**Time:** 17:27-17:28 (1 min)
 
-. . .
-
-**Before...**
-
-<br>
-
-Presentation by **Giulio Paraboni & Nikolina Djogova**:
-
-*Wealth of tongues: Why peripheral regions vote for the radical right in Germany*
+- Session 10: Thursday 29.10.26, 14:15-16:00, room 3.B47; session 11 (statistical testing) follows 16:00-17:45, same room
+- Basic readings: KW ch. 4.1, pp. 77-78; Mahoney (2000), *Strategies of causal inference in small-N analysis*; additional: Hopkin (2010); Collier (2011)
+- Presenters: Lukas Andreas Kurz and Cyrill Michael Schärer; slides due Wednesday 28.10, 12:00
+- Take-home exercise I is due on the same day (29.10.26)
+:::
 
 ---
 
 ![](questions.png){fig-align="center"}
+
+::: {.notes}
+**Time:** 17:28-17:30 (2 min)
+
+- Open floor: questions on controls, the take-home exercises, or the presentation
+:::
 
 ## Thanks! :slightly_smiling_face:
 
@@ -325,3 +440,29 @@ Presentation by **Giulio Paraboni & Nikolina Djogova**:
 <br>
 
 <center>[klueser@ipz.uzh.ch](mailto:klueser@ipz.uzh.ch)</center>
+
+::: {.notes}
+**Time:** 17:30 end
+
+- Contact: klueser@ipz.uzh.ch; meetings via Zoom on request
+- Backup slide follows (dialect and AfD votes: which controls?)
+:::
+
+## Backup: dialect and AfD votes
+
+German counties where the local **dialect** is far from **standard German** vote more for the **AfD**
+
+. . .
+
+<br>
+
+✋ Which **controls** would you add? Which would you **not**?
+
+::: {.notes}
+**Time:** optional, about 4 min; use it if there is time before the hand-over, or in the discussion of the applied reading
+
+- Lead-in to the applied reading and to take-home exercise II; don't give away the paper's answer
+- Ziblatt, Hilbig & Bischof: about 400 German counties, AfD vote share in the 2017 federal election. Dialect distance from about 725,000 answers to Der Spiegel's online dialect quiz, compared with standard German (Hannover)
+- Expected answers: income, unemployment, East/West, population density, religion (Catholic share), rural vs. urban. Then ask: which of these could be *caused* by being on the periphery? Economic controls may be mediators
+- The authors control for GDP per capita, wages, population density, unemployment, population, % Catholic, commuters, distances to the state capital and Hannover, CDU/CSU vote in 2013, and compare within states (state fixed effects)
+:::

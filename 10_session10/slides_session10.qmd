@@ -197,7 +197,7 @@ Together, they can improve **validity**, **interpretation**, and **causal unders
 → Is the **proposed control variable** appropriate? Are there **alternative** controls or assumptions worth considering? 
 
 
-## Next session (29.10.26 - 16:15)
+## Next session (29.10.26 - 16:00)
 
 <br>
 

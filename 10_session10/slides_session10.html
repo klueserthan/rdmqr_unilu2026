@@ -6,8 +6,8 @@
 <script src="slides_session10_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="slides_session10_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="slides_session10_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="slides_session10_files/libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.32">
+<link href="slides_session10_files/libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Research Design and Methods in Quantitative Research">
   <title>Small-N Observational Studies</title>
@@ -17,10 +17,16 @@
   <link rel="stylesheet" href="slides_session10_files/libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="slides_session10_files/libs/revealjs/dist/reveal.css">
   <style>
-    code{white-space: pre-wrap;}
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -29,7 +35,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="slides_session10_files/libs/revealjs/dist/theme/quarto-fdaf0edbff08a1a191e6e659ed8ee648.css">
+  <link rel="stylesheet" href="slides_session10_files/libs/revealjs/dist/theme/quarto-708f5b2de77caeea480a951ad599cc27.css">
   <link href="slides_session10_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="slides_session10_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="slides_session10_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -136,7 +142,7 @@
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Research Design and Methods in Quantitative Research 
+Research Design and Methods in Quantitative Research
 </div>
         <p class="quarto-title-affiliation">
             Dr.&nbsp;K. Jonathan Klüser
@@ -278,8 +284,8 @@ Research Design and Methods in Quantitative Research
 <p>→ Does the <strong>DAG</strong> correctly represent the assumed <strong>causal structure</strong>?<br>
 → Is the <strong>proposed control variable</strong> appropriate? Are there <strong>alternative</strong> controls or assumptions worth considering?</p>
 </section>
-<section id="next-session-29.10.26---1615" class="slide level2">
-<h2>Next session (29.10.26 - 16:15)</h2>
+<section id="next-session-29.10.26---1600" class="slide level2">
+<h2>Next session (29.10.26 - 16:00)</h2>
 <p><br></p>
 <p><em>→ Statistical testing</em></p>
 <p><br></p>
@@ -496,7 +502,7 @@ Research Design and Methods in Quantitative Research
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
@@ -570,13 +576,14 @@ Research Design and Methods in Quantitative Research
           e.clearSelection();
         }
         const getTextToCopy = function(trigger) {
-            const codeEl = trigger.previousElementSibling.cloneNode(true);
-            for (const childEl of codeEl.children) {
-              if (isCodeAnnotation(childEl)) {
-                childEl.remove();
-              }
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
             }
-            return codeEl.innerText;
+          }
+          return codeEl.innerText;
         }
         const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
           text: getTextToCopy

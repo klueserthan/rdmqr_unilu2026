@@ -13,7 +13,7 @@ Social science is increasingly adopting quantitative research tools, such as exp
 This introductory seminar does not require prior knowledge of statistics, though high-school level of mathematical concepts (like the mean of a variable or the idea of a function) will be assumed. The seminar is suitable for students with a qualitative background who want to start learning about quantitative research, as well as for those with some experience in quantitative methods who seek a deeper understanding. Experience in R programming is not required, but is an asset.
 ## Course organization
 
-The course is organized as a weekly seminar during the Fall term of 2026. It will run on Thursdays from 14:15 to 18:00, starting on September 17th (see the *Course schedule* below for the exact dates). Each session is divided into two parts. In the first part, the lecturer will introduce the topic, after which we will discuss the basic reading(s) and expand on them. To support the discussion, students will answer a set of *seminar questions* related to the topic of the week, which must be uploaded to OLAT before each session. In the second part, one or more students will present an applied reading along with a short research proposal to complement it. Finally, during the second half of the course, students will complete three take-home exercises to apply and/or comment on statistical analyses of real-world data.
+The course is organized as a weekly seminar during the Fall term of 2026. It will run on Thursdays from 14:15 to 18:00 (from 22 October: 14:15 to 17:45, with the second session starting at 16:00), starting on September 17th (see the *Course schedule* below for the exact dates). Each session is divided into two parts. In the first part, the lecturer will introduce the topic, after which we will discuss the basic reading(s) and expand on them. To support the discussion, students will answer a set of *seminar questions* related to the topic of the week, which must be uploaded to OLAT before each session. In the second part, one or more students will present an applied reading along with a short research proposal to complement it. Finally, during the second half of the course, students will complete three take-home exercises to apply and/or comment on statistical analyses of real-world data.
 ## Learning outcomes
 
 By the end of this course, students will be able to:
@@ -367,7 +367,7 @@ Applied reading:
 
 - Haas, V. I., Wappenhans, T., Geißler, F., Hartmann, F., Bischof, D., Giesecke, J., ... & Stoetzer, L. F. (2024). Does Protest Affect Bystanders? Field Experimental Evidence from Germany. *Working paper*
 
-#### Session 9. Large-N observational studies (22.10.26 / 16:15–18:00 / 4.B51) 
+#### Session 9. Large-N observational studies (22.10.26 / 16:00–17:45 / 4.B51) 
 
 *Publication of* ***take-home exercise II*** *in OLAT. The* ***deadline*** *for delivery is in two weeks:* ***05.11.26*** *.*
 
@@ -407,7 +407,7 @@ Applied reading:
 
 - Thelen, K. (2018). Regulating Uber: The politics of the platform economy in Europe and the United States. *Perspectives on politics*, 16(4), 938-953.
 
-#### Session 11. Statistical testing (29.10.26 / 16:15–18:00 / 3.B47) 
+#### Session 11. Statistical testing (29.10.26 / 16:00–17:45 / 3.B47) 
 
 *Publication of* ***take-home exercise III*** *in OLAT. The* ***deadline*** *for delivery is in two weeks:* ***12.11.26*** *.*
 
@@ -438,7 +438,7 @@ Applied reading:
 - Nalewajko, K. (2024). Allies of the Weak: La Résistance and Jews in the Holocaust. *American Political Science Review*, 1-21.
 
 
-#### Session 13. Introduction to regression II (05.11.26 / 16:15–18:00 / 4.B51) 
+#### Session 13. Introduction to regression II (05.11.26 / 16:00–17:45 / 4.B51) 
 
 Basic reading:
 
